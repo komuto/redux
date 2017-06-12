@@ -1,22 +1,22 @@
-import { takeEvery, put } from 'redux-saga/effects'
-import * as user_actions from '../actions/user'
-import * as user_api from '../api/user'
+import { put } from 'redux-saga/effects'
+import * as userActions from '../actions/user'
+import * as userApi from '../api/user'
 
 function* register (action) {
   try {
-    const {data} = yield user_api.register(action)
-    yield put({ type: user_actions.USER_REGISTER_SUCCESS, ...data.data })
+    const {data} = yield userApi.register(action)
+    yield put({ type: userActions.USER_REGISTER_SUCCESS, ...data })
   } catch (e) {
-    yield put({ type: user_actions.USER_REGISTER_FAILURE })
+    yield put({ type: userActions.USER_REGISTER_FAILURE })
   }
 }
 
-function* login (actions) {
+function* login (action) {
   try {
-    const {data} = yield user_api.login(actions)
-    yield put({ type: user_actions.USER_LOGIN_SUCCESS, ...data.data })
+    const {data} = yield userApi.login(action)
+    yield put({ type: userActions.USER_LOGIN_SUCCESS, ...data })
   } catch (e) {
-    yield put({ type: user_actions.USER_LOGIN_FAILURE })
+    yield put({ type: userActions.USER_LOGIN_FAILURE })
   }
 }
 

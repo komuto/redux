@@ -1,4 +1,4 @@
-import { base_url } from '../config'
+import { serviceUrl } from '../config'
 import { authApi, publicApi } from './api'
 
 

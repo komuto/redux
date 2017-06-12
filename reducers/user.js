@@ -8,7 +8,6 @@ const initUser = {
 }
 
 function auth (state = initUser, action) {
-  // console.log(action.type)
   switch (action.type) {
     case actions.USER_REGISTER_REQUEST:
       return {
@@ -16,14 +15,18 @@ function auth (state = initUser, action) {
         email: action.email,
         token: '',
         uid: 0,
-        user: {}
+        user: {},
+        message: '',
+        status: 0
       }
     case actions.USER_REGISTER_SUCCESS:
       return {
         ...state,
-        email: action.email,
-        uid: action.id,
-        user: action
+        email: action.data.email,
+        uid: action.data.id,
+        user: action,
+        message: action.message,
+        status: action.code
       }
     case actions.USER_REGISTER_FAILURE:
       return {
@@ -31,7 +34,9 @@ function auth (state = initUser, action) {
         email: '',
         token: '',
         uid: 0,
-        user: {}
+        user: {},
+        message: action.message,
+        status: action.code
       }
     case actions.USER_LOGIN_REQUEST:
       return {
@@ -39,15 +44,19 @@ function auth (state = initUser, action) {
         email: action.email,
         token: '',
         uid: 0,
-        user: {}
+        user: {},
+        message: action.message,
+        status: action.code
       }
     case actions.USER_LOGIN_SUCCESS:
       return {
         ...state,
-        email: action.email,
-        token: action.token,
-        uid: action.id,
-        user: action
+        email: action.data.email,
+        token: action.data.token,
+        uid: action.data.id,
+        user: action,
+        message: action.message,
+        status: action.code
       }
     case actions.USER_LOGIN_FAILURE:
       return {
@@ -55,7 +64,9 @@ function auth (state = initUser, action) {
         email: '',
         token: '',
         uid: 0,
-        user: {}
+        user: {},
+        message: action.message,
+        status: action.code
       }
     default:
       return state
