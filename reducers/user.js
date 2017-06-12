@@ -8,28 +8,31 @@ const initUser = {
 }
 
 function auth (state = initUser, action) {
-  // console.log(action)
+  console.log(action.type)
   switch (action.type) {
     case actions.USER_REGISTER_REQUEST:
       return {
         ...state,
         email: action.email,
         token: '',
-        uid: ''
+        uid: 0,
+        user: {}
       }
     case actions.USER_REGISTER_SUCCESS:
       return {
         ...state,
-        email: action.user.email,
+        email: action.email,
         token: action.token,
-        uid: action.uid
+        uid: action.id,
+        user: action
       }
     case actions.USER_REGISTER_FAILURE:
       return {
         ...state,
         email: '',
         token: '',
-        uid: ''
+        uid: 0,
+        user: {}
       }
     case actions.USER_LOGIN_REQUEST:
       return {

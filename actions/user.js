@@ -7,7 +7,7 @@ export const USER_REGISTER_SUCCESS = 'USER_REGISTER_SUCCESS'
 export const USER_REGISTER_FAILURE = 'USER_REGISTER_FAILURE'
 
 
-function userRegister (params) {
+function register (params) {
   return {
     type: USER_REGISTER_REQUEST,
     ...params
@@ -22,6 +22,6 @@ function login (params = {}) {
 }
 
 export {
-  userRegister,
+  register,
   login
 }

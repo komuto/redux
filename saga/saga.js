@@ -3,6 +3,7 @@ import * as user_saga from './user'
 import { put, takeEvery } from 'redux-saga/effects'
 
 function* dataSaga() {
+  yield takeEvery(user_actions.USER_REGISTER_REQUEST, user_saga.register),
   yield takeEvery(user_actions.USER_LOGIN_REQUEST, user_saga.login)
 }
 

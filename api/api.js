@@ -7,12 +7,12 @@ export function authApi() {
     baseURL: base_url + '/',
     //timeout: 2000,
     headers: {'Authorization': token()}
-  });
+  })
 }
 
 export function publicApi() {
   return axios.create({
     baseURL: base_url + '/'
     //timeout: 2000
-  });
+  })
 }
