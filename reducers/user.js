@@ -8,7 +8,7 @@ const initUser = {
 }
 
 function auth (state = initUser, action) {
-  console.log(action.type)
+  // console.log(action.type)
   switch (action.type) {
     case actions.USER_REGISTER_REQUEST:
       return {
@@ -22,7 +22,6 @@ function auth (state = initUser, action) {
       return {
         ...state,
         email: action.email,
-        token: action.token,
         uid: action.id,
         user: action
       }
