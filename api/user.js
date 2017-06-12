@@ -16,7 +16,15 @@ function login (action) {
   })
 }
 
+function forgetPassword (action) {
+  let axios = publicApi()
+  return axios.post('passwords/forgot', {
+    ...action
+  })
+}
+
 export {
   login,
-  register
+  register,
+  forgetPassword
 }

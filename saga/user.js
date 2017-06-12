@@ -20,7 +20,17 @@ function* login (action) {
   }
 }
 
+function* forgetPassword (action) {
+  try {
+    const {data} = yield userApi.forgetPassword(action)
+    yield put({ type: userActions.FORGET_PASSWORD_SUCCESS, ...data })
+  } catch (e) {
+    yield put({ type: userActions.FORGET_PASSWORD_FAILURE })
+  }
+}
+
 export {
   login,
-  register
+  register,
+  forgetPassword
 }

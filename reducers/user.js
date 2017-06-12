@@ -8,6 +8,7 @@ const initUser = {
 }
 
 function auth (state = initUser, action) {
+  console.log(action)
   switch (action.type) {
     case actions.USER_REGISTER_REQUEST:
       return {
@@ -59,6 +60,36 @@ function auth (state = initUser, action) {
         status: action.code
       }
     case actions.USER_LOGIN_FAILURE:
+      return {
+        ...state,
+        email: '',
+        token: '',
+        uid: 0,
+        user: {},
+        message: action.message,
+        status: action.code
+      }
+    case actions.FORGET_PASSWORD_REQUEST:
+      return {
+        ...state,
+        email: action.email,
+        token: '',
+        uid: 0,
+        user: {},
+        message: '',
+        status: '',
+      }
+    case actions.FORGET_PASSWORD_SUCCESS:
+      return {
+        ...state,
+        email: action.data.email,
+        token: '',
+        uid: 0,
+        user: {},
+        message: action.message,
+        status: action.code
+      }
+    case actions.FORGET_PASSWORD_FAILURE:
       return {
         ...state,
         email: '',
