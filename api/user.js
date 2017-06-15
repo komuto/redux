@@ -30,9 +30,17 @@ function forgetPassword (action) {
   })
 }
 
+function newPassword (action) {
+  let axios = authApi()
+  return axios.put('users', {
+    ...action
+  })
+}
+
 export {
   login,
   loginSocial,
   register,
-  forgetPassword
+  forgetPassword,
+  newPassword
 }

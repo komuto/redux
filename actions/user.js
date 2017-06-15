@@ -10,6 +10,10 @@ export const USER_REGISTER_REQUEST = 'USER_REGISTER_REQUEST'
 export const USER_REGISTER_SUCCESS = 'USER_REGISTER_SUCCESS'
 export const USER_REGISTER_FAILURE = 'USER_REGISTER_FAILURE'
 
+export const USER_NEWPASSWORD_REQUEST = 'USER_NEWPASSWORD_REQUEST'
+export const USER_NEWPASSWORD_SUCCESS = 'USER_NEWPASSWORD_SUCCESS'
+export const USER_NEWPASSWORD_FAILURE = 'USER_NEWPASSWORD_FAILURE'
+
 export const FORGET_PASSWORD_REQUEST = 'FORGET_PASSWORD_REQUEST'
 export const FORGET_PASSWORD_SUCCESS = 'FORGET_PASSWORD_SUCCESS'
 export const FORGET_PASSWORD_FAILURE = 'FORGET_PASSWORD_FAILURE'
@@ -19,6 +23,13 @@ export const IS_LOGIN = 'IS_LOGIN'
 function register (params) {
   return {
     type: USER_REGISTER_REQUEST,
+    ...params
+  }
+}
+
+function newPassword (params) {
+  return {
+    type: USER_NEWPASSWORD_REQUEST,
     ...params
   }
 }
@@ -54,6 +65,7 @@ function stateLogin (params) {
 export {
   register,
   login,
+  newPassword,
   loginSocial,
   forgetPassword,
   stateLogin

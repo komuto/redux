@@ -120,6 +120,26 @@ function auth (state = initUser, action) {
         message: action.message,
         status: action.code
       }
+    case actions.USER_NEWPASSWORD_REQUEST:
+      return {
+        ...state
+      }
+    case actions.USER_NEWPASSWORD_SUCCESS:
+      return {
+        ...state,
+        email: action.data.email,
+        uid: action.data.id,
+        isLoggedIn: true,
+        user: action,
+        message: action.message,
+        status: action.code
+      }
+    case actions.USER_NEWPASSWORD_FAILURE:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code
+      }
     default:
       return state
   }
