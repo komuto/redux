@@ -5,15 +5,19 @@ const initUser = {
   token: '',
   uid: '',
   isLoggedIn: false,
-  isAuthenticated: false,
   user: {},
   message: '',
   status: ''
 }
+
 const initForgetPass = {
   email: '',
   message: '',
-  status: '',
+  status: ''
+}
+
+const initLogin {
+  login: false
 }
 
 function auth (state = initUser, action) {
@@ -128,7 +132,7 @@ function forgetPassword (state = initForgetPass, action) {
         ...state,
         email: action.email,
         message: '',
-        status: '',
+        status: ''
       }
     case actions.FORGET_PASSWORD_SUCCESS:
       return {
@@ -147,7 +151,20 @@ function forgetPassword (state = initForgetPass, action) {
   }
 }
 
+function isLogin (state = initLogin, action) {
+  switch (action.type) {
+    case actions.IS_LOGIN:
+      return {
+        ...state,
+        login: action.login
+      }
+    default:
+      return state
+  }
+}
+
 export {
   auth,
-  forgetPassword
+  forgetPassword,
+  isLogin
 }
