@@ -8,7 +8,6 @@ function register (action) {
   return axios.post('users', {
     ...action
   })
-
 }
 
 function login (action) {
@@ -17,18 +16,6 @@ function login (action) {
     ...action
   })
 }
-
-// function loginAuth () {
-//   return new Promise (function (resolve, reject) {
-//     storage.getItem('authenticated', function (err, value) {
-//       if (!err && value !== undefined) {
-//         return resolve(value)
-//       } else {
-//         return reject(err)
-//       }
-//     })
-//   })
-// }
 
 function loginSocial (action) {
   let axios = publicApi()
