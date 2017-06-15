@@ -1,6 +1,5 @@
 import { serviceUrl } from '../config'
 import { authApi, publicApi } from './api'
-import { storage } from '../localStorage'
 
 
 function register (action) {
@@ -33,7 +32,6 @@ function forgetPassword (action) {
 
 export {
   login,
-  // loginAuth,
   loginSocial,
   register,
   forgetPassword

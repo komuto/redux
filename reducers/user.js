@@ -116,26 +116,6 @@ function auth (state = initUser, action) {
         message: action.message,
         status: action.code
       }
-    case actions.USER_AUTHENTICATION_REQUEST:
-      return {
-        ...state,
-      }
-    case actions.USER_AUTHENTICATION_SUCCESS:
-      return {
-        ...state,
-        email: action.user.user.data.email,
-        token: action.user.user.data.token,
-        uid: action.user.user.data.id,
-        isLoggedIn: true,
-        user: action,
-        message: action.user.user.message,
-        status: action.user.user.code,
-        isAuthenticated: true
-      }
-    case actions.USER_AUTHENTICATION_FAILURE:
-      return {
-        ...state
-      }
     default:
       return state
   }
