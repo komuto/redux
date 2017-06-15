@@ -16,7 +16,7 @@ const initForgetPass = {
   status: ''
 }
 
-const initLogin {
+const initLogin = {
   login: false
 }
 
