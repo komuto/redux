@@ -6,7 +6,6 @@ import {localStorage} from '../localStorage'
 function* register (action) {
   try {
     const {data} = yield userApi.register(action)
-    yield localStorage.setItem('user', JSON.stringify(data.data))
     yield put({ type: userActions.USER_REGISTER_SUCCESS, ...data })
   } catch (e) {
     yield put({ type: userActions.USER_REGISTER_FAILURE })
@@ -16,7 +15,6 @@ function* register (action) {
 function* login (action) {
   try {
     const {data} = yield userApi.login(action)
-    // console.log(data.data)
     yield localStorage.setItem('user', JSON.stringify(data.data))
     yield put({ type: userActions.USER_LOGIN_SUCCESS, ...data })
   } catch (e) {
