@@ -1,5 +1,4 @@
-import { serviceUrl } from '../config'
-import { authApi, publicApi } from './api'
+import { authApi, publicApi, authApiKomuto, publicApiKomuto } from './api'
 
 
 function register (action) {
@@ -10,7 +9,7 @@ function register (action) {
 }
 
 function login (action) {
-  let axios = authApi()
+  let axios = publicApiKomuto()
   return axios.post('users/login', {
     ...action
   })
