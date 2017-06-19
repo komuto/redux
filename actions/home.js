@@ -12,7 +12,7 @@ export const HOME_SUBCATEGORY_FAILURE = 'HOME_SUBCATEGORY_FAILURE'
 
 export const RESET_STATUS_SUBCATEGORY = 'RESET_STATUS_SUBCATEGORY'
 
-function product () {
+function products () {
   return {
     type: HOME_PRODUCT_REQUEST
   }
@@ -38,7 +38,7 @@ function resetStatus () {
 }
 
 export {
-  product,
+  products,
   categoryList,
   subCategory,
   resetStatus

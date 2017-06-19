@@ -9,6 +9,44 @@ const initCategory = {
   isFound: false
 }
 
+const initProduct = {
+  products: [],
+  message: '',
+  status: 0,
+  isLoading: false,
+  isError: false,
+  isFound: false
+}
+
+function product (state=initProduct, action) {
+  switch (action.type) {
+    case homeActions.HOME_PRODUCT_REQUEST:
+      return {
+        ...state,
+        isLoading: true
+      }
+    case homeActions.HOME_PRODUCT_SUCCESS:
+      return {
+        ...state,
+        products: action.data,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isFound: true
+      }
+    case homeActions.HOME_PRODUCT_FAILURE:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isError: true
+      }
+    default:
+      return state
+  }
+}
+
 function categoryList (state=initCategory, action) {
   switch (action.type) {
     case homeActions.HOME_CATEGORY_REQUEST:
@@ -75,6 +113,7 @@ function subCategory (state=initCategory, action) {
 }
 
 export {
+  product,
   categoryList,
   subCategory
 }

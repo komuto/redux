@@ -1,9 +1,11 @@
 import { authApi, publicApi, authApiKomuto, publicApiKomuto } from './api'
 
-// function product () {
-//   let axios = publicApi()
-//   return axios.get()
-// }
+function product (action) {
+  let axios = publicApi()
+  return axios.get('products', {
+    ...action
+  })
+}
 
 
 function categoryList (action) {
@@ -21,6 +23,7 @@ function subCategory (action) {
 }
 
 export {
+  product,
   categoryList,
   subCategory
 }
