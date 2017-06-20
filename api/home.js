@@ -5,7 +5,8 @@ function product (action) {
   let param = ''
   let check = [
     {value: action.page, string: 'page'},
-    {value: action.size, string: 'size'}
+    {value: action.limit, string: 'limit'},
+    {value: action.category_id, string: 'category_id'}
   ]
 
   let indeksCheck = []
