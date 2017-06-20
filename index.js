@@ -26,5 +26,5 @@ let unsubscribe = store.subscribe(function () {
 //   store.dispatch(user.userAuthentication())
 // },4000)
 // store.dispatch(home.products())
-store.dispatch(home.categoryList())
-// store.dispatch(home.subCategory({id: 1}))
+// store.dispatch(home.categoryList())
+store.dispatch(home.subCategory({id: 6}))
