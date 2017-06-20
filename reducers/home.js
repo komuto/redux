@@ -83,7 +83,10 @@ function subCategory (state=initCategory, action) {
         ...state,
         categories: [],
         message: '',
-        status: 0
+        status: 0,
+        isLoading: false,
+        isFound: false,
+        isError: false
       }
     case homeActions.HOME_SUBCATEGORY_REQUEST:
       return {
