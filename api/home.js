@@ -1,14 +1,11 @@
-import { authApi, publicApi, authApiKomuto, publicApiKomuto } from './api'
+import { publicApiKomuto } from './api'
 
 function product (action) {
-  let axios = publicApi()
+  let axios = publicApiKomuto()
   let param = ''
   let check = [
-    {value: action.is_dropship, string: 'is_dropship'},
-    {value: action.category_id, string: 'category_id'},
-    {value: action.query, string: 'q'},
-    {value: action.limit, string: 'limit'},
-    {value: action.page, string: 'page'}
+    {value: action.page, string: 'page'},
+    {value: action.size, string: 'size'}
   ]
 
   let indeksCheck = []
@@ -23,17 +20,13 @@ function product (action) {
   }
 
   for (i=0; i<indeksCheck.length; i++) {
-    if (i !== indeksCheck.length - 1 && typeof check[indeksCheck[i]].value !== 'string') {
+    if (i !== indeksCheck.length - 1) {
       param = param + check[indeksCheck[i]].string + '=' + check[indeksCheck[i]].value + '&'
-    } else if (i !== indeksCheck.length - 1 && typeof check[indeksCheck[i]].value === 'string') {
-      param = param + check[indeksCheck[i]].string + '=' + '\"' + check[indeksCheck[i]].value + '\"' + '&'
-    } else if (i === indeksCheck.length - 1 && typeof check[indeksCheck[i]].value === 'string') {
-      param = param + check[indeksCheck[i]].string + '=' + '\"' + check[indeksCheck[i]].value + '\"'
     } else {
       param = param + check[indeksCheck[i]].string + '=' + check[indeksCheck[i]].value
     }
   }
-  console.log('ini nih paramnya: products' + param)
+  // console.log('ini nih paramnya: products' + param)
   return axios.get('products' + param, {
     ...action
   })
