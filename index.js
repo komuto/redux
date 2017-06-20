@@ -1,6 +1,9 @@
 import {store} from './store'
 import * as user from './actions/user'
 import * as home from './actions/home'
+import * as brand from './actions/brand'
+import * as expedition from './actions/expedition'
+import * as location from './actions/location'
 import {localStorage} from './localStorage'
 let unsubscribe = store.subscribe(function () {
   console.log(store.getState())
@@ -26,5 +29,11 @@ let unsubscribe = store.subscribe(function () {
 //   store.dispatch(user.userAuthentication())
 // },4000)
 // store.dispatch(home.products())
-store.dispatch(home.categoryList())
+// store.dispatch(home.categoryList())
 // store.dispatch(home.subCategory({id: 6}))
+// store.dispatch(brand.getBrand())
+// store.dispatch(expedition.getExpedition())
+// store.dispatch(location.getProvince())
+// store.dispatch(location.getDistrict({province_id: 34}))
+store.dispatch(location.getSubDistrict({district_id: 3404}))
+// store.dispatch(location.getVillage({sub_district_id: 3404110}))

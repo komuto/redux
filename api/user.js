@@ -23,7 +23,7 @@ function getProfile (action) {
 }
 
 function loginSocial (action) {
-  let axios = publicApi()
+  let axios = publicApiKomuto()
   return axios.post('users/social-login', {
     ...action
   })

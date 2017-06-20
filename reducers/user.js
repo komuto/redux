@@ -27,7 +27,7 @@ const initLogin = {
 }
 
 function auth (state = initUser, action) {
-  console.log(action)
+  console.log(action.type)
   switch (action.type) {
     case actions.USER_LOGIN_REQUEST:
       return {
@@ -87,11 +87,6 @@ function auth (state = initUser, action) {
         status: action.code,
         isLoading: false,
         isError: true
-      }
-    case actions.GET_PROFILE_REQUEST:
-      return {
-        ...state,
-        isLoading: true
       }
     default:
       return state
