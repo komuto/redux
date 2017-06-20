@@ -42,6 +42,28 @@ function product (state=initProduct, action) {
         isLoading: false,
         isError: true
       }
+    case homeActions.SEARCH_PRODUCT_REQUEST:
+      return {
+        ...state,
+        isLoading: true
+      }
+    case homeActions.SEARCH_PRODUCT_SUCCESS:
+      return {
+        ...state,
+        products: action.data,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isFound: true
+      }
+    case homeActions.SEARCH_PRODUCT_FAILURE:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isError: true
+      }
     default:
       return state
   }

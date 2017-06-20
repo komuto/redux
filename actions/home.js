@@ -10,6 +10,10 @@ export const HOME_SUBCATEGORY_REQUEST = 'HOME_SUBCATEGORY_REQUEST'
 export const HOME_SUBCATEGORY_SUCCESS = 'HOME_SUBCATEGORY_SUCCESS'
 export const HOME_SUBCATEGORY_FAILURE = 'HOME_SUBCATEGORY_FAILURE'
 
+export const SEARCH_PRODUCT_REQUEST = 'SEARCH_PRODUCT_REQUEST'
+export const SEARCH_PRODUCT_SUCCESS = 'SEARCH_PRODUCT_SUCCESS'
+export const SEARCH_PRODUCT_FAILURE = 'SEARCH_PRODUCT_FAILURE'
+
 export const RESET_STATUS_SUBCATEGORY = 'RESET_STATUS_SUBCATEGORY'
 
 function products () {
@@ -21,6 +25,13 @@ function products () {
 function categoryList () {
   return {
     type: HOME_CATEGORY_REQUEST
+  }
+}
+
+function search (params) {
+  return {
+    type: SEARCH_PRODUCT_REQUEST,
+    ...params
   }
 }
 
@@ -40,6 +51,7 @@ function resetStatus () {
 export {
   products,
   categoryList,
+  search,
   subCategory,
   resetStatus
 }

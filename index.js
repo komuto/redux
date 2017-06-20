@@ -28,7 +28,8 @@ let unsubscribe = store.subscribe(function () {
 // setTimeout (function () {
 //   store.dispatch(user.userAuthentication())
 // },4000)
-store.dispatch(home.products())
+// store.dispatch(home.products())
+store.dispatch(home.search({query: 'aya'}))
 // store.dispatch(home.categoryList())
 // store.dispatch(home.subCategory({id: 6}))
 // store.dispatch(brand.getBrand())

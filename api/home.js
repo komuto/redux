@@ -32,6 +32,12 @@ function product (action) {
   })
 }
 
+function search (action) {
+    let axios = publicApiKomuto()
+    return axios.get('products/search?q=' + action.query, {
+      ...action
+    })
+}
 
 function categoryList (action) {
   let axios = publicApiKomuto()
@@ -49,6 +55,7 @@ function subCategory (action) {
 
 export {
   product,
+  search,
   categoryList,
   subCategory
 }
