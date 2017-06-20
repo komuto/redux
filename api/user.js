@@ -15,6 +15,13 @@ function login (action) {
   })
 }
 
+function getProfile (action) {
+  let axios = authApiKomuto()
+  return axios.get('users/' + action.id, {
+    ...action
+  })
+}
+
 function loginSocial (action) {
   let axios = publicApi()
   return axios.post('users/social-login', {

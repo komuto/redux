@@ -41,7 +41,7 @@ function product (action) {
 
 
 function categoryList (action) {
-  let axios = publicApi()
+  let axios = publicApiKomuto()
   return axios.get('categories', {
     ...action
   })

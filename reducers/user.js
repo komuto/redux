@@ -88,6 +88,11 @@ function auth (state = initUser, action) {
         isLoading: false,
         isError: true
       }
+    case actions.GET_PROFILE_REQUEST:
+      return {
+        ...state,
+        isLoading: true
+      }
     default:
       return state
   }
