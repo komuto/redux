@@ -7,8 +7,8 @@ function* product (action) {
     const {data} = yield homeApi.product(action)
     yield put({ type: homeActions.HOME_PRODUCT_SUCCESS, ...data })
   } catch (e) {
-    console.log(e)
-    yield put({ type: homeActions.HOME_PRODUCT_FAILURE })
+    const {data} = e.response
+    yield put({ type: homeActions.HOME_PRODUCT_FAILURE, ...data })
   }
 }
 
@@ -17,7 +17,8 @@ function* search (action) {
     const {data} = yield homeApi.search(action)
     yield put({ type: homeActions.SEARCH_PRODUCT_SUCCESS, ...data })
   } catch (e) {
-    yield put({ type: homeActions.SEARCH_PRODUCT_FAILURE })
+    const {data} = e.response
+    yield put({ type: homeActions.SEARCH_PRODUCT_FAILURE, ...data })
   }
 }
 
@@ -26,7 +27,8 @@ function* categoryList (action) {
     const {data} = yield homeApi.categoryList(action)
     yield put({ type: homeActions.HOME_CATEGORY_SUCCESS, ...data })
   } catch (e) {
-    yield put({ type: homeActions.HOME_CATEGORY_FAILURE })
+    const {data} = e.response
+    yield put({ type: homeActions.HOME_CATEGORY_FAILURE, ...data })
   }
 }
 
@@ -35,7 +37,8 @@ function* subCategory (action) {
     const {data} = yield homeApi.subCategory(action)
     yield put({ type: homeActions.HOME_SUBCATEGORY_SUCCESS, ...data })
   } catch (e) {
-    yield put({ type: homeActions.HOME_SUBCATEGORY_FAILURE })
+    const {data} = e.response
+    yield put({ type: homeActions.HOME_SUBCATEGORY_FAILURE, ...data })
   }
 }
 

@@ -7,7 +7,8 @@ function* getProvince (action) {
     const {data} = yield locationApi.getProvince(action)
     yield put({ type: locationActions.GET_PROVINCE_SUCCESS, ...data })
   } catch (e) {
-    yield put({ type: locationActions.GET_PROVINCE_FAILURE })
+    const {data} = e.response
+    yield put({ type: locationActions.GET_PROVINCE_FAILURE, ...data })
   }
 }
 
@@ -16,7 +17,8 @@ function* getDistrict (action) {
     const {data} = yield locationApi.getDistrict(action)
     yield put({ type: locationActions.GET_DISTRICT_SUCCESS, ...data })
   } catch (e) {
-    yield put({ type: locationActions.GET_DISTRICT_FAILURE })
+    const {data} = e.response
+    yield put({ type: locationActions.GET_DISTRICT_FAILURE, ...data })
   }
 }
 
@@ -25,8 +27,8 @@ function* getSubDistrict (action) {
     const {data} = yield locationApi.getSubDistrict(action)
     yield put({ type: locationActions.GET_SUBDISTRICT_SUCCESS, ...data })
   } catch (e) {
-    console.log(e)
-    yield put({ type: locationActions.GET_SUBDISTRICT_FAILURE })
+    const {data} = e.response
+    yield put({ type: locationActions.GET_SUBDISTRICT_FAILURE, ...data })
   }
 }
 
@@ -35,7 +37,8 @@ function* getVillage (action) {
     const {data} = yield locationApi.getVillage(action)
     yield put({ type: locationActions.GET_VILLAGE_SUCCESS, ...data })
   } catch (e) {
-    yield put({ type: locationActions.GET_VILLAGE_FAILURE })
+    const {data} = e.response
+    yield put({ type: locationActions.GET_VILLAGE_FAILURE, ...data })
   }
 }
 

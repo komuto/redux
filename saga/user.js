@@ -18,7 +18,8 @@ function* login (action) {
     yield localStorage.setItem('user', JSON.stringify(data.data))
     yield put({ type: userActions.USER_LOGIN_SUCCESS, ...data })
   } catch (e) {
-    yield put({ type: userActions.USER_LOGIN_FAILURE })
+    const {data} = e.response
+    yield put({ type: userActions.USER_LOGIN_FAILURE, ...data })
   }
 }
 

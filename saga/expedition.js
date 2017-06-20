@@ -7,7 +7,8 @@ function* getExpedition (action) {
     const {data} = yield expeditionApi.getExpedition(action)
     yield put({ type: expeditionActions.GET_EXPEDITION_SUCCESS, ...data })
   } catch (e) {
-    yield put({ type: expeditionActions.GET_EXPEDITION_FAILURE })
+    const {data} = e.response
+    yield put({ type: expeditionActions.GET_EXPEDITION_FAILURE, ...data })
   }
 }
 

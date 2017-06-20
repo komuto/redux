@@ -7,7 +7,8 @@ function* getBrand (action) {
     const {data} = yield brandApi.getBrand(action)
     yield put({ type: brandActions.GET_BRAND_SUCCESS, ...data })
   } catch (e) {
-    yield put({ type: brandActions.GET_BRAND_FAILURE })
+    const {data} = e.response
+    yield put({ type: brandActions.GET_BRAND_FAILURE, ...data })
   }
 }
 
