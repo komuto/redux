@@ -51,7 +51,7 @@ function auth (state = initUser, action) {
         status: action.code,
         isLoading: false,
         isFound: true,
-        isError: false,
+        isError: false
       }
     case actions.USER_LOGIN_FAILURE:
       return {

@@ -4,13 +4,13 @@ import * as home from './actions/home'
 import * as brand from './actions/brand'
 import * as expedition from './actions/expedition'
 import * as location from './actions/location'
-let unsubscribe = store.subscribe(function () {
+store.subscribe(function () {
   console.log(store.getState())
 })
 
 // store.dispatch(user.register({name: 'Dev Skyshi', phone_number: '081327', email: 'adilale@skyshi.com', gender: 'L', password: '123456'}))
 // setTimeout (function () {
-store.dispatch(user.login({email: 'admin@komuto.com', password: 'admin'}))
+store.dispatch(user.login({email: 'admn@komuto.com', password: 'admin'}))
 // setTimeout(function (){
     // asik = localStorage.getItem('user')
     // asoy=JSON.parse(asik)
@@ -26,13 +26,13 @@ store.dispatch(user.login({email: 'admin@komuto.com', password: 'admin'}))
 // setTimeout (function () {
 //   store.dispatch(user.userAuthentication())
 // },4000)
-// store.dispatch(home.products())
+store.dispatch(home.products())
 // store.dispatch(home.search({query: 'aya'}))
 // store.dispatch(home.categoryList())
 // store.dispatch(home.subCategory({id: 6}))
-// store.dispatch(brand.getBrand())
-// store.dispatch(expedition.getExpedition())
-// store.dispatch(location.getProvince())
+store.dispatch(brand.getBrand())
+store.dispatch(expedition.getExpedition())
+store.dispatch(location.getProvince())
 // store.dispatch(location.getDistrict({province_id: 34}))
 // store.dispatch(location.getSubDistrict({district_id: 3404}))
 // store.dispatch(location.getVillage({sub_district_id: 3404110}))

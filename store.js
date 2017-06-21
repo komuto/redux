@@ -9,6 +9,6 @@ sagaMiddleware.run(dataSaga)
 
 export function token () {
   const state = store.getState()
-  //return state.user.token
+  // return state.user.token
   return 'Bearer ' + state.user.token
 }
