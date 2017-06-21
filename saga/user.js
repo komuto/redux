@@ -7,7 +7,8 @@ function* register (action) {
     const {data} = yield userApi.register(action)
     yield put({ type: userActions.USER_REGISTER_SUCCESS, ...data })
   } catch (e) {
-    yield put({ type: userActions.USER_REGISTER_FAILURE })
+    const {data} = e.response
+    yield put({ type: userActions.USER_REGISTER_FAILURE, ...data })
   }
 }
 
@@ -26,7 +27,8 @@ function* forgetPassword (action) {
     const {data} = yield userApi.forgetPassword(action)
     yield put({ type: userActions.FORGET_PASSWORD_SUCCESS, ...data })
   } catch (e) {
-    yield put({ type: userActions.FORGET_PASSWORD_FAILURE })
+    const {data} = e.response
+    yield put({ type: userActions.FORGET_PASSWORD_FAILURE, ...data })
   }
 }
 
@@ -35,7 +37,8 @@ function* loginSocial (action) {
     const {data} = yield userApi.loginSocial(action)
     yield put({ type: userActions.LOGIN_SOCIAL_SUCCESS, ...data })
   } catch (e) {
-    yield put({ type: userActions.LOGIN_SOCIAL_FAILURE })
+    const {data} = e.response
+    yield put({ type: userActions.LOGIN_SOCIAL_FAILURE, ...data })
   }
 }
 
@@ -44,7 +47,8 @@ function* newPassword (action) {
     const {data} = yield userApi.newPassword(action)
     yield put({ type: userActions.USER_NEWPASSWORD_SUCCESS, ...data })
   } catch (e) {
-    yield put({ type: userActions.USER_NEWPASSWORD_FAILURE })
+    const {data} = e.response
+    yield put({ type: userActions.USER_NEWPASSWORD_FAILURE, ...data })
   }
 }
 
