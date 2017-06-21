@@ -1,4 +1,4 @@
-import { authApi, publicApi, authApiKomuto, publicApiKomuto } from './api'
+import { publicApiKomuto } from './api'
 
 function getBrand (action) {
   let axios = publicApiKomuto()

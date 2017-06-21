@@ -10,7 +10,8 @@ function product (action) {
   ]
 
   let indeksCheck = []
-  for (i=0; i<check.length; i++) {
+  let i
+  for (i = 0; i < check.length; i++) {
     if (check[i].value !== undefined) {
       indeksCheck.push(i)
     }
@@ -20,7 +21,7 @@ function product (action) {
     param = '?'
   }
 
-  for (i=0; i<indeksCheck.length; i++) {
+  for (i = 0; i < indeksCheck.length; i++) {
     if (i !== indeksCheck.length - 1) {
       param = param + check[indeksCheck[i]].string + '=' + check[indeksCheck[i]].value + '&'
     } else {
@@ -34,10 +35,10 @@ function product (action) {
 }
 
 function search (action) {
-    let axios = publicApiKomuto()
-    return axios.get('products/search?q=' + action.query, {
-      ...action
-    })
+  let axios = publicApiKomuto()
+  return axios.get('products/search?q=' + action.query, {
+    ...action
+  })
 }
 
 function categoryList (action) {
@@ -49,7 +50,7 @@ function categoryList (action) {
 
 function subCategory (action) {
   let axios = publicApiKomuto()
-  return axios.get('categories/'+ action.id +'/sub-categories', {
+  return axios.get('categories/' + action.id + '/sub-categories', {
     ...action
   })
 }

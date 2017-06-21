@@ -36,7 +36,7 @@ const initVillage = {
   isError: false
 }
 
-function province (state=initProvince, action) {
+function province (state = initProvince, action) {
   switch (action.type) {
     case locationActions.GET_PROVINCE_REQUEST:
       return {
@@ -65,7 +65,7 @@ function province (state=initProvince, action) {
   }
 }
 
-function district (state=initDistrict, action) {
+function district (state = initDistrict, action) {
   switch (action.type) {
     case locationActions.GET_DISTRICT_REQUEST:
       return {
@@ -94,7 +94,7 @@ function district (state=initDistrict, action) {
   }
 }
 
-function subdistrict (state=initSubDistrict, action) {
+function subdistrict (state = initSubDistrict, action) {
   switch (action.type) {
     case locationActions.GET_SUBDISTRICT_REQUEST:
       return {
@@ -123,7 +123,7 @@ function subdistrict (state=initSubDistrict, action) {
   }
 }
 
-function village (state=initVillage, action) {
+function village (state = initVillage, action) {
   switch (action.type) {
     case locationActions.GET_VILLAGE_REQUEST:
       return {

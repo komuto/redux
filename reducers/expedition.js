@@ -9,7 +9,7 @@ const initExpedition = {
   isError: false
 }
 
-function expedition (state=initExpedition, action) {
+function expedition (state = initExpedition, action) {
   switch (action.type) {
     case expeditionActions.GET_EXPEDITION_REQUEST:
       return {

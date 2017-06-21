@@ -1,7 +1,7 @@
 import * as brandActions from '../actions/brand'
 
 const initBrand = {
-  brands : [],
+  brands: [],
   message: '',
   status: 0,
   isLoading: false,
@@ -9,7 +9,7 @@ const initBrand = {
   isError: false
 }
 
-function brand (state=initBrand, action) {
+function brand (state = initBrand, action) {
   switch (action.type) {
     case brandActions.GET_BRAND_REQUEST:
       return {

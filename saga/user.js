@@ -1,7 +1,6 @@
 import { put } from 'redux-saga/effects'
 import * as userActions from '../actions/user'
 import * as userApi from '../api/user'
-import {localStorage} from '../localStorage'
 
 function* register (action) {
   try {
@@ -15,7 +14,6 @@ function* register (action) {
 function* login (action) {
   try {
     const {data} = yield userApi.login(action)
-    yield localStorage.setItem('user', JSON.stringify(data.data))
     yield put({ type: userActions.USER_LOGIN_SUCCESS, ...data })
   } catch (e) {
     const {data} = e.response
@@ -35,7 +33,6 @@ function* forgetPassword (action) {
 function* loginSocial (action) {
   try {
     const {data} = yield userApi.loginSocial(action)
-    yield localStorage.setItem('user', JSON.stringify(data.data))
     yield put({ type: userActions.LOGIN_SOCIAL_SUCCESS, ...data })
   } catch (e) {
     yield put({ type: userActions.LOGIN_SOCIAL_FAILURE })
@@ -45,13 +42,11 @@ function* loginSocial (action) {
 function* newPassword (action) {
   try {
     const {data} = yield userApi.newPassword(action)
-    yield localStorage.setItem('user', JSON.stringify(data.data))
     yield put({ type: userActions.USER_NEWPASSWORD_SUCCESS, ...data })
   } catch (e) {
     yield put({ type: userActions.USER_NEWPASSWORD_FAILURE })
   }
 }
-
 
 export {
   login,

@@ -18,7 +18,7 @@ const initProduct = {
   isFound: false
 }
 
-function product (state=initProduct, action) {
+function product (state = initProduct, action) {
   switch (action.type) {
     case homeActions.HOME_PRODUCT_REQUEST:
       return {
@@ -69,7 +69,7 @@ function product (state=initProduct, action) {
   }
 }
 
-function categoryList (state=initCategory, action) {
+function categoryList (state = initCategory, action) {
   switch (action.type) {
     case homeActions.HOME_CATEGORY_REQUEST:
       return {
@@ -98,7 +98,7 @@ function categoryList (state=initCategory, action) {
   }
 }
 
-function subCategory (state=initCategory, action) {
+function subCategory (state = initCategory, action) {
   switch (action.type) {
     case homeActions.RESET_STATUS_SUBCATEGORY:
       return {

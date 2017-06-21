@@ -67,7 +67,7 @@ function auth (state = initUser, action) {
     case actions.USER_NEWPASSWORD_REQUEST:
       return {
         ...state,
-        isLoading: true,
+        isLoading: true
       }
     case actions.USER_NEWPASSWORD_SUCCESS:
       return {
