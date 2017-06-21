@@ -11,7 +11,6 @@ const error = {
 function * getProvince (action) {
   try {
     const {data} = yield locationApi.getProvince(action)
-    data.isOnline = true
     yield put({ type: locationActions.GET_PROVINCE_SUCCESS, ...data })
   } catch (e) {
     const data = e.response
@@ -28,7 +27,6 @@ function * getProvince (action) {
 function * getDistrict (action) {
   try {
     const {data} = yield locationApi.getDistrict(action)
-    data.isOnline = true
     yield put({ type: locationActions.GET_DISTRICT_SUCCESS, ...data })
   } catch (e) {
     const data = e.response
@@ -45,7 +43,6 @@ function * getDistrict (action) {
 function * getSubDistrict (action) {
   try {
     const {data} = yield locationApi.getSubDistrict(action)
-    data.isOnline = true
     yield put({ type: locationActions.GET_SUBDISTRICT_SUCCESS, ...data })
   } catch (e) {
     const data = e.response
@@ -62,7 +59,6 @@ function * getSubDistrict (action) {
 function * getVillage (action) {
   try {
     const {data} = yield locationApi.getVillage(action)
-    data.isOnline = true
     yield put({ type: locationActions.GET_VILLAGE_SUCCESS, ...data })
   } catch (e) {
     const data = e.response

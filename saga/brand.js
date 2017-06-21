@@ -11,7 +11,6 @@ const error = {
 function * getBrand (action) {
   try {
     const {data} = yield brandApi.getBrand(action)
-    data.isOnline = true
     yield put({ type: brandActions.GET_BRAND_SUCCESS, ...data })
   } catch (e) {
     const data = e.response

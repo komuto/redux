@@ -11,7 +11,6 @@ const error = {
 function * register (action) {
   try {
     const {data} = yield userApi.register(action)
-    data.isOnline = true
     yield put({ type: userActions.USER_REGISTER_SUCCESS, ...data })
   } catch (e) {
     const data = e.response
@@ -28,7 +27,6 @@ function * register (action) {
 function * login (action) {
   try {
     const {data} = yield userApi.login(action)
-    data.isOnline = true
     yield put({ type: userActions.USER_LOGIN_SUCCESS, ...data })
   } catch (e) {
     const data = e.response
@@ -45,7 +43,6 @@ function * login (action) {
 function * forgetPassword (action) {
   try {
     const {data} = yield userApi.forgetPassword(action)
-    data.isOnline = true
     yield put({ type: userActions.FORGET_PASSWORD_SUCCESS, ...data })
   } catch (e) {
     const data = e.response
@@ -62,7 +59,6 @@ function * forgetPassword (action) {
 function * loginSocial (action) {
   try {
     const {data} = yield userApi.loginSocial(action)
-    data.isOnline = true
     yield put({ type: userActions.LOGIN_SOCIAL_SUCCESS, ...data })
   } catch (e) {
     const data = e.response
@@ -79,7 +75,6 @@ function * loginSocial (action) {
 function * newPassword (action) {
   try {
     const {data} = yield userApi.newPassword(action)
-    data.isOnline = true
     yield put({ type: userActions.USER_NEWPASSWORD_SUCCESS, ...data })
   } catch (e) {
     const data = e.response

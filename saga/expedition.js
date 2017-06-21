@@ -11,7 +11,6 @@ const error = {
 function * getExpedition (action) {
   try {
     const {data} = yield expeditionApi.getExpedition(action)
-    data.isOnline = true
     yield put({ type: expeditionActions.GET_EXPEDITION_SUCCESS, ...data })
   } catch (e) {
     const data = e.response

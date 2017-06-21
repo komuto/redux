@@ -11,7 +11,6 @@ const error = {
 function * product (action) {
   try {
     const {data} = yield homeApi.product(action)
-    data.isOnline = true
     yield put({ type: homeActions.HOME_PRODUCT_SUCCESS, ...data })
   } catch (e) {
     const data = e.response
@@ -28,7 +27,6 @@ function * product (action) {
 function * search (action) {
   try {
     const {data} = yield homeApi.search(action)
-    data.isOnline = true
     yield put({ type: homeActions.SEARCH_PRODUCT_SUCCESS, ...data })
   } catch (e) {
     const data = e.response
@@ -45,7 +43,6 @@ function * search (action) {
 function * categoryList (action) {
   try {
     const {data} = yield homeApi.categoryList(action)
-    data.isOnline = true
     yield put({ type: homeActions.HOME_CATEGORY_SUCCESS, ...data })
   } catch (e) {
     const data = e.response
@@ -62,7 +59,6 @@ function * categoryList (action) {
 function * subCategory (action) {
   try {
     const {data} = yield homeApi.subCategory(action)
-    data.isOnline = true
     yield put({ type: homeActions.HOME_SUBCATEGORY_SUCCESS, ...data })
   } catch (e) {
     const data = e.response
