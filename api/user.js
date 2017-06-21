@@ -5,6 +5,12 @@ function register (action) {
   return axios.post('users', {
     ...action
   })
+  .then(function (data) {
+    return data
+  })
+  .catch(function (err) {
+    throw (err)
+  })
 }
 
 function login (action) {
@@ -18,27 +24,18 @@ function login (action) {
   .catch(function (err) {
     throw (err)
   })
-  // axios.interceptors.response.use(function (res) {
-  //   if (res.response !== undefined) {
-  //     return res
-  //   } else {
-  //     console.log('Network Error')
-  //   }
-  // })
-  // return response
 }
-
-// function getProfile (action) {
-//   let axios = authApiKomuto()
-//   return axios.get('users/' + action.id, {
-//     ...action
-//   })
-// }
 
 function loginSocial (action) {
   let axios = publicApiKomuto()
   return axios.post('users/social-login', {
     ...action
+  })
+  .then(function (data) {
+    return data
+  })
+  .catch(function (err) {
+    throw (err)
   })
 }
 
@@ -47,12 +44,24 @@ function forgetPassword (action) {
   return axios.post('passwords/forgot', {
     ...action
   })
+  .then(function (data) {
+    return data
+  })
+  .catch(function (err) {
+    throw (err)
+  })
 }
 
 function newPassword (action) {
   let axios = authApi()
   return axios.put('users', {
     ...action
+  })
+  .then(function (data) {
+    return data
+  })
+  .catch(function (err) {
+    throw (err)
   })
 }
 

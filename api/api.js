@@ -17,13 +17,15 @@ export function publicApi () {
 
 export function publicApiKomuto () {
   return axios.create({
-    baseURL: apiKomuto + '/'
+    baseURL: apiKomuto + '/',
+    timeout: 2000
   })
 }
 
 export function authApiKomuto () {
   return axios.create({
     baseURL: apiKomuto + '/',
+    timeout: 2000,
     headers: {'Authorization': token()}
   })
 }

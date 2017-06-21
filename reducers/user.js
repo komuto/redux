@@ -9,7 +9,7 @@ const initUser = {
   message: '',
   status: '',
   isLoading: false,
-  isError: false,
+  isOnline: true,
   isFound: false
 }
 
@@ -18,7 +18,7 @@ const initForgetPass = {
   message: '',
   status: '',
   isLoading: false,
-  isError: false,
+  isOnline: true,
   isFound: false
 }
 
@@ -50,8 +50,7 @@ function auth (state = initUser, action) {
         message: action.message,
         status: action.code,
         isLoading: false,
-        isFound: true,
-        isError: false
+        isFound: true
       }
     case actions.USER_LOGIN_FAILURE:
       return {
@@ -63,7 +62,7 @@ function auth (state = initUser, action) {
         message: action.message,
         status: action.code,
         isLoading: false,
-        isError: true,
+        isOnline: action.isOnline,
         isFound: false
       }
     case actions.USER_NEWPASSWORD_REQUEST:
@@ -80,8 +79,7 @@ function auth (state = initUser, action) {
         message: action.message,
         status: action.code,
         isLoading: false,
-        isFound: true,
-        isError: false
+        isFound: true
       }
     case actions.USER_NEWPASSWORD_FAILURE:
       return {
@@ -89,8 +87,7 @@ function auth (state = initUser, action) {
         message: action.message,
         status: action.code,
         isLoading: false,
-        isError: true,
-        isFound: false
+        isOnline: action.isOnline
       }
     default:
       return state
@@ -121,8 +118,7 @@ function authSocial (state = initUser, action) {
         status: action.code,
         is_required_password: action.data.is_required_password,
         isLoading: false,
-        isFound: true,
-        isError: false
+        isFound: true
       }
     case actions.LOGIN_SOCIAL_FAILURE:
       return {
@@ -134,8 +130,7 @@ function authSocial (state = initUser, action) {
         message: action.message,
         status: action.code,
         isLoading: false,
-        isError: true,
-        isFound: false
+        isOnline: action.isOnline
       }
     default:
       return state
@@ -163,8 +158,7 @@ function register (state = initUser, action) {
         message: action.message,
         status: action.code,
         isLoading: false,
-        isFound: true,
-        isError: false
+        isFound: true
       }
     case actions.USER_REGISTER_FAILURE:
       return {
@@ -176,8 +170,7 @@ function register (state = initUser, action) {
         message: action.message,
         status: action.code,
         isLoading: false,
-        isError: true,
-        isFound: false
+        isOnline: action.isOnline
       }
     default:
       return state
@@ -199,8 +192,7 @@ function forgetPassword (state = initForgetPass, action) {
         message: action.message,
         status: action.code,
         isLoading: false,
-        isFound: true,
-        isError: false
+        isFound: true
       }
     case actions.FORGET_PASSWORD_FAILURE:
       return {
@@ -208,8 +200,7 @@ function forgetPassword (state = initForgetPass, action) {
         message: action.message,
         status: action.code,
         isLoading: false,
-        isError: true,
-        isFound: false
+        isOnline: action.isOnline
       }
     default:
       return state
