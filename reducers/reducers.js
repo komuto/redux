@@ -10,7 +10,6 @@ const komutoApps = storage.reducer(combineReducers({
   user: userReducers.auth,
   verification: userReducers.verify,
   profile: userReducers.getProfile,
-  social: userReducers.authSocial,
   register: userReducers.register,
   forgetPassword: userReducers.forgetPassword,
   isLogin: userReducers.isLogin,
@@ -22,8 +21,7 @@ const komutoApps = storage.reducer(combineReducers({
   provinces: locationReducers.province,
   districts: locationReducers.district,
   subdistricts: locationReducers.subdistrict,
-  villages: locationReducers.village,
-  logout: userReducers.logout
+  villages: locationReducers.village
 }))
 
 export default komutoApps
