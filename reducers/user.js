@@ -13,6 +13,16 @@ const initUser = {
   isFound: false
 }
 
+const initProfile = {
+  message: '',
+  status: 0,
+  verifyStatus: '',
+  user: {},
+  isLoading: false,
+  isOnline: true,
+  isFound: false
+}
+
 const initForgetPass = {
   email: '',
   message: '',
@@ -94,6 +104,36 @@ function auth (state = initUser, action) {
   }
 }
 
+function getProfile (state = initProfile, action) {
+  switch (action.type) {
+    case actions.GET_PROFILE_REQUEST:
+      return {
+        ...state,
+        isLoading: true
+      }
+    case actions.GET_PROFILE_SUCCESS:
+      return {
+        ...state,
+        verifyStatus: action.data.status,
+        user: action.data,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isFound: true
+      }
+    case actions.GET_PROFILE_FAILURE:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isOnline: action.isOnline
+      }
+    default:
+      return state
+  }
+}
+
 function authSocial (state = initUser, action) {
   switch (action.type) {
     case actions.LOGIN_SOCIAL_REQUEST:
@@ -154,7 +194,7 @@ function register (state = initUser, action) {
         ...state,
         email: action.data.email,
         uid: action.data.id,
-        user: action,
+        user: action.data,
         message: action.message,
         status: action.code,
         isLoading: false,
@@ -221,6 +261,7 @@ function isLogin (state = initLogin, action) {
 
 export {
   auth,
+  getProfile,
   authSocial,
   register,
   forgetPassword,

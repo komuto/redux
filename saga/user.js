@@ -88,10 +88,27 @@ function * newPassword (action) {
   }
 }
 
+function* getProfile (action) {
+  try {
+    const {data} = yield userApi.getProfile(action)
+    yield put({ type: userActions.GET_PROFILE_SUCCESS, ...data })
+  } catch (e) {
+    const data = e.response
+    if (data !== undefined) {
+      const {data} = e.response
+      data.isOnline = true
+      yield put({ type: userActions.GET_PROFILE_FAILURE, ...data })
+    } else {
+      yield put({ type: userActions.GET_PROFILE_FAILURE, ...error })
+    }
+  }
+}
+
 export {
   login,
   register,
   forgetPassword,
   loginSocial,
-  newPassword
+  newPassword,
+  getProfile
 }

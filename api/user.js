@@ -1,4 +1,4 @@
-import { authApi, publicApi, publicApiKomuto } from './api'
+import { authApi, authApiKomuto, publicApi, publicApiKomuto } from './api'
 
 function register (action) {
   let axios = publicApiKomuto()
@@ -65,10 +65,24 @@ function newPassword (action) {
   })
 }
 
+function getProfile (action) {
+  let axios = authApiKomuto()
+  return axios.get('users/profile', {
+    ...action
+  })
+  .then(function (data) {
+    return data
+  })
+  .catch(function (err) {
+    throw (err)
+  })
+}
+
 export {
   login,
   loginSocial,
   register,
   forgetPassword,
-  newPassword
+  newPassword,
+  getProfile
 }
