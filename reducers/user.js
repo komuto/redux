@@ -244,6 +244,7 @@ function register (state = initUser, action) {
         email: action.data.email,
         uid: action.data.id,
         user: action.data,
+        token: action.data.token,
         message: action.message,
         status: action.code,
         isLoading: false,
