@@ -2,6 +2,10 @@ export const USER_LOGIN_REQUEST = 'USER_LOGIN_REQUEST'
 export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS'
 export const USER_LOGIN_FAILURE = 'USER_LOGIN_FAILURE'
 
+export const USER_VERIFICATION_REQUEST = 'USER_VERIFICATION_REQUEST'
+export const USER_VERIFICATION_SUCCESS = 'USER_VERIFICATION_SUCCESS'
+export const USER_VERIFICATION_FAILURE = 'USER_VERIFICATION_FAILURE'
+
 export const LOGIN_SOCIAL_REQUEST = 'LOGIN_SOCIAL_REQUEST'
 export const LOGIN_SOCIAL_SUCCESS = 'LOGIN_SOCIAL_SUCCESS'
 export const LOGIN_SOCIAL_FAILURE = 'LOGIN_SOCIAL_FAILURE'
@@ -27,6 +31,13 @@ export const IS_LOGIN = 'IS_LOGIN'
 function register (params) {
   return {
     type: USER_REGISTER_REQUEST,
+    ...params
+  }
+}
+
+function verification (params) {
+  return {
+    type: USER_VERIFICATION_REQUEST,
     ...params
   }
 }
@@ -75,6 +86,7 @@ function stateLogin (params) {
 
 export {
   register,
+  verification,
   login,
   newPassword,
   getProfile,

@@ -8,13 +8,14 @@ store.subscribe(function () {
   console.log(store.getState())
 })
 
-// store.dispatch(user.register({name: 'Dev Skyshi', phone_number: '081327', email: 'adilale@skyshi.com', gender: 'L', password: '123456'}))
+// store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
 // setTimeout (function () {
-store.dispatch(user.login({email: 'admin@komuto.com', password: 'admin'}))
-setTimeout(function () {
+// store.dispatch(user.login({email: 'admin@komuto.com', password: 'admin'}))
+// setTimeout(function () {
 //   console.log('ini token', token())
-  store.dispatch(user.getProfile())
-}, 2000)
+store.dispatch(user.verification({token: '9d5e51c87294a378b3e8376d0059e012'}))
+  // store.dispatch(user.getProfile())
+// }, 2000)
 // setTimeout(function (){
     // asik = localStorage.getItem('user')
     // asoy=JSON.parse(asik)

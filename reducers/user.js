@@ -32,6 +32,14 @@ const initForgetPass = {
   isFound: false
 }
 
+const initVerify = {
+  message: '',
+  status: '',
+  isLoading: false,
+  isFound: false,
+  isOnline: true
+}
+
 const initLogin = {
   login: false
 }
@@ -92,6 +100,34 @@ function auth (state = initUser, action) {
         isFound: true
       }
     case actions.USER_NEWPASSWORD_FAILURE:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isOnline: action.isOnline
+      }
+    default:
+      return state
+  }
+}
+
+function verify (state = initVerify, action) {
+  switch (action.type) {
+    case actions.USER_VERIFICATION_REQUEST:
+      return {
+        ...state,
+        isLoading: true
+      }
+    case actions.USER_VERIFICATION_SUCCESS:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isFound: true
+      }
+    case actions.USER_VERIFICATION_FAILURE:
       return {
         ...state,
         message: action.message,
@@ -261,6 +297,7 @@ function isLogin (state = initLogin, action) {
 
 export {
   auth,
+  verify,
   getProfile,
   authSocial,
   register,

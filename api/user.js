@@ -13,6 +13,13 @@ function register (action) {
   })
 }
 
+function verification (action) {
+  let axios = publicApiKomuto()
+  return axios.get('signup-verification?token=' + action.token, {
+    ...action
+  })
+}
+
 function login (action) {
   let axios = publicApiKomuto()
   return axios.post('users/login', {
@@ -81,6 +88,7 @@ function getProfile (action) {
 export {
   login,
   loginSocial,
+  verification,
   register,
   forgetPassword,
   newPassword,

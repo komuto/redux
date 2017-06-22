@@ -12,6 +12,7 @@ const error = {
 function * register (action) {
   try {
     const {data} = yield userApi.register(action)
+    yield localStorage.setItem('token', data.data.token)
     yield put({ type: userActions.USER_REGISTER_SUCCESS, ...data })
   } catch (e) {
     const data = e.response
@@ -38,6 +39,22 @@ function * login (action) {
       yield put({ type: userActions.USER_LOGIN_FAILURE, ...data })
     } else {
       yield put({ type: userActions.USER_LOGIN_FAILURE, ...error })
+    }
+  }
+}
+
+function* verify (action) {
+  try {
+    const {data} = yield userApi.verification(action)
+    yield put({ type: userActions.USER_VERIFICATION_SUCCESS, ...data })
+  } catch (e) {
+    const data = e.response
+    if (data !== undefined) {
+      const {data} = e.response
+      data.isOnline = true
+      yield put({ type: userActions.USER_VERIFICATION_FAILURE, ...data })
+    } else {
+      yield put({ type: userActions.USER_VERIFICATION_FAILURE, ...error })
     }
   }
 }
@@ -110,6 +127,7 @@ function* getProfile (action) {
 export {
   login,
   register,
+  verify,
   forgetPassword,
   loginSocial,
   newPassword,
