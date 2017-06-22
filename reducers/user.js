@@ -115,7 +115,7 @@ function getProfile (state = initProfile, action) {
       return {
         ...state,
         verifyStatus: action.data.status,
-        user: action.data,
+        user: action.data.user,
         message: action.message,
         status: action.code,
         isLoading: false,
