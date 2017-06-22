@@ -43,6 +43,22 @@ function * login (action) {
   }
 }
 
+function* validateToken (action) {
+  try {
+    const {data} = yield userApi.validateToken(action)
+    yield put({ type: userActions.VALIDATE_TOKENFORGETPASSWORD_SUCCESS, ...data })
+  } catch (e) {
+    const data = e.response
+    if (data !== undefined) {
+      const {data} = e.response
+      data.isOnline = true
+      yield put({ type: userActions.VALIDATE_TOKENFORGETPASSWORD_FAILURE, ...data })
+    } else {
+      yield put({ type: userActions.VALIDATE_TOKENFORGETPASSWORD_FAILURE, ...error })
+    }
+  }
+}
+
 function* logout (action) {
   try {
     const data = {
@@ -146,6 +162,7 @@ export {
   logout,
   register,
   verify,
+  validateToken,
   forgetPassword,
   loginSocial,
   newPassword,

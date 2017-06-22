@@ -28,6 +28,10 @@ export const GET_PROFILE_REQUEST = 'GET_PROFILE_REQUEST'
 export const GET_PROFILE_SUCCESS = 'GET_PROFILE_SUCCESS'
 export const GET_PROFILE_FAILURE = 'GET_PROFILE_FAILURE'
 
+export const VALIDATE_TOKENFORGETPASSWORD_REQUEST = 'VALIDATE_TOKENFORGETPASSWORD_REQUEST'
+export const VALIDATE_TOKENFORGETPASSWORD_SUCCESS = 'VALIDATE_TOKENFORGETPASSWORD_SUCCESS'
+export const VALIDATE_TOKENFORGETPASSWORD_FAILURE = 'VALIDATE_TOKENFORGETPASSWORD_FAILURE'
+
 export const IS_LOGIN = 'IS_LOGIN'
 
 function register (params) {
@@ -92,6 +96,13 @@ function stateLogin (params) {
   }
 }
 
+function validateToken (params) {
+  return {
+    type: VALIDATE_TOKENFORGETPASSWORD_REQUEST,
+    ...params
+  }
+}
+
 export {
   register,
   verification,
@@ -101,5 +112,6 @@ export {
   getProfile,
   loginSocial,
   forgetPassword,
-  stateLogin
+  stateLogin,
+  validateToken
 }

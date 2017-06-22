@@ -12,6 +12,14 @@ const initUser = {
   isFound: false
 }
 
+const initValidate = {
+  message: '',
+  status: 0,
+  isLoading: false,
+  isFoung: false,
+  isOnline: true
+}
+
 const initProfile = {
   message: '',
   status: 0,
@@ -126,6 +134,13 @@ function auth (state = initUser, action) {
         isLoading: false,
         isFound: true
       }
+    default:
+      return state
+  }
+}
+
+function newPassword (state = initVerify, action) {
+  switch (action.type) {
     case actions.USER_NEWPASSWORD_REQUEST:
       return {
         ...state,
@@ -134,9 +149,6 @@ function auth (state = initUser, action) {
     case actions.USER_NEWPASSWORD_SUCCESS:
       return {
         ...state,
-        email: action.data.email,
-        uid: action.data.id,
-        user: action,
         message: action.message,
         status: action.code,
         isLoading: false,
@@ -253,6 +265,35 @@ function register (state = initUser, action) {
       return state
   }
 }
+
+function validateToken (state = initValidate, action) {
+  switch (action.type) {
+    case actions.VALIDATE_TOKENFORGETPASSWORD_REQUEST:
+      return {
+        ...state,
+        isLoading: true
+      }
+    case actions.VALIDATE_TOKENFORGETPASSWORD_SUCCESS:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isFound: true
+      }
+    case actions.VALIDATE_TOKENFORGETPASSWORD_FAILURE:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isOnline: action.isOnline
+      }
+    default:
+      return state
+  }
+}
+
 function forgetPassword (state = initForgetPass, action) {
   switch (action.type) {
     case actions.FORGET_PASSWORD_REQUEST:
@@ -301,6 +342,8 @@ export {
   verify,
   getProfile,
   register,
+  newPassword,
   forgetPassword,
-  isLogin
+  isLogin,
+  validateToken
 }
