@@ -10,9 +10,7 @@ export const LOGIN_SOCIAL_REQUEST = 'LOGIN_SOCIAL_REQUEST'
 export const LOGIN_SOCIAL_SUCCESS = 'LOGIN_SOCIAL_SUCCESS'
 export const LOGIN_SOCIAL_FAILURE = 'LOGIN_SOCIAL_FAILURE'
 
-export const USER_LOGOUT_REQUEST = 'USER_LOGOUT_REQUEST'
-export const USER_LOGOUT_SUCCESS = 'USER_LOGOUT_SUCCESS'
-export const USER_LOGOUT_FAILURE = 'USER_LOGOUT_FAILURE'
+export const USER_LOGOUT = 'USER_LOGOUT'
 
 export const USER_REGISTER_REQUEST = 'USER_REGISTER_REQUEST'
 export const USER_REGISTER_SUCCESS = 'USER_REGISTER_SUCCESS'
@@ -69,7 +67,7 @@ function login (params = {}) {
 
 function logout () {
   return {
-    type: USER_LOGOUT_REQUEST
+    type: USER_LOGOUT
   }
 }
 

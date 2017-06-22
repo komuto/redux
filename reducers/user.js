@@ -82,6 +82,50 @@ function auth (state = initUser, action) {
         isOnline: action.isOnline,
         isFound: false
       }
+    case actions.LOGIN_SOCIAL_REQUEST:
+      return {
+        ...state,
+        email: action.email,
+        token: '',
+        uid: 0,
+        user: {},
+        message: action.message,
+        status: action.code,
+        isLoading: true
+      }
+    case actions.LOGIN_SOCIAL_SUCCESS:
+      return {
+        ...state,
+        email: action.data.email,
+        token: action.data.token,
+        uid: action.data.id,
+        user: action,
+        message: action.message,
+        status: action.code,
+        is_required_password: action.data.is_required_password,
+        isLoading: false,
+        isFound: true
+      }
+    case actions.LOGIN_SOCIAL_FAILURE:
+      return {
+        ...state,
+        email: '',
+        token: '',
+        uid: 0,
+        user: {},
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isOnline: action.isOnline
+      }
+    case actions.USER_LOGOUT_SUCCESS:
+      return {
+        ...state,
+        message: 'User Logout Success',
+        status: 0,
+        isLoading: false,
+        isFound: true
+      }
     case actions.USER_NEWPASSWORD_REQUEST:
       return {
         ...state,
@@ -169,48 +213,6 @@ function getProfile (state = initProfile, action) {
   }
 }
 
-function authSocial (state = initUser, action) {
-  switch (action.type) {
-    case actions.LOGIN_SOCIAL_REQUEST:
-      return {
-        ...state,
-        email: action.email,
-        token: '',
-        uid: 0,
-        user: {},
-        message: action.message,
-        status: action.code,
-        isLoading: true
-      }
-    case actions.LOGIN_SOCIAL_SUCCESS:
-      return {
-        ...state,
-        email: action.data.email,
-        token: action.data.token,
-        uid: action.data.id,
-        user: action,
-        message: action.message,
-        status: action.code,
-        is_required_password: action.data.is_required_password,
-        isLoading: false,
-        isFound: true
-      }
-    case actions.LOGIN_SOCIAL_FAILURE:
-      return {
-        ...state,
-        email: '',
-        token: '',
-        uid: 0,
-        user: {},
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
 function register (state = initUser, action) {
   switch (action.type) {
     case actions.USER_REGISTER_REQUEST:
@@ -282,33 +284,6 @@ function forgetPassword (state = initForgetPass, action) {
   }
 }
 
-function logout (state = initUser, action) {
-  switch (action.type) {
-    case actions.USER_LOGOUT_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case actions.USER_LOGOUT_SUCCESS:
-      return {
-        ...state,
-        message: 'User Logout Success',
-        status: 200,
-        isLoading: false,
-        isFound: true
-      }
-    case actions.USER_LOGOUT_FAILURE:
-      return {
-        ...state,
-        status: 400,
-        message: 'User Logout Failed',
-        isLoading: false
-      }
-    default:
-      return state
-  }
-}
-
 function isLogin (state = initLogin, action) {
   switch (action.type) {
     case actions.IS_LOGIN:
@@ -325,9 +300,7 @@ export {
   auth,
   verify,
   getProfile,
-  authSocial,
   register,
   forgetPassword,
-  isLogin,
-  logout
+  isLogin
 }
