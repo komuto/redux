@@ -22,7 +22,8 @@ const komutoApps = storage.reducer(combineReducers({
   provinces: locationReducers.province,
   districts: locationReducers.district,
   subdistricts: locationReducers.subdistrict,
-  villages: locationReducers.village
+  villages: locationReducers.village,
+  logout: userReducers.logout
 }))
 
 export default komutoApps

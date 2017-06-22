@@ -10,10 +10,10 @@ store.subscribe(function () {
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
 // setTimeout (function () {
-// store.dispatch(user.login({email: 'admin@komuto.com', password: 'admin'}))
+// store.dispatch(user.login({email: 'k.indrabayu@gmail.com', password: 'aku'}))
 // setTimeout(function () {
 //   console.log('ini token', token())
-store.dispatch(user.verification({token: '9d5e51c87294a378b3e8376d0059e012'}))
+// store.dispatch(user.verification({token: '9d5e51c87294a378b3e8376d0059e012'}))
   // store.dispatch(user.getProfile())
 // }, 2000)
 // setTimeout(function (){
@@ -41,3 +41,4 @@ store.dispatch(location.getProvince())
 // store.dispatch(location.getDistrict({province_id: 34}))
 // store.dispatch(location.getSubDistrict({district_id: 3404}))
 // store.dispatch(location.getVillage({sub_district_id: 3404110}))
+store.dispatch(user.logout())

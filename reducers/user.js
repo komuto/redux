@@ -4,7 +4,6 @@ const initUser = {
   email: '',
   token: '',
   uid: '',
-  isLoggedIn: false,
   user: {},
   message: '',
   status: '',
@@ -283,6 +282,33 @@ function forgetPassword (state = initForgetPass, action) {
   }
 }
 
+function logout (state = initUser, action) {
+  switch (action.type) {
+    case actions.USER_LOGOUT_REQUEST:
+      return {
+        ...state,
+        isLoading: true
+      }
+    case actions.USER_LOGOUT_SUCCESS:
+      return {
+        ...state,
+        message: 'User Logout Success',
+        status: 200,
+        isLoading: false,
+        isFound: true
+      }
+    case actions.USER_LOGOUT_FAILURE:
+      return {
+        ...state,
+        status: 400,
+        message: 'User Logout Failed',
+        isLoading: false
+      }
+    default:
+      return state
+  }
+}
+
 function isLogin (state = initLogin, action) {
   switch (action.type) {
     case actions.IS_LOGIN:
@@ -302,5 +328,6 @@ export {
   authSocial,
   register,
   forgetPassword,
-  isLogin
+  isLogin,
+  logout
 }

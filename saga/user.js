@@ -43,6 +43,23 @@ function * login (action) {
   }
 }
 
+function* logout (action) {
+  try {
+    const data = {
+      message: 'USER LOGOUT SUCCESS',
+      code: 200
+    }
+    yield localStorage.removeItem('token')
+    yield put({ type: userActions.USER_LOGOUT_SUCCESS, ...data })
+  } catch (e) {
+    const data = {
+      message: 'USER LOGOUT FAILED',
+      code: 400
+    }
+    yield put({ type: userActions.USER_LOGOUT_FAILURE, ...data })
+  }
+}
+
 function* verify (action) {
   try {
     const {data} = yield userApi.verification(action)
@@ -126,6 +143,7 @@ function* getProfile (action) {
 
 export {
   login,
+  logout,
   register,
   verify,
   forgetPassword,
