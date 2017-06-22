@@ -1,4 +1,4 @@
-import { authApi, authApiKomuto, publicApi, publicApiKomuto } from './api'
+import { authApi, authApiKomuto, publicApiKomuto } from './api'
 
 function register (action) {
   let axios = publicApiKomuto()
@@ -40,7 +40,7 @@ function loginSocial (action) {
 }
 
 function forgetPassword (action) {
-  let axios = publicApi()
+  let axios = publicApiKomuto()
   return axios.post('passwords/forgot', {
     ...action
   })

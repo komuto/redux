@@ -10,7 +10,7 @@ store.subscribe(function () {
 
 // store.dispatch(user.register({name: 'Dev Skyshi', phone_number: '081327', email: 'adilale@skyshi.com', gender: 'L', password: '123456'}))
 // setTimeout (function () {
-store.dispatch(user.login({email: 'admn@komuto.com', password: 'admin'}))
+store.dispatch(user.login({email: 'admin@komuto.com', password: 'admin'}))
 // setTimeout(function (){
     // asik = localStorage.getItem('user')
     // asoy=JSON.parse(asik)
