@@ -114,7 +114,7 @@ function getProfile (state = initProfile, action) {
     case actions.GET_PROFILE_SUCCESS:
       return {
         ...state,
-        verifyStatus: action.data.status,
+        verifyStatus: action.data.user.status,
         user: action.data.user,
         message: action.message,
         status: action.code,

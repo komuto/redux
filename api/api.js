@@ -28,7 +28,7 @@ export function authApiKomuto () {
     baseURL: apiKomuto + '/',
     timeout: 2000
   })
-  api.interceptors.request.use(function (config) {
+  api.interceptors.request.use(config => {
     try {
       const token = localStorage.getItem('token')
       if (token !== null) {
@@ -39,4 +39,5 @@ export function authApiKomuto () {
       config.log('Error with message: ', err)
     }
   })
+  return api
 }
