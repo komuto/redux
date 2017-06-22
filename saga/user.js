@@ -1,6 +1,7 @@
 import { put } from 'redux-saga/effects'
 import * as userActions from '../actions/user'
 import * as userApi from '../api/user'
+import {localStorage} from '../localStorage'
 
 const error = {
   message: 'Your device is offline',
@@ -27,6 +28,7 @@ function * register (action) {
 function * login (action) {
   try {
     const {data} = yield userApi.login(action)
+    yield localStorage.setItem('token', data.data.token)
     yield put({ type: userActions.USER_LOGIN_SUCCESS, ...data })
   } catch (e) {
     const data = e.response
@@ -59,6 +61,7 @@ function * forgetPassword (action) {
 function * loginSocial (action) {
   try {
     const {data} = yield userApi.loginSocial(action)
+    yield localStorage.setItem('token', data.data.token)
     yield put({ type: userActions.LOGIN_SOCIAL_SUCCESS, ...data })
   } catch (e) {
     const data = e.response

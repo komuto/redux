@@ -1,4 +1,4 @@
-import {store, token} from './store'
+import {store} from './store'
 import * as user from './actions/user'
 import * as home from './actions/home'
 import * as brand from './actions/brand'
@@ -11,10 +11,10 @@ store.subscribe(function () {
 // store.dispatch(user.register({name: 'Dev Skyshi', phone_number: '081327', email: 'adilale@skyshi.com', gender: 'L', password: '123456'}))
 // setTimeout (function () {
 store.dispatch(user.login({email: 'admin@komuto.com', password: 'admin'}))
-setTimeout(function () {
-  console.log('ini token', token())
-  store.dispatch(user.getProfile())
-}, 2000)
+// setTimeout(function () {
+//   console.log('ini token', token())
+//   store.dispatch(user.getProfile())
+// }, 2000)
 // setTimeout(function (){
     // asik = localStorage.getItem('user')
     // asoy=JSON.parse(asik)
