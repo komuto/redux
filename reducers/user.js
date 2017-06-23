@@ -75,6 +75,7 @@ function auth (state = initUser, action) {
         message: action.message,
         status: action.code,
         isLoading: false,
+        isOnline: true,
         isFound: true
       }
     case actions.USER_LOGIN_FAILURE:
@@ -112,6 +113,7 @@ function auth (state = initUser, action) {
         status: action.code,
         is_required_password: action.data.is_required_password,
         isLoading: false,
+        isOnline: true,
         isFound: true
       }
     case actions.LOGIN_SOCIAL_FAILURE:
@@ -152,6 +154,7 @@ function newPassword (state = initVerify, action) {
         message: action.message,
         status: action.code,
         isLoading: false,
+        isOnline: true,
         isFound: true
       }
     case actions.USER_NEWPASSWORD_FAILURE:
@@ -180,6 +183,7 @@ function verify (state = initVerify, action) {
         message: action.message,
         status: action.code,
         isLoading: false,
+        isOnline: true,
         isFound: true
       }
     case actions.USER_VERIFICATION_FAILURE:
@@ -210,6 +214,7 @@ function getProfile (state = initProfile, action) {
         message: action.message,
         status: action.code,
         isLoading: false,
+        isOnline: true,
         isFound: true
       }
     case actions.GET_PROFILE_FAILURE:
@@ -247,6 +252,7 @@ function register (state = initUser, action) {
         token: action.data.token,
         message: action.message,
         status: action.code,
+        isOnline: true,
         isLoading: false,
         isFound: true
       }
@@ -279,6 +285,7 @@ function validateToken (state = initValidate, action) {
         ...state,
         message: action.message,
         status: action.code,
+        isOnline: true,
         isLoading: false,
         isFound: true
       }
@@ -311,6 +318,7 @@ function forgetPassword (state = initForgetPass, action) {
         message: action.message,
         status: action.code,
         isLoading: false,
+        isOnline: true,
         isFound: true
       }
     case actions.FORGET_PASSWORD_FAILURE:
