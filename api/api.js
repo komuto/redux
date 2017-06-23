@@ -19,7 +19,7 @@ export function publicApi () {
 export function publicApiKomuto () {
   return axios.create({
     baseURL: apiKomuto + '/',
-    timeout: 2000
+    timeout: 5000
   })
 }
 

@@ -131,8 +131,8 @@ function auth (state = initUser, action) {
     case actions.USER_LOGOUT_SUCCESS:
       return {
         ...state,
-        message: 'User Logout Success',
-        status: 0,
+        message: action.message,
+        status: action.code,
         isLoading: false,
         isFound: true
       }

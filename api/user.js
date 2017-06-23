@@ -92,10 +92,19 @@ function validateToken (action) {
   })
 }
 
+function logout (action) {
+  let data = {
+    message: 'LOGOUT SUCCESS',
+    code: 0
+  }
+  return data
+}
+
 export {
   login,
   loginSocial,
   verification,
+  logout,
   register,
   forgetPassword,
   newPassword,

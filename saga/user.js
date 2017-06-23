@@ -61,10 +61,7 @@ function* validateToken (action) {
 
 function* logout (action) {
   try {
-    const data = {
-      message: 'USER LOGOUT SUCCESS',
-      code: 200
-    }
+    const data = yield userApi.logout(action)
     yield localStorage.removeItem('token')
     yield put({ type: userActions.USER_LOGOUT_SUCCESS, ...data })
   } catch (e) {
