@@ -16,7 +16,7 @@ const initValidate = {
   message: '',
   status: 0,
   isLoading: false,
-  isFoung: false,
+  isFound: false,
   isOnline: true
 }
 
