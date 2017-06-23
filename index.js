@@ -10,14 +10,14 @@ store.subscribe(function () {
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
 // setTimeout (function () {
-store.dispatch(user.login({email: 'k.indrabayu@gmail.com', password: 'komuto'}))
-setTimeout(function () {
+store.dispatch(user.login({email: 'k.indrabayu@gmail.com', password: 'kmuto'}))
+// setTimeout(function () {
 //   console.log('ini token', token())
 // store.dispatch(user.validateToken({token: '9d5e51c87294a378b3e8376d0059e012'}))
 // store.dispatch(user.newPassword({token: '9d5e51c87294a378b3e8376d0059e012', password: 'komuto'}))
 // store.dispatch(user.verification({token: '9d5e51c87294a378b3e8376d0059e012'}))
-  store.dispatch(user.getProfile())
-}, 4000)
+  // store.dispatch(user.getProfile())
+// }, 4000)
 // setTimeout(function (){
     // asik = localStorage.getItem('user')
     // asoy=JSON.parse(asik)
