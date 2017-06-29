@@ -4,6 +4,7 @@ import * as home from './actions/home'
 import * as brand from './actions/brand'
 import * as expedition from './actions/expedition'
 import * as location from './actions/location'
+import * as wishlist from './actions/wishlist'
 store.subscribe(function () {
   console.log(store.getState())
 })
@@ -37,6 +38,7 @@ store.dispatch(home.products())
 // store.dispatch(home.search({query: 'aya'}))
 // store.dispatch(home.categoryList())
 // store.dispatch(home.subCategory({id: 6}))
+store.dispatch(wishlist.wishlist())
 store.dispatch(brand.getBrand())
 store.dispatch(expedition.getExpedition())
 store.dispatch(location.getProvince())
