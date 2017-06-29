@@ -20,9 +20,10 @@ export const SEARCH_PRODUCT_FAILURE = 'SEARCH_PRODUCT_FAILURE'
 
 export const RESET_STATUS_SUBCATEGORY = 'RESET_STATUS_SUBCATEGORY'
 
-function products () {
+function products (params) {
   return {
-    type: HOME_PRODUCT_REQUEST
+    type: HOME_PRODUCT_REQUEST,
+    ...params
   }
 }
 
