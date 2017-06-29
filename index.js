@@ -11,7 +11,7 @@ store.subscribe(function () {
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
 // setTimeout (function () {
-store.dispatch(user.login({email: 'k.indrabayu@gmail.com', password: 'kmuto'}))
+// store.dispatch(user.login({email: 'k.indrabayu@gmail.com', password: 'kmuto'}))
 // setTimeout(function () {
 //   console.log('ini token', token())
 // store.dispatch(user.validateToken({token: '9d5e51c87294a378b3e8376d0059e012'}))
@@ -25,7 +25,7 @@ store.dispatch(user.login({email: 'k.indrabayu@gmail.com', password: 'kmuto'}))
     // console.log(asoy.token)
 // },6000)
 // setTimeout(function (){
-// store.dispatch(user.newPassword({password: "123456789"}))
+store.dispatch(user.newPassword({password: '123456789'}))
 // },6000)
   // store.dispatch(user.stateLogin({login: true}))
   // store.dispatch(user.loginSocial({provider_name: "Facebook", procider_uid: "12345678", access_token: "EAAViKAqZCMswBAM1UqlZBZAFRd6OyX0C5b9VpVU0mO0dKWduiZBRC2BqJ3wvHyKkJqUz53IUkr0RBByiFtWWRFcBtV3ZBUA8vSQCnbVvD76vTzuF75YtixmN5K0v00eN0u5DHfGGasSzUYWAOKYfkXglmL4DMMZB8aspE5bqN57h2sNO5CT8Nwhmz7kfbgZCBIZD"}))
@@ -49,3 +49,4 @@ store.dispatch(location.getProvince())
 // setTimeout(function () {
 // store.dispatch(user.logout())
 // }, 10000)
+
