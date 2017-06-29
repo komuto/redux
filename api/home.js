@@ -67,6 +67,19 @@ function search (action) {
   })
 }
 
+function allCategory (action) {
+  let axios = publicApiKomuto()
+  return axios.get('categories/sub', {
+    ...action
+  })
+  .then(function (data) {
+    return data
+  })
+  .catch(function (err) {
+    throw (err)
+  })
+}
+
 function categoryList (action) {
   let axios = publicApiKomuto()
   return axios.get('categories', {
@@ -96,6 +109,7 @@ function subCategory (action) {
 export {
   product,
   search,
+  allCategory,
   categoryList,
   subCategory
 }
