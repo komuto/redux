@@ -26,7 +26,7 @@ function product (action) {
   let indeksCheck = []
   let i = 0
   for (i = 0; i < check.length; i++) {
-    if (check[i].value !== undefined || check[i].value !== '') {
+    if (check[i].value !== undefined) {
       indeksCheck.push(i)
     }
   }

@@ -49,4 +49,3 @@ store.dispatch(location.getProvince())
 // setTimeout(function () {
 // store.dispatch(user.logout())
 // }, 10000)
-
