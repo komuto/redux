@@ -44,6 +44,7 @@ function * categoryList (action) {
     const {data} = yield homeApi.categoryList(action)
     yield put({ type: homeActions.HOME_CATEGORY_SUCCESS, ...data })
   } catch (e) {
+    console.log(e.response.status)
     yield errorHandling(homeActions.HOME_CATEGORY_FAILURE, e)
   }
 }

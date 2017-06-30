@@ -1,4 +1,4 @@
-import { publicApiKomuto, publicApi } from './api'
+import { publicApiKomuto } from './api'
 
 function product (action) {
   let axios = publicApiKomuto()
@@ -73,7 +73,7 @@ function search (action) {
 }
 
 function allCategory (action) {
-  let axios = publicApi()
+  let axios = publicApiKomuto()
   return axios.get('categories/sub', {
     ...action
   })
