@@ -12,6 +12,15 @@ function * product (action) {
   }
 }
 
+function * filterProduct (action) {
+  try {
+    const {data} = yield homeApi.product(action)
+    yield put({ type: homeActions.FILTER_PRODUCT_SUCCESS, ...data })
+  } catch (e) {
+    yield errorHandling(homeActions.FILTER_PRODUCT_FAILURE, e)
+  }
+}
+
 function * search (action) {
   try {
     const {data} = yield homeApi.search(action)
@@ -52,6 +61,7 @@ export {
   product,
   search,
   allCategory,
+  filterProduct,
   categoryList,
   subCategory
 }
