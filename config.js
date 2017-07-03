@@ -10,8 +10,8 @@ export function errorHandling (actionType, res) {
     isOnline: false
   }
   const errorBadGateway = {
-    message: 'Bad Gateway',
-    code: 502,
+    message: res.response.statusText,
+    code: res.response.status,
     isOnline: true
   }
 
