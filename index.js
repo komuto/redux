@@ -5,13 +5,15 @@ import * as brand from './actions/brand'
 import * as expedition from './actions/expedition'
 import * as location from './actions/location'
 import * as wishlist from './actions/wishlist'
+import * as product from './actions/product'
+import * as review from './actions/review'
 store.subscribe(function () {
   console.log(store.getState())
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
 // setTimeout (function () {
-// store.dispatch(user.login({email: 'k.indrabayu@gmail.com', password: 'kmuto'}))
+// store.dispatch(user.login({email: 'beny@skyshi.com', password: 'komuto'}))
 // setTimeout(function () {
 //   console.log('ini token', token())
 // store.dispatch(user.validateToken({token: '9d5e51c87294a378b3e8376d0059e012'}))
@@ -34,6 +36,7 @@ store.dispatch(user.newPassword({password: '123456789'}))
 // setTimeout (function () {
 //   store.dispatch(user.userAuthentication())
 // },4000)
+store.dispatch(product.getProduct({id: 99}))
 // store.dispatch(home.products())
 // store.dispatch(home.filter({page: 2, size: 6, condition: 'new', price: '500000-1000000'}))
 // store.dispatch(home.search({query: 'aya'}))
@@ -43,8 +46,10 @@ store.dispatch(home.allCategory())
 store.dispatch(wishlist.wishlist())
 store.dispatch(brand.getBrand())
 // store.dispatch(brand.getBrandByCategory({id: 763}))
-// store.dispatch(expedition.getExpedition())
-store.dispatch(expedition.getServices())
+store.dispatch(expedition.getExpedition())
+store.dispatch(review.getReview({id: 9}))
+// store.dispatch(review.addReview({id: 9, review: 'Obatnya manjur ganteng', quality: 4, accuracy: 5}))
+// store.dispatch(expedition.getServices())
 store.dispatch(location.getProvince())
 // store.dispatch(location.getDistrict({province_id: 34}))
 // store.dispatch(location.getSubDistrict({district_id: 3404}))
