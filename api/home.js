@@ -129,7 +129,7 @@ function categoryList (action) {
 
 function subCategory (action) {
   let axios = publicApiKomuto()
-  return axios.get('categories/' + action.id + '/sub-categories', {
+  return axios.get('categories/' + action.id, {
     ...action
   })
   .then(function (data) {
