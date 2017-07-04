@@ -4,15 +4,17 @@ function product (action) {
   let axios = publicApiKomuto()
   let param = ''
   let tempPrice = action.price
-  if (tempPrice[0] === 0 && tempPrice[1] === 0) {
-    tempPrice = ''
-  } else {
-    if (tempPrice[0] === 0) {
-      tempPrice[0] = 50
-      tempPrice = tempPrice[0] + '-' + tempPrice[1]
+  if (tempPrice !== undefined) {
+    if (tempPrice[0] === 0 && tempPrice[1] === 0) {
+      tempPrice = ''
     } else {
-      tempPrice[1] = 1000000000000
-      tempPrice = tempPrice[0] + '-' + tempPrice[1]
+      if (tempPrice[0] === 0) {
+        tempPrice[0] = 50
+        tempPrice = tempPrice[0] + '-' + tempPrice[1]
+      } else {
+        tempPrice[1] = 1000000000000
+        tempPrice = tempPrice[0] + '-' + tempPrice[1]
+      }
     }
   }
   action.price = tempPrice

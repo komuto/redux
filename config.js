@@ -9,11 +9,6 @@ export function errorHandling (actionType, res) {
     code: 'ENOENT',
     isOnline: false
   }
-  const errorBadGateway = {
-    message: res.response.statusText,
-    code: res.response.status,
-    isOnline: true
-  }
 
   const data = res.response
   if (data !== undefined) {
@@ -22,6 +17,11 @@ export function errorHandling (actionType, res) {
       data.isOnline = true
       return put({ type: actionType, ...data })
     } else {
+      let errorBadGateway = {
+        message: res.response.statusText,
+        code: res.response.status,
+        isOnline: true
+      }
       return put({ type: actionType, ...errorBadGateway })
     }
   } else {
