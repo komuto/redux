@@ -17,6 +17,15 @@ function product (action) {
       }
     }
   }
+  if (action.other[0] === undefined) {
+    action.other = undefined
+  }
+  if (action.brands[0] === undefined) {
+    action.brands = undefined
+  }
+  if (action.services[0] === undefined) {
+    action.services = undefined
+  }
   action.price = tempPrice
   let check = [
     {value: action.page, string: 'page'},
