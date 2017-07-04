@@ -22,13 +22,14 @@ function product (action) {
     {value: action.category_id, string: 'category_id'},
     // sort is filled with 'newest', 'cheapest', 'expensive', 'selling'
     {value: action.sort, string: 'sort'},
-    // price is filled with range, e.g. 500-1000
+    // price is filled with array with default value is [0,0] first value is stand for min price
+    // and the second value is stand for max price
     {value: action.price, string: 'price'},
     // condition is filled with 'new' or 'used' or '' for both
     {value: action.condition, string: 'condition'},
-    // other is filled with 'discount', 'verified', 'wholesaler'
+    // other is filled with array and the values are 'discount', 'verified', 'wholesaler'
     {value: action.other, string: 'other'},
-    // brands is filled with number separated by comma if more than one, e.g. 2,5,3
+    // brands is filled with array and id brands as the value
     {value: action.brands, string: 'brands'},
     // services is same with brands
     {value: action.services, string: 'services'},
