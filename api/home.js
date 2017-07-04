@@ -31,7 +31,9 @@ function product (action) {
   //   }
   // }
   check.map(function (obj, index) {
-    if (obj.value !== undefined) {
+    if (obj.value === undefined || obj.value === '') {
+      // do nothing
+    } else {
       indexCheck.push(index)
     }
   })
