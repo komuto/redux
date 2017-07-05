@@ -37,6 +37,7 @@ function * dataSaga () {
   yield takeEvery(brandActions.BRAND_BYCATEGORY_REQUEST, brandSaga.getBrandByCategory)
   yield takeEvery(expeditionActions.GET_EXPEDITION_REQUEST, expeditionSaga.getExpedition)
   yield takeEvery(expeditionActions.GET_EXPEDITIONSERVICES_REQUEST, expeditionSaga.getServices)
+  yield takeEvery(expeditionActions.GET_SHIPPINGCHARGE_REQUEST, expeditionSaga.getShippingCharge)
   yield takeEvery(locationActions.GET_PROVINCE_REQUEST, locationSaga.getProvince)
   yield takeEvery(locationActions.GET_DISTRICT_REQUEST, locationSaga.getDistrict)
   yield takeEvery(locationActions.GET_SUBDISTRICT_REQUEST, locationSaga.getSubDistrict)
