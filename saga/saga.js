@@ -6,6 +6,7 @@ import * as expeditionActions from '../actions/expedition'
 import * as locationActions from '../actions/location'
 import * as productActions from '../actions/product'
 import * as reviewActions from '../actions/review'
+import * as storeActions from '../actions/stores'
 import * as userSaga from './user'
 import * as homeSaga from './home'
 import * as brandSaga from './brand'
@@ -14,6 +15,7 @@ import * as expeditionSaga from './expedition'
 import * as locationSaga from './location'
 import * as productSaga from './product'
 import * as reviewSaga from './review'
+import * as storeSaga from './stores'
 import { takeEvery } from 'redux-saga/effects'
 
 function * dataSaga () {
@@ -45,6 +47,7 @@ function * dataSaga () {
   yield takeEvery(wishlistActions.GET_WISHLIST_REQUEST, wishlistSaga.wishlist)
   yield takeEvery(reviewActions.GET_REVIEW_REQUEST, reviewSaga.getReview)
   yield takeEvery(reviewActions.ADD_REVIEW_REQUEST, reviewSaga.addReview)
+  yield takeEvery(storeActions.GET_STORE_REQUEST, storeSaga.getStores)
 }
 
 export default dataSaga

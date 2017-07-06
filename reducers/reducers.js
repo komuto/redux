@@ -8,6 +8,7 @@ import * as productReducers from './product'
 import * as expeditionReducers from './expedition'
 import * as locationReducers from './location'
 import * as reviewReducers from './review'
+import * as storeReducers from './stores'
 
 const komutoApps = storage.reducer(combineReducers({
   user: userReducers.auth,
@@ -36,7 +37,8 @@ const komutoApps = storage.reducer(combineReducers({
   wishlist: wishlistReducers.wishlist,
   productDetail: productReducers.getProduct,
   review: reviewReducers.getReview,
-  addReview: reviewReducers.addReview
+  addReview: reviewReducers.addReview,
+  stores: storeReducers.stores
 }))
 
 export default komutoApps

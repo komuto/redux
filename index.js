@@ -7,6 +7,7 @@ import * as location from './actions/location'
 import * as wishlist from './actions/wishlist'
 import * as product from './actions/product'
 import * as review from './actions/review'
+import * as stores from './actions/stores'
 store.subscribe(function () {
   console.log(store.getState())
 })
@@ -43,14 +44,15 @@ store.dispatch(home.products())
 // store.dispatch(home.allCategory())
 // store.dispatch(home.categoryList())
 // store.dispatch(home.subCategory({id: 6}))
+store.dispatch(stores.getStores({id: 41}))
 store.dispatch(wishlist.wishlist())
 store.dispatch(brand.getBrand())
 // store.dispatch(brand.getBrandByCategory({id: 763}))
 store.dispatch(expedition.getExpedition())
 store.dispatch(review.getReview({id: 9}))
 // store.dispatch(review.addReview({id: 9, review: 'Obatnya manjur ganteng', quality: 4, accuracy: 5}))
-store.dispatch(expedition.getServices())
-store.dispatch(expedition.getShippingCharge({id: 2, weight: 1700, origin_ro_id: 501, destination_ro_id: 62}))
+// store.dispatch(expedition.getServices())
+// store.dispatch(expedition.getShippingCharge({id: 2, weight: 1700, origin_ro_id: 501, destination_ro_id: 62}))
 store.dispatch(location.getProvince())
 // store.dispatch(location.getDistrict({province_id: 34}))
 // store.dispatch(location.getSubDistrict({district_id: 3404}))
