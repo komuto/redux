@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 import * as storage from 'redux-storage'
 import * as userReducers from './user'
+import * as emailReducers from './email'
 import * as homeReducers from './home'
 import * as wishlistReducers from './wishlist'
 import * as brandReducers from './brand'
@@ -9,10 +10,12 @@ import * as expeditionReducers from './expedition'
 import * as locationReducers from './location'
 import * as reviewReducers from './review'
 import * as storeReducers from './stores'
+import * as addressReducers from './address'
 
 const komutoApps = storage.reducer(combineReducers({
   user: userReducers.auth,
   verification: userReducers.verify,
+  emailCheck: emailReducers.checkEmail,
   validation: userReducers.validateToken,
   newPassword: userReducers.newPassword,
   profile: userReducers.getProfile,
@@ -38,9 +41,12 @@ const komutoApps = storage.reducer(combineReducers({
   villages: locationReducers.village,
   wishlist: wishlistReducers.wishlist,
   productDetail: productReducers.getProduct,
+  productByCategory: productReducers.productByCategory,
+  productBySearch: productReducers.productBySearch,
   review: reviewReducers.getReview,
   addReview: reviewReducers.addReview,
-  stores: storeReducers.stores
+  stores: storeReducers.stores,
+  address: addressReducers.address
 }))
 
 export default komutoApps
