@@ -8,6 +8,7 @@ function * addAddress (action) {
     const {data} = yield apis.addAddress(action)
     yield put({ type: actions.ADD_ADDRESS_SUCCESS, ...data })
   } catch (e) {
+    console.log(e)
     yield errorHandling(actions.ADD_ADDRESS_FAILURE, e)
   }
 }

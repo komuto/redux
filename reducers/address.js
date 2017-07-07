@@ -1,7 +1,7 @@
 import * as actions from '../actions/address'
 
 const initAddress = {
-  address: [],
+  address: '',
   message: '',
   status: 0,
   isLoading: false,
@@ -14,31 +14,31 @@ function address (state = initAddress, action) {
     case actions.ADD_ADDRESS_REQUEST:
       return {
         ...state,
-        address: [],
+        address: '',
         isLoading: true
       }
     case actions.UPDATE_ADDRESS_REQUEST:
       return {
         ...state,
-        address: [],
+        address: '',
         isLoading: true
       }
     case actions.DELETE_ADDRESS_REQUEST:
       return {
         ...state,
-        address: [],
+        address: '',
         isLoading: true
       }
     case actions.GET_ADDRESSDETAIL_REQUEST:
       return {
         ...state,
-        address: [],
+        address: '',
         isLoading: true
       }
     case actions.GET_LISTADDRESS_REQUEST:
       return {
         ...state,
-        address: [],
+        address: '',
         isLoading: true
       }
     case actions.RESET_STATUS_ADDRESS:

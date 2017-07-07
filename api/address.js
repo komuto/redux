@@ -28,8 +28,10 @@ function updateAddress (action) {
 
 function deleteAddress (action) {
   let axios = authApiKomuto()
-  return axios.delete('users/addresses/' + action.id, {
-    ...action
+  return axios({
+    method: 'delete',
+    url: 'users/addresses/' + action.id,
+    data: {}
   })
   .then(function (data) {
     return data
