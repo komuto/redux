@@ -84,6 +84,15 @@ function * newPassword (action) {
   }
 }
 
+function * changePassword (action) {
+  try {
+    const {data} = yield userApi.changePassword(action)
+    yield put({ type: userActions.CHANGE_PASSWORD_SUCCESS, ...data })
+  } catch (e) {
+    yield errorHandling(userActions.CHANGE_PASSWORD_FAILURE, e)
+  }
+}
+
 function* getProfile (action) {
   try {
     const {data} = yield userApi.getProfile(action)
@@ -124,6 +133,7 @@ export {
   forgetPassword,
   loginSocial,
   newPassword,
+  changePassword,
   getProfile,
   getBalance,
   updateProfile

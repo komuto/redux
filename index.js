@@ -48,32 +48,38 @@ store.dispatch(email.checkEmail({email: 'beny@skyshi.com'}))
   // store.dispatch(user.forgetPassword({email: 'admin@komuto.com'}))
 // }, 3000)
 // setTimeout (function () {
-//   store.dispatch(user.userAuthentication())
+store.dispatch(user.userAuthentication())
+// store.dispatch(user.changePassword({
+//    email: 'testregister@skyshi.com',
+//    password: 'testkomuto',
+//    old_password: 'komuto',
+//   password_confirmation: 'testkomuto'
+// }))
 // },4000)
 store.dispatch(product.getProduct({id: 99}))
-// store.dispatch(home.products())
+store.dispatch(home.products())
 // store.dispatch(product.listProductByCategory({category_id: 120}))
 // store.dispatch(product.listProductBySearch({query: 'a'}))
 // store.dispatch(home.filter({page: 2, size: 6, condition: 'new', price: [50, 0]}))
 // store.dispatch(home.search({query: 'aya'}))
-store.dispatch(home.allCategory())
+// store.dispatch(home.allCategory())
 // store.dispatch(home.categoryList())
 // store.dispatch(home.subCategory({id: 6}))
 store.dispatch(stores.getStores({id: 41}))
 store.dispatch(wishlist.wishlist())
 store.dispatch(brand.getBrand())
 // store.dispatch(brand.getBrandByCategory({id: 763}))
-// store.dispatch(expedition.getExpedition())
+store.dispatch(expedition.getExpedition())
 store.dispatch(review.getReview({id: 9}))
 // store.dispatch(review.addReview({id: 9, review: 'Obatnya manjur ganteng', quality: 4, accuracy: 5}))
-store.dispatch(expedition.getServices())
+// store.dispatch(expedition.getServices())
 // store.dispatch(expedition.getShippingCharge({id: 2, weight: 1700, origin_ro_id: 501, destination_ro_id: 62}))
 store.dispatch(location.getProvince())
 // store.dispatch(location.getDistrict({province_id: 34}))
 // store.dispatch(location.getSubDistrict({district_id: 3404}))
 // store.dispatch(location.getVillage({sub_district_id: 3404110}))
 // setTimeout(function () {
-store.dispatch(user.logout())
+// store.dispatch(user.logout())
 // }, 10000)
 
 // store.dispatch(address.addAddress({
@@ -94,9 +100,12 @@ store.dispatch(user.logout())
 //   village_id: 3404050003,
 //   is_primary: true})
 // )
-// store.dispatch(address.deleteAddress({id: 267}))
-store.dispatch(address.getListAddress())
+store.dispatch(address.deleteAddress({id: 267}))
+// store.dispatch(address.getListAddress())
 // store.dispatch(address.getAddressDetail({id: 267}))
 
 store.dispatch(bank.getBank({id: 1}))
 // store.dispatch(bank.listBank())
+
+// store.dispatch(stores.storeExpeditionList())
+// store.dispatch(stores.storeExpeditionManage())
