@@ -102,6 +102,24 @@ function* getProfile (action) {
   }
 }
 
+function* getProfileManage (action) {
+  try {
+    const {data} = yield userApi.getProfileManage(action)
+    yield put({ type: userActions.GET_PROFILEMANAGE_SUCCESS, ...data })
+  } catch (e) {
+    yield errorHandling(userActions.GET_PROFILEMANAGE_FAILURE, e)
+  }
+}
+
+function* getPhone (action) {
+  try {
+    const {data} = yield userApi.getPhone(action)
+    yield put({ type: userActions.GET_PHONE_SUCCESS, ...data })
+  } catch (e) {
+    yield errorHandling(userActions.GET_PHONE_FAILURE, e)
+  }
+}
+
 function * updateProfile (action) {
   // console.log(action)
   try {
@@ -153,7 +171,9 @@ export {
   newPassword,
   changePassword,
   getProfile,
+  getProfileManage,
   getBalance,
+  getPhone,
   updateProfile,
   favoriteStore,
   countBucket

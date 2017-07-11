@@ -104,6 +104,19 @@ function getProfile (action) {
   })
 }
 
+function getProfileManage (action) {
+  let axios = authApiKomuto()
+  return axios.get('accounts/profile', {
+    ...action
+  })
+  .then(function (data) {
+    return data
+  })
+  .catch(function (err) {
+    throw (err)
+  })
+}
+
 function validateToken (action) {
   let axios = publicApiKomuto()
   return axios.get('passwords/new?token=' + action.token, {
@@ -141,8 +154,8 @@ function updateProfile (action) {
     let timeStamp = new Date(tempDate).getTime() / 1000
     action.date_of_birth = timeStamp
   }
-  console.log(action.date_of_birth)
-  return axios.put('users', {
+  // console.log(action.date_of_birth)
+  return axios.put('accounts/profile', {
     ...action
   })
   .then(function (data) {
@@ -179,6 +192,19 @@ function countBucket (action) {
   })
 }
 
+function getPhone (action) {
+  let axios = authApiKomuto()
+  return axios.get('accounts/phone', {
+    ...action
+  })
+  .then(function (data) {
+    return data
+  })
+  .catch(function (err) {
+    return (err)
+  })
+}
+
 function logout (action) {
   let data = {
     message: 'LOGOUT SUCCESS',
@@ -201,5 +227,7 @@ export {
   getBalance,
   updateProfile,
   favoriteStore,
-  countBucket
+  countBucket,
+  getProfileManage,
+  getPhone
 }

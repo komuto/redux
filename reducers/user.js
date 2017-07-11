@@ -38,6 +38,15 @@ const initGetBalance = {
   isOnline: true
 }
 
+const initGetPhone = {
+  phone: '',
+  message: '',
+  status: 0,
+  isLoading: false,
+  isFound: false,
+  isOnline: true
+}
+
 const initValidate = {
   message: '',
   status: 0,
@@ -232,6 +241,11 @@ function getProfile (state = initProfile, action) {
         ...state,
         isLoading: true
       }
+    case actions.GET_PROFILEMANAGE_REQUEST:
+      return {
+        ...state,
+        isLoading: true
+      }
     case actions.GET_PROFILE_SUCCESS:
       return {
         ...state,
@@ -243,7 +257,26 @@ function getProfile (state = initProfile, action) {
         isOnline: true,
         isFound: true
       }
+    case actions.GET_PROFILEMANAGE_SUCCESS:
+      return {
+        ...state,
+        verifyStatus: action.data.user.status,
+        user: action.data.user,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isOnline: true,
+        isFound: true
+      }
     case actions.GET_PROFILE_FAILURE:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isOnline: action.isOnline
+      }
+    case actions.GET_PROFILEMANAGE_FAILURE:
       return {
         ...state,
         message: action.message,
@@ -524,6 +557,37 @@ function countBucket (state = initBucket, action) {
   }
 }
 
+function getPhone (state = initGetPhone, action) {
+  switch (action.type) {
+    case actions.GET_PHONE_REQUEST:
+      return {
+        ...state,
+        isLoading: true
+      }
+    case actions.GET_PHONE_SUCCESS:
+      return {
+        ...state,
+        phone: action.data.phone_number,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isFound: true,
+        isOnline: true
+      }
+    case actions.GET_PHONE_FAILURE:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isFound: false,
+        isOnline: action.isOnline
+      }
+    default:
+      return state
+  }
+}
+
 export {
   auth,
   verify,
@@ -537,5 +601,6 @@ export {
   getBalance,
   updateProfile,
   favoriteStore,
-  countBucket
+  countBucket,
+  getPhone
 }

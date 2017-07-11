@@ -34,6 +34,10 @@ export const GET_PROFILE_REQUEST = 'GET_PROFILE_REQUEST'
 export const GET_PROFILE_SUCCESS = 'GET_PROFILE_SUCCESS'
 export const GET_PROFILE_FAILURE = 'GET_PROFILE_FAILURE'
 
+export const GET_PROFILEMANAGE_REQUEST = 'GET_PROFILEMANAGE_REQUEST'
+export const GET_PROFILEMANAGE_SUCCESS = 'GET_PROFILEMANAGE_SUCCESS'
+export const GET_PROFILEMANAGE_FAILURE = 'GET_PROFILEMANAGE_FAILURE'
+
 export const UPDATE_PROFILE_REQUEST = 'UPDATE_PROFILE_REQUEST'
 export const UPDATE_PROFILE_SUCCESS = 'UPDATE_PROFILE_SUCCESS'
 export const UPDATE_PROFILE_FAILURE = 'UPDATE_PROFILE_FAILURE'
@@ -53,6 +57,10 @@ export const FAVORITE_STORE_FAILURE = 'FAVORITE_STORE_FAILURE'
 export const COUNT_BUCKET_REQUEST = 'COUNT_BUCKET_REQUEST'
 export const COUNT_BUCKET_SUCCESS = 'COUNT_BUCKET_SUCCESS'
 export const COUNT_BUCKET_FAILURE = 'COUNT_BUCKET_FAILURE'
+
+export const GET_PHONE_REQUEST = 'GET_PHONE_REQUEST'
+export const GET_PHONE_SUCCESS = 'GET_PHONE_SUCCESS'
+export const GET_PHONE_FAILURE = 'GET_PHONE_FAILURE'
 
 export const IS_LOGIN = 'IS_LOGIN'
 
@@ -88,6 +96,12 @@ function getProfile (params) {
   return {
     type: GET_PROFILE_REQUEST,
     ...params
+  }
+}
+
+function getProfileManage () {
+  return {
+    type: GET_PROFILEMANAGE_REQUEST
   }
 }
 
@@ -158,6 +172,12 @@ function countBucket () {
   }
 }
 
+function getPhone () {
+  return {
+    type: GET_PHONE_REQUEST
+  }
+}
+
 export {
   register,
   verification,
@@ -166,6 +186,7 @@ export {
   newPassword,
   changePassword,
   getProfile,
+  getProfileManage,
   loginSocial,
   forgetPassword,
   stateLogin,
@@ -173,5 +194,6 @@ export {
   getBalance,
   updateProfile,
   favoriteStore,
-  countBucket
+  countBucket,
+  getPhone
 }
