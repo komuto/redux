@@ -23,6 +23,28 @@ export function publicApiKomuto () {
   })
 }
 
+export function uploadApi () {
+  const api = axios.create({
+    baseURL: apiKomuto + '/',
+    headers: {
+      'Accept': 'application/json',
+      'enctype': 'multipart/form-data'
+    }
+  })
+  api.interceptors.request.use(config => {
+    try {
+      const token = localStorage.getItem('token')
+      if (token !== null) {
+        config.headers['Authorization'] = 'JWT ' + token
+      }
+      return config
+    } catch (err) {
+      config.log('Error with message: ', err)
+    }
+  })
+  return api
+}
+
 export function authApiKomuto () {
   const api = axios.create({
     baseURL: apiKomuto + '/',
