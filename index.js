@@ -72,7 +72,26 @@ store.dispatch(stores.getStores({id: 41}))
 store.dispatch(wishlist.wishlist())
 store.dispatch(brand.getBrand())
 // store.dispatch(brand.getBrandByCategory({id: 763}))
-store.dispatch(expedition.getExpedition())
+// store.dispatch(expedition.getExpedition())
+store.dispatch(expedition.updateExpedition({data:
+[
+  {
+    expedition_service_id: 1,
+    status: '1'
+  },
+  {
+    expedition_service_id: 2,
+    status: '0'
+  },
+  {
+    expedition_service_id: 3,
+    status: '0'
+  },
+  {
+    expedition_service_id: 5,
+    status: '1'
+  }
+]}))
 store.dispatch(review.getReview({id: 9}))
 // store.dispatch(review.listReviewPagination({id: 9, page: 1, limit: 4}))
 // store.dispatch(review.addReview({id: 9, review: 'Obatnya manjur ganteng', quality: 4, accuracy: 5}))

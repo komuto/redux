@@ -39,6 +39,7 @@ const komutoApps = storage.reducer(combineReducers({
   expeditions: expeditionReducers.expedition,
   expeditionServices: expeditionReducers.expeditionServices,
   shippingCharges: expeditionReducers.shippingCharge,
+  updateExpedition: expeditionReducers.updateExpediton,
   provinces: locationReducers.province,
   districts: locationReducers.district,
   subdistricts: locationReducers.subdistrict,
