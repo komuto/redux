@@ -23,7 +23,8 @@ store.subscribe(function () {
 // store.dispatch(user.validateToken({token: '9d5e51c87294a378b3e8376d0059e012'}))
 // store.dispatch(user.newPassword({token: '9d5e51c87294a378b3e8376d0059e012', password: 'komuto'}))
 // store.dispatch(user.verification({token: '9d5e51c87294a378b3e8376d0059e012'}))
-store.dispatch(user.favoriteStore({id: 2}))
+// store.dispatch(user.favoriteStore({id: 2}))
+store.dispatch(user.countBucket())
   // store.dispatch(user.getProfile())
 store.dispatch(email.checkEmail({email: 'beny@skyshi.com'}))
 // store.dispatch(user.updateProfile({

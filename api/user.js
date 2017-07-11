@@ -166,6 +166,19 @@ function favoriteStore (action) {
   })
 }
 
+function countBucket (action) {
+  let axios = authApiKomuto()
+  return axios.get('buckets/count', {
+    ...action
+  })
+  .then(function (data) {
+    return data
+  })
+  .catch(function (err) {
+    throw (err)
+  })
+}
+
 function logout (action) {
   let data = {
     message: 'LOGOUT SUCCESS',
@@ -187,5 +200,6 @@ export {
   validateToken,
   getBalance,
   updateProfile,
-  favoriteStore
+  favoriteStore,
+  countBucket
 }

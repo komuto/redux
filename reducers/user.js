@@ -20,6 +20,15 @@ const initUpdate = {
   isOnline: true
 }
 
+const initBucket = {
+  count: 0,
+  message: '',
+  status: 0,
+  isLoading: false,
+  isFound: false,
+  isOnline: true
+}
+
 const initGetBalance = {
   balance: 0,
   message: '',
@@ -484,6 +493,37 @@ function favoriteStore (state = initUpdate, action) {
   }
 }
 
+function countBucket (state = initBucket, action) {
+  switch (action.type) {
+    case actions.COUNT_BUCKET_REQUEST:
+      return {
+        ...state,
+        isLoading: true
+      }
+    case actions.COUNT_BUCKET_SUCCESS:
+      return {
+        ...state,
+        count: action.data.count,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isFound: true,
+        isOnline: true
+      }
+    case actions.COUNT_BUCKET_FAILURE:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isFound: false,
+        isOnline: action.isOnline
+      }
+    default:
+      return state
+  }
+}
+
 export {
   auth,
   verify,
@@ -496,5 +536,6 @@ export {
   validateToken,
   getBalance,
   updateProfile,
-  favoriteStore
+  favoriteStore,
+  countBucket
 }

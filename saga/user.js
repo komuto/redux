@@ -133,6 +133,15 @@ function * favoriteStore (action) {
   }
 }
 
+function * countBucket (action) {
+  try {
+    const {data} = yield userApi.countBucket(action)
+    yield put({ type: userActions.COUNT_BUCKET_SUCCESS, ...data })
+  } catch (e) {
+    yield errorHandling(userActions.COUNT_BUCKET_FAILURE, e)
+  }
+}
+
 export {
   login,
   logout,
@@ -146,5 +155,6 @@ export {
   getProfile,
   getBalance,
   updateProfile,
-  favoriteStore
+  favoriteStore,
+  countBucket
 }

@@ -50,6 +50,10 @@ export const FAVORITE_STORE_REQUEST = 'FAVORITE_STORE_REQUEST'
 export const FAVORITE_STORE_SUCCESS = 'FAVORITE_STORE_SUCCESS'
 export const FAVORITE_STORE_FAILURE = 'FAVORITE_STORE_FAILURE'
 
+export const COUNT_BUCKET_REQUEST = 'COUNT_BUCKET_REQUEST'
+export const COUNT_BUCKET_SUCCESS = 'COUNT_BUCKET_SUCCESS'
+export const COUNT_BUCKET_FAILURE = 'COUNT_BUCKET_FAILURE'
+
 export const IS_LOGIN = 'IS_LOGIN'
 
 function register (params) {
@@ -148,6 +152,12 @@ function favoriteStore (params) {
   }
 }
 
+function countBucket () {
+  return {
+    type: COUNT_BUCKET_REQUEST
+  }
+}
+
 export {
   register,
   verification,
@@ -162,5 +172,6 @@ export {
   validateToken,
   getBalance,
   updateProfile,
-  favoriteStore
+  favoriteStore,
+  countBucket
 }

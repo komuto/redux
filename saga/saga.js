@@ -38,6 +38,7 @@ function * dataSaga () {
   yield takeEvery(userActions.CHANGE_PASSWORD_REQUEST, userSaga.changePassword)
   yield takeEvery(userActions.FAVORITE_STORE_REQUEST, userSaga.favoriteStore)
   yield takeEvery(userActions.USER_BALANCE_REQUEST, userSaga.getBalance)
+  yield takeEvery(userActions.COUNT_BUCKET_REQUEST, userSaga.countBucket)
   yield takeEvery(emailActions.CHECK_EMAILVALIDITY_REQUEST, emailSaga.checkEmail)
   yield takeEvery(productActions.GET_PRODUCT_REQUEST, productSaga.getProduct)
   yield takeEvery(productActions.LIST_PRODUCTBYCATEGORY_REQUEST, productSaga.productByCategory)
