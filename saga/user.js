@@ -120,6 +120,15 @@ function* getPhone (action) {
   }
 }
 
+function* updatePhone (action) {
+  try {
+    const {data} = yield userApi.updatePhone(action)
+    yield put({ type: userActions.UPDATE_PHONE_SUCCESS, ...data })
+  } catch (e) {
+    yield errorHandling(userActions.UPDATE_PHONE_FAILURE, e)
+  }
+}
+
 function * updateProfile (action) {
   // console.log(action)
   try {
@@ -174,6 +183,7 @@ export {
   getProfileManage,
   getBalance,
   getPhone,
+  updatePhone,
   updateProfile,
   favoriteStore,
   countBucket

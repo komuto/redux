@@ -62,6 +62,10 @@ export const GET_PHONE_REQUEST = 'GET_PHONE_REQUEST'
 export const GET_PHONE_SUCCESS = 'GET_PHONE_SUCCESS'
 export const GET_PHONE_FAILURE = 'GET_PHONE_FAILURE'
 
+export const UPDATE_PHONE_REQUEST = 'UPDATE_PHONE_REQUEST'
+export const UPDATE_PHONE_SUCCESS = 'UPDATE_PHONE_SUCCESS'
+export const UPDATE_PHONE_FAILURE = 'UPDATE_PHONE_FAILURE'
+
 export const IS_LOGIN = 'IS_LOGIN'
 
 function register (params) {
@@ -178,6 +182,13 @@ function getPhone () {
   }
 }
 
+function updatePhone (params) {
+  return {
+    type: UPDATE_PHONE_REQUEST,
+    ...params
+  }
+}
+
 export {
   register,
   verification,
@@ -195,5 +206,6 @@ export {
   updateProfile,
   favoriteStore,
   countBucket,
-  getPhone
+  getPhone,
+  updatePhone
 }

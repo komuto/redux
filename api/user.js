@@ -205,6 +205,19 @@ function getPhone (action) {
   })
 }
 
+function updatePhone (action) {
+  let axios = authApiKomuto()
+  return axios.put('accounts/phone', {
+    ...action
+  })
+  .then(function (data) {
+    return data
+  })
+  .catch(function (err) {
+    throw (err)
+  })
+}
+
 function logout (action) {
   let data = {
     message: 'LOGOUT SUCCESS',
@@ -229,5 +242,6 @@ export {
   favoriteStore,
   countBucket,
   getProfileManage,
-  getPhone
+  getPhone,
+  updatePhone
 }

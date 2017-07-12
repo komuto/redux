@@ -588,6 +588,36 @@ function getPhone (state = initGetPhone, action) {
   }
 }
 
+function updatePhone (state = initUpdate, action) {
+  switch (action.type) {
+    case actions.UPDATE_PHONE_REQUEST:
+      return {
+        ...state,
+        isLoading: true
+      }
+    case actions.UPDATE_PHONE_SUCCESS:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isFound: true,
+        isOnline: true
+      }
+    case actions.UPDATE_PHONE_FAILURE:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isFound: false,
+        isOnline: action.isOnline
+      }
+    default:
+      return state
+  }
+}
+
 export {
   auth,
   verify,
@@ -602,5 +632,6 @@ export {
   updateProfile,
   favoriteStore,
   countBucket,
-  getPhone
+  getPhone,
+  updatePhone
 }

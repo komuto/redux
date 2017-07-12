@@ -15,7 +15,13 @@ function getProduct (action) {
 }
 
 function productBy (action) {
-  let axios = publicApiKomuto()
+  let token = localStorage.getItem('token')
+  let axios
+  if (token) {
+    axios = authApiKomuto()
+  } else {
+    axios = publicApiKomuto()
+  }
   let param = ''
   let tempPrice = action.price
   if (tempPrice !== undefined) {
