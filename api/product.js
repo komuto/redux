@@ -2,7 +2,7 @@ import { publicApiKomuto, authApiKomuto } from './api'
 import {localStorage} from '../localStorage'
 
 function getProduct (action) {
-  let token = localStorage.getItem('token')
+  let token = localStorage.get('token')
   let axios
   if (token) {
     axios = authApiKomuto()

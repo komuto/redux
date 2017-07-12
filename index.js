@@ -11,13 +11,14 @@ import * as stores from './actions/stores'
 import * as email from './actions/email'
 import * as address from './actions/address'
 import * as bank from './actions/bank'
+// import {localStorage} from './localStorage'
 store.subscribe(function () {
   console.log(store.getState())
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
 // setTimeout (function () {
-// store.dispatch(user.login({email: 'beny@skyshi.com', password: 'komuto'}))
+store.dispatch(user.login({email: 'k.indrabayu@gmail.com', password: 'asikasik'}))
 // setTimeout(function () {
 //   console.log('ini token', token())
 // store.dispatch(user.validateToken({token: '9d5e51c87294a378b3e8376d0059e012'}))
@@ -25,7 +26,7 @@ store.subscribe(function () {
 // store.dispatch(user.verification({token: '9d5e51c87294a378b3e8376d0059e012'}))
 // store.dispatch(user.favoriteStore({id: 2}))
 // store.dispatch(user.countBucket())
-store.dispatch(user.getPhone())
+// store.dispatch(user.getPhone())
   // store.dispatch(user.getProfile())
 store.dispatch(email.checkEmail({email: 'beny@skyshi.com'}))
 // store.dispatch(user.updateProfile({
@@ -131,4 +132,3 @@ store.dispatch(bank.getBank({id: 1}))
 
 // store.dispatch(stores.storeExpeditionList())
 // store.dispatch(stores.storeExpeditionManage())
-
