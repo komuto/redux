@@ -33,7 +33,7 @@ export function uploadApi () {
   })
   api.interceptors.request.use(config => {
     try {
-      const token = localStorage.get('token')
+      const token = localStorage.getItem('token')
       if (token !== null) {
         config.headers['Authorization'] = 'JWT ' + token
       }
@@ -52,7 +52,7 @@ export function authApiKomuto () {
   })
   api.interceptors.request.use(config => {
     try {
-      const token = localStorage.get('token')
+      const token = localStorage.getItem('token')
       if (token !== null) {
         config.headers['Authorization'] = 'JWT ' + token
       }

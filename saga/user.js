@@ -7,7 +7,7 @@ import { errorHandling } from '../config'
 function * register (action) {
   try {
     const {data} = yield userApi.register(action)
-    yield localStorage.set('token', data.data.token)
+    yield localStorage.setItem('token', data.data.token)
     yield put({ type: userActions.USER_REGISTER_SUCCESS, ...data })
   } catch (e) {
     yield errorHandling(userActions.USER_REGISTER_FAILURE, e)
@@ -17,10 +17,9 @@ function * register (action) {
 function * login (action) {
   try {
     const {data} = yield userApi.login(action)
-    yield localStorage.set('token', data.data.token)
+    yield localStorage.setItem('token', data.data.token)
     yield put({ type: userActions.USER_LOGIN_SUCCESS, ...data })
   } catch (e) {
-    console.log(e)
     yield errorHandling(userActions.USER_LOGIN_FAILURE, e)
   }
 }
@@ -37,7 +36,7 @@ function* validateToken (action) {
 function* logout (action) {
   try {
     const data = yield userApi.logout(action)
-    yield localStorage.remove('token')
+    yield localStorage.removeItem('token')
     yield put({ type: userActions.USER_LOGOUT_SUCCESS, ...data })
   } catch (e) {
     const data = {
@@ -69,7 +68,7 @@ function * forgetPassword (action) {
 function * loginSocial (action) {
   try {
     const {data} = yield userApi.loginSocial(action)
-    yield localStorage.set('token', data.data.token)
+    yield localStorage.setItem('token', data.data.token)
     yield put({ type: userActions.LOGIN_SOCIAL_SUCCESS, ...data })
   } catch (e) {
     yield errorHandling(userActions.LOGIN_SOCIAL_FAILURE, e)
