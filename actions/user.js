@@ -62,6 +62,10 @@ export const GET_BUCKET_REQUEST = 'GET_BUCKET_REQUEST'
 export const GET_BUCKET_SUCCESS = 'GET_BUCKET_SUCCESS'
 export const GET_BUCKET_FAILURE = 'GET_BUCKET_FAILURE'
 
+export const ADDTO_BUCKET_REQUEST = 'ADDTO_BUCKET_REQUEST'
+export const ADDTO_BUCKET_SUCCESS = 'ADDTO_BUCKET_SUCCESS'
+export const ADDTO_BUCKET_FAILURE = 'ADDTO_BUCKET_FAILURE'
+
 export const GET_PHONE_REQUEST = 'GET_PHONE_REQUEST'
 export const GET_PHONE_SUCCESS = 'GET_PHONE_SUCCESS'
 export const GET_PHONE_FAILURE = 'GET_PHONE_FAILURE'
@@ -174,6 +178,13 @@ function favoriteStore (params) {
   }
 }
 
+function addToBucket (params) {
+  return {
+    type: ADDTO_BUCKET_REQUEST,
+    ...params
+  }
+}
+
 function countBucket () {
   return {
     type: COUNT_BUCKET_REQUEST
@@ -215,6 +226,7 @@ export {
   getBalance,
   updateProfile,
   favoriteStore,
+  addToBucket,
   countBucket,
   getBucket,
   getPhone,

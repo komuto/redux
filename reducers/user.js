@@ -535,6 +535,36 @@ function favoriteStore (state = initUpdate, action) {
   }
 }
 
+function addToBucket (state = initUpdate, action) {
+  switch (action.type) {
+    case actions.ADDTO_BUCKET_REQUEST:
+      return {
+        ...state,
+        isLoading: true
+      }
+    case actions.ADDTO_BUCKET_SUCCESS:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isFound: true,
+        isOnline: true
+      }
+    case actions.ADDTO_BUCKET_FAILURE:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isFound: false,
+        isOnline: action.isOnline
+      }
+    default:
+      return state
+  }
+}
+
 function countBucket (state = initBucket, action) {
   switch (action.type) {
     case actions.COUNT_BUCKET_REQUEST:
@@ -671,6 +701,7 @@ export {
   getBalance,
   updateProfile,
   favoriteStore,
+  addToBucket,
   countBucket,
   getBucket,
   getPhone,

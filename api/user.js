@@ -179,6 +179,19 @@ function favoriteStore (action) {
   })
 }
 
+function addToBucket (action) {
+  let axios = authApiKomuto()
+  return axios.post('buckets', {
+    ...action
+  })
+  .then(function (data) {
+    return data
+  })
+  .catch(function (err) {
+    throw (err)
+  })
+}
+
 function countBucket (action) {
   let axios = authApiKomuto()
   return axios.get('buckets/count', {
@@ -253,6 +266,7 @@ export {
   getBalance,
   updateProfile,
   favoriteStore,
+  addToBucket,
   countBucket,
   getBucket,
   getProfileManage,

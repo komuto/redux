@@ -160,6 +160,15 @@ function * favoriteStore (action) {
   }
 }
 
+function * addToBucket (action) {
+  try {
+    const {data} = yield userApi.addToBucket(action)
+    yield put({ type: userActions.ADDTO_BUCKET_SUCCESS, ...data })
+  } catch (e) {
+    yield errorHandling(userActions.ADDTO_BUCKET_FAILURE, e)
+  }
+}
+
 function * countBucket (action) {
   try {
     const {data} = yield userApi.countBucket(action)
@@ -195,6 +204,7 @@ export {
   updatePhone,
   updateProfile,
   favoriteStore,
+  addToBucket,
   countBucket,
   getBucket
 }

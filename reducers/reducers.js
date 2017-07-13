@@ -27,6 +27,7 @@ const komutoApps = storage.reducer(combineReducers({
   isLogin: userReducers.isLogin,
   balance: userReducers.getBalance,
   favorite: userReducers.favoriteStore,
+  addBucket: userReducers.addToBucket,
   buckets: userReducers.getBucket,
   countBucket: userReducers.countBucket,
   phone: userReducers.getPhone,
