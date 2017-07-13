@@ -169,6 +169,15 @@ function * countBucket (action) {
   }
 }
 
+function * getBucket (action) {
+  try {
+    const {data} = yield userApi.getBucket(action)
+    yield put({ type: userActions.GET_BUCKET_SUCCESS, ...data })
+  } catch (e) {
+    yield errorHandling(userActions.GET_BUCKET_FAILURE, e)
+  }
+}
+
 export {
   login,
   logout,
@@ -186,5 +195,6 @@ export {
   updatePhone,
   updateProfile,
   favoriteStore,
-  countBucket
+  countBucket,
+  getBucket
 }

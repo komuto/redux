@@ -29,6 +29,15 @@ const initBucket = {
   isOnline: true
 }
 
+const initGetBucket = {
+  buckets: [],
+  message: '',
+  status: 0,
+  isLoading: false,
+  isFound: false,
+  isOnline: true
+}
+
 const initGetBalance = {
   balance: 0,
   message: '',
@@ -588,6 +597,37 @@ function getPhone (state = initGetPhone, action) {
   }
 }
 
+function getBucket (state = initGetBucket, action) {
+  switch (action.type) {
+    case actions.GET_BUCKET_REQUEST:
+      return {
+        ...state,
+        isLoading: true
+      }
+    case actions.GET_BUCKET_SUCCESS:
+      return {
+        ...state,
+        bukcets: action.data,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isFound: true,
+        isOnline: true
+      }
+    case actions.GET_BUCKET_FAILURE:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isFound: false,
+        isOnline: action.isOnline
+      }
+    default:
+      return state
+  }
+}
+
 function updatePhone (state = initUpdate, action) {
   switch (action.type) {
     case actions.UPDATE_PHONE_REQUEST:
@@ -632,6 +672,7 @@ export {
   updateProfile,
   favoriteStore,
   countBucket,
+  getBucket,
   getPhone,
   updatePhone
 }

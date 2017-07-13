@@ -192,6 +192,19 @@ function countBucket (action) {
   })
 }
 
+function getBucket (action) {
+  let axios = authApiKomuto()
+  return axios.get('users/bucket', {
+    ...action
+  })
+  .then(function (data) {
+    return data
+  })
+  .catch(function (err) {
+    throw (err)
+  })
+}
+
 function getPhone (action) {
   let axios = authApiKomuto()
   return axios.get('accounts/phone', {
@@ -241,6 +254,7 @@ export {
   updateProfile,
   favoriteStore,
   countBucket,
+  getBucket,
   getProfileManage,
   getPhone,
   updatePhone

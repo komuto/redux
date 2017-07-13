@@ -58,6 +58,10 @@ export const COUNT_BUCKET_REQUEST = 'COUNT_BUCKET_REQUEST'
 export const COUNT_BUCKET_SUCCESS = 'COUNT_BUCKET_SUCCESS'
 export const COUNT_BUCKET_FAILURE = 'COUNT_BUCKET_FAILURE'
 
+export const GET_BUCKET_REQUEST = 'GET_BUCKET_REQUEST'
+export const GET_BUCKET_SUCCESS = 'GET_BUCKET_SUCCESS'
+export const GET_BUCKET_FAILURE = 'GET_BUCKET_FAILURE'
+
 export const GET_PHONE_REQUEST = 'GET_PHONE_REQUEST'
 export const GET_PHONE_SUCCESS = 'GET_PHONE_SUCCESS'
 export const GET_PHONE_FAILURE = 'GET_PHONE_FAILURE'
@@ -176,6 +180,12 @@ function countBucket () {
   }
 }
 
+function getBucket () {
+  return {
+    type: GET_BUCKET_REQUEST
+  }
+}
+
 function getPhone () {
   return {
     type: GET_PHONE_REQUEST
@@ -206,6 +216,7 @@ export {
   updateProfile,
   favoriteStore,
   countBucket,
+  getBucket,
   getPhone,
   updatePhone
 }
