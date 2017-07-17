@@ -18,6 +18,24 @@ const initNewDiscussion = {
   isOnline: true
 }
 
+const initComment = {
+  comments: [],
+  message: '',
+  status: '',
+  isLoading: false,
+  isFound: false,
+  isOnline: true
+}
+
+const initNewComment = {
+  comment: {},
+  message: '',
+  status: '',
+  isLoading: false,
+  isFound: false,
+  isOnline: true
+}
+
 const initProduct = {
   products: [],
   message: '',
@@ -275,6 +293,86 @@ function newDiscussion (state = initNewDiscussion, action) {
         isOnline: action.isOnline,
         isFound: false
       }
+    case productActions.NEW_DISCUSSION_RESET:
+      return {
+        ...state,
+        status: 0
+      }
+    default:
+      return state
+  }
+}
+
+function getComment (state = initComment, action) {
+  switch (action.type) {
+    case productActions.GET_COMMENT_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+        message: '',
+        status: 0,
+        isFound: false,
+        isOnline: true
+      }
+    case productActions.GET_COMMENT_SUCCESS:
+      return {
+        ...state,
+        comments: action.data,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isOnline: true,
+        isFound: true
+      }
+    case productActions.GET_COMMENT_FAILURE:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isOnline: action.isOnline,
+        isFound: false
+      }
+    default:
+      return state
+  }
+}
+
+function newComment (state = initNewComment, action) {
+  switch (action.type) {
+    case productActions.NEW_COMMENT_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+        message: '',
+        status: 0,
+        isFound: false,
+        isOnline: true
+      }
+    case productActions.NEW_COMMENT_SUCCESS:
+      return {
+        ...state,
+        comment: action.data,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isOnline: true,
+        isFound: true
+      }
+    case productActions.NEW_COMMENT_FAILURE:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isOnline: action.isOnline,
+        isFound: false
+      }
+    case productActions.NEW_COMMENT_RESET:
+      return {
+        ...state,
+        status: 0
+      }
     default:
       return state
   }
@@ -287,5 +385,7 @@ export {
     addToWishlist,
     addToWishlistHome,
     getDiscussion,
-    newDiscussion
+    newDiscussion,
+    getComment,
+    newComment
 }

@@ -68,6 +68,24 @@ function * newDiscussion (action) {
   }
 }
 
+function * newComment (action) {
+  try {
+    const {data} = yield productApi.newComment(action)
+    yield put({ type: productActions.NEW_COMMENT_SUCCESS, ...data })
+  } catch (e) {
+    yield errorHandling(productActions.NEW_COMMENT_FAILURE, e)
+  }
+}
+
+function * getComment (action) {
+  try {
+    const {data} = yield productApi.getComment(action)
+    yield put({ type: productActions.GET_COMMENT_SUCCESS, ...data })
+  } catch (e) {
+    yield errorHandling(productActions.GET_COMMENT_FAILURE, e)
+  }
+}
+
 export {
     getProduct,
     productByCategory,
@@ -75,5 +93,7 @@ export {
     addToWishlist,
     addToWishlistHome,
     getDiscussion,
-    newDiscussion
+    newDiscussion,
+    newComment,
+    getComment
 }

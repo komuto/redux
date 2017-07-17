@@ -28,6 +28,7 @@ export const GET_DISCUSSION_FAILURE = 'GET_DISCUSSION_FAILURE'
 export const NEW_DISCUSSION_REQUEST = 'NEW_DISCUSSION_REQUEST'
 export const NEW_DISCUSSION_SUCCESS = 'NEW_DISCUSSION_SUCCESS'
 export const NEW_DISCUSSION_FAILURE = 'NEW_DISCUSSION_FAILURE'
+export const NEW_DISCUSSION_RESET = 'NEW_DISCUSSION_RESET'
 
 export const GET_COMMENT_REQUEST = 'GET_COMMENT_REQUEST'
 export const GET_COMMENT_SUCCESS = 'GET_COMMENT_SUCCESS'
@@ -36,6 +37,7 @@ export const GET_COMMENT_FAILURE = 'GET_COMMENT_FAILURE'
 export const NEW_COMMENT_REQUEST = 'NEW_COMMENT_REQUEST'
 export const NEW_COMMENT_SUCCESS = 'NEW_COMMENT_SUCCESS'
 export const NEW_COMMENT_FAILURE = 'NEW_COMMENT_FAILURE'
+export const NEW_COMMENT_RESET = 'NEW_COMMENT_RESET'
 
 function getProduct (params) {
   return {
@@ -104,6 +106,12 @@ function newDiscussion (params) {
   }
 }
 
+function resetDiscussion () {
+  return {
+    type: NEW_DISCUSSION_RESET
+  }
+}
+
 function getComment (params) {
   return {
     type: GET_COMMENT_REQUEST,
@@ -118,6 +126,12 @@ function newComment (params) {
   }
 }
 
+function resetNewComment () {
+  return {
+    type: NEW_COMMENT_RESET
+  }
+}
+
 export {
     getProduct,
     resetDetail,
@@ -129,6 +143,8 @@ export {
     listProductBySearch,
     getDiscussion,
     newDiscussion,
+    resetDiscussion,
     getComment,
-    newComment
+    newComment,
+    resetNewComment
 }

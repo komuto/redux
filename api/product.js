@@ -223,6 +223,19 @@ function getComment (action) {
   })
 }
 
+function newComment (action) {
+  let axios = authApiKomuto()
+  return axios.post('products/' + action.productId + '/discussions/' + action.id + '/comments', {
+    ...action
+  })
+  .then(function (data) {
+    return data
+  })
+  .catch(function (err) {
+    throw (err)
+  })
+}
+
 export {
     getProduct,
     productBy,
@@ -230,5 +243,6 @@ export {
     addToWishlistHome,
     getDiscussion,
     newDiscussion,
-    getComment
+    getComment,
+    newComment
 }
