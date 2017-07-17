@@ -1,6 +1,7 @@
 export const GET_PRODUCT_REQUEST = 'GET_PRODUCT_REQUEST'
 export const GET_PRODUCT_SUCCESS = 'GET_PRODUCT_SUCCESS'
 export const GET_PRODUCT_FAILURE = 'GET_PRODUCT_FAILURE'
+export const GET_PRODUCT_RESET = 'GET_PRODUCT_RESET'
 
 export const LIST_PRODUCTBYCATEGORY_REQUEST = 'LIST_PRODUCTBYCATEGORY_REQUEST'
 export const LIST_PRODUCTBYCATEGORY_SUCCESS = 'LIST_PRODUCTBYCATEGORY_SUCCESS'
@@ -40,6 +41,12 @@ function getProduct (params) {
   return {
     type: GET_PRODUCT_REQUEST,
     ...params
+  }
+}
+
+function resetDetail () {
+  return {
+    type: GET_PRODUCT_RESET
   }
 }
 
@@ -113,6 +120,7 @@ function newComment (params) {
 
 export {
     getProduct,
+    resetDetail,
     addToWishlist,
     addToWishlistHome,
     resetAddToWishlist,

@@ -75,6 +75,11 @@ function getProduct (state = initDetailProduct, action) {
         isOnline: action.isOnline,
         isFound: false
       }
+    case productActions.GET_PRODUCT_RESET:
+      return {
+        ...state,
+        status: 0
+      }
     default:
       return state
   }
