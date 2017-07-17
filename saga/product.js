@@ -50,10 +50,20 @@ function * getDiscussion (action) {
   }
 }
 
+function * newDiscussion (action) {
+  try {
+    const {data} = yield productApi.newDiscussion(action)
+    yield put({ type: productActions.NEW_DISCUSSION_SUCCESS, ...data })
+  } catch (e) {
+    yield errorHandling(productActions.NEW_DISCUSSION_FAILURE, e)
+  }
+}
+
 export {
     getProduct,
     productByCategory,
     productBySearch,
     addToWishlist,
-    getDiscussion
+    getDiscussion,
+    newDiscussion
 }

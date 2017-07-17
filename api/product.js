@@ -161,9 +161,23 @@ function getDiscussion (action) {
   })
 }
 
+function newDiscussion (action) {
+  let axios = authApiKomuto()
+  return axios.post('products/' + action.id + '/discussions', {
+    ...action
+  })
+  .then(function (data) {
+    return data
+  })
+  .catch(function (err) {
+    throw (err)
+  })
+}
+
 export {
     getProduct,
     productBy,
     addToWishlist,
-    getDiscussion
+    getDiscussion,
+    newDiscussion
 }
