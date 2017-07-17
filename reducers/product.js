@@ -37,6 +37,7 @@ const initDiscussion = {
 }
 
 const initAddWishlist = {
+  wishlist: [],
   message: '',
   status: 0,
   isLoading: false,
@@ -149,6 +150,7 @@ function addToWishlist (state = initAddWishlist, action) {
     case productActions.ADDTO_WISHLIST_SUCCESS:
       return {
         ...state,
+        wishlist: action.data,
         message: action.message,
         status: action.code,
         isOnline: true,
