@@ -18,7 +18,7 @@ store.subscribe(function () {
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
 // setTimeout (function () {
-store.dispatch(user.login({email: 'k.indrabayu@gmail.com', password: 'asikasik'}))
+// store.dispatch(user.login({email: 'k.indrabayu@gmail.com', password: 'asikasik'}))
 // setTimeout(function () {
 //   console.log('ini token', token())
 // store.dispatch(user.validateToken({token: '9d5e51c87294a378b3e8376d0059e012'}))
@@ -28,6 +28,7 @@ store.dispatch(user.login({email: 'k.indrabayu@gmail.com', password: 'asikasik'}
 // store.dispatch(user.countBucket())
 // store.dispatch(user.getPhone())
   // store.dispatch(user.getProfile())
+store.dispatch(user.getDiscussion())
 store.dispatch(email.checkEmail({email: 'beny@skyshi.com'}))
 // store.dispatch(user.updateProfile({
   // name: 'Indra Skyshi Baru',
@@ -73,7 +74,7 @@ store.dispatch(stores.getStores({id: 41}))
 store.dispatch(wishlist.wishlist())
 store.dispatch(brand.getBrand())
 // store.dispatch(brand.getBrandByCategory({id: 763}))
-// store.dispatch(expedition.getExpedition())
+store.dispatch(expedition.getExpedition())
 // store.dispatch(expedition.updateExpedition({data:
 // [
 //   {
