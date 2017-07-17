@@ -41,6 +41,15 @@ function * addToWishlist (action) {
   }
 }
 
+function * addToWishlistHome (action) {
+  try {
+    const {data} = yield productApi.addToWishlistHome(action)
+    yield put({ type: productActions.ADDTO_WISHLISTHOME_SUCCESS, ...data })
+  } catch (e) {
+    yield errorHandling(productActions.ADDTO_WISHLISTHOME_FAILURE, e)
+  }
+}
+
 function * getDiscussion (action) {
   try {
     const {data} = yield productApi.getDiscussion(action)
@@ -64,6 +73,7 @@ export {
     productByCategory,
     productBySearch,
     addToWishlist,
+    addToWishlistHome,
     getDiscussion,
     newDiscussion
 }

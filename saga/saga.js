@@ -50,6 +50,7 @@ function * dataSaga () {
   yield takeEvery(productActions.LIST_PRODUCTBYCATEGORY_REQUEST, productSaga.productByCategory)
   yield takeEvery(productActions.LIST_PRODUCTBYSEARCH_REQUEST, productSaga.productBySearch)
   yield takeEvery(productActions.ADDTO_WISHLIST_REQUEST, productSaga.addToWishlist)
+  yield takeEvery(productActions.ADDTO_WISHLISTHOME_REQUEST, productSaga.addToWishlistHome)
   yield takeEvery(productActions.GET_DISCUSSION_REQUEST, productSaga.getDiscussion)
   yield takeEvery(productActions.NEW_DISCUSSION_REQUEST, productSaga.newDiscussion)
   yield takeEvery(homeActions.HOME_PRODUCT_REQUEST, homeSaga.product)

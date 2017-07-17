@@ -175,6 +175,41 @@ function addToWishlist (state = initAddWishlist, action) {
   }
 }
 
+function addToWishlistHome (state = initAddWishlist, action) {
+  switch (action.type) {
+    case productActions.ADDTO_WISHLISTHOME_REQUEST:
+      return {
+        ...state,
+        isLoading: true
+      }
+    case productActions.ADDTO_WISHLISTHOME_SUCCESS:
+      return {
+        ...state,
+        wishlist: action.data,
+        message: action.message,
+        status: action.code,
+        isOnline: true,
+        isLoading: false,
+        isFound: true
+      }
+    case productActions.ADDTO_WISHLISTHOME_FAILURE:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isOnline: action.isOnline
+      }
+    case productActions.ADDTO_WISHLISTHOME_RESET:
+      return {
+        ...state,
+        status: 0
+      }
+    default:
+      return state
+  }
+}
+
 function getDiscussion (state = initDiscussion, action) {
   switch (action.type) {
     case productActions.GET_DISCUSSION_REQUEST:
@@ -245,6 +280,7 @@ export {
     productByCategory,
     productBySearch,
     addToWishlist,
+    addToWishlistHome,
     getDiscussion,
     newDiscussion
 }
