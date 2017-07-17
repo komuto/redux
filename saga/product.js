@@ -41,9 +41,19 @@ function * addToWishlist (action) {
   }
 }
 
+function * getDiscussion (action) {
+  try {
+    const {data} = yield productApi.getDiscussion(action)
+    yield put({ type: productActions.GET_DISCUSSION_SUCCESS, ...data })
+  } catch (e) {
+    yield errorHandling(productActions.GET_DISCUSSION_FAILURE, e)
+  }
+}
+
 export {
     getProduct,
     productByCategory,
     productBySearch,
-    addToWishlist
+    addToWishlist,
+    getDiscussion
 }

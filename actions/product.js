@@ -15,6 +15,10 @@ export const ADDTO_WISHLIST_SUCCESS = 'ADDTO_WISHLIST_SUCCESS'
 export const ADDTO_WISHLIST_FAILURE = 'ADDTO_WISHLIST_FAILURE'
 export const ADDTO_WISHLIST_RESET = 'ADDTO_WISHLIST_RESET'
 
+export const GET_DISCUSSION_REQUEST = 'GET_DISCUSSION_REQUEST'
+export const GET_DISCUSSION_SUCCESS = 'GET_DISCUSSION_SUCCESS'
+export const GET_DISCUSSION_FAILURE = 'GET_DISCUSSION_FAILURE'
+
 function getProduct (params) {
   return {
     type: GET_PRODUCT_REQUEST,
@@ -49,10 +53,18 @@ function listProductBySearch (params) {
   }
 }
 
+function getDiscussion (params) {
+  return {
+    type: GET_DISCUSSION_REQUEST,
+    ...params
+  }
+}
+
 export {
     getProduct,
     addToWishlist,
     resetAddToWishlist,
     listProductByCategory,
-    listProductBySearch
+    listProductBySearch,
+    getDiscussion
 }

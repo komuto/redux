@@ -18,6 +18,15 @@ const initProduct = {
   isFound: false
 }
 
+const initDiscussion = {
+  discussions: [],
+  message: '',
+  status: '',
+  isLoading: false,
+  isFound: false,
+  isOnline: true
+}
+
 const initAddWishlist = {
   message: '',
   status: 0,
@@ -155,9 +164,40 @@ function addToWishlist (state = initAddWishlist, action) {
   }
 }
 
+function getDiscussion (state = initDiscussion, action) {
+  switch (action.type) {
+    case productActions.GET_DISCUSSION_REQUEST:
+      return {
+        ...state,
+        isLoading: true
+      }
+    case productActions.GET_DISCUSSION_SUCCESS:
+      return {
+        ...state,
+        discussions: action.data,
+        message: action.message,
+        status: action.code,
+        isOnline: true,
+        isLoading: false,
+        isFound: true
+      }
+    case productActions.GET_DISCUSSION_FAILURE:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isOnline: action.isOnline
+      }
+    default:
+      return state
+  }
+}
+
 export {
     getProduct,
     productByCategory,
     productBySearch,
-    addToWishlist
+    addToWishlist,
+    getDiscussion
 }
