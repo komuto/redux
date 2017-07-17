@@ -268,7 +268,7 @@ function getProfile (state = initProfile, action) {
       return {
         ...state,
         verifyStatus: action.data.user.status,
-        user: action.data.user,
+        user: action.data,
         message: action.message,
         status: action.code,
         isLoading: false,
@@ -279,7 +279,7 @@ function getProfile (state = initProfile, action) {
       return {
         ...state,
         verifyStatus: action.data.user.status,
-        user: action.data.user,
+        user: action.data,
         message: action.message,
         status: action.code,
         isLoading: false,

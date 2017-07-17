@@ -238,6 +238,7 @@ function getDiscussion (state = initDiscussion, action) {
     case productActions.GET_DISCUSSION_REQUEST:
       return {
         ...state,
+        discussions: [],
         isLoading: true
       }
     case productActions.GET_DISCUSSION_SUCCESS:
@@ -308,6 +309,7 @@ function getComment (state = initComment, action) {
     case productActions.GET_COMMENT_REQUEST:
       return {
         ...state,
+        comments: [],
         isLoading: true,
         message: '',
         status: 0,
