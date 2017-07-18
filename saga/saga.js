@@ -85,6 +85,7 @@ function * dataSaga () {
   yield takeEvery(storeActions.CREATE_STORE_REQUEST, storeSaga.createStore)
   yield takeEvery(storeActions.PHOTO_UPLOAD_REQUEST, storeSaga.photoUpload)
   yield takeEvery(storeActions.STORE_EXPEDITIONLIST_REQUEST, storeSaga.storeExpeditionList)
+  yield takeEvery(storeActions.VERIFY_STORE_REQUEST, storeSaga.verifyStore)
   yield takeEvery(catalogActions.CREATE_CATALOG_REQUEST, catalogSaga.createCatalog)
   yield takeEvery(catalogActions.GET_CATALOG_REQUEST, catalogSaga.getCatalog)
   yield takeEvery(catalogActions.GET_LISTCATALOG_REQUEST, catalogSaga.getListCatalog)

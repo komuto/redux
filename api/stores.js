@@ -107,11 +107,25 @@ function storeUpdateExpedition (action) {
   })
 }
 
+function verifyStore (action) {
+  let axios = authApiKomuto()
+  return axios.post('users/store/verify', {
+    ...action
+  })
+  .then(function (data) {
+    return data
+  })
+  .catch(function (err) {
+    throw (err)
+  })
+}
+
 export {
     getStores,
     createStore,
     photoUpload,
     storeExpeditionList,
     storeExpeditionManage,
-    storeUpdateExpedition
+    storeUpdateExpedition,
+    verifyStore
 }

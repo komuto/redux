@@ -18,6 +18,14 @@ const initExpedition = {
   isOnline: true
 }
 
+const initVerify = {
+  message: '',
+  status: 0,
+  isLoading: false,
+  isFound: false,
+  isOnline: true
+}
+
 const initUpload = {
   payload: [],
   message: '',
@@ -182,10 +190,41 @@ function photoUpload (state = initUpload, action) {
   }
 }
 
+function verifyStore (state = initVerify, action) {
+  switch (action.type) {
+    case storeActions.VERIFY_STORE_REQUEST:
+      return {
+        ...state,
+        isLoading: true
+      }
+    case storeActions.VERIFY_STORE_SUCCESS:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isFound: true,
+        isOnline: true
+      }
+    case storeActions.VERIFY_STORE_FAILURE:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isFound: false,
+        isOnline: action.isOnline
+      }
+    default:
+      return state
+  }
+}
+
 export {
     stores,
     photoUpload,
     createStore,
     expeditionListStore,
-    expeditionStore
+    expeditionStore,
+    verifyStore
 }

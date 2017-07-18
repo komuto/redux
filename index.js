@@ -79,6 +79,39 @@ store.dispatch(wishlist.wishlist())
 store.dispatch(brand.getBrand())
 // store.dispatch(brand.getBrandByCategory({id: 763}))
 store.dispatch(expedition.getExpedition())
+// store.dispatch(stores.createStore({
+//    store: [
+//       'Toko Makmur Abadi Sejahtera',
+//       'Lorem ipsum',
+//       'Lorem ipsum',
+//       'logo.jpg'
+//    ],
+//     expedition_services : [
+//         {
+//             expedition_service_id: 1,
+//             status: 1
+//         },
+//         {
+//             expedition_service_id: 2,
+//             status: 0
+//         }
+//     ],
+//     user: [
+//         '0982390923989',
+//         'Siti Aminah'
+//     ],
+//     address: [
+//         32,
+//         3273,
+//         1111110,
+//         1111110073,
+//         'User skyshi',
+//         'user@skyshi.com',
+//         '081327588531',
+//         '84341',
+//         'Jl. Klamat No. 24 RT. 002 RW. 003'
+//     ]
+// }))
 // store.dispatch(expedition.updateExpedition({data:
 // [
 //   {
@@ -146,4 +179,4 @@ store.dispatch(bank.getBank({id: 1}))
 store.dispatch(catalog.deleteCatalog({id: 83}))
 // store.dispatch(user.listFavorite())
 // store.dispatch(user.sendOTPPhone())
-store.dispatch(user.verifyPhone({code: '87325'}))
+// store.dispatch(user.verifyPhone({code: '87325'}))

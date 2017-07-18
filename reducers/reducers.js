@@ -72,6 +72,7 @@ const komutoApps = storage.reducer(combineReducers({
   createStore: storeReducers.createStore,
   expeditionListStore: storeReducers.expeditionListStore,
   expeditionStore: storeReducers.expeditionStore,
+  verifyStore: storeReducers.verifyStore,
   createCatalog: catalogReducers.createCatalog,
   updateCatalog: catalogReducers.updateCatalog,
   getCatalog: catalogReducers.getDetailCatalog,

@@ -22,6 +22,10 @@ export const PHOTO_UPLOAD_REQUEST = 'PHOTO_UPLOAD_REQUEST'
 export const PHOTO_UPLOAD_SUCCESS = 'PHOTO_UPLOAD_SUCCESS'
 export const PHOTO_UPLOAD_FAILURE = 'PHOTO_UPLOAD_FAILURE'
 
+export const VERIFY_STORE_REQUEST = 'VERIFY_STORE_REQUEST'
+export const VERIFY_STORE_SUCCESS = 'VERIFY_STORE_SUCCESS'
+export const VERIFY_STORE_FAILURE = 'VERIFY_STORE_FAILURE'
+
 function getStores (params) {
   return {
     type: GET_STORE_REQUEST,
@@ -62,11 +66,19 @@ function storeUpdateExpedition (params) {
   }
 }
 
+function verifyStore (params) {
+  return {
+    type: VERIFY_STORE_REQUEST,
+    ...params
+  }
+}
+
 export {
   getStores,
   createStore,
   photoUpload,
   storeExpeditionList,
   storeExpeditionManage,
-  storeUpdateExpedition
+  storeUpdateExpedition,
+  verifyStore
 }
