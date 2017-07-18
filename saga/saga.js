@@ -10,6 +10,7 @@ import * as storeActions from '../actions/stores'
 import * as emailActions from '../actions/email'
 import * as addressActions from '../actions/address'
 import * as bankActions from '../actions/bank'
+import * as catalogActions from '../actions/catalog'
 import * as userSaga from './user'
 import * as homeSaga from './home'
 import * as brandSaga from './brand'
@@ -22,6 +23,7 @@ import * as storeSaga from './stores'
 import * as emailSaga from './email'
 import * as addressSaga from './address'
 import * as bankSaga from './bank'
+import * as catalogSaga from './catalog'
 import { takeEvery } from 'redux-saga/effects'
 
 function * dataSaga () {
@@ -80,6 +82,11 @@ function * dataSaga () {
   yield takeEvery(storeActions.CREATE_STORE_REQUEST, storeSaga.createStore)
   yield takeEvery(storeActions.PHOTO_UPLOAD_REQUEST, storeSaga.photoUpload)
   yield takeEvery(storeActions.STORE_EXPEDITIONLIST_REQUEST, storeSaga.storeExpeditionList)
+  yield takeEvery(catalogActions.CREATE_CATALOG_REQUEST, catalogSaga.createCatalog)
+  yield takeEvery(catalogActions.GET_CATALOG_REQUEST, catalogSaga.getCatalog)
+  yield takeEvery(catalogActions.GET_LISTCATALOG_REQUEST, catalogSaga.getListCatalog)
+  yield takeEvery(catalogActions.UPDATE_CATALOG_REQUEST, catalogSaga.updateCatalog)
+  yield takeEvery(catalogActions.DELETE_CATALOG_REQUEST, catalogSaga.deleteCatalog)
   yield takeEvery(storeActions.STORE_EXPEDITIONMANAGE_REQUEST, storeSaga.storeExpeditionManage)
   yield takeEvery(addressActions.ADD_ADDRESS_REQUEST, addressSaga.addAddress)
   yield takeEvery(addressActions.UPDATE_ADDRESS_REQUEST, addressSaga.updateAddress)

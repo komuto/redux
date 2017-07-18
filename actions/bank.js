@@ -16,6 +16,8 @@ function listBank () {
   }
 }
 
+// function newBank ()
+
 function getBank (params) {
   return {
     type: GET_BANK_REQUEST,

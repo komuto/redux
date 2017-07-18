@@ -11,6 +11,7 @@ import * as stores from './actions/stores'
 import * as email from './actions/email'
 import * as address from './actions/address'
 import * as bank from './actions/bank'
+import * as catalog from './actions/catalog'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
   console.log(store.getState())
@@ -59,12 +60,12 @@ store.dispatch(email.checkEmail({email: 'beny@skyshi.com'}))
 //   password_confirmation: 'testkomuto'
 // }))
 // },4000)
-// store.dispatch(product.getProduct({id: 99}))
+store.dispatch(product.getProduct({id: 99}))
 // store.dispatch(product.addToWishlist({id: 1}))
 // store.dispatch(product.getDiscussion({id: 4, page: 1, limit: 10}))
 // store.dispatch(product.newDiscussion({id: 4, question: 'Barang sudah habis gan?'}))
 // store.dispatch(product.getComment({productId: 4, id: 3}))
-store.dispatch(product.newComment({productId: 4, id: 3, content: 'Tapi harga nya diturunin dikit ya mas?'}))
+// store.dispatch(product.newComment({productId: 4, id: 3, content: 'Tapi harga nya diturunin dikit ya mas?'}))
 store.dispatch(home.products())
 // store.dispatch(product.listProductByCategory({category_id: 120}))
 // store.dispatch(product.listProductBySearch({services: [1, 2, 3, 4]}))
@@ -138,3 +139,8 @@ store.dispatch(bank.getBank({id: 1}))
 
 // store.dispatch(stores.storeExpeditionList())
 // store.dispatch(stores.storeExpeditionManage())
+// store.dispatch(catalog.createCatalog({name: 'Sepatu kuda cetak cetok'}))
+// store.dispatch(catalog.getCatalog({id: 83}))
+// store.dispatch(catalog.getListCatalog())
+// store.dispatch(catalog.updateCatalog({id: 83, name: 'Sepatu asik asik'}))
+store.dispatch(catalog.deleteCatalog({id: 83}))

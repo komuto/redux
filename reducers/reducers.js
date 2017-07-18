@@ -12,6 +12,7 @@ import * as reviewReducers from './review'
 import * as storeReducers from './stores'
 import * as addressReducers from './address'
 import * as bankReducers from './bank'
+import * as catalogReducers from './catalog'
 
 const komutoApps = storage.reducer(combineReducers({
   user: userReducers.auth,
@@ -68,6 +69,11 @@ const komutoApps = storage.reducer(combineReducers({
   createStore: storeReducers.createStore,
   expeditionListStore: storeReducers.expeditionListStore,
   expeditionStore: storeReducers.expeditionStore,
+  createCatalog: catalogReducers.createCatalog,
+  updateCatalog: catalogReducers.updateCatalog,
+  getCatalog: catalogReducers.getDetailCatalog,
+  getListCatalog: catalogReducers.getListCatalog,
+  deleteCatalog: catalogReducers.deleteCatalog,
   bank: bankReducers.getBank,
   banks: bankReducers.listBank,
   address: addressReducers.address
