@@ -21,6 +21,15 @@ const initDiscussion = {
   isFound: false
 }
 
+const initFavoriteStore = {
+  stores: [],
+  message: '',
+  status: '',
+  isLoading: false,
+  isOnline: true,
+  isFound: false
+}
+
 const initUpdate = {
   message: '',
   status: 0,
@@ -728,6 +737,98 @@ function getDiscussion (state = initDiscussion, action) {
   }
 }
 
+function sendOTPPhone (state = initValidate, action) {
+  switch (action.type) {
+    case actions.SEND_PHONEOTP_REQUEST:
+      return {
+        ...state,
+        isLoading: true
+      }
+    case actions.SEND_PHONEOTP_SUCCESS:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isFound: true,
+        isOnline: true
+      }
+    case actions.SEND_PHONEOTP_FAILURE:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isFound: false,
+        isOnline: action.isOnline
+      }
+    default:
+      return state
+  }
+}
+
+function verifyPhone (state = initValidate, action) {
+  switch (action.type) {
+    case actions.VERIFIY_PHONE_REQUEST:
+      return {
+        ...state,
+        isLoading: true
+      }
+    case actions.VERIFIY_PHONE_SUCCESS:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isFound: true,
+        isOnline: true
+      }
+    case actions.VERIFIY_PHONE_FAILURE:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isFound: false,
+        isOnline: action.isOnline
+      }
+    default:
+      return state
+  }
+}
+
+function listFavoriteStore (state = initFavoriteStore, action) {
+  console.log(action.type)
+  switch (action.type) {
+    case actions.LIST_FAVORITSTORE_REQUEST:
+      return {
+        ...state,
+        isLoading: true
+      }
+    case actions.LIST_FAVORITSTORE_SUCCESS:
+      return {
+        ...state,
+        stores: action.data,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isFound: true,
+        isOnline: true
+      }
+    case actions.LIST_FAVORITSTORE_FAILURE:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isFound: false,
+        isOnline: action.isOnline
+      }
+    default:
+      return state
+  }
+}
+
 export {
   auth,
   verify,
@@ -746,5 +847,8 @@ export {
   getBucket,
   getPhone,
   updatePhone,
-  getDiscussion
+  getDiscussion,
+  listFavoriteStore,
+  sendOTPPhone,
+  verifyPhone
 }
