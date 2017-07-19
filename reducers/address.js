@@ -153,7 +153,7 @@ function primaryAddress (state = initAddress, action) {
     case actions.GET_PRIMARYADDRESS_SUCCESS:
       return {
         ...state,
-        address: action.address,
+        address: action.data,
         message: action.message,
         status: action.code,
         isLoading: false,
