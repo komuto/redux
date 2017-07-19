@@ -60,6 +60,7 @@ function * dataSaga () {
   yield takeEvery(productActions.NEW_DISCUSSION_REQUEST, productSaga.newDiscussion)
   yield takeEvery(productActions.GET_COMMENT_REQUEST, productSaga.getComment)
   yield takeEvery(productActions.NEW_COMMENT_REQUEST, productSaga.newComment)
+  yield takeEvery(productActions.REPORT_PRODUCT_REQUEST, productSaga.reportProduct)
   yield takeEvery(homeActions.HOME_PRODUCT_REQUEST, homeSaga.product)
   yield takeEvery(homeActions.SEARCH_PRODUCT_REQUEST, homeSaga.search)
   yield takeEvery(homeActions.FILTER_PRODUCT_REQUEST, homeSaga.filterProduct)
