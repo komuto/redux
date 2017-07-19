@@ -120,6 +120,19 @@ function verifyStore (action) {
   })
 }
 
+function sendMessageStore (action) {
+  let axios = authApiKomuto()
+  return axios.post('stores/' + action.id + '/message', {
+    ...action
+  })
+  .then(function (data) {
+    return data
+  })
+  .catch(function (err) {
+    throw (err)
+  })
+}
+
 export {
     getStores,
     createStore,
@@ -127,5 +140,6 @@ export {
     storeExpeditionList,
     storeExpeditionManage,
     storeUpdateExpedition,
-    verifyStore
+    verifyStore,
+    sendMessageStore
 }

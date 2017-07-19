@@ -26,6 +26,11 @@ export const VERIFY_STORE_REQUEST = 'VERIFY_STORE_REQUEST'
 export const VERIFY_STORE_SUCCESS = 'VERIFY_STORE_SUCCESS'
 export const VERIFY_STORE_FAILURE = 'VERIFY_STORE_FAILURE'
 
+export const MESSAGE_STORE_REQUEST = 'MESSAGE_STORE_REQUEST'
+export const MESSAGE_STORE_SUCCESS = 'MESSAGE_STORE_SUCCESS'
+export const MESSAGE_STORE_FAILURE = 'MESSAGE_STORE_FAILURE'
+export const MESSAGE_STORE_RESET = 'MESSAGE_STORE_RESET'
+
 function getStores (params) {
   return {
     type: GET_STORE_REQUEST,
@@ -73,6 +78,19 @@ function verifyStore (params) {
   }
 }
 
+function sendMessageStore (params) {
+  return {
+    type: MESSAGE_STORE_REQUEST,
+    ...params
+  }
+}
+
+function sendMessageStoreReset () {
+  return {
+    type: MESSAGE_STORE_RESET
+  }
+}
+
 export {
   getStores,
   createStore,
@@ -80,5 +98,7 @@ export {
   storeExpeditionList,
   storeExpeditionManage,
   storeUpdateExpedition,
-  verifyStore
+  verifyStore,
+  sendMessageStore,
+  sendMessageStoreReset
 }

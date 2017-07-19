@@ -220,11 +220,48 @@ function verifyStore (state = initVerify, action) {
   }
 }
 
+function sendMessageStore (state = initStore, action) {
+  switch (action.type) {
+    case storeActions.MESSAGE_STORE_REQUEST:
+      return {
+        ...state,
+        isLoading: true
+      }
+    case storeActions.MESSAGE_STORE_SUCCESS:
+      return {
+        ...state,
+        store: action.data,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isFound: true,
+        isOnline: true
+      }
+    case storeActions.MESSAGE_STORE_FAILURE:
+      return {
+        ...state,
+        message: action.message,
+        status: action.code,
+        isLoading: false,
+        isFound: false,
+        isOnline: action.isOnline
+      }
+    case storeActions.MESSAGE_STORE_RESET:
+      return {
+        ...state,
+        status: 0
+      }
+    default:
+      return state
+  }
+}
+
 export {
     stores,
     photoUpload,
     createStore,
     expeditionListStore,
     expeditionStore,
-    verifyStore
+    verifyStore,
+    sendMessageStore
 }
