@@ -99,6 +99,7 @@ function * dataSaga () {
   yield takeEvery(addressActions.DELETE_ADDRESS_REQUEST, addressSaga.deleteAddress)
   yield takeEvery(addressActions.GET_ADDRESSDETAIL_REQUEST, addressSaga.getAddressDetail)
   yield takeEvery(addressActions.GET_LISTADDRESS_REQUEST, addressSaga.getListAddress)
+  yield takeEvery(addressActions.GET_PRIMARYADDRESS_REQUEST, addressSaga.getPrimaryAddress)
   yield takeEvery(bankActions.LIST_BANK_REQUEST, bankSaga.listBank)
   yield takeEvery(bankActions.GET_BANK_REQUEST, bankSaga.getBank)
 }

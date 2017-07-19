@@ -82,7 +82,8 @@ const komutoApps = storage.reducer(combineReducers({
   deleteCatalog: catalogReducers.deleteCatalog,
   bank: bankReducers.getBank,
   banks: bankReducers.listBank,
-  address: addressReducers.address
+  address: addressReducers.address,
+  primaryAddress: addressReducers.primaryAddress
 }))
 
 export default komutoApps
