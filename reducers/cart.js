@@ -1,37 +1,19 @@
 import * as actions from '../actions/cart'
+import { initState, reqState, succState, failState } from '../config'
 
 const initCart = {
   cart: [],
-  message: '',
-  status: 0,
-  isLoading: false,
-  isFound: false,
-  isOnline: true
+  ...initState()
 }
 
 export const cart = (state = initCart, action) => {
   switch (action.type) {
     case actions.ADD_TO_CART_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
+      return reqState(state)
     case actions.ADD_TO_CART_SUCCESS:
-      return {
-        cart: action.data,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: true,
-        isOnline: true
-      }
+      return succState(action, 'cart')
     case actions.ADD_TO_CART_FAILURE:
-      return {
-        ...state,
-        isLoading: false,
-        isFound: true,
-        isOnline: action.isOnline
-      }
+      return failState(action, 'cart', state.cart)
     default:
       return state
   }

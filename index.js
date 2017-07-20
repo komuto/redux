@@ -1,18 +1,18 @@
 import {store} from './store'
-import * as user from './actions/user'
-import * as home from './actions/home'
-import * as brand from './actions/brand'
-import * as expedition from './actions/expedition'
-import * as location from './actions/location'
-import * as wishlist from './actions/wishlist'
-import * as product from './actions/product'
-import * as review from './actions/review'
-import * as stores from './actions/stores'
-import * as email from './actions/email'
-import * as address from './actions/address'
-import * as bank from './actions/bank'
-import * as catalog from './actions/catalog'
-import * as cart from './actions/cart'
+// import * as user from './actions/user'
+// import * as home from './actions/home'
+// import * as brand from './actions/brand'
+// import * as expedition from './actions/expedition'
+// import * as location from './actions/location'
+// import * as wishlist from './actions/wishlist'
+// import * as product from './actions/product'
+// import * as review from './actions/review'
+// import * as stores from './actions/stores'
+// import * as email from './actions/email'
+// import * as address from './actions/address'
+// import * as bank from './actions/bank'
+// import * as catalog from './actions/catalog'
+// import * as cart from './actions/cart'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
   console.log(store.getState().cart)
@@ -166,7 +166,7 @@ store.subscribe(function () {
 // )
 // store.dispatch(address.deleteAddress({id: 267}))
 // store.dispatch(address.getListAddress())
-// store.dispatch(address.getAddressDetail({id: 267}))
+// store.dispatch(address.getAddressDetail({id: 2670}))
 
 // store.dispatch(bank.getBank({id: 1}))
 // store.dispatch(bank.listBank())
@@ -185,7 +185,7 @@ store.subscribe(function () {
 // store.dispatch(product.reportProduct({id: 1, report_type: 1, description: 'Salah saya ini, saya cowok'}))
 // store.dispatch(address.getPrimaryAddress())
 // store.dispatch(cart.addToCart({
-//   product_id: 2,
+//   product_id: 3,
 //   expedition_id: 1,
 //   expedition_service_id: 3,
 //   qty: 1,
