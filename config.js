@@ -29,3 +29,71 @@ export function errorHandling (actionType, res) {
   }
 }
 
+/**
+ * Build initial state
+ */
+export const initState = () => {
+  return {
+    message: '',
+    state: 0,
+    isLoading: false,
+    isFound: false,
+    isOnline: true
+  }
+}
+
+/**
+ * Build request state
+ * @param state {object} current state
+ */
+export const reqState = (state) => {
+  return {
+    ...state,
+    isLoading: true
+  }
+}
+
+/**
+ * Build success state
+ * @param action {object}
+ * @param data {string} Prop name
+ */
+export const succState = (action, data = false) => {
+  const state = {
+    message: action.message,
+    state: action.code,
+    isLoading: false,
+    isFound: true,
+    isOnline: true
+  }
+  if (data) state[data] = action.data
+  return state
+}
+
+/**
+ * Build failure state
+ * @param action {object}
+ * @param data {string} Prop name
+ * @param value {*} value for the prop
+ */
+export const failState = (action, data = false, value = false) => {
+  const state = {
+    message: action.message,
+    state: action.code,
+    isLoading: false,
+    isFound: false,
+    isOnline: action.isOnline
+  }
+  if (data) state[data] = value || ''
+  return state
+}
+
+export const buildAction = (type, params = false) => {
+  if (params) {
+    return {
+      type,
+      ...params
+    }
+  }
+  return { type }
+}
