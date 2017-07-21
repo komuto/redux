@@ -107,6 +107,7 @@ function * dataSaga () {
   yield takeEvery(bankActions.GET_BANK_REQUEST, bankSaga.getBank)
   yield takeEvery(typeReq(cartActions.ADD_TO_CART), cartSaga.addToCart)
   yield takeEvery(typeReq(userActions.SEND_BANK_OTP), userSaga.sendOTPBank)
+  yield takeEvery(typeReq(bankActions.ADD_BANK_ACCOUNT), bankSaga.addBankAccount)
 }
 
 export default dataSaga

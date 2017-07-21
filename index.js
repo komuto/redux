@@ -15,7 +15,8 @@ import {store} from './store'
 // import * as cart from './actions/cart'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(store.getState().cart)
+  // const {sendOTPBank, bankAccount} = store.getState()
+  // console.log(bankAccount)
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -61,6 +62,7 @@ store.subscribe(function () {
 //   password_confirmation: 'testkomuto'
 // }))
 // },4000)
+// store.dispatch(user.sendOTPBank())
 // store.dispatch(product.getProduct({id: 9}))
 // store.dispatch(product.addToWishlist({id: 1}))
 // store.dispatch(product.getDiscussion({id: 4, page: 1, limit: 10}))
@@ -185,7 +187,7 @@ store.subscribe(function () {
 // store.dispatch(product.reportProduct({id: 1, report_type: 1, description: 'Salah saya ini, saya cowok'}))
 // store.dispatch(address.getPrimaryAddress())
 // store.dispatch(cart.addToCart({
-//   product_id: 3,
+//   product_id: 12,
 //   expedition_id: 1,
 //   expedition_service_id: 3,
 //   qty: 1,
@@ -195,4 +197,5 @@ store.subscribe(function () {
 //   additional_cost: 500,
 //   delivery_cost: 32000
 // }))
+// store.dispatch(bank.addBankAccount({code: '77575', master_bank_id: 5, holder_name: 'kucing', holder_account_number: '123456788243', bank_branch_office_name: 'bawah kasur'}))
 

@@ -1,5 +1,5 @@
 import * as actions from '../actions/user'
-import { initState, reqState, succState, failState, typeReq, typeSucc, typeFail } from '../config'
+import { reqState, succState, failState, typeReq, typeSucc, typeFail } from '../config'
 
 const initUser = {
   email: '',
