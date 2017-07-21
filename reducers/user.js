@@ -1,4 +1,5 @@
 import * as actions from '../actions/user'
+import { initState, reqState, succState, failState, typeReq, typeSucc, typeFail } from '../config'
 
 const initUser = {
   email: '',
@@ -794,6 +795,19 @@ function verifyPhone (state = initValidate, action) {
         isFound: false,
         isOnline: action.isOnline
       }
+    default:
+      return state
+  }
+}
+
+export const sendOTPBank = (state = initValidate, action) => {
+  switch (action.type) {
+    case typeReq(actions.SEND_BANK_OTP):
+      return reqState(state)
+    case typeSucc(actions.SEND_BANK_OTP):
+      return succState(action)
+    case typeFail(actions.SEND_BANK_OTP):
+      return failState(action)
     default:
       return state
   }

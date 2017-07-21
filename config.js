@@ -97,3 +97,7 @@ export const buildAction = (type, params = false) => {
   }
   return { type }
 }
+
+export const typeReq = type => `${type}_REQUEST`
+export const typeSucc = type => `${type}_SUCCESS`
+export const typeFail = type => `${type}_FAILURE`

@@ -1,3 +1,5 @@
+import { buildAction, typeReq } from '../config'
+
 export const USER_LOGIN_REQUEST = 'USER_LOGIN_REQUEST'
 export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS'
 export const USER_LOGIN_FAILURE = 'USER_LOGIN_FAILURE'
@@ -89,6 +91,8 @@ export const SEND_PHONEOTP_FAILURE = 'SEND_PHONEOTP_FAILURE'
 export const VERIFIY_PHONE_REQUEST = 'VERIFIY_PHONE_REQUEST'
 export const VERIFIY_PHONE_SUCCESS = 'VERIFIY_PHONE_SUCCESS'
 export const VERIFIY_PHONE_FAILURE = 'VERIFIY_PHONE_FAILURE'
+
+export const SEND_BANK_OTP = 'SEND_BANK_OTP'
 
 export const IS_LOGIN = 'IS_LOGIN'
 
@@ -251,6 +255,8 @@ function verifyPhone (params) {
     ...params
   }
 }
+
+export const sendOTPBank = () => buildAction(typeReq(SEND_BANK_OTP))
 
 export {
   register,

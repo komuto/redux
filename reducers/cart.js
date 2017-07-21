@@ -1,5 +1,5 @@
 import * as actions from '../actions/cart'
-import { initState, reqState, succState, failState } from '../config'
+import { initState, reqState, succState, failState, typeReq, typeSucc, typeFail } from '../config'
 
 const initCart = {
   cart: [],
@@ -8,11 +8,11 @@ const initCart = {
 
 export const cart = (state = initCart, action) => {
   switch (action.type) {
-    case actions.ADD_TO_CART_REQUEST:
+    case typeReq(actions.ADD_TO_CART):
       return reqState(state)
-    case actions.ADD_TO_CART_SUCCESS:
+    case typeSucc(actions.ADD_TO_CART):
       return succState(action, 'cart')
-    case actions.ADD_TO_CART_FAILURE:
+    case typeFail(actions.ADD_TO_CART):
       return failState(action, 'cart', state.cart)
     default:
       return state
