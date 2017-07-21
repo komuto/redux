@@ -48,7 +48,7 @@ const initProduct = {
 const initDiscussion = {
   discussions: [],
   message: '',
-  status: '',
+  status: 0,
   isLoading: false,
   isFound: false,
   isOnline: true
