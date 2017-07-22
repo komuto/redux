@@ -1,458 +1,90 @@
 import * as actions from '../actions/user'
+import { initState, reducerCreateor } from '../config'
 
 const initUser = {
+  user: {},
   email: '',
   token: '',
   uid: '',
-  user: {},
-  message: '',
-  status: '',
-  isLoading: false,
-  isOnline: true,
-  isFound: false
+  ...initState()
 }
 
 const initDiscussion = {
   discussions: [],
-  message: '',
-  status: '',
-  isLoading: false,
-  isOnline: true,
-  isFound: false
+  ...initState()
 }
 
 const initFavoriteStore = {
   stores: [],
-  message: '',
-  status: '',
-  isLoading: false,
-  isOnline: true,
-  isFound: false
+  ...initState()
 }
 
 const initUpdate = {
-  message: '',
-  status: 0,
-  isLoading: false,
-  isFound: false,
-  isOnline: true
+  ...initState()
 }
 
 const initBucket = {
   count: 0,
-  message: '',
-  status: 0,
-  isLoading: false,
-  isFound: false,
-  isOnline: true
+  ...initState()
 }
 
 const initGetBucket = {
   buckets: [],
-  message: '',
-  status: 0,
-  isLoading: false,
-  isFound: false,
-  isOnline: true
+  ...initState()
 }
 
 const initGetBalance = {
   balance: 0,
-  message: '',
-  status: 0,
-  isLoading: false,
-  isFound: false,
-  isOnline: true
+  ...initState()
 }
 
 const initGetPhone = {
   phone: '',
-  message: '',
-  status: 0,
-  isLoading: false,
-  isFound: false,
-  isOnline: true
+  ...initState()
 }
 
 const initValidate = {
-  message: '',
-  status: 0,
-  isLoading: false,
-  isFound: false,
-  isOnline: true
+  ...initState()
 }
 
 const initProfile = {
-  message: '',
-  status: 0,
   verifyStatus: '',
   user: {},
-  isLoading: false,
-  isOnline: true,
-  isFound: false
+  ...initState()
 }
 
 const initForgetPass = {
   email: '',
-  message: '',
-  status: '',
-  isLoading: false,
-  isOnline: true,
-  isFound: false
-}
-
-const initVerify = {
-  message: '',
-  status: '',
-  isLoading: false,
-  isFound: false,
-  isOnline: true
+  ...initState()
 }
 
 const initLogin = {
   login: false
 }
 
-function auth (state = initUser, action) {
-  console.log(action.type)
-  switch (action.type) {
-    case actions.USER_LOGIN_REQUEST:
-      return {
-        ...state,
-        email: action.email,
-        token: '',
-        uid: 0,
-        user: {},
-        message: action.message,
-        status: action.code,
-        isLoading: true
-      }
-    case actions.USER_LOGIN_SUCCESS:
-      return {
-        ...state,
-        email: action.data.email,
-        token: action.data.token,
-        uid: action.data.id,
-        user: action.data,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: true,
-        isFound: true
-      }
-    case actions.USER_LOGIN_FAILURE:
-      console.log('Previous state', state)
-      console.log('returning object')
-      return {
-        ...state,
-        email: '',
-        token: '',
-        uid: 0,
-        user: {},
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: action.isOnline,
-        isFound: false
-      }
-    case actions.LOGIN_SOCIAL_REQUEST:
-      return {
-        ...state,
-        email: action.email,
-        token: '',
-        uid: 0,
-        user: {},
-        message: action.message,
-        status: action.code,
-        isLoading: true
-      }
-    case actions.LOGIN_SOCIAL_SUCCESS:
-      return {
-        ...state,
-        email: action.data.email,
-        token: action.data.token,
-        uid: action.data.id,
-        user: action.data,
-        message: action.message,
-        status: action.code,
-        is_required_password: action.data.is_required_password,
-        isLoading: false,
-        isOnline: true,
-        isFound: true
-      }
-    case actions.LOGIN_SOCIAL_FAILURE:
-      return {
-        ...state,
-        email: '',
-        token: '',
-        uid: 0,
-        user: {},
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: action.isOnline
-      }
-    case actions.USER_LOGOUT_SUCCESS:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: true
-      }
-    default:
-      return state
-  }
-}
-
-function newPassword (state = initVerify, action) {
-  switch (action.type) {
-    case actions.USER_NEWPASSWORD_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case actions.USER_NEWPASSWORD_SUCCESS:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: true,
-        isFound: true
-      }
-    case actions.USER_NEWPASSWORD_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function verify (state = initVerify, action) {
-  switch (action.type) {
-    case actions.USER_VERIFICATION_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case actions.USER_VERIFICATION_SUCCESS:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: true,
-        isFound: true
-      }
-    case actions.USER_VERIFICATION_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function getProfile (state = initProfile, action) {
-  switch (action.type) {
-    case actions.GET_PROFILE_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case actions.GET_PROFILEMANAGE_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case actions.GET_PROFILE_SUCCESS:
-      return {
-        ...state,
-        verifyStatus: action.data.user.status,
-        user: action.data,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: true,
-        isFound: true
-      }
-    case actions.GET_PROFILEMANAGE_SUCCESS:
-      return {
-        ...state,
-        verifyStatus: action.data.user.status,
-        user: action.data,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: true,
-        isFound: true
-      }
-    case actions.GET_PROFILE_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: action.isOnline
-      }
-    case actions.GET_PROFILEMANAGE_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function updateProfile (state = initUpdate, action) {
-  switch (action.type) {
-    case actions.UPDATE_PROFILE_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case actions.UPDATE_PROFILE_SUCCESS:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: true,
-        isOnline: true
-      }
-    case actions.FORGET_PASSWORD_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function register (state = initUser, action) {
-  switch (action.type) {
-    case actions.USER_REGISTER_REQUEST:
-      return {
-        ...state,
-        email: action.email,
-        token: '',
-        uid: 0,
-        user: {},
-        message: '',
-        status: 0,
-        isLoading: false
-      }
-    case actions.USER_REGISTER_SUCCESS:
-      return {
-        ...state,
-        email: action.data.email,
-        uid: action.data.id,
-        user: action.data,
-        token: action.data.token,
-        message: action.message,
-        status: action.code,
-        isOnline: true,
-        isLoading: false,
-        isFound: true
-      }
-    case actions.USER_REGISTER_FAILURE:
-      return {
-        ...state,
-        email: '',
-        token: '',
-        uid: 0,
-        user: {},
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function validateToken (state = initValidate, action) {
-  switch (action.type) {
-    case actions.VALIDATE_TOKENFORGETPASSWORD_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case actions.VALIDATE_TOKENFORGETPASSWORD_SUCCESS:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isOnline: true,
-        isLoading: false,
-        isFound: true
-      }
-    case actions.VALIDATE_TOKENFORGETPASSWORD_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function forgetPassword (state = initForgetPass, action) {
-  switch (action.type) {
-    case actions.FORGET_PASSWORD_REQUEST:
-      return {
-        ...state,
-        email: action.email,
-        message: '',
-        status: '',
-        isLoading: true
-      }
-    case actions.FORGET_PASSWORD_SUCCESS:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: true,
-        isFound: true
-      }
-    case actions.FORGET_PASSWORD_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function isLogin (state = initLogin, action) {
+export const auth = (state = initUser, action) => reducerCreateor(state, action, actions.loginAction, 'user')
+export const authSocial = (state = initUser, action) => reducerCreateor(state, action, actions.loginSocialAction, 'user')
+export const newPassword = (state = initValidate, action) => reducerCreateor(state, action, actions.changePasswordAction, 'verify')
+export const verify = (state = initValidate, action) => reducerCreateor(state, action, actions.verificationAction, 'verify')
+export const getProfile = (state = initProfile, action) => reducerCreateor(state, action, actions.getProfileAction, 'user')
+export const getProfileManage = (state = initProfile, action) => reducerCreateor(state, action, actions.getProfileManageAction, 'user')
+export const updateProfile = (state = initUpdate, action) => reducerCreateor(state, action, actions.updateProfileAction, 'update')
+export const register = (state = initUser, action) => reducerCreateor(state, action, actions.registerAction, 'user')
+export const validateToken = (state = initValidate, action) => reducerCreateor(state, action, actions.validateTokenAction, 'validate')
+export const forgetPassword = (state = initForgetPass, action) => reducerCreateor(state, action, actions.forgetPasswordAction, 'forget')
+export const getBalance = (state = initGetBalance, action) => reducerCreateor(state, action, actions.getBalanceAction, 'balance')
+export const changePassword = (state = initUpdate, action) => reducerCreateor(state, action, actions.changePasswordAction, 'change')
+export const favoriteStore = (state = initUpdate, action) => reducerCreateor(state, action, actions.favoriteStoreAction, 'favorite')
+export const addToBucket = (state = initUpdate, action) => reducerCreateor(state, action, actions.addToBucketAction, 'bucket')
+export const countBucket = (state = initBucket, action) => reducerCreateor(state, action, actions.countBucketAction, 'count')
+export const getPhone = (state = initGetPhone, action) => reducerCreateor(state, action, actions.getPhoneAction, 'phone')
+export const getBucket = (state = initGetBucket, action) => reducerCreateor(state, action, actions.getBucketAction, 'buckets')
+export const updatePhone = (state = initUpdate, action) => reducerCreateor(state, action, actions.updatePhoneAction, 'update')
+export const getDiscussion = (state = initDiscussion, action) => reducerCreateor(state, action, actions.getDiscussionAction, 'discussions')
+export const sendOTPPhone = (state = initValidate, action) => reducerCreateor(state, action, actions.sendOTPPhoneAction, 'otp')
+export const verifyPhone = (state = initValidate, action) => reducerCreateor(state, action, actions.verifyPhoneAction, 'verify')
+export const listFavoriteStore = (state = initFavoriteStore, action) => reducerCreateor(state, action, actions.listFavoriteAction, 'stores')
+export function isLogin (state = initLogin, action) {
   switch (action.type) {
     case actions.IS_LOGIN:
       return {
@@ -462,395 +94,4 @@ function isLogin (state = initLogin, action) {
     default:
       return state
   }
-}
-
-function getBalance (state = initGetBalance, action) {
-  switch (action.type) {
-    case actions.USER_BALANCE_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case actions.USER_BALANCE_SUCCESS:
-      return {
-        ...state,
-        balance: action.data.user_balance,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: true,
-        isOnline: true
-      }
-    case actions.USER_BALANCE_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function changePassword (state = initUpdate, action) {
-  switch (action.type) {
-    case actions.CHANGE_PASSWORD_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case actions.CHANGE_PASSWORD_SUCCESS:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: true,
-        isOnline: true
-      }
-    case actions.CHANGE_PASSWORD_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function favoriteStore (state = initUpdate, action) {
-  switch (action.type) {
-    case actions.FAVORITE_STORE_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case actions.FAVORITE_STORE_SUCCESS:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: true,
-        isOnline: true
-      }
-    case actions.FAVORITE_STORE_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function addToBucket (state = initUpdate, action) {
-  switch (action.type) {
-    case actions.ADDTO_BUCKET_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case actions.ADDTO_BUCKET_SUCCESS:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: true,
-        isOnline: true
-      }
-    case actions.ADDTO_BUCKET_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function countBucket (state = initBucket, action) {
-  switch (action.type) {
-    case actions.COUNT_BUCKET_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case actions.COUNT_BUCKET_SUCCESS:
-      return {
-        ...state,
-        count: action.data.count,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: true,
-        isOnline: true
-      }
-    case actions.COUNT_BUCKET_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function getPhone (state = initGetPhone, action) {
-  switch (action.type) {
-    case actions.GET_PHONE_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case actions.GET_PHONE_SUCCESS:
-      return {
-        ...state,
-        phone: action.data.phone_number,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: true,
-        isOnline: true
-      }
-    case actions.GET_PHONE_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function getBucket (state = initGetBucket, action) {
-  switch (action.type) {
-    case actions.GET_BUCKET_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case actions.GET_BUCKET_SUCCESS:
-      return {
-        ...state,
-        bukcets: action.data,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: true,
-        isOnline: true
-      }
-    case actions.GET_BUCKET_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function updatePhone (state = initUpdate, action) {
-  switch (action.type) {
-    case actions.UPDATE_PHONE_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case actions.UPDATE_PHONE_SUCCESS:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: true,
-        isOnline: true
-      }
-    case actions.UPDATE_PHONE_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function getDiscussion (state = initDiscussion, action) {
-  switch (action.type) {
-    case actions.GET_USERDISCUSSION_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case actions.GET_USERDISCUSSION_SUCCESS:
-      return {
-        ...state,
-        discussions: action.data,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: true,
-        isOnline: true
-      }
-    case actions.GET_USERDISCUSSION_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function sendOTPPhone (state = initValidate, action) {
-  switch (action.type) {
-    case actions.SEND_PHONEOTP_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case actions.SEND_PHONEOTP_SUCCESS:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: true,
-        isOnline: true
-      }
-    case actions.SEND_PHONEOTP_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function verifyPhone (state = initValidate, action) {
-  switch (action.type) {
-    case actions.VERIFIY_PHONE_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case actions.VERIFIY_PHONE_SUCCESS:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: true,
-        isOnline: true
-      }
-    case actions.VERIFIY_PHONE_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function listFavoriteStore (state = initFavoriteStore, action) {
-  console.log(action.type)
-  switch (action.type) {
-    case actions.LIST_FAVORITSTORE_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case actions.LIST_FAVORITSTORE_SUCCESS:
-      return {
-        ...state,
-        stores: action.data,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: true,
-        isOnline: true
-      }
-    case actions.LIST_FAVORITSTORE_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-export {
-  auth,
-  verify,
-  getProfile,
-  register,
-  newPassword,
-  changePassword,
-  forgetPassword,
-  isLogin,
-  validateToken,
-  getBalance,
-  updateProfile,
-  favoriteStore,
-  addToBucket,
-  countBucket,
-  getBucket,
-  getPhone,
-  updatePhone,
-  getDiscussion,
-  listFavoriteStore,
-  sendOTPPhone,
-  verifyPhone
 }

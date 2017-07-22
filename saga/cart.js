@@ -3,7 +3,7 @@ import * as actions from '../actions/cart'
 import * as apis from '../api/cart'
 import { errorHandling } from '../config'
 
-export const addToCart = function* (action) {
+export const addToCart = function * (action) {
   try {
     const { data } = yield apis.addToCart(action)
     yield put({ type: actions.ADD_TO_CART_SUCCESS, ...data })

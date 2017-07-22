@@ -1,267 +1,29 @@
 import * as storeActions from '../actions/stores'
+import { initState, reducerCreator } from '../config'
 
 const initStore = {
   store: {},
-  message: '',
-  status: 0,
-  isLoading: false,
-  isFound: false,
-  isOnline: true
+  ...initState()
 }
 
 const initExpedition = {
   expeditions: [],
-  message: '',
-  status: 0,
-  isLoading: false,
-  isFound: false,
-  isOnline: true
+  ...initState()
 }
 
 const initVerify = {
-  message: '',
-  status: 0,
-  isLoading: false,
-  isFound: false,
-  isOnline: true
+  ...initState()
 }
 
 const initUpload = {
   payload: [],
-  message: '',
-  status: 0,
-  isLoading: false,
-  isFound: false,
-  isOnline: true
+  ...initState()
 }
 
-function stores (state = initStore, action) {
-  switch (action.type) {
-    case storeActions.GET_STORE_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case storeActions.GET_STORE_SUCCESS:
-      return {
-        ...state,
-        store: action.data,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: true,
-        isOnline: true
-      }
-    case storeActions.GET_STORE_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function createStore (state = initStore, action) {
-  switch (action.type) {
-    case storeActions.CREATE_STORE_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case storeActions.CREATE_STORE_SUCCESS:
-      return {
-        ...state,
-        store: action.data,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: true,
-        isOnline: true
-      }
-    case storeActions.CREATE_STORE_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function expeditionListStore (state = initExpedition, action) {
-  switch (action.type) {
-    case storeActions.STORE_EXPEDITIONLIST_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case storeActions.STORE_EXPEDITIONLIST_SUCCESS:
-      return {
-        ...state,
-        expeditions: action.data,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: true,
-        isOnline: true
-      }
-    case storeActions.STORE_EXPEDITIONLIST_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function expeditionStore (state = initExpedition, action) {
-  switch (action.type) {
-    case storeActions.STORE_EXPEDITIONMANAGE_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case storeActions.STORE_EXPEDITIONMANAGE_SUCCESS:
-      return {
-        ...state,
-        expeditions: action.data,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: true,
-        isOnline: true
-      }
-    case storeActions.STORE_EXPEDITIONMANAGE_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function photoUpload (state = initUpload, action) {
-  switch (action.type) {
-    case storeActions.PHOTO_UPLOAD_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case storeActions.PHOTO_UPLOAD_SUCCESS:
-      return {
-        ...state,
-        payload: action.data,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: true,
-        isOnline: true
-      }
-    case storeActions.PHOTO_UPLOAD_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function verifyStore (state = initVerify, action) {
-  switch (action.type) {
-    case storeActions.VERIFY_STORE_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case storeActions.VERIFY_STORE_SUCCESS:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: true,
-        isOnline: true
-      }
-    case storeActions.VERIFY_STORE_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function sendMessageStore (state = initStore, action) {
-  switch (action.type) {
-    case storeActions.MESSAGE_STORE_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case storeActions.MESSAGE_STORE_SUCCESS:
-      return {
-        ...state,
-        store: action.data,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: true,
-        isOnline: true
-      }
-    case storeActions.MESSAGE_STORE_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: false,
-        isOnline: action.isOnline
-      }
-    case storeActions.MESSAGE_STORE_RESET:
-      return {
-        ...state,
-        status: 0
-      }
-    default:
-      return state
-  }
-}
-
-export {
-    stores,
-    photoUpload,
-    createStore,
-    expeditionListStore,
-    expeditionStore,
-    verifyStore,
-    sendMessageStore
-}
+export const stores = (state = initStore, action) => reducerCreator(state, action, storeActions.getStoresAction, 'store')
+export const createStore = (state = initStore, action) => reducerCreator(state, action, storeActions.createStoreAction, 'store')
+export const expeditionListStore = (state = initExpedition, action) => reducerCreator(state, action, storeActions.storeExpeditionListAction, 'expeditions')
+export const expeditionStore = (state = initExpedition, action) => reducerCreator(state, action, storeActions.storeExpeditionManageAction, 'expeditions')
+export const photoUpload = (state = initUpload, action) => reducerCreator(state, action, storeActions.photoUploadAction, 'payload')
+export const verifyStore = (state = initVerify, action) => reducerCreator(state, action, storeActions.verifyStoreAction, 'verify')
+export const sendMessageStore = (state = initStore, action) => reducerCreator(state, action, storeActions.sendMessageStoreAction, 'store')

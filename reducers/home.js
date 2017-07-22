@@ -1,249 +1,34 @@
 import * as homeActions from '../actions/home'
+import { initState, reducerCreator } from '../config'
 
 const initCategory = {
   categories: [],
-  message: '',
-  status: '',
-  isLoading: false,
-  isOnline: true,
-  isFound: false
+  ...initState()
 }
 
 const initSearch = {
   products: [],
-  message: '',
-  status: '',
-  isLoading: false,
-  isOnline: true,
-  isFound: false
+  ...initState()
 }
 
 const initFilter = {
   products: [],
-  message: '',
-  status: '',
-  isLoading: false,
-  isOnline: true,
-  isFound: false
+  ...initState()
 }
 
 const initAllCategory = {
   allCategory: [],
-  message: '',
-  status: '',
-  isLoading: false,
-  isOnline: true,
-  isFound: false
+  ...initState()
 }
 
 const initProduct = {
   products: [],
-  message: '',
-  status: 0,
-  isLoading: false,
-  isOnline: true,
-  isFound: false
+  ...initState()
 }
 
-function product (state = initProduct, action) {
-  switch (action.type) {
-    case homeActions.HOME_PRODUCT_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case homeActions.HOME_PRODUCT_SUCCESS:
-      return {
-        ...state,
-        products: action.data,
-        message: action.message,
-        status: action.code,
-        isOnline: true,
-        isLoading: false,
-        isFound: true
-      }
-    case homeActions.HOME_PRODUCT_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function searchProduct (state = initSearch, action) {
-  switch (action.type) {
-    case homeActions.SEARCH_PRODUCT_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case homeActions.SEARCH_PRODUCT_SUCCESS:
-      return {
-        ...state,
-        products: action.data,
-        message: action.message,
-        status: action.code,
-        isOnline: true,
-        isLoading: false,
-        isFound: true
-      }
-    case homeActions.SEARCH_PRODUCT_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function filterProduct (state = initFilter, action) {
-  switch (action.type) {
-    case homeActions.FILTER_PRODUCT_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case homeActions.FILTER_PRODUCT_SUCCESS:
-      return {
-        ...state,
-        products: action.data,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: true
-      }
-    case homeActions.FILTER_PRODUCT_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function allCategory (state = initAllCategory, action) {
-  switch (action.type) {
-    case homeActions.ALL_CATEGORY_REQUEST:
-      return {
-        ...state,
-        isLoading: true,
-        message: '',
-        status: 0,
-        isFound: false,
-        isOnline: true
-      }
-    case homeActions.ALL_CATEGORY_SUCCESS:
-      return {
-        ...state,
-        allCategory: action.data,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: true,
-        isOnline: true
-      }
-    case homeActions.ALL_CATEGORY_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isFound: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function categoryList (state = initCategory, action) {
-  switch (action.type) {
-    case homeActions.HOME_CATEGORY_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case homeActions.HOME_CATEGORY_SUCCESS:
-      return {
-        ...state,
-        categories: action.data,
-        message: action.message,
-        status: action.code,
-        isOnline: true,
-        isLoading: false,
-        isFound: true
-      }
-    case homeActions.HOME_CATEGORY_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function subCategory (state = initCategory, action) {
-  switch (action.type) {
-    case homeActions.RESET_STATUS_SUBCATEGORY:
-      return {
-        ...state,
-        categories: [],
-        message: '',
-        status: 0,
-        isLoading: false,
-        isFound: false,
-        isOnline: true
-      }
-    case homeActions.HOME_SUBCATEGORY_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case homeActions.HOME_SUBCATEGORY_SUCCESS:
-      return {
-        ...state,
-        categories: action.data,
-        message: action.message,
-        status: action.code,
-        isOnline: true,
-        isLoading: false,
-        isFound: true
-      }
-    case homeActions.HOME_SUBCATEGORY_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-export {
-  product,
-  searchProduct,
-  filterProduct,
-  allCategory,
-  categoryList,
-  subCategory
-}
+export const product = (state = initProduct, action) => reducerCreator(state, action, homeActions.productsAction, 'products')
+export const searchProduct = (state = initSearch, action) => reducerCreator(state, action, homeActions.searchAction, 'products')
+export const filterProduct = (state = initFilter, action) => reducerCreator(state, action, homeActions.filterAction, 'products')
+export const allCategory = (state = initAllCategory, action) => reducerCreator(state, action, homeActions.allCategoryAction, 'allCategory')
+export const categoryList = (state = initCategory, action) => reducerCreator(state, action, homeActions.categoryListAction, 'categories')
+export const subCategory = (state = initCategory, action) => reducerCreator(state, action, homeActions.subCategoryAction, 'categories')

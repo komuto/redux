@@ -1,81 +1,15 @@
-export const ADD_ADDRESS_REQUEST = 'ADD_ADDRESS_REQUEST'
-export const ADD_ADDRESS_SUCCESS = 'ADD_ADDRESS_SUCCESS'
-export const ADD_ADDRESS_FAILURE = 'ADD_ADDRESS_FAILURE'
+import { actionType, buildAction } from '../config'
 
-export const UPDATE_ADDRESS_REQUEST = 'UPDATE_ADDRESS_REQUEST'
-export const UPDATE_ADDRESS_SUCCESS = 'UPDATE_ADDRESS_SUCCESS'
-export const UPDATE_ADDRESS_FAILURE = 'UPDATE_ADDRESS_FAILURE'
+export const addAddressAction = actionType('ADD_ADDRESS')
+export const updateAddressAction = actionType('UPDATE_ADDRESS')
+export const deleteAddressAction = actionType('DELETE_ADDRESS')
+export const addressDetailAction = actionType('ADDRESS_DETAIL')
+export const listAddressAction = actionType('LIST_ADDRESS')
+export const primaryAddressAction = actionType('PRIMARY_ADDRESS')
 
-export const DELETE_ADDRESS_REQUEST = 'DELETE_ADDRESS_REQUEST'
-export const DELETE_ADDRESS_SUCCESS = 'DELETE_ADDRESS_SUCCESS'
-export const DELETE_ADDRESS_FAILURE = 'DELETE_ADDRESS_FAILURE'
-
-export const GET_ADDRESSDETAIL_REQUEST = 'GET_ADDRESSDETAIL_REQUEST'
-export const GET_ADDRESSDETAIL_SUCCESS = 'GET_ADDRESSDETAIL_SUCCESS'
-export const GET_ADDRESSDETAIL_FAILURE = 'GET_ADDRESSDETAIL_FAILURE'
-
-export const GET_LISTADDRESS_REQUEST = 'GET_LISTADDRESS_REQUEST'
-export const GET_LISTADDRESS_SUCCESS = 'GET_LISTADDRESS_SUCCESS'
-export const GET_LISTADDRESS_FAILURE = 'GET_LISTADDRESS_FAILURE'
-
-export const GET_PRIMARYADDRESS_REQUEST = 'GET_PRIMARYADDRESS_REQUEST'
-export const GET_PRIMARYADDRESS_SUCCESS = 'GET_PRIMARYADDRESS_SUCCESS'
-export const GET_PRIMARYADDRESS_FAILURE = 'GET_PRIMARYADDRESS_FAILURE'
-
-export const RESET_STATUS_ADDRESS = 'RESET_STATUS_ADDRESS'
-
-function addAddress (params) {
-  return {
-    type: ADD_ADDRESS_REQUEST,
-    ...params
-  }
-}
-
-function updateAddress (params) {
-  return {
-    type: UPDATE_ADDRESS_REQUEST,
-    ...params
-  }
-}
-
-function deleteAddress (params) {
-  return {
-    type: DELETE_ADDRESS_REQUEST,
-    ...params
-  }
-}
-
-function getAddressDetail (params) {
-  return {
-    type: GET_ADDRESSDETAIL_REQUEST,
-    ...params
-  }
-}
-
-function getListAddress () {
-  return {
-    type: GET_LISTADDRESS_REQUEST
-  }
-}
-
-function resetStatusAddress () {
-  return {
-    type: RESET_STATUS_ADDRESS
-  }
-}
-
-function getPrimaryAddress () {
-  return {
-    type: GET_PRIMARYADDRESS_REQUEST
-  }
-}
-
-export {
-  addAddress,
-  updateAddress,
-  deleteAddress,
-  getAddressDetail,
-  getListAddress,
-  resetStatusAddress,
-  getPrimaryAddress
-}
+export const addAddress = params => buildAction(addAddressAction.request, params)
+export const updateAddress = params => buildAction(updateAddressAction.request, params)
+export const deleteAddress = params => buildAction(deleteAddressAction.request, params)
+export const getAddressDetail = params => buildAction(addressDetailAction.request, params)
+export const getListAddress = () => buildAction(listAddressAction.request)
+export const getPrimaryAddress = () => buildAction(primaryAddressAction.request)

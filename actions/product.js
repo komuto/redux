@@ -1,162 +1,23 @@
-export const GET_PRODUCT_REQUEST = 'GET_PRODUCT_REQUEST'
-export const GET_PRODUCT_SUCCESS = 'GET_PRODUCT_SUCCESS'
-export const GET_PRODUCT_FAILURE = 'GET_PRODUCT_FAILURE'
-export const GET_PRODUCT_RESET = 'GET_PRODUCT_RESET'
+import { actionType, buildAction } from '../config'
 
-export const LIST_PRODUCTBYCATEGORY_REQUEST = 'LIST_PRODUCTBYCATEGORY_REQUEST'
-export const LIST_PRODUCTBYCATEGORY_SUCCESS = 'LIST_PRODUCTBYCATEGORY_SUCCESS'
-export const LIST_PRODUCTBYCATEGORY_FAILURE = 'LIST_PRODUCTBYCATEGORY_FAILURE'
+export const getProductAction = actionType('GET_PRODUCT')
+export const listProductByCategoryAction = actionType('LIST_PRODUCTBYCATEGORY')
+export const listProductBySearchAction = actionType('LIST_PRODUCTBYSEARCH')
+export const addToWishlistAction = actionType('ADD_TO_WISHLIST')
+export const addToWishlistHomeAction = actionType('ADD_TOWISHLIST_HOME')
+export const getDiscussionAction = actionType('GET_DISCUSSION')
+export const newDiscussionAction = actionType('NEW_DISCUSSION')
+export const getCommentAction = actionType('GET_COMMENT')
+export const newCommentAction = actionType('NEW_COMMENT')
+export const reportProductAction = actionType('REPORT_PRODUCT')
 
-export const LIST_PRODUCTBYSEARCH_REQUEST = 'LIST_PRODUCTBYSEARCH_REQUEST'
-export const LIST_PRODUCTBYSEARCH_SUCCESS = 'LIST_PRODUCTBYSEARCH_SUCCESS'
-export const LIST_PRODUCTBYSEARCH_FAILURE = 'LIST_PRODUCTBYSEARCH_FAILURE'
-
-export const ADDTO_WISHLIST_REQUEST = 'ADDTO_WISHLIST_REQUEST'
-export const ADDTO_WISHLIST_SUCCESS = 'ADDTO_WISHLIST_SUCCESS'
-export const ADDTO_WISHLIST_FAILURE = 'ADDTO_WISHLIST_FAILURE'
-export const ADDTO_WISHLIST_RESET = 'ADDTO_WISHLIST_RESET'
-
-export const ADDTO_WISHLISTHOME_REQUEST = 'ADDTO_WISHLISTHOME_REQUEST'
-export const ADDTO_WISHLISTHOME_SUCCESS = 'ADDTO_WISHLISTHOME_SUCCESS'
-export const ADDTO_WISHLISTHOME_FAILURE = 'ADDTO_WISHLISTHOME_FAILURE'
-export const ADDTO_WISHLISTHOME_RESET = 'ADDTO_WISHLISTHOME_RESET'
-
-export const GET_DISCUSSION_REQUEST = 'GET_DISCUSSION_REQUEST'
-export const GET_DISCUSSION_SUCCESS = 'GET_DISCUSSION_SUCCESS'
-export const GET_DISCUSSION_FAILURE = 'GET_DISCUSSION_FAILURE'
-
-export const NEW_DISCUSSION_REQUEST = 'NEW_DISCUSSION_REQUEST'
-export const NEW_DISCUSSION_SUCCESS = 'NEW_DISCUSSION_SUCCESS'
-export const NEW_DISCUSSION_FAILURE = 'NEW_DISCUSSION_FAILURE'
-export const NEW_DISCUSSION_RESET = 'NEW_DISCUSSION_RESET'
-
-export const GET_COMMENT_REQUEST = 'GET_COMMENT_REQUEST'
-export const GET_COMMENT_SUCCESS = 'GET_COMMENT_SUCCESS'
-export const GET_COMMENT_FAILURE = 'GET_COMMENT_FAILURE'
-
-export const NEW_COMMENT_REQUEST = 'NEW_COMMENT_REQUEST'
-export const NEW_COMMENT_SUCCESS = 'NEW_COMMENT_SUCCESS'
-export const NEW_COMMENT_FAILURE = 'NEW_COMMENT_FAILURE'
-export const NEW_COMMENT_RESET = 'NEW_COMMENT_RESET'
-
-export const REPORT_PRODUCT_REQUEST = 'REPORT_PRODUCT_REQUEST'
-export const REPORT_PRODUCT_SUCCESS = 'REPORT_PRODUCT_SUCCESS'
-export const REPORT_PRODUCT_FAILURE = 'REPORT_PRODUCT_FAILURE'
-
-function getProduct (params) {
-  return {
-    type: GET_PRODUCT_REQUEST,
-    ...params
-  }
-}
-
-function resetDetail () {
-  return {
-    type: GET_PRODUCT_RESET
-  }
-}
-
-function addToWishlist (params) {
-  return {
-    type: ADDTO_WISHLIST_REQUEST,
-    ...params
-  }
-}
-
-function addToWishlistHome (params) {
-  return {
-    type: ADDTO_WISHLISTHOME_REQUEST,
-    ...params
-  }
-}
-
-function resetAddToWishlist () {
-  return {
-    type: ADDTO_WISHLIST_RESET
-  }
-}
-
-function resetAddToWishlistHome () {
-  return {
-    type: ADDTO_WISHLISTHOME_RESET
-  }
-}
-
-function listProductByCategory (params) {
-  return {
-    type: LIST_PRODUCTBYCATEGORY_REQUEST,
-    ...params
-  }
-}
-
-function listProductBySearch (params) {
-  return {
-    type: LIST_PRODUCTBYSEARCH_REQUEST,
-    ...params
-  }
-}
-
-function getDiscussion (params) {
-  return {
-    type: GET_DISCUSSION_REQUEST,
-    ...params
-  }
-}
-
-function newDiscussion (params) {
-  return {
-    type: NEW_DISCUSSION_REQUEST,
-    ...params
-  }
-}
-
-function resetDiscussion () {
-  return {
-    type: NEW_DISCUSSION_RESET
-  }
-}
-
-function getComment (params) {
-  return {
-    type: GET_COMMENT_REQUEST,
-    ...params
-  }
-}
-
-function newComment (params) {
-  return {
-    type: NEW_COMMENT_REQUEST,
-    ...params
-  }
-}
-
-function resetNewComment () {
-  return {
-    type: NEW_COMMENT_RESET
-  }
-}
-
-function reportProduct (params) {
-  return {
-    type: REPORT_PRODUCT_REQUEST,
-    ...params
-  }
-}
-
-export {
-    getProduct,
-    resetDetail,
-    addToWishlist,
-    addToWishlistHome,
-    resetAddToWishlist,
-    resetAddToWishlistHome,
-    listProductByCategory,
-    listProductBySearch,
-    getDiscussion,
-    newDiscussion,
-    resetDiscussion,
-    getComment,
-    newComment,
-    resetNewComment,
-    reportProduct
-}
+export const getProduct = params => buildAction(getProductAction.request, params)
+export const listProductByCategory = params => buildAction(listProductByCategoryAction.request, params)
+export const listProductBySearch = params => buildAction(listProductBySearchAction.request, params)
+export const addToWishlist = params => buildAction(addToWishlistAction.request, params)
+export const addToWishlistHome = params => buildAction(addToWishlistHomeAction.request, params)
+export const getDiscussion = params => buildAction(getDiscussionAction.request, params)
+export const newDiscussion = params => buildAction(newDiscussionAction.request, params)
+export const getComment = params => buildAction(getCommentAction.request, params)
+export const newComment = params => buildAction(newCommentAction.request, params)
+export const reportProduct = params => buildAction(reportProductAction.request, params)

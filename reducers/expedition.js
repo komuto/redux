@@ -1,187 +1,22 @@
 import * as expeditionActions from '../actions/expedition'
+import { initState, reducerCreator } from '../config'
 
 const initExpedition = {
   expeditions: [],
-  message: '',
-  status: 0,
-  isLoading: false,
-  isFound: false,
-  isOnline: true
+  ...initState()
 }
 
 const initCharge = {
   charges: [],
-  message: '',
-  status: 0,
-  isLoading: false,
-  isFound: false,
-  isOnline: true
+  ...initState()
 }
 
 const initUpdate = {
-  message: '',
-  status: 0,
-  isLoading: false,
-  isFound: false,
-  isOnline: true
+  ...initState()
 }
 
-function expedition (state = initExpedition, action) {
-  switch (action.type) {
-    case expeditionActions.GET_EXPEDITION_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case expeditionActions.GET_EXPEDITION_SUCCESS:
-      return {
-        ...state,
-        expeditions: action.data,
-        message: action.message,
-        status: action.code,
-        isOnline: true,
-        isLoading: false,
-        isFound: true
-      }
-    case expeditionActions.GET_EXPEDITION_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function expeditionServices (state = initExpedition, action) {
-  switch (action.type) {
-    case expeditionActions.GET_EXPEDITIONSERVICES_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case expeditionActions.GET_EXPEDITIONSERVICES_SUCCESS:
-      return {
-        ...state,
-        expeditions: action.data,
-        message: action.message,
-        status: action.code,
-        isOnline: true,
-        isLoading: false,
-        isFound: true
-      }
-    case expeditionActions.GET_EXPEDITIONSERVICES_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: action.isOnline
-      }
-    default:
-      return state
-  }
-}
-
-function estimatedShipping (state = initCharge, action) {
-  switch (action.type) {
-    case expeditionActions.ESTIMATED_SHIPPING_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case expeditionActions.ESTIMATED_SHIPPING_SUCCESS:
-      return {
-        ...state,
-        charges: action.data,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: true,
-        isFound: true
-      }
-    case expeditionActions.ESTIMATED_SHIPPING_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: action.isOnline,
-        isFound: false
-      }
-    default:
-      return state
-  }
-}
-
-function shippingCharge (state = initCharge, action) {
-  switch (action.type) {
-    case expeditionActions.GET_SHIPPINGCHARGE_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case expeditionActions.GET_SHIPPINGCHARGE_SUCCESS:
-      return {
-        ...state,
-        charges: action.data,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: true,
-        isFound: true
-      }
-    case expeditionActions.GET_SHIPPINGCHARGE_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: action.isOnline,
-        isFound: false
-      }
-    default:
-      return state
-  }
-}
-
-function updateExpediton (state = initUpdate, action) {
-  switch (action.type) {
-    case expeditionActions.UPDATE_EXPEDITION_REQUEST:
-      return {
-        ...state,
-        isLoading: true
-      }
-    case expeditionActions.UPDATE_EXPEDITION_SUCCESS:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: true,
-        isFound: true
-      }
-    case expeditionActions.UPDATE_EXPEDITION_FAILURE:
-      return {
-        ...state,
-        message: action.message,
-        status: action.code,
-        isLoading: false,
-        isOnline: action.isOnline,
-        isFound: false
-      }
-    default:
-      return state
-  }
-}
-
-export {
-  expedition,
-  expeditionServices,
-  estimatedShipping,
-  shippingCharge,
-  updateExpediton
-}
+export const expedition = (state = initExpedition, action) => reducerCreator(state, action, expeditionActions.getExpeditionAction, 'expeditions')
+export const expeditionServices = (state = initExpedition, action) => reducerCreator(state, action, expeditionActions.getServicesAction, 'expeditions')
+export const estimatedShipping = (state = initCharge, action) => reducerCreator(state, action, expeditionActions.estimatedShippingAction, 'charges')
+export const shippingCharge = (state = initCharge, action) => reducerCreator(state, action, expeditionActions.getShippingChargeAction, 'charges')
+export const updateExpediton = (state = initUpdate, action) => reducerCreator(state, action, expeditionActions.updateExpeditionAction, 'expedition')

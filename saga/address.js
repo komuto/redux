@@ -3,67 +3,57 @@ import * as actions from '../actions/address'
 import * as apis from '../api/address'
 import { errorHandling } from '../config'
 
-function * addAddress (action) {
+export const addAddress = function * (action) {
   try {
     const {data} = yield apis.addAddress(action)
-    yield put({ type: actions.ADD_ADDRESS_SUCCESS, ...data })
+    yield put({ type: actions.addAddressAction.success, ...data })
   } catch (e) {
-    console.log(e)
-    yield errorHandling(actions.ADD_ADDRESS_FAILURE, e)
+    yield errorHandling(actions.addAddressAction.failure, e)
   }
 }
 
-function * updateAddress (action) {
+export const updateAddress = function * (action) {
   try {
     const {data} = yield apis.updateAddress(action)
-    yield put({ type: actions.UPDATE_ADDRESS_SUCCESS, ...data })
+    yield put({ type: actions.updateAddressAction.success, ...data })
   } catch (e) {
-    yield errorHandling(actions.UPDATE_ADDRESS_FAILURE, e)
+    yield errorHandling(actions.updateAddressAction.failure, e)
   }
 }
 
-function * deleteAddress (action) {
+export const deleteAddress = function * (action) {
   try {
     const {data} = yield apis.deleteAddress(action)
-    yield put({ type: actions.DELETE_ADDRESS_SUCCESS, ...data })
+    yield put({ type: actions.deleteAddressAction.request, ...data })
   } catch (e) {
-    yield errorHandling(actions.DELETE_ADDRESS_FAILURE, e)
+    yield errorHandling(actions.deleteAddressAction.success, e)
   }
 }
 
-function * getAddressDetail (action) {
+export const getAddressDetail = function * (action) {
   try {
     const {data} = yield apis.getAddressDetail(action)
-    yield put({ type: actions.GET_ADDRESSDETAIL_SUCCESS, ...data })
+    yield put({ type: actions.addressDetailAction.success, ...data })
   } catch (e) {
-    yield errorHandling(actions.GET_ADDRESSDETAIL_FAILURE, e)
+    yield errorHandling(actions.addressDetailAction.failure, e)
   }
 }
 
-function * getListAddress (action) {
+export const getListAddress = function * (action) {
   try {
     const {data} = yield apis.getListAddress(action)
-    yield put({ type: actions.GET_LISTADDRESS_SUCCESS, ...data })
+    yield put({ type: actions.listAddressAction.success, ...data })
   } catch (e) {
-    yield errorHandling(actions.GET_LISTADDRESS_FAILURE, e)
+    yield errorHandling(actions.listAddressAction.failure, e)
   }
 }
 
-function * getPrimaryAddress (action) {
+export const getPrimaryAddress = function * (action) {
   try {
     const {data} = yield apis.getPrimaryAddress(action)
-    yield put({ type: actions.GET_PRIMARYADDRESS_SUCCESS, ...data })
+    yield put({ type: actions.primaryAddressAction.success, ...data })
   } catch (e) {
     console.log(e)
-    yield errorHandling(actions.GET_PRIMARYADDRESS_FAILURE, e)
+    yield errorHandling(actions.primaryAddressAction.failure, e)
   }
-}
-
-export {
-    addAddress,
-    updateAddress,
-    deleteAddress,
-    getAddressDetail,
-    getListAddress,
-    getPrimaryAddress
 }

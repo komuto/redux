@@ -9,13 +9,13 @@ import {store} from './store'
 // import * as review from './actions/review'
 // import * as stores from './actions/stores'
 // import * as email from './actions/email'
-// import * as address from './actions/address'
+import * as address from './actions/address'
 // import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
 // import * as cart from './actions/cart'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(store.getState().cart)
+  console.log(store.getState())
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -146,19 +146,19 @@ store.subscribe(function () {
 // store.dispatch(user.logout())
 // }, 10000)
 
-// store.dispatch(address.addAddress({
-//   province_id: 34,
-//   district_id: 3404,
-//   sub_district_id: 3404050,
-//   village_id: 3404050005,
-//   name: 'Indbay skyshi',
-//   email: 'k.indrabayu@gmail.com',
-//   phone_number: '081222333444',
-//   postal_code: '84314',
-//   address: 'Jl. Klamat No. 24 RT. 002 RW. 003',
-//   alias_address: 'Alamat Toko',
-//   is_primary: true})
-// )
+store.dispatch(address.addAddress({
+  province_id: 34,
+  district_id: 3404,
+  sub_district_id: 3404050,
+  village_id: 3404050005,
+  name: 'Indbay skyshi',
+  email: 'k.indrabayu@gmail.com',
+  phone_number: '081222333444',
+  postal_code: '84314',
+  address: 'Jl. Klamat No. 24 RT. 002 RW. 003',
+  alias_address: 'Alamat Toko',
+  is_primary: true})
+)
 // store.dispatch(address.updateAddress({
 //   id: 259,
 //   village_id: 3404050003,
@@ -195,4 +195,36 @@ store.subscribe(function () {
 //   additional_cost: 500,
 //   delivery_cost: 32000
 // }))
-
+// state = {
+  // cart: []
+// }
+// export const failState = (action, data = false, value = false) => {
+//   const state = {
+//     message: action.message,
+//     status: action.code,
+//     isLoading: false,
+//     isFound: false,
+//     isOnline: action.isOnline
+//   }
+//   if (data) state[data] = value || ''
+//   return state
+// }
+// let action = {type: 'tak apa', message: 'Message buatan', code: 200}
+// console.log(failState(action,'cart',state.cart))
+// import { reqState, succState, failState } from './config'
+// export const reducerCreator = (state, action, actionType, value) => {
+//   switch (action.type) {
+//     case actionType.request:
+//       return reqState(state)
+//     case actionType.success:
+//       return succState(action, value)
+//     case actionType.failure:
+//       return failState(action, value, state.value)
+//     default:
+//       return state
+//   }
+// }
+// let action = {type: 'ini'}
+// let actionType = { success: 'ini'}
+// let value = 'address'
+// console.log(reducerCreator([], action, actionType, value))

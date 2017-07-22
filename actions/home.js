@@ -1,81 +1,15 @@
-export const HOME_PRODUCT_REQUEST = 'HOME_PRODUCT_REQUEST'
-export const HOME_PRODUCT_SUCCESS = 'HOME_PRODUCT_SUCCESS'
-export const HOME_PRODUCT_FAILURE = 'HOME_PRODUCT_FAILURE'
+import { actionType, buildAction } from '../config'
 
-export const HOME_CATEGORY_REQUEST = 'HOME_CATEGORY_REQUEST'
-export const HOME_CATEGORY_SUCCESS = 'HOME_CATEGORY_SUCCESS'
-export const HOME_CATEGORY_FAILURE = 'HOME_CATEGORY_FAILURE'
+export const productsAction = actionType('HOME_PRODUCT')
+export const categoryListAction = actionType('HOME_CATEGORY')
+export const allCategoryAction = actionType('ALL_CATEGORY')
+export const searchAction = actionType('SEARCH_PRODUCT')
+export const filterAction = actionType('FILTER_PRODUCT')
+export const subCategoryAction = actionType('HOME_SUBCATEGORY')
 
-export const ALL_CATEGORY_REQUEST = 'ALL_CATEGORY_REQUEST'
-export const ALL_CATEGORY_SUCCESS = 'ALL_CATEGORY_SUCCESS'
-export const ALL_CATEGORY_FAILURE = 'ALL_CATEGORY_FAILURE'
-
-export const HOME_SUBCATEGORY_REQUEST = 'HOME_SUBCATEGORY_REQUEST'
-export const HOME_SUBCATEGORY_SUCCESS = 'HOME_SUBCATEGORY_SUCCESS'
-export const HOME_SUBCATEGORY_FAILURE = 'HOME_SUBCATEGORY_FAILURE'
-
-export const FILTER_PRODUCT_REQUEST = 'FILTER_PRODUCT_REQUEST'
-export const FILTER_PRODUCT_SUCCESS = 'FILTER_PRODUCT_SUCCESS'
-export const FILTER_PRODUCT_FAILURE = 'FILTER_PRODUCT_FAILURE'
-
-export const SEARCH_PRODUCT_REQUEST = 'SEARCH_PRODUCT_REQUEST'
-export const SEARCH_PRODUCT_SUCCESS = 'SEARCH_PRODUCT_SUCCESS'
-export const SEARCH_PRODUCT_FAILURE = 'SEARCH_PRODUCT_FAILURE'
-
-export const RESET_STATUS_SUBCATEGORY = 'RESET_STATUS_SUBCATEGORY'
-
-function products (params) {
-  return {
-    type: HOME_PRODUCT_REQUEST,
-    ...params
-  }
-}
-
-function allCategory () {
-  return {
-    type: ALL_CATEGORY_REQUEST
-  }
-}
-
-function categoryList () {
-  return {
-    type: HOME_CATEGORY_REQUEST
-  }
-}
-
-function search (params) {
-  return {
-    type: SEARCH_PRODUCT_REQUEST,
-    ...params
-  }
-}
-
-function filter (params) {
-  return {
-    type: FILTER_PRODUCT_REQUEST,
-    ...params
-  }
-}
-
-function subCategory (params) {
-  return {
-    type: HOME_SUBCATEGORY_REQUEST,
-    ...params
-  }
-}
-
-function resetStatus () {
-  return {
-    type: RESET_STATUS_SUBCATEGORY
-  }
-}
-
-export {
-  products,
-  allCategory,
-  categoryList,
-  filter,
-  search,
-  subCategory,
-  resetStatus
-}
+export const products = params => buildAction(productsAction.request, params)
+export const allCategory = buildAction(allCategoryAction.request)
+export const categoryList = buildAction(categoryListAction.request)
+export const search = params => buildAction(searchAction.request, params)
+export const filter = params => buildAction(filterAction.request, params)
+export const subCategory = params => buildAction(subCategoryAction.request, params)

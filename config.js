@@ -61,7 +61,7 @@ export const reqState = (state) => {
 export const succState = (action, data = false) => {
   const state = {
     message: action.message,
-    state: action.code,
+    status: action.code,
     isLoading: false,
     isFound: true,
     isOnline: true
@@ -79,7 +79,7 @@ export const succState = (action, data = false) => {
 export const failState = (action, data = false, value = false) => {
   const state = {
     message: action.message,
-    state: action.code,
+    status: action.code,
     isLoading: false,
     isFound: false,
     isOnline: action.isOnline
@@ -96,4 +96,35 @@ export const buildAction = (type, params = false) => {
     }
   }
   return { type }
+}
+
+export const actionType = (action) => {
+  let objAction = {}
+  objAction.request = action + '_REQUEST'
+  objAction.success = action + '_SUCCESS'
+  objAction.failure = action + '_FAILURE'
+  return objAction
+}
+
+export const reducerCreator = (state, action, actionType, value) => {
+  let states = {}
+  switch (action.type) {
+    case actionType.request:
+      states = this.reqState(state)
+      // to see action type uncomment code below
+      // states.action = action.type
+      return states
+    case actionType.success:
+      // to see action type uncomment code below
+      // states.action = action.type
+      states = this.succState(action, value)
+      return states
+    case actionType.failure:
+      // to see action type uncomment code below
+      // states.action = action.type
+      states = this.failState(action, value, state.value)
+      return states
+    default:
+      return state
+  }
 }

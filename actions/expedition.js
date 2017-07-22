@@ -1,60 +1,13 @@
-export const GET_EXPEDITION_REQUEST = 'GET_EXPEDITION_REQUEST'
-export const GET_EXPEDITION_SUCCESS = 'GET_EXPEDITION_SUCCESS'
-export const GET_EXPEDITION_FAILURE = 'GET_EXPEDITION_FAILURE'
+import { actionType, buildAction } from '../config'
 
-export const GET_EXPEDITIONSERVICES_REQUEST = 'GET_EXPEDITIONSERVICES_REQUEST'
-export const GET_EXPEDITIONSERVICES_SUCCESS = 'GET_EXPEDITIONSERVICES_SUCCESS'
-export const GET_EXPEDITIONSERVICES_FAILURE = 'GET_EXPEDITIONSERVICES_FAILURE'
+export const getExpeditionAction = actionType('GET_EXPEDITION')
+export const getServicesAction = actionType('GET_SEFVICES')
+export const getShippingChargeAction = actionType('GET_SHIPPING_CHARGE')
+export const estimatedShippingAction = actionType('ESTIMATED_SHIPPING')
+export const updateExpeditionAction = actionType('UPDATE_EXPEDITION')
 
-export const GET_SHIPPINGCHARGE_REQUEST = 'GET_SHIPPINGCHARGE_REQUEST'
-export const GET_SHIPPINGCHARGE_SUCCESS = 'GET_SHIPPINGCHARGE_SUCCESS'
-export const GET_SHIPPINGCHARGE_FAILURE = 'GET_SHIPPINGCHARGE_FAILURE'
-
-export const ESTIMATED_SHIPPING_REQUEST = 'ESTIMATED_SHIPPING_REQUEST'
-export const ESTIMATED_SHIPPING_SUCCESS = 'ESTIMATED_SHIPPING_SUCCESS'
-export const ESTIMATED_SHIPPING_FAILURE = 'ESTIMATED_SHIPPING_FAILURE'
-
-export const UPDATE_EXPEDITION_REQUEST = 'UPDATE_EXPEDITION_REQUEST'
-export const UPDATE_EXPEDITION_SUCCESS = 'UPDATE_EXPEDITION_SUCCESS'
-export const UPDATE_EXPEDITION_FAILURE = 'UPDATE_EXPEDITION_FAILURE'
-
-function getExpedition () {
-  return {
-    type: GET_EXPEDITION_REQUEST
-  }
-}
-
-function getServices () {
-  return {
-    type: GET_EXPEDITIONSERVICES_REQUEST
-  }
-}
-
-function estimatedShipping (params) {
-  return {
-    type: ESTIMATED_SHIPPING_REQUEST,
-    ...params
-  }
-}
-
-function getShippingCharge (params) {
-  return {
-    type: GET_SHIPPINGCHARGE_REQUEST,
-    ...params
-  }
-}
-
-function updateExpedition (params) {
-  return {
-    type: UPDATE_EXPEDITION_REQUEST,
-    ...params
-  }
-}
-
-export {
-  getExpedition,
-  getServices,
-  estimatedShipping,
-  getShippingCharge,
-  updateExpedition
-}
+export const getExpedition = buildAction(getExpeditionAction.request)
+export const getServices = buildAction(getServicesAction.request)
+export const estimatedShipping = params => buildAction(estimatedShippingAction.request, params)
+export const getShippingCharge = params => buildAction(getShippingChargeAction.request, params)
+export const updateExpedition = params => buildAction(updateExpeditionAction.request, params)

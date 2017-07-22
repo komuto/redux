@@ -1,7 +1,7 @@
 import { authApiKomuto } from './api'
 
-export const addToCart = async (action) => {
-  const axios = authApiKomuto()
-  return await axios.post('buckets', { ...action })
+export const addToCart = (action) => {
+  let axios = authApiKomuto()
+  return axios.post('buckets', { ...action })
     .catch((err) => { throw (err) })
 }

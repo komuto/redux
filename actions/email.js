@@ -1,14 +1,5 @@
-export const CHECK_EMAILVALIDITY_REQUEST = 'CHECK_EMAILVALIDITY_REQUEST'
-export const CHECK_EMAILVALIDITY_SUCCESS = 'CHECK_EMAILVALIDITY_SUCCESS'
-export const CHECK_EMAILVALIDITY_FAILURE = 'CHECK_EMAILVALIDITY_FAILURE'
+import { actionType, buildAction } from '../config'
 
-function checkEmail (params) {
-  return {
-    type: CHECK_EMAILVALIDITY_REQUEST,
-    ...params
-  }
-}
+export const checkEmailAction = actionType('CHECK_EMAILVALIDITY')
 
-export {
-  checkEmail
-}
+export const checkEmail = params => buildAction(checkEmailAction.request, params)

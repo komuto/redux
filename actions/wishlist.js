@@ -1,13 +1,5 @@
-export const GET_WISHLIST_REQUEST = 'GET_WISHLIST_REQUEST'
-export const GET_WISHLIST_SUCCESS = 'GET_WISHLIST_SUCCESS'
-export const GET_WISHLIST_FAILURE = 'GET_WISHLIST_FAILURE'
+import { actionType, buildAction } from '../config'
 
-function wishlist () {
-  return {
-    type: GET_WISHLIST_REQUEST
-  }
-}
+export const wishlistAction = actionType('GET_WISHLIST')
 
-export {
-    wishlist
-}
+export const wishlist = buildAction(wishlistAction.request)
