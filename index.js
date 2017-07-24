@@ -15,8 +15,8 @@ import {store} from './store'
 // import * as cart from './actions/cart'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  // const {sendOTPBank, bankAccount} = store.getState()
-  // console.log(bankAccount)
+  const {primaryAddress} = store.getState()
+  console.log(primaryAddress)
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
