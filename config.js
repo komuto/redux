@@ -35,7 +35,7 @@ export function errorHandling (actionType, res) {
 export const initState = () => {
   return {
     message: '',
-    state: 0,
+    status: 0,
     isLoading: false,
     isFound: false,
     isOnline: true
@@ -49,7 +49,7 @@ export const initState = () => {
 export const reqState = (state) => {
   return {
     ...state,
-    state: 0,
+    status: 0,
     isLoading: true
   }
 }
@@ -62,7 +62,7 @@ export const reqState = (state) => {
 export const succState = (action, data) => {
   const state = {
     message: action.message,
-    state: action.code,
+    status: action.code,
     isLoading: false,
     isFound: true,
     isOnline: true
@@ -93,7 +93,7 @@ export const succKeepState = (action, data, value) => {
 export const failState = (action, data, value = false) => {
   const state = {
     message: action.message,
-    state: action.code,
+    status: action.code,
     isLoading: false,
     isFound: false,
     isOnline: action.isOnline
