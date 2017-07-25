@@ -41,11 +41,6 @@ const initReport = {
   ...initState()
 }
 
-const initPromo = {
-  promo: {},
-  ...initState()
-}
-
 function getProduct (state = initDetailProduct, action) {
   const type = buildType(action.type)
   switch (type) {
@@ -151,16 +146,6 @@ function reportProduct (state = initReport, action) {
   switch (type) {
     case actions.REPORT_PRODUCT:
       return buildReducer(state, action, type, 'report')
-    default:
-      return state
-  }
-}
-
-export const getPromo = (state = initPromo, action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_PROMO:
-      return buildReducer(state, action, type, 'promo')
     default:
       return state
   }

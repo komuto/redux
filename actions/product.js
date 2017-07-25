@@ -15,7 +15,6 @@ export const GET_COMMENT = 'GET_COMMENT'
 export const NEW_COMMENT = 'NEW_COMMENT'
 export const NEW_COMMENT_RESET = 'NEW_COMMENT_RESET'
 export const REPORT_PRODUCT = 'REPORT_PRODUCT'
-export const GET_PROMO = 'GET_PROMO'
 
 export const getProduct = params => buildAction(typeReq(GET_PRODUCT), params)
 export const resetDetail = () => buildAction(GET_PRODUCT_RESET)
@@ -32,5 +31,4 @@ export const getComment = params => buildAction(typeReq(GET_COMMENT), params)
 export const newComment = params => buildAction(typeReq(NEW_COMMENT), params)
 export const resetNewComment = () => buildAction(NEW_COMMENT_RESET)
 export const reportProduct = params => buildAction(typeReq(REPORT_PRODUCT), params)
-export const getPromo = params => buildAction(typeReq(GET_PROMO), params)
 

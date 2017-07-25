@@ -94,7 +94,7 @@ const komutoApps = storage.reducer(combineReducers({
   bankAccount: bankReducers.bankAccount,
   listBankAccounts: bankReducers.getBankAccounts,
   ownStore: storeReducers.getOwnStore,
-  promo: productReducers.getPromo
+  promo: cartReducers.getPromo
 }))
 
 export default komutoApps

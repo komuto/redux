@@ -93,15 +93,6 @@ function * reportProduct (action) {
   }
 }
 
-export const getPromo = function* (action) {
-  try {
-    const { data } = yield productApi.getPromo(action)
-    yield put({ type: typeSucc(productActions.GET_PROMO), ...data })
-  } catch (e) {
-    yield errorHandling(typeFail(productActions.GET_PROMO), e)
-  }
-}
-
 export {
     getProduct,
     productByCategory,

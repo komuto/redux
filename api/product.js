@@ -249,12 +249,6 @@ function reportProduct (action) {
   })
 }
 
-export const getPromo = async ({ code }) => {
-  const axios = authApiKomuto()
-  return await axios.get(`promo?code=${code}`)
-    .catch((err) => { throw err })
-}
-
 export {
     getProduct,
     productBy,

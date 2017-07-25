@@ -5,7 +5,7 @@ import {store} from './store'
 // import * as expedition from './actions/expedition'
 // import * as location from './actions/location'
 // import * as wishlist from './actions/wishlist'
-import * as product from './actions/product'
+// import * as product from './actions/product'
 // import * as review from './actions/review'
 // import * as stores from './actions/stores'
 // import * as email from './actions/email'
@@ -138,7 +138,7 @@ store.subscribe(function () {
 // store.dispatch(review.addReview({id: 9, review: 'Obatnya manjur ganteng', quality: 4, accuracy: 5}))
 // store.dispatch(expedition.getServices())
 // store.dispatch(expedition.getShippingCharge({id: 2, weight: 2, origin_ro_id: 32, destination_ro_id: 1116}))
-// store.dispatch(expedition.estimatedShipping({id: 1, weight: 2, origin_id: 32, destination_id: 1116}))
+// store.dispatch(expedition.estimatedShipping({id: 1, weight: 2000, origin_id: 32, destination_id: 1116}))
 // store.dispatch(location.getProvince())
 // store.dispatch(location.getDistrict())
 // store.dispatch(location.getSubDistrict({district_id: 3404}))
@@ -201,4 +201,4 @@ store.subscribe(function () {
 // store.dispatch(bank.addBankAccount({code: '77575', master_bank_id: 5, holder_name: 'kucing', holder_account_number: '123456788243', bank_branch_office_name: 'bawah kasur'}))
 // store.dispatch(stores.getOwnStore())
 // store.dispatch(bank.getBankAccounts())
-store.dispatch(product.getPromo({ code: 'BELANJAENAK' }))
+// store.dispatch(cart.getPromo({ code: 'BELANJAENAK' }))
