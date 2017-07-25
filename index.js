@@ -15,19 +15,18 @@ import {store} from './store'
 // import * as cart from './actions/cart'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  const {primaryAddress} = store.getState()
-  console.log(primaryAddress)
+  console.log(store.getState().ownStore)
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
 // setTimeout (function () {
-// store.dispatch(user.login({email: 'testregister@skyshi.com', password: 'komuto'}))
+// store.dispatch(user.login({email: 'testregister@skyshi.com', password: 'testkomuto'}))
 // setTimeout(function () {
 //   console.log('ini token', token())
 // store.dispatch(user.validateToken({token: '9d5e51c87294a378b3e8376d0059e012'}))
 // store.dispatch(user.newPassword({token: '9d5e51c87294a378b3e8376d0059e012', password: 'komuto'}))
 // store.dispatch(user.verification({token: '9d5e51c87294a378b3e8376d0059e012'}))
-// store.dispatch(user.favoriteStore({id: 2}))
+// store.dispatch(user.favoriteStore({id: 6}))
 // store.dispatch(user.countBucket())
 // store.dispatch(user.getPhone())
   // store.dispatch(user.getProfile())
@@ -49,9 +48,9 @@ store.subscribe(function () {
 // store.dispatch(user.newPassword({password: '123456789'}))
 // store.dispatch(user.getBalance())
 // },6000)
-  // store.dispatch(user.stateLogin({login: true}))
-  // store.dispatch(user.loginSocial({provider_name: "Facebook", procider_uid: "12345678", access_token: "EAAViKAqZCMswBAM1UqlZBZAFRd6OyX0C5b9VpVU0mO0dKWduiZBRC2BqJ3wvHyKkJqUz53IUkr0RBByiFtWWRFcBtV3ZBUA8vSQCnbVvD76vTzuF75YtixmN5K0v00eN0u5DHfGGasSzUYWAOKYfkXglmL4DMMZB8aspE5bqN57h2sNO5CT8Nwhmz7kfbgZCBIZD"}))
-  // store.dispatch(user.forgetPassword({email: 'admin@komuto.com'}))
+// store.dispatch(user.stateLogin({login: true}))
+// store.dispatch(user.loginSocial({provider_name: "Facebook", procider_uid: "12345678", access_token: "EAAViKAqZCMswBAM1UqlZBZAFRd6OyX0C5b9VpVU0mO0dKWduiZBRC2BqJ3wvHyKkJqUz53IUkr0RBByiFtWWRFcBtV3ZBUA8vSQCnbVvD76vTzuF75YtixmN5K0v00eN0u5DHfGGasSzUYWAOKYfkXglmL4DMMZB8aspE5bqN57h2sNO5CT8Nwhmz7kfbgZCBIZD"}))
+// store.dispatch(user.forgetPassword({email: 'admin@komuto.com'}))
 // }, 3000)
 // setTimeout (function () {
 // store.dispatch(user.userAuthentication())
@@ -83,37 +82,37 @@ store.subscribe(function () {
 // store.dispatch(brand.getBrandByCategory({id: 763}))
 // store.dispatch(expedition.getExpedition())
 // store.dispatch(stores.createStore({
-//    store: [
-//       'Toko Makmur Abadi Sejahtera',
-//       'Lorem ipsum',
-//       'Lorem ipsum',
-//       'logo.jpg'
-//    ],
-//     expedition_services : [
-//         {
-//             expedition_service_id: 1,
-//             status: 1
-//         },
-//         {
-//             expedition_service_id: 2,
-//             status: 0
-//         }
-//     ],
-//     user: [
-//         '0982390923989',
-//         'Siti Aminah'
-//     ],
-//     address: [
-//         32,
-//         3273,
-//         1111110,
-//         1111110073,
-//         'User skyshi',
-//         'user@skyshi.com',
-//         '081327588531',
-//         '84341',
-//         'Jl. Klamat No. 24 RT. 002 RW. 003'
-//     ]
+//   store: [
+//     'Toko Kumur kumur',
+//     'Lorem ipsum',
+//     'Lorem ipsum',
+//     'logo.jpg'
+//   ],
+//   expedition_services: [
+//     {
+//       expedition_service_id: 1,
+//       status: 1
+//     },
+//     {
+//       expedition_service_id: 2,
+//       status: 0
+//     }
+//   ],
+//   user: [
+//     '0982390923989',
+//     'Siti Aminah'
+//   ],
+//   address: [
+//     32,
+//     3273,
+//     1111110,
+//     1111110073,
+//     'User skyshi',
+//     'user@skyshi.com',
+//     '081327588531',
+//     '84341',
+//     'Jl. Klamat No. 24 RT. 002 RW. 003'
+//   ]
 // }))
 // store.dispatch(expedition.updateExpedition({data:
 // [
@@ -141,7 +140,7 @@ store.subscribe(function () {
 // store.dispatch(expedition.getShippingCharge({id: 2, weight: 2, origin_ro_id: 32, destination_ro_id: 1116}))
 // store.dispatch(expedition.estimatedShipping({id: 1, weight: 2, origin_id: 32, destination_id: 1116}))
 // store.dispatch(location.getProvince())
-// store.dispatch(location.getDistrict({province_id: 34}))
+// store.dispatch(location.getDistrict())
 // store.dispatch(location.getSubDistrict({district_id: 3404}))
 // store.dispatch(location.getVillage({sub_district_id: 3404110}))
 // setTimeout(function () {
@@ -175,14 +174,15 @@ store.subscribe(function () {
 
 // store.dispatch(stores.storeExpeditionList())
 // store.dispatch(stores.storeExpeditionManage())
-// store.dispatch(catalog.createCatalog({name: 'Sepatu kuda cetak cetok'}))
-// store.dispatch(catalog.getCatalog({id: 83}))
+// store.dispatch(catalog.createCatalog({name: 'Kain Kucel'}))
+// store.dispatch(catalog.getCatalog({id: 33}))
 // store.dispatch(catalog.getListCatalog())
-// store.dispatch(catalog.updateCatalog({id: 83, name: 'Sepatu asik asik'}))
-// store.dispatch(catalog.deleteCatalog({id: 83}))
+// store.dispatch(catalog.updateCatalog({id: 33, name: 'Batik kumur kumur'}))
+// store.dispatch(catalog.deleteCatalog({id: 78}))
 // store.dispatch(user.listFavorite())
 // store.dispatch(user.sendOTPPhone())
 // store.dispatch(user.verifyPhone({code: '87325'}))
+// store.dispatch(stores.verifyStore({code: '640091'}))
 // store.dispatch(stores.sendMessageStore({id: 1, subject: 'Mau nanya nih', content: 'Sepatu ini sepatu siapa?'}))
 // store.dispatch(product.reportProduct({id: 1, report_type: 1, description: 'Salah saya ini, saya cowok'}))
 // store.dispatch(address.getPrimaryAddress())
@@ -198,4 +198,4 @@ store.subscribe(function () {
 //   delivery_cost: 32000
 // }))
 // store.dispatch(bank.addBankAccount({code: '77575', master_bank_id: 5, holder_name: 'kucing', holder_account_number: '123456788243', bank_branch_office_name: 'bawah kasur'}))
-
+// store.dispatch(stores.getOwnStore())
