@@ -15,7 +15,7 @@ import {store} from './store'
 // import * as cart from './actions/cart'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(store.getState().promo)
+  console.log(store.getState().productReview)
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -133,8 +133,7 @@ store.subscribe(function () {
 //     status: '1'
 //   }
 // ]}))
-// store.dispatch(review.getReview({id: 9}))
-// store.dispatch(review.listReviewPagination({id: 9, page: 1, limit: 4}))
+// store.dispatch(review.listReviews({id: 9, page: 1, limit: 2}))
 // store.dispatch(review.addReview({id: 9, review: 'Obatnya manjur ganteng', quality: 4, accuracy: 5}))
 // store.dispatch(expedition.getServices())
 // store.dispatch(expedition.getShippingCharge({id: 2, weight: 2, origin_ro_id: 32, destination_ro_id: 1116}))

@@ -67,6 +67,7 @@ export const succState = (action, data) => {
     isFound: true,
     isOnline: true
   }
+  if (action.meta) state.meta = action.meta
   if (data) state[data] = action.data
   return state
 }
@@ -148,3 +149,9 @@ export const buildType = (type) => {
 export const typeReq = type => `${type}_REQUEST`
 export const typeSucc = type => `${type}_SUCCESS`
 export const typeFail = type => `${type}_FAILURE`
+
+export const buildQuery = params => Object.keys(params)
+  .reduce((query, prop) => {
+    if (params[prop]) query.push(`${prop}=${params[prop]}`)
+    return query
+  }, []).join('&')
