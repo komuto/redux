@@ -5,17 +5,17 @@ import {store} from './store'
 // import * as expedition from './actions/expedition'
 // import * as location from './actions/location'
 // import * as wishlist from './actions/wishlist'
-// import * as product from './actions/product'
+import * as product from './actions/product'
 // import * as review from './actions/review'
 // import * as stores from './actions/stores'
 // import * as email from './actions/email'
 // import * as address from './actions/address'
-import * as bank from './actions/bank'
+// import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
 // import * as cart from './actions/cart'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(store.getState().listBankAccounts)
+  console.log(store.getState().promo)
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -200,4 +200,5 @@ store.subscribe(function () {
 // setTimeout(() => store.dispatch(cart.addToCartReset()), 2000)
 // store.dispatch(bank.addBankAccount({code: '77575', master_bank_id: 5, holder_name: 'kucing', holder_account_number: '123456788243', bank_branch_office_name: 'bawah kasur'}))
 // store.dispatch(stores.getOwnStore())
-store.dispatch(bank.getBankAccounts())
+// store.dispatch(bank.getBankAccounts())
+store.dispatch(product.getPromo({ code: 'BELANJAENAK' }))
