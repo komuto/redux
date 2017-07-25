@@ -138,8 +138,9 @@ export const buildReducer = (state, action, type, name, keep = false) => {
  * @param type {string}
  */
 export const buildType = (type) => {
+  const toBeRemoved = ['REQUEST', 'SUCCESS', 'FAILURE']
   type = type.split('_')
-  if (type[type.length - 1] === 'RESET') return type
+  if (!toBeRemoved.includes(type[type.length - 1])) return type.join('_')
   type.splice(type.length - 1, 1)
   return type.join('_')
 }
