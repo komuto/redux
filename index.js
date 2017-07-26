@@ -15,7 +15,7 @@ import {store} from './store'
 // import * as cart from './actions/cart'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(store.getState().productReview)
+  console.log(JSON.stringify(store.getState().products, null, 2))
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -59,7 +59,7 @@ store.subscribe(function () {
 //    password: 'testkomuto',
 //    old_password: 'komuto',
 //   password_confirmation: 'testkomuto'
-// }))
+// }))¢¢¢
 // },4000)
 // store.dispatch(user.sendOTPBank())
 // store.dispatch(product.getProduct({id: 9}))
@@ -68,7 +68,7 @@ store.subscribe(function () {
 // store.dispatch(product.newDiscussion({id: 4, question: 'Barang sudah habis gan?'}))
 // store.dispatch(product.getComment({productId: 4, id: 3}))
 // store.dispatch(product.newComment({productId: 4, id: 3, content: 'Tapi harga nya diturunin dikit ya mas?'}))
-// store.dispatch(home.products())
+// store.dispatch(home.products({ page: 1, limit: 2, q: 'sepatu', category_id: 63 }))
 // store.dispatch(product.listProductByCategory({category_id: 120}))
 // store.dispatch(product.listProductBySearch({services: [1, 2, 3, 4]}))
 // store.dispatch(home.filter({page: 2, size: 6, condition: 'new', price: [50, 0]}))
@@ -178,7 +178,7 @@ store.subscribe(function () {
 // store.dispatch(catalog.getListCatalog())
 // store.dispatch(catalog.updateCatalog({id: 33, name: 'Batik kumur kumur'}))
 // store.dispatch(catalog.deleteCatalog({id: 78}))
-// store.dispatch(user.listFavorite())
+// store.dispatch(user.listFavorite({ page: 1, limit: 5 }))
 // store.dispatch(user.sendOTPPhone())
 // store.dispatch(user.verifyPhone({code: '87325'}))
 // store.dispatch(stores.verifyStore({code: '640091'}))

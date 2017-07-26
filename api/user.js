@@ -1,4 +1,5 @@
 import { authApiKomuto, publicApiKomuto } from './api'
+import { buildQuery } from '../config'
 
 function register (action) {
   let axios = publicApiKomuto()
@@ -257,40 +258,11 @@ function getDiscussion (action) {
   })
 }
 
-function listFavoriteStore (action) {
-  let axios = authApiKomuto()
-  let params = ''
-  let check = [
-    {value: action.page, string: 'page'},
-    {value: action.limit, string: 'limit'}
-  ]
-  let indexCheck = []
-  check.map(function (obj, index) {
-    if (obj.value === undefined || obj.value === '') {
-      // do nothing
-    } else {
-      indexCheck.push(index)
-    }
-  })
-  if (indexCheck.length !== 0) {
-    params = '?'
-  }
-  indexCheck.map(function (obj, index) {
-    if (index !== indexCheck.length - 1) {
-      params = params + check[obj].string + '=' + check[obj].value + '&'
-    } else {
-      params = params + check[obj].string + '=' + check[obj].value
-    }
-  })
-  return axios.get('users/store/favorites' + params, {
-    ...action
-  })
-  .then(function (data) {
-    return data
-  })
-  .catch(function (err) {
-    throw (err)
-  })
+async function listFavoriteStore ({ page, limit }) {
+  const axios = authApiKomuto()
+  const query = buildQuery({ page, limit })
+  return await axios.get(`users/store/favorites?${query}`)
+    .catch((err) => { throw err })
 }
 
 function sendOTPPhone (action) {

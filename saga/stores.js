@@ -24,18 +24,18 @@ function * createStore (action) {
 function * storeExpeditionList (action) {
   try {
     const {data} = yield storeApi.storeExpeditionList()
-    yield put({ type: typeSucc(storeActions.STORE_EXPEDITIONLIST), ...data })
+    yield put({ type: typeSucc(storeActions.STORE_EXPEDITION_LIST), ...data })
   } catch (e) {
-    yield errorHandling(typeFail(storeActions.STORE_EXPEDITIONLIST), e)
+    yield errorHandling(typeFail(storeActions.STORE_EXPEDITION_LIST), e)
   }
 }
 
 function * storeExpeditionManage (action) {
   try {
     const {data} = yield storeApi.storeExpeditionManage()
-    yield put({ type: typeSucc(storeActions.STORE_EXPEDITIONMANAGE), ...data })
+    yield put({ type: typeSucc(storeActions.STORE_EXPEDITION_MANAGE), ...data })
   } catch (e) {
-    yield errorHandling(typeFail(storeActions.STORE_EXPEDITIONMANAGE), e)
+    yield errorHandling(typeFail(storeActions.STORE_EXPEDITION_MANAGE), e)
   }
 }
 

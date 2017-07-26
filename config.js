@@ -150,8 +150,19 @@ export const typeReq = type => `${type}_REQUEST`
 export const typeSucc = type => `${type}_SUCCESS`
 export const typeFail = type => `${type}_FAILURE`
 
-export const buildQuery = params => Object.keys(params)
+/**
+ * Build query string
+ * @param params {object}
+ * @param take {array} optional
+ */
+export const buildQuery = (params, take) => Object.keys(params)
   .reduce((query, prop) => {
+    if (take && !take.includes(prop)) return query
+    if (Array.isArray(params[prop])) {
+      if (params[prop].length === 0) params[prop] = ''
+      // Change from array to string -> [1,2] -> '1,2'
+      params[prop] = String(params[prop])
+    }
     if (params[prop]) query.push(`${prop}=${params[prop]}`)
     return query
   }, []).join('&')

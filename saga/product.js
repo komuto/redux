@@ -14,7 +14,7 @@ function * getProduct (action) {
 
 function * productByCategory (action) {
   try {
-    const {data} = yield productApi.productBy(action)
+    const {data} = yield productApi.getProductBy(action)
     yield put({ type: typeSucc(productActions.LIST_PRODUCT_BY_CATEGORY), ...data })
   } catch (e) {
     yield errorHandling(typeFail(productActions.LIST_PRODUCT_BY_CATEGORY), e)
@@ -23,7 +23,7 @@ function * productByCategory (action) {
 
 function * productBySearch (action) {
   try {
-    const {data} = yield productApi.productBy(action)
+    const {data} = yield productApi.getProductBy(action)
     yield put({ type: typeSucc(productActions.LIST_PRODUCT_BY_SEARCH), ...data })
   } catch (e) {
     yield errorHandling(typeFail(productActions.LIST_PRODUCT_BY_SEARCH), e)
