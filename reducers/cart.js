@@ -6,6 +6,11 @@ const initCart = {
   ...initState()
 }
 
+const initCartCount = {
+  cartCount: 0,
+  ...initState()
+}
+
 const initPromo = {
   promo: {},
   ...initState()
@@ -15,9 +20,22 @@ export const cart = (state = initCart, action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.ADD_TO_CART:
-      return buildReducer(state, action, type, 'cart')
+      return buildReducer(state, action, type, 'cart', true)
     case actions.ADD_TO_CART_RESET:
       return initCart
+    case actions.GET_CART:
+      console.log('im here -_----')
+      return buildReducer(state, action, type, 'cart')
+    default:
+      return state
+  }
+}
+
+export const countCart = (state = initCartCount, action) => {
+  const type = buildType(action.type)
+  switch (type) {
+    case actions.COUNT_CART:
+      return buildReducer(state, action, type, 'cartCount')
     default:
       return state
   }

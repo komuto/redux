@@ -180,45 +180,6 @@ function favoriteStore (action) {
   })
 }
 
-function addToBucket (action) {
-  let axios = authApiKomuto()
-  return axios.post('buckets', {
-    ...action
-  })
-  .then(function (data) {
-    return data
-  })
-  .catch(function (err) {
-    throw (err)
-  })
-}
-
-function countBucket (action) {
-  let axios = authApiKomuto()
-  return axios.get('buckets/count', {
-    ...action
-  })
-  .then(function (data) {
-    return data
-  })
-  .catch(function (err) {
-    throw (err)
-  })
-}
-
-function getBucket (action) {
-  let axios = authApiKomuto()
-  return axios.get('users/bucket', {
-    ...action
-  })
-  .then(function (data) {
-    return data
-  })
-  .catch(function (err) {
-    throw (err)
-  })
-}
-
 function getPhone (action) {
   let axios = authApiKomuto()
   return axios.get('accounts/phone', {
@@ -291,6 +252,13 @@ function verifyPhone (action) {
   })
 }
 
+function wishlist (action) {
+  let axios = authApiKomuto()
+  return axios.get('users/wishlist', {
+    ...action
+  })
+}
+
 export const sendOTPBank = async () => {
   const axios = authApiKomuto()
   return await axios.post('accounts/otp/bank', {})
@@ -319,14 +287,12 @@ export {
   getBalance,
   updateProfile,
   favoriteStore,
-  addToBucket,
-  countBucket,
-  getBucket,
   getProfileManage,
   getPhone,
   updatePhone,
   getDiscussion,
   listFavoriteStore,
   sendOTPPhone,
-  verifyPhone
+  verifyPhone,
+  wishlist
 }

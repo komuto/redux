@@ -6,6 +6,18 @@ export const addToCart = async (action) => {
     .catch((err) => { throw (err) })
 }
 
+export const getCart = async () => {
+  const axios = authApiKomuto()
+  return await axios.get('users/bucket')
+    .catch((err) => { throw err })
+}
+
+export const countCart = async () => {
+  const axios = authApiKomuto()
+  return await axios.get('buckets/count')
+    .catch((err) => { throw err })
+}
+
 export const getPromo = async ({ code }) => {
   const axios = authApiKomuto()
   return await axios.get(`buckets/promo?code=${code}`)

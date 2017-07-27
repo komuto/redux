@@ -4,18 +4,17 @@ import {store} from './store'
 // import * as brand from './actions/brand'
 // import * as expedition from './actions/expedition'
 // import * as location from './actions/location'
-// import * as wishlist from './actions/wishlist'
 // import * as product from './actions/product'
 // import * as review from './actions/review'
 // import * as stores from './actions/stores'
 // import * as email from './actions/email'
 // import * as address from './actions/address'
-import * as bank from './actions/bank'
+// import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
 // import * as cart from './actions/cart'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().listBankAccounts, null, 2))
+  console.log(JSON.stringify(store.getState().cart, null, 2))
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -27,7 +26,6 @@ store.subscribe(function () {
 // store.dispatch(user.newPassword({token: '9d5e51c87294a378b3e8376d0059e012', password: 'komuto'}))
 // store.dispatch(user.verification({token: '9d5e51c87294a378b3e8376d0059e012'}))
 // store.dispatch(user.favoriteStore({id: 6}))
-// store.dispatch(user.countBucket())
 // store.dispatch(user.getPhone())
   // store.dispatch(user.getProfile())
 // store.dispatch(user.getDiscussion())
@@ -77,7 +75,6 @@ store.subscribe(function () {
 // store.dispatch(home.categoryList())
 // store.dispatch(home.subCategory({id: 6}))
 // store.dispatch(stores.getStores({id: 41}))
-// store.dispatch(wishlist.wishlist())
 // store.dispatch(brand.getBrand())
 // store.dispatch(brand.getBrandByCategory({id: 763}))
 // store.dispatch(expedition.getExpedition())
@@ -199,7 +196,10 @@ store.subscribe(function () {
 // setTimeout(() => store.dispatch(cart.addToCartReset()), 2000)
 // store.dispatch(bank.addBankAccount({code: '77575', master_bank_id: 5, holder_name: 'kucing', holder_account_number: '123456788243', bank_branch_office_name: 'bawah kasur'}))
 // store.dispatch(stores.getOwnStore())
-store.dispatch(bank.getBankAccounts({ id: 21 }))
+// store.dispatch(bank.getBankAccounts({ id: 21 }))
 // store.dispatch(cart.getPromo({ code: 'BELANJAENAK' }))
 // store.dispatch(stores.getStoreProducts({ hidden: true }))
 // store.dispatch(product.hideProducts({ product_ids: [93, 116] }))
+// store.dispatch(cart.countCart())
+// store.dispatch(cart.getCart())
+// store.dispatch(user.wishlist())

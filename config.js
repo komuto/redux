@@ -153,7 +153,7 @@ export const typeFail = type => `${type}_FAILURE`
 /**
  * Build query string
  * @param params {object}
- * @param take {array} optional
+ * @param take {array} optional ===> array of prop names to take
  */
 export const buildQuery = (params, take) => Object.keys(params)
   .reduce((query, prop) => {
