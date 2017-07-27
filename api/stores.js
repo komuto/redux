@@ -137,6 +137,12 @@ export const getOwnStore = async () => {
     .catch((err) => { throw err })
 }
 
+export const getStoreProducts = async ({ hidden = false } = {}) => {
+  const axios = authApiKomuto()
+  return await axios.get(`users/store/products?hidden=${hidden}`)
+    .catch((err) => { throw err })
+}
+
 export {
     getStores,
     createStore,

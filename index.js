@@ -7,7 +7,7 @@ import {store} from './store'
 // import * as wishlist from './actions/wishlist'
 // import * as product from './actions/product'
 // import * as review from './actions/review'
-// import * as stores from './actions/stores'
+import * as stores from './actions/stores'
 // import * as email from './actions/email'
 // import * as address from './actions/address'
 // import * as bank from './actions/bank'
@@ -15,7 +15,7 @@ import {store} from './store'
 // import * as cart from './actions/cart'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().products, null, 2))
+  console.log(JSON.stringify(store.getState().storeProducts, null, 2))
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -201,3 +201,4 @@ store.subscribe(function () {
 // store.dispatch(stores.getOwnStore())
 // store.dispatch(bank.getBankAccounts())
 // store.dispatch(cart.getPromo({ code: 'BELANJAENAK' }))
+store.dispatch(stores.getStoreProducts({ hidden: true }))

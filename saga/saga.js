@@ -110,6 +110,7 @@ function * dataSaga () {
   yield takeEvery(typeReq(storeActions.GET_OWN_STORE), storeSaga.getOwnStore)
   yield takeEvery(typeReq(bankActions.GET_BANK_ACCOUNTS), bankSaga.getBankAccounts)
   yield takeEvery(typeReq(cartActions.GET_PROMO), cartSaga.getPromo)
+  yield takeEvery(typeReq(storeActions.GET_STORE_PRODUCTS), storeSaga.getStoreProducts)
 }
 
 export default dataSaga

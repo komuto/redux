@@ -76,6 +76,15 @@ export const getOwnStore = function* () {
   }
 }
 
+export const getStoreProducts = function* ({ hidden }) {
+  try {
+    const { data } = yield storeApi.getStoreProducts({ hidden })
+    yield put({ type: typeSucc(storeActions.GET_STORE_PRODUCTS), ...data })
+  } catch (e) {
+    yield errorHandling(typeFail(storeActions.GET_STORE_PRODUCTS), e)
+  }
+}
+
 export {
   getStores,
   createStore,
