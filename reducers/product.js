@@ -151,6 +151,16 @@ function reportProduct (state = initReport, action) {
   }
 }
 
+export const hideProducts = (state = initState(), action) => {
+  const type = buildType(action.type)
+  switch (type) {
+    case actions.HIDE_PRODUCTS:
+      return buildReducer(state, action, type)
+    default:
+      return state
+  }
+}
+
 export {
     getProduct,
     productByCategory,

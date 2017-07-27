@@ -93,6 +93,15 @@ function * reportProduct (action) {
   }
 }
 
+export const hideProducts = function* ({ product_ids }) {
+  try {
+    const { data } = yield productApi.hideProducts({ product_ids })
+    yield put({ type: typeSucc(productActions.HIDE_PRODUCTS), ...data })
+  } catch (e) {
+    yield errorHandling(typeFail(productActions.HIDE_PRODUCTS), e)
+  }
+}
+
 export {
     getProduct,
     productByCategory,

@@ -113,6 +113,12 @@ function reportProduct (action) {
   })
 }
 
+export const hideProducts = async ({ product_ids }) => {
+  const axios = authApiKomuto()
+  return await axios.post('users/store/products/hides', { product_ids })
+    .catch((err) => { throw err })
+}
+
 export {
     getProduct,
     getProductBy,
