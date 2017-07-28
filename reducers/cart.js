@@ -22,9 +22,8 @@ export const cart = (state = initCart, action) => {
     case actions.ADD_TO_CART:
       return buildReducer(state, action, type, 'cart', true)
     case actions.ADD_TO_CART_RESET:
-      return initCart
+      return { ...initCart, cart: state.cart }
     case actions.GET_CART:
-      console.log('im here -_----')
       return buildReducer(state, action, type, 'cart')
     default:
       return state

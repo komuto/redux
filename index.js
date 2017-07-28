@@ -183,7 +183,7 @@ store.subscribe(function () {
 // store.dispatch(product.reportProduct({id: 1, report_type: 1, description: 'Salah saya ini, saya cowok'}))
 // store.dispatch(address.getPrimaryAddress())
 // store.dispatch(cart.addToCart({
-//   product_id: 25,
+//   product_id: 8,
 //   expedition_id: 1,
 //   expedition_service_id: 3,
 //   qty: 1,

@@ -166,3 +166,26 @@ export const buildQuery = (params, take) => Object.keys(params)
     if (params[prop]) query.push(`${prop}=${params[prop]}`)
     return query
   }, []).join('&')
+
+/**
+ * Build sagas
+ * @param args {[string]} arguments to api
+ * ['id', 'code'] take only action.id and action.id as arguments
+ * @param callApi {function}
+ * @param actionType {string}
+ * @param props {[string]} take specific prop for data from api
+ * ['user', 'province', 'id'] only take data.user.province.id for data
+ */
+export const buildSaga = (args, callApi, actionType, props = false) => function* (action) {
+  try {
+    const params = !args.length > 0 ? action
+      : args.reduce((params, prop) => ({ ...params, [prop]: action[prop] }), {})
+    const { data } = yield callApi(params)
+    if (props) {
+      data.data = props.reduce((data, prop) => data[prop] || {}, data.data)
+    }
+    yield put({ type: typeSucc(actionType), ...data })
+  } catch (e) {
+    yield errorHandling(typeFail(actionType), e)
+  }
+}
