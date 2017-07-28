@@ -58,7 +58,7 @@ const product = {
   comments: productReducers.getComment,
   newComment: productReducers.newComment,
   report: productReducers.reportProduct,
-  hideProducts: productReducers.hideProducts
+  alterProducts: productReducers.alterProducts
 }
 
 const store = {

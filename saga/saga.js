@@ -88,7 +88,9 @@ const product = function* () {
   yield takeEvery(typeReq(productActions.GET_COMMENT), productSaga.getComment)
   yield takeEvery(typeReq(productActions.NEW_COMMENT), productSaga.newComment)
   yield takeEvery(typeReq(productActions.REPORT_PRODUCT), productSaga.reportProduct)
+  yield takeEvery(typeReq(productActions.CREATE_PRODUCT), productSaga.createProduct)
   yield takeEvery(typeReq(productActions.HIDE_PRODUCTS), productSaga.hideProducts)
+  yield takeEvery(typeReq(productActions.DELETE_PRODUCTS), productSaga.deleteProducts)
 }
 
 const store = function* () {

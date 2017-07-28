@@ -14,7 +14,7 @@ import {store} from './store'
 // import * as cart from './actions/cart'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().cart, null, 2))
+  console.log(JSON.stringify(store.getState().alterProducts, null, 2))
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -200,6 +200,23 @@ store.subscribe(function () {
 // store.dispatch(cart.getPromo({ code: 'BELANJAENAK' }))
 // store.dispatch(stores.getStoreProducts({ hidden: true }))
 // store.dispatch(product.hideProducts({ product_ids: [93, 116] }))
+// store.dispatch(product.deleteProducts({ product_ids: [34, 35] }))
 // store.dispatch(cart.countCart())
 // store.dispatch(cart.getCart())
 // store.dispatch(user.wishlist())
+// store.dispatch(product.createProduct({
+//   name: 'Alat kumur kumir',
+//   category_id: 63,
+//   brand_id: 1,
+//   description: 'lorem ipsum',
+//   price: 16500,
+//   weight: 500,
+//   stock: 50,
+//   condition: '1',
+//   insurance: '0',
+//   is_dropship: true,
+//   catalog_id: 33,
+//   wholesales: [{ min_order: 5, max_order: 10, price: 1500000 }, { min_order: 11, max_order: 15, price: 1200000 }],
+//   expeditions: [{ expedition_service_id: 1 }, { expedition_service_id: 2 }],
+//   images: [{ name: 'kucing.png' }, { name: 'kambing.png' }]
+// }))

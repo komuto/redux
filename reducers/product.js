@@ -41,6 +41,11 @@ const initReport = {
   ...initState()
 }
 
+const initAlterProduct = {
+  product: {},
+  ...initState()
+}
+
 function getProduct (state = initDetailProduct, action) {
   const type = buildType(action.type)
   switch (type) {
@@ -151,10 +156,14 @@ function reportProduct (state = initReport, action) {
   }
 }
 
-export const hideProducts = (state = initState(), action) => {
+export const alterProducts = (state = initAlterProduct, action) => {
   const type = buildType(action.type)
   switch (type) {
+    case actions.CREATE_PRODUCT:
+      return buildReducer(state, action, type, 'product')
     case actions.HIDE_PRODUCTS:
+      return buildReducer(state, action, type)
+    case actions.DELETE_PRODUCTS:
       return buildReducer(state, action, type)
     default:
       return state
