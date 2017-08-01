@@ -4,7 +4,7 @@ import {store} from './store'
 // import * as brand from './actions/brand'
 // import * as expedition from './actions/expedition'
 // import * as location from './actions/location'
-// import * as product from './actions/product'
+import * as product from './actions/product'
 // import * as review from './actions/review'
 // import * as stores from './actions/stores'
 // import * as email from './actions/email'
@@ -205,7 +205,7 @@ store.subscribe(function () {
 // store.dispatch(cart.getCart())
 // store.dispatch(user.wishlist())
 // store.dispatch(product.createProduct({
-//   name: 'Alat kumur kumir',
+//   name: 'Alat kumur kumir',π
 //   category_id: 63,
 //   brand_id: 1,
 //   description: 'lorem ipsum',
@@ -220,3 +220,4 @@ store.subscribe(function () {
 //   expeditions: [{ expedition_service_id: 1 }, { expedition_service_id: 2 }],
 //   images: [{ name: 'kucing.png' }, { name: 'kambing.png' }]
 // }))
+store.dispatch(product.changeCatalogProducts({ catalog_id: 33, product_ids: [ 30, 40 ] }))

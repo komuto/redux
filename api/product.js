@@ -128,6 +128,11 @@ export const deleteProducts = async ({ product_ids }) => {
   return await axios.post('users/store/products', { product_ids }).catch((err) => { throw err })
 }
 
+export const changeCatalogProducts = async (action) => {
+  const axios = authApiKomuto()
+  return await axios.post('users/store/products/move-catalog', action).catch((err) => { throw err })
+}
+
 export {
     getProduct,
     getProductBy,

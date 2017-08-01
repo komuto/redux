@@ -6,6 +6,11 @@ const initExpedition = {
   ...initState()
 }
 
+const initExpeditionServices = {
+  expeditionServices: [],
+  ...initState()
+}
+
 const initCharge = {
   charges: [],
   ...initState()
@@ -25,11 +30,11 @@ function expedition (state = initExpedition, action) {
   }
 }
 
-function expeditionServices (state = initExpedition, action) {
+function expeditionServices (state = initExpeditionServices, action) {
   const type = buildType(action.type)
   switch (type) {
-    case actions.GET_EXPEDITION:
-      return buildReducer(state, action, type, 'expeditions')
+    case actions.GET_EXPEDITION_SERVICES:
+      return buildReducer(state, action, type, 'expeditionServices')
     default:
       return state
   }

@@ -99,6 +99,8 @@ export const hideProducts = buildSaga(['product_ids'], apis.hideProducts, action
 
 export const deleteProducts = buildSaga(['product_ids'], apis.deleteProducts, actions.DELETE_PRODUCTS)
 
+export const changeCatalogProducts = buildSaga(['catalog_id', 'product_ids'], apis.changeCatalogProducts, actions.CHANGE_CATALOG)
+
 export {
     getProduct,
     productByCategory,
