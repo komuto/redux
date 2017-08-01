@@ -38,6 +38,16 @@ export const getBankAccounts = async (id = '') => {
     .catch((err) => { throw err })
 }
 
+export const updateBankAccount = async ({ id, ...data }) => {
+  const axios = authApiKomuto()
+  return await axios.put(`accounts/banks/${id}`, data).catch((err) => { throw err })
+}
+
+export const deleteBankAccount = async ({ id, ...code }) => {
+  const axios = authApiKomuto()
+  return await axios.delete(`accounts/banks/${id}`, { data: code }).catch((err) => { throw err })
+}
+
 export {
   listBank,
   getBank

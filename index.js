@@ -11,10 +11,10 @@ import {store} from './store'
 // import * as address from './actions/address'
 // import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
-import * as cart from './actions/cart'
+// import * as cart from './actions/cart'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().cart, null, 2))
+  console.log(JSON.stringify(store.getState().bankAccount, null, 2))
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -136,7 +136,7 @@ store.subscribe(function () {
 // store.dispatch(expedition.getShippingCharge({id: 2, weight: 2, origin_ro_id: 32, destination_ro_id: 1116}))
 // store.dispatch(expedition.estimatedShipping({id: 1, weight: 2000, origin_id: 32, destination_id: 1116}))
 // store.dispatch(location.getProvince())
-// store.dispatch(location.getDistrict({ province_id: 34 }))
+// store.dispatch(location.getDistrict({ q: 'aceh' }))
 // store.dispatch(location.getSubDistrict({district_id: 3404}))
 // store.dispatch(location.getVillage({sub_district_id: 3404110}))
 // setTimeout(function () {
@@ -202,7 +202,7 @@ store.subscribe(function () {
 // store.dispatch(product.hideProducts({ product_ids: [93, 116] }))
 // store.dispatch(product.deleteProducts({ product_ids: [34, 35] }))
 // store.dispatch(cart.countCart())
-store.dispatch(cart.getCart())
+// store.dispatch(cart.getCart())
 // store.dispatch(user.wishlist())
 // store.dispatch(product.createProduct({
 //   name: 'Alat kumur kumir',π
@@ -222,4 +222,6 @@ store.dispatch(cart.getCart())
 // }))
 // store.dispatch(product.changeCatalogProducts({ catalog_id: 33, product_ids: [ 30, 40 ] }))
 // store.dispatch(expedition.getStoreExpeditions())
-setTimeout(() => store.dispatch(cart.cancelPromo()), 5 * 1000)
+// setTimeout(() => store.dispatch(cart.cancelPromo()), 5 * 1000)
+// store.dispatch(bank.updateBankAccount({ id: 15, code: '10373', master_bank_id: 2, holder_name: 'aep', holder_account_number: '43254362541', bank_branch_office_name: 'iap' }))
+// store.dispatch(bank.deleteBankAccount({ id: 31, code: '10373' }))
