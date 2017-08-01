@@ -2,7 +2,7 @@ import {store} from './store'
 // import * as user from './actions/user'
 // import * as home from './actions/home'
 // import * as brand from './actions/brand'
-import * as expedition from './actions/expedition'
+// import * as expedition from './actions/expedition'
 // import * as location from './actions/location'
 // import * as product from './actions/product'
 // import * as review from './actions/review'
@@ -11,10 +11,10 @@ import * as expedition from './actions/expedition'
 // import * as address from './actions/address'
 // import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
-// import * as cart from './actions/cart'
+import * as cart from './actions/cart'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().storeExpeditions, null, 2))
+  console.log(JSON.stringify(store.getState().cart, null, 2))
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -202,7 +202,7 @@ store.subscribe(function () {
 // store.dispatch(product.hideProducts({ product_ids: [93, 116] }))
 // store.dispatch(product.deleteProducts({ product_ids: [34, 35] }))
 // store.dispatch(cart.countCart())
-// store.dispatch(cart.getCart())
+store.dispatch(cart.getCart())
 // store.dispatch(user.wishlist())
 // store.dispatch(product.createProduct({
 //   name: 'Alat kumur kumir',π
@@ -221,4 +221,5 @@ store.subscribe(function () {
 //   images: [{ name: 'kucing.png' }, { name: 'kambing.png' }]
 // }))
 // store.dispatch(product.changeCatalogProducts({ catalog_id: 33, product_ids: [ 30, 40 ] }))
-store.dispatch(expedition.getStoreExpeditions())
+// store.dispatch(expedition.getStoreExpeditions())
+setTimeout(() => store.dispatch(cart.cancelPromo()), 5 * 1000)

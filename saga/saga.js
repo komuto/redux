@@ -140,6 +140,7 @@ const cart = function* () {
   yield takeEvery(typeReq(cartActions.GET_PROMO), cartSaga.getPromo)
   yield takeEvery(typeReq(cartActions.COUNT_CART), cartSaga.countCart)
   yield takeEvery(typeReq(cartActions.GET_CART), cartSaga.getCart)
+  yield takeEvery(typeReq(cartActions.CANCEL_PROMO), cartSaga.cancelPromo)
 }
 
 const expedition = function* () {

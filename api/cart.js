@@ -19,3 +19,8 @@ export const getPromo = async ({ code }) => {
   const axios = authApiKomuto()
   return await axios.get(`buckets/promo?code=${code}`).catch((err) => { throw err })
 }
+
+export const cancelPromo = async () => {
+  const axios = authApiKomuto()
+  return await axios.get('buckets/promo/cancel').catch((err) => { throw err })
+}
