@@ -105,6 +105,7 @@ const catalog = {
 const cart = {
   cart: cartReducers.cart,
   promo: cartReducers.getPromo,
+  cancelPromo: cartReducers.cancelPromo,
   countCart: cartReducers.countCart
 }
 
