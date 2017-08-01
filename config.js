@@ -31,15 +31,19 @@ export function errorHandling (actionType, res) {
 
 /**
  * Build initial state
+ * @param props {object} additional fields
  */
-export const initState = () => {
-  return {
+export const initState = (props = {}) => {
+  const state = {
     message: '',
     status: 0,
     isLoading: false,
     isFound: false,
     isOnline: true
   }
+  return Object.keys(props).reduce((state, prop) => {
+    return { [prop]: props[prop], ...state }
+  }, state)
 }
 
 /**

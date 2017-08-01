@@ -148,6 +148,7 @@ const expedition = function* () {
   yield takeEvery(typeReq(expeditionActions.ESTIMATED_SHIPPING), expeditionSaga.estimatedCharge)
   yield takeEvery(typeReq(expeditionActions.GET_SHIPPING_CHARGE), expeditionSaga.getShippingCharge)
   yield takeEvery(typeReq(expeditionActions.UPDATE_EXPEDITION), expeditionSaga.updateExpedition)
+  yield takeEvery(typeReq(expeditionActions.GET_STORE_EXPEDITIONS), expeditionSaga.getStoreExpeditions)
 }
 
 const location = function* () {

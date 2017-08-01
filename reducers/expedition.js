@@ -70,6 +70,16 @@ function updateExpediton (state = initUpdate, action) {
   }
 }
 
+export const getStoreExpeditions = (state = initState({ storeExpeditions: [] }), action) => {
+  const type = buildType(action.type)
+  switch (type) {
+    case actions.GET_STORE_EXPEDITIONS:
+      return buildReducer(state, action, type, 'storeExpeditions')
+    default:
+      return state
+  }
+}
+
 export {
   expedition,
   expeditionServices,
