@@ -195,7 +195,6 @@ function * verifyPhone (action) {
 function* wishlist (action) {
   try {
     const {data} = yield userApi.wishlist(action)
-    console.log(data)
     yield put({ type: typeSucc(userActions.GET_WISHLIST), ...data })
   } catch (e) {
     yield errorHandling(typeFail(userActions.GET_WISHLIST), e)

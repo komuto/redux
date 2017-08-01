@@ -155,7 +155,6 @@ function updateProfile (action) {
     let timeStamp = new Date(tempDate).getTime() / 1000
     action.date_of_birth = timeStamp
   }
-  // console.log(action.date_of_birth)
   return axios.put('accounts/profile', {
     ...action
   })

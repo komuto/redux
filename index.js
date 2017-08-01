@@ -3,8 +3,8 @@ import {store} from './store'
 // import * as home from './actions/home'
 // import * as brand from './actions/brand'
 // import * as expedition from './actions/expedition'
-// import * as location from './actions/location'
-import * as product from './actions/product'
+import * as location from './actions/location'
+// import * as product from './actions/product'
 // import * as review from './actions/review'
 // import * as stores from './actions/stores'
 // import * as email from './actions/email'
@@ -14,7 +14,7 @@ import * as product from './actions/product'
 // import * as cart from './actions/cart'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().alterProducts, null, 2))
+  console.log(JSON.stringify(store.getState().districts, null, 2))
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -136,7 +136,7 @@ store.subscribe(function () {
 // store.dispatch(expedition.getShippingCharge({id: 2, weight: 2, origin_ro_id: 32, destination_ro_id: 1116}))
 // store.dispatch(expedition.estimatedShipping({id: 1, weight: 2000, origin_id: 32, destination_id: 1116}))
 // store.dispatch(location.getProvince())
-// store.dispatch(location.getDistrict())
+store.dispatch(location.getDistrict({ province_id: 34 }))
 // store.dispatch(location.getSubDistrict({district_id: 3404}))
 // store.dispatch(location.getVillage({sub_district_id: 3404110}))
 // setTimeout(function () {
@@ -220,4 +220,4 @@ store.subscribe(function () {
 //   expeditions: [{ expedition_service_id: 1 }, { expedition_service_id: 2 }],
 //   images: [{ name: 'kucing.png' }, { name: 'kambing.png' }]
 // }))
-store.dispatch(product.changeCatalogProducts({ catalog_id: 33, product_ids: [ 30, 40 ] }))
+// store.dispatch(product.changeCatalogProducts({ catalog_id: 33, product_ids: [ 30, 40 ] }))
