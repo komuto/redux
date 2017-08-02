@@ -143,6 +143,11 @@ export const getStoreProducts = async ({ hidden = false } = {}) => {
     .catch((err) => { throw err })
 }
 
+export const getStoreCatalogProducts = async ({ id }) => {
+  const axios = authApiKomuto()
+  return await axios.get(`users/store/products/catalogs/${id}`).catch((err) => { throw err })
+}
+
 export {
     getStores,
     createStore,

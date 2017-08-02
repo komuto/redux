@@ -6,7 +6,7 @@ import {store} from './store'
 // import * as location from './actions/location'
 // import * as product from './actions/product'
 // import * as review from './actions/review'
-// import * as stores from './actions/stores'
+import * as stores from './actions/stores'
 // import * as email from './actions/email'
 // import * as address from './actions/address'
 // import * as bank from './actions/bank'
@@ -14,7 +14,7 @@ import {store} from './store'
 // import * as cart from './actions/cart'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().bankAccount, null, 2))
+  console.log(JSON.stringify(store.getState().storeCatalogProducts, null, 2))
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -196,7 +196,8 @@ store.subscribe(function () {
 // setTimeout(() => store.dispatch(cart.addToCartReset()), 2000)
 // store.dispatch(bank.addBankAccount({code: '77575', master_bank_id: 5, holder_name: 'kucing', holder_account_number: '123456788243', bank_branch_office_name: 'bawah kasur'}))
 // store.dispatch(stores.getOwnStore())
-// store.dispatch(bank.getBankAccounts({ id: 21 }))
+// store.dispatch(bank.getBankAccounts())
+// setTimeout(() => store.dispatch(bank.getBankAccounts({ id: 18 })), 5000)
 // store.dispatch(cart.getPromo({ code: 'BELANJAENAK' }))
 // store.dispatch(stores.getStoreProducts({ hidden: true }))
 // store.dispatch(product.hideProducts({ product_ids: [93, 116] }))
@@ -225,3 +226,4 @@ store.subscribe(function () {
 // setTimeout(() => store.dispatch(cart.cancelPromo()), 5 * 1000)
 // store.dispatch(bank.updateBankAccount({ id: 15, code: '10373', master_bank_id: 2, holder_name: 'aep', holder_account_number: '43254362541', bank_branch_office_name: 'iap' }))
 // store.dispatch(bank.deleteBankAccount({ id: 31, code: '10373' }))
+store.dispatch(stores.getStoreCatalogProducts({ id: 33 }))
