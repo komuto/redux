@@ -5,7 +5,7 @@ import {store} from './store'
 // import * as expedition from './actions/expedition'
 // import * as location from './actions/location'
 // import * as product from './actions/product'
-import * as review from './actions/review'
+// import * as review from './actions/review'
 // import * as stores from './actions/stores'
 // import * as email from './actions/email'
 // import * as address from './actions/address'
@@ -14,7 +14,7 @@ import * as review from './actions/review'
 // import * as cart from './actions/cart'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().productReview, null, 2))
+  console.log(JSON.stringify(store.getState().cart, null, 2))
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -47,7 +47,7 @@ store.subscribe(function () {
 // store.dispatch(user.getBalance())
 // },6000)
 // store.dispatch(user.stateLogin({login: true}))
-// store.dispatch(user.loginSocial({provider_name: "Facebook", procider_uid: "12345678", access_token: "EAAViKAqZCMswBAM1UqlZBZAFRd6OyX0C5b9VpVU0mO0dKWduiZBRC2BqJ3wvHyKkJqUz53IUkr0RBByiFtWWRFcBtV3ZBUA8vSQCnbVvD76vTzuF75YtixmN5K0v00eN0u5DHfGGasSzUYWAOKYfkXglmL4DMMZB8aspE5bqN57h2sNO5CT8Nwhmz7kfbgZCBIZD"}))
+// store.dispatch(user.loginSocial({provider_name: Facebook, procider_uid: 12345678, access_token: EAAViKAqZCMswBAM1UqlZBZAFRd6OyX0C5b9VpVU0mO0dKWduiZBRC2BqJ3wvHyKkJqUz53IUkr0RBByiFtWWRFcBtV3ZBUA8vSQCnbVvD76vTzuF75YtixmN5K0v00eN0u5DHfGGasSzUYWAOKYfkXglmL4DMMZB8aspE5bqN57h2sNO5CT8Nwhmz7kfbgZCBIZD}))
 // store.dispatch(user.forgetPassword({email: 'admin@komuto.com'}))
 // }, 3000)
 // setTimeout (function () {
@@ -69,7 +69,7 @@ store.subscribe(function () {
 // store.dispatch(home.products({ page: 1, limit: 2, q: 'sepatu', category_id: 63 }))
 // store.dispatch(product.listProductByCategory({category_id: 120}))
 // store.dispatch(product.listProductBySearch({services: [1, 2, 3, 4]}))
-// store.dispatch(home.filter({page: 2, size: 6, condition: 'new', price: [50, 0]}))
+// store.dispatch(home.filter({condition: 'new'}))
 // store.dispatch(home.search({query: 'aya'}))
 // store.dispatch(home.allCategory())
 // store.dispatch(home.categoryList())
@@ -130,7 +130,7 @@ store.subscribe(function () {
 //     status: '1'
 //   }
 // ]}))
-store.dispatch(review.listReviews({id: 9, page: 1, limit: 2}))
+// store.dispatch(review.listReviews({id: 9, page: 1, limit: 2}))
 // store.dispatch(review.addReview({id: 9, review: 'Obatnya manjur ganteng', quality: 4, accuracy: 5}))
 // store.dispatch(expedition.getServices())
 // store.dispatch(expedition.getShippingCharge({id: 2, weight: 2, origin_ro_id: 32, destination_ro_id: 1116}))
@@ -161,7 +161,7 @@ store.dispatch(review.listReviews({id: 9, page: 1, limit: 2}))
 //   village_id: 3404050003,
 //   is_primary: true})
 // )
-// store.dispatch(address.deleteAddress({id: 267}))
+// store.dispatch(address.deleteAddress({id: 361}))
 // store.dispatch(address.getListAddress())
 // store.dispatch(address.getAddressDetail({id: 2670}))
 
@@ -227,3 +227,4 @@ store.dispatch(review.listReviews({id: 9, page: 1, limit: 2}))
 // store.dispatch(bank.updateBankAccount({ id: 15, code: '10373', master_bank_id: 2, holder_name: 'aep', holder_account_number: '43254362541', bank_branch_office_name: 'iap' }))
 // store.dispatch(bank.deleteBankAccount({ id: 31, code: '10373' }))
 // store.dispatch(stores.getStoreCatalogProducts({ id: 33 }))
+// store.dispatch(cart.checkout({ items: [] }))

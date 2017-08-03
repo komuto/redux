@@ -24,3 +24,8 @@ export const cancelPromo = () => {
   const axios = authApiKomuto()
   return axios.get('buckets/promo/cancel').catch((err) => { throw err })
 }
+
+export const checkout = (action = {}) => {
+  const axios = authApiKomuto()
+  return axios.post('checkout', action).catch((err) => { throw err })
+}
