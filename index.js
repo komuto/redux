@@ -5,8 +5,8 @@ import {store} from './store'
 // import * as expedition from './actions/expedition'
 // import * as location from './actions/location'
 // import * as product from './actions/product'
-// import * as review from './actions/review'
-import * as stores from './actions/stores'
+import * as review from './actions/review'
+// import * as stores from './actions/stores'
 // import * as email from './actions/email'
 // import * as address from './actions/address'
 // import * as bank from './actions/bank'
@@ -14,7 +14,7 @@ import * as stores from './actions/stores'
 // import * as cart from './actions/cart'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().storeCatalogProducts, null, 2))
+  console.log(JSON.stringify(store.getState().productReview, null, 2))
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -130,7 +130,7 @@ store.subscribe(function () {
 //     status: '1'
 //   }
 // ]}))
-// store.dispatch(review.listReviews({id: 9, page: 1, limit: 2}))
+store.dispatch(review.listReviews({id: 9, page: 1, limit: 2}))
 // store.dispatch(review.addReview({id: 9, review: 'Obatnya manjur ganteng', quality: 4, accuracy: 5}))
 // store.dispatch(expedition.getServices())
 // store.dispatch(expedition.getShippingCharge({id: 2, weight: 2, origin_ro_id: 32, destination_ro_id: 1116}))
@@ -226,4 +226,4 @@ store.subscribe(function () {
 // setTimeout(() => store.dispatch(cart.cancelPromo()), 5 * 1000)
 // store.dispatch(bank.updateBankAccount({ id: 15, code: '10373', master_bank_id: 2, holder_name: 'aep', holder_account_number: '43254362541', bank_branch_office_name: 'iap' }))
 // store.dispatch(bank.deleteBankAccount({ id: 31, code: '10373' }))
-store.dispatch(stores.getStoreCatalogProducts({ id: 33 }))
+// store.dispatch(stores.getStoreCatalogProducts({ id: 33 }))

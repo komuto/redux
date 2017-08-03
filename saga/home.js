@@ -15,7 +15,7 @@ function * product (action) {
 
 function * filterProduct (action) {
   try {
-    const {data} = yield homeApi.product(action)
+    const {data} = yield getProductBy(action)
     yield put({ type: typeSucc(homeActions.FILTER_PRODUCT), ...data })
   } catch (e) {
     yield errorHandling(typeFail(homeActions.FILTER_PRODUCT), e)

@@ -20,7 +20,7 @@ function product (state = initProduct, action) {
   const type = buildType(action.type)
   switch (type) {
     case actions.HOME_PRODUCT:
-      return buildReducer(state, action, type, 'products')
+      return buildReducer(state, action, type, 'products', false, true)
     default:
       return state
   }
@@ -40,7 +40,7 @@ function filterProduct (state = initProduct, action) {
   const type = buildType(action.type)
   switch (type) {
     case actions.FILTER_PRODUCT:
-      return buildReducer(state, action, type, 'products')
+      return buildReducer(state, action, type, 'products', false, true)
     default:
       return state
   }
