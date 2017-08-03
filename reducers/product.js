@@ -11,18 +11,8 @@ const initNewDiscussion = {
   ...initState()
 }
 
-const initComment = {
-  comments: [],
-  ...initState()
-}
-
 const initNewComment = {
   comment: {},
-  ...initState()
-}
-
-const initDiscussion = {
-  discussions: [],
   ...initState()
 }
 
@@ -97,7 +87,7 @@ function addToWishlistHome (state = initAddWishlist, action) {
   }
 }
 
-function getDiscussion (state = initDiscussion, action) {
+function getDiscussion (state = initState({ discussions: [] }, true), action) {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_DISCUSSION:
@@ -119,7 +109,7 @@ function newDiscussion (state = initNewDiscussion, action) {
   }
 }
 
-function getComment (state = initComment, action) {
+function getComment (state = initState({ comments: [] }, true), action) {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_COMMENT:
