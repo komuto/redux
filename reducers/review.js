@@ -1,16 +1,11 @@
 import * as actions from '../actions/review'
 import { buildReducer, buildType, initState } from '../config'
 
-const initReview = {
-  reviews: [],
-  ...initState()
-}
-
 const initAdd = {
   ...initState()
 }
 
-function getReviews (state = initReview, action) {
+function getReviews (state = initState({ reviews: [] }, true), action) {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_REVIEWS:

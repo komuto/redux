@@ -32,8 +32,9 @@ export function errorHandling (actionType, res) {
 /**
  * Build initial state
  * @param props {object} additional fields
+ * @param meta {boolean}
  */
-export const initState = (props = {}) => {
+export const initState = (props = {}, meta = false) => {
   const state = {
     message: '',
     status: 0,
@@ -41,6 +42,7 @@ export const initState = (props = {}) => {
     isFound: false,
     isOnline: true
   }
+  if (meta) state['meta'] = { page: 0, limit: 10 }
   return Object.keys(props).reduce((state, prop) => {
     return { [prop]: props[prop], ...state }
   }, state)

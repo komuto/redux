@@ -11,12 +11,7 @@ const initAllCategory = {
   ...initState()
 }
 
-const initProduct = {
-  products: [],
-  ...initState()
-}
-
-function product (state = initProduct, action) {
+function product (state = initState({ products: [] }, true), action) {
   const type = buildType(action.type)
   switch (type) {
     case actions.HOME_PRODUCT:
@@ -26,7 +21,7 @@ function product (state = initProduct, action) {
   }
 }
 
-function searchProduct (state = initProduct, action) {
+function searchProduct (state = initState({ products: [] }), action) {
   const type = buildType(action.type)
   switch (type) {
     case actions.SEARCH_PRODUCT:
@@ -36,7 +31,7 @@ function searchProduct (state = initProduct, action) {
   }
 }
 
-function filterProduct (state = initProduct, action) {
+function filterProduct (state = initState({ products: [] }, true), action) {
   const type = buildType(action.type)
   switch (type) {
     case actions.FILTER_PRODUCT:

@@ -21,11 +21,6 @@ const initNewComment = {
   ...initState()
 }
 
-const initProduct = {
-  products: [],
-  ...initState()
-}
-
 const initDiscussion = {
   discussions: [],
   ...initState()
@@ -58,7 +53,7 @@ function getProduct (state = initDetailProduct, action) {
   }
 }
 
-function productByCategory (state = initProduct, action) {
+function productByCategory (state = initState({ products: [] }, true), action) {
   const type = buildType(action.type)
   switch (type) {
     case actions.LIST_PRODUCT_BY_CATEGORY:
@@ -68,7 +63,7 @@ function productByCategory (state = initProduct, action) {
   }
 }
 
-function productBySearch (state = initProduct, action) {
+function productBySearch (state = initState({ products: [] }, true), action) {
   const type = buildType(action.type)
   switch (type) {
     case actions.LIST_PRODUCT_BY_SEARCH:
