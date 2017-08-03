@@ -24,7 +24,7 @@ import * as addressSaga from './address'
 import * as bankSaga from './bank'
 import * as catalogSaga from './catalog'
 import * as cartSaga from './cart'
-import { takeEvery } from 'redux-saga/effects'
+import { takeEvery, takeLatest } from 'redux-saga/effects'
 import { typeReq } from '../config'
 
 function* dataSaga () {
@@ -70,7 +70,7 @@ const user = function* () {
 
 const home = function* () {
   yield takeEvery(typeReq(homeActions.HOME_PRODUCT), homeSaga.product)
-  yield takeEvery(typeReq(homeActions.SEARCH_PRODUCT), homeSaga.search)
+  yield takeLatest(typeReq(homeActions.SEARCH_PRODUCT), homeSaga.search)
   yield takeEvery(typeReq(homeActions.FILTER_PRODUCT), homeSaga.filterProduct)
   yield takeEvery(typeReq(homeActions.ALL_CATEGORY), homeSaga.allCategory)
   yield takeEvery(typeReq(homeActions.HOME_CATEGORY), homeSaga.categoryList)
