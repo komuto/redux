@@ -29,3 +29,8 @@ export const checkout = (action = {}) => {
   const axios = authApiKomuto()
   return axios.post('checkout', action).catch((err) => { throw err })
 }
+
+export const deleteItem = ({ id }) => {
+  const axios = authApiKomuto()
+  return axios.delete(`buckets/items/${id}`, { data: {} }).catch((err) => { throw err })
+}

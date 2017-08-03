@@ -1,17 +1,22 @@
 import * as actions from '../actions/cart'
-import { buildReducer, buildType, initState } from '../config'
+import { buildReducer, buildType, initState, typeSucc } from '../config'
 
 export const cart = (state = initState({ cart: [] }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.ADD_TO_CART:
-      return buildReducer(state, action, type, 'cart', true)
+      return { ...buildReducer(state, action, type, 'cart', true), type: 'add' }
     case actions.ADD_TO_CART_RESET:
-      return { ...initState(), cart: state.cart }
+      return { ...initState(), cart: state.cart, type: 'reset' }
     case actions.GET_CART:
-      return buildReducer(state, action, type, 'cart')
+      return { ...buildReducer(state, action, type, 'cart'), type: 'get' }
     case actions.CHECKOUT:
       return { ...buildReducer(state, action, type), cart: state.cart, type: 'checkout' }
+    case actions.DELETE_ITEM:
+      if (action.type === typeSucc(actions.DELETE_ITEM)) {
+        state.cart.items = state.cart.items.filter(item => item.id !== action.id)
+      }
+      return { ...buildReducer(state, action, type), cart: state.cart, type: 'delete' }
     default:
       return state
   }
