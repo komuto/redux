@@ -10,6 +10,7 @@ import * as addressActions from '../actions/address'
 import * as bankActions from '../actions/bank'
 import * as catalogActions from '../actions/catalog'
 import * as cartActions from '../actions/cart'
+import * as paymentActions from '../actions/payment'
 import * as userSaga from './user'
 import * as homeSaga from './home'
 import * as brandSaga from './brand'
@@ -22,6 +23,7 @@ import * as addressSaga from './address'
 import * as bankSaga from './bank'
 import * as catalogSaga from './catalog'
 import * as cartSaga from './cart'
+import * as paymentSaga from './payment'
 import { takeEvery, takeLatest } from 'redux-saga/effects'
 import { typeReq } from '../config'
 
@@ -37,6 +39,7 @@ function* dataSaga () {
   yield * cart()
   yield * expedition()
   yield * location()
+  yield * payment()
   yield * review()
 }
 
@@ -159,6 +162,10 @@ const location = function* () {
   yield takeEvery(typeReq(locationActions.GET_DISTRICT), locationSaga.getDistrict)
   yield takeEvery(typeReq(locationActions.GET_SUBDISTRICT), locationSaga.getSubDistrict)
   yield takeEvery(typeReq(locationActions.GET_VILLAGE), locationSaga.getVillage)
+}
+
+const payment = function* () {
+  yield takeEvery(typeReq(paymentActions.GET_PAYMENT_METHODS), paymentSaga.getPaymentMethods)
 }
 
 const review = function* () {

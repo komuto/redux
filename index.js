@@ -11,9 +11,10 @@ import {store} from './store'
 // import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
 // import * as cart from './actions/cart'
+import * as payment from './actions/payment'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().alterProducts, null, 2))
+  console.log(JSON.stringify(store.getState().paymentMethods, null, 2))
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -228,3 +229,4 @@ store.subscribe(function () {
 // store.dispatch(stores.getStoreCatalogProducts({ id: 33 }))
 // store.dispatch(cart.checkout({ items: [] }))
 // setTimeout(() => store.dispatch(cart.deleteItem({ id: 401 })), 4000)
+store.dispatch(payment.getPaymentMethods())
