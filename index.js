@@ -1,6 +1,6 @@
 import {store} from './store'
 // import * as user from './actions/user'
-// import * as home from './actions/home'
+import * as home from './actions/home'
 // import * as brand from './actions/brand'
 // import * as expedition from './actions/expedition'
 // import * as location from './actions/location'
@@ -14,7 +14,7 @@ import {store} from './store'
 // import * as cart from './actions/cart'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().productDetail, null, 2))
+  console.log(JSON.stringify(store.getState().filterProduct, null, 2))
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -69,7 +69,7 @@ store.subscribe(function () {
 // store.dispatch(home.products({ page: 1, limit: 2, q: 'sepatu', category_id: 63 }))
 // store.dispatch(product.listProductByCategory({category_id: 120}))
 // store.dispatch(product.listProductBySearch({services: [1, 2, 3, 4]}))
-// store.dispatch(home.filter({condition: 'new'}))
+store.dispatch(home.filter({ is_dropship: false, limit: 2, page: 1 }))
 // store.dispatch(home.search({query: 'aya'}))
 // store.dispatch(home.allCategory())
 // store.dispatch(home.categoryList())
