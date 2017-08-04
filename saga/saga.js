@@ -6,7 +6,6 @@ import * as locationActions from '../actions/location'
 import * as productActions from '../actions/product'
 import * as reviewActions from '../actions/review'
 import * as storeActions from '../actions/stores'
-import * as emailActions from '../actions/email'
 import * as addressActions from '../actions/address'
 import * as bankActions from '../actions/bank'
 import * as catalogActions from '../actions/catalog'
@@ -19,7 +18,6 @@ import * as locationSaga from './location'
 import * as productSaga from './product'
 import * as reviewSaga from './review'
 import * as storeSaga from './stores'
-import * as emailSaga from './email'
 import * as addressSaga from './address'
 import * as bankSaga from './bank'
 import * as catalogSaga from './catalog'
@@ -63,7 +61,6 @@ const user = function* () {
   yield takeEvery(typeReq(userActions.LIST_FAVORIT_STORE), userSaga.listFavoriteStore)
   yield takeEvery(typeReq(userActions.SEND_PHONE_OTP), userSaga.sendOTPPhone)
   yield takeEvery(typeReq(userActions.VERIFIY_PHONE), userSaga.verifyPhone)
-  yield takeEvery(typeReq(emailActions.CHECK_EMAIL_VALIDITY), emailSaga.checkEmail)
   yield takeEvery(typeReq(userActions.SEND_BANK_OTP), userSaga.sendOTPBank)
   yield takeEvery(typeReq(userActions.GET_WISHLIST), userSaga.wishlist)
 }

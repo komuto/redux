@@ -1,20 +1,19 @@
 import {store} from './store'
 // import * as user from './actions/user'
-import * as home from './actions/home'
+// import * as home from './actions/home'
 // import * as brand from './actions/brand'
 // import * as expedition from './actions/expedition'
 // import * as location from './actions/location'
 // import * as product from './actions/product'
 // import * as review from './actions/review'
 // import * as stores from './actions/stores'
-// import * as email from './actions/email'
 // import * as address from './actions/address'
 // import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
 // import * as cart from './actions/cart'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().filterProduct, null, 2))
+  console.log(JSON.stringify(store.getState().alterProducts, null, 2))
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -69,7 +68,7 @@ store.subscribe(function () {
 // store.dispatch(home.products({ page: 1, limit: 2, q: 'sepatu', category_id: 63 }))
 // store.dispatch(product.listProductByCategory({category_id: 120}))
 // store.dispatch(product.listProductBySearch({services: [1, 2, 3, 4]}))
-store.dispatch(home.filter({ is_dropship: false, limit: 2, page: 1 }))
+// store.dispatch(home.filter({ is_dropship: false, limit: 2, page: 1 }))
 // store.dispatch(home.search({query: 'aya'}))
 // store.dispatch(home.allCategory())
 // store.dispatch(home.categoryList())
@@ -206,15 +205,15 @@ store.dispatch(home.filter({ is_dropship: false, limit: 2, page: 1 }))
 // store.dispatch(cart.getCart())
 // store.dispatch(user.wishlist())
 // store.dispatch(product.createProduct({
-//   name: 'Alat kumur kumir',π
+//   name: 'Alat kumur kumir',
 //   category_id: 63,
 //   brand_id: 1,
 //   description: 'lorem ipsum',
 //   price: 16500,
 //   weight: 500,
 //   stock: 50,
-//   condition: '1',
-//   insurance: '0',
+//   condition: 1,
+//   insurance: 0,
 //   is_dropship: true,
 //   catalog_id: 33,
 //   wholesales: [{ min_order: 5, max_order: 10, price: 1500000 }, { min_order: 11, max_order: 15, price: 1200000 }],

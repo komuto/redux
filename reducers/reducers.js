@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux'
 import * as storage from 'redux-storage'
 import * as userReducers from './user'
-import * as emailReducers from './email'
 import * as homeReducers from './home'
 import * as brandReducers from './brand'
 import * as productReducers from './product'
@@ -15,7 +14,6 @@ import * as catalogReducers from './catalog'
 import * as cartReducers from './cart'
 
 const user = {
-  emailCheck: emailReducers.checkEmail,
   user: userReducers.auth,
   verification: userReducers.verify,
   validation: userReducers.validateToken,
