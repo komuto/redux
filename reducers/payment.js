@@ -10,3 +10,13 @@ export const getPaymentMethods = (state = initState({ paymentMethods: [] }), act
       return state
   }
 }
+
+export const choosePaymentMethod = (state = initState({ cart: {} }), action) => {
+  const type = buildType(action.type)
+  switch (type) {
+    case actions.CHOOSE_PAYMENT_METHOD:
+      return buildReducer(state, action, type, 'cart')
+    default:
+      return state
+  }
+}

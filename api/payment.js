@@ -4,3 +4,8 @@ export const getPaymentMethods = () => {
   const axios = authApiKomuto()
   return axios.get('payment-methods').catch((err) => { throw err })
 }
+
+export const choosePaymentMethod = ({ id, payment_method_id }) => {
+  const axios = authApiKomuto()
+  return axios.post(`buckets/${id}/payment`, { payment_method_id }).catch((err) => { throw err })
+}

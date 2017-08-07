@@ -126,7 +126,8 @@ const location = {
 }
 
 const payment = {
-  paymentMethods: paymentReducers.getPaymentMethods
+  paymentMethods: paymentReducers.getPaymentMethods,
+  choosePayment: paymentReducers.choosePaymentMethod
 }
 
 const review = {
