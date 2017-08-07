@@ -1,4 +1,5 @@
-import { put } from 'redux-saga/effects'
+import { delay } from 'redux-saga'
+import { put, call } from 'redux-saga/effects'
 import * as actions from '../actions/product'
 import * as apis from '../api/product'
 import { errorHandling, typeSucc, typeFail, buildSaga } from '../config'
@@ -14,6 +15,7 @@ function * getProduct (action) {
 
 function * productByCategory (action) {
   try {
+    yield call(delay, 200)
     const {data} = yield apis.getProductBy(action)
     yield put({ type: typeSucc(actions.LIST_PRODUCT_BY_CATEGORY), ...data })
   } catch (e) {
@@ -23,6 +25,7 @@ function * productByCategory (action) {
 
 function * productBySearch (action) {
   try {
+    yield call(delay, 200)
     const {data} = yield apis.getProductBy(action)
     yield put({ type: typeSucc(actions.LIST_PRODUCT_BY_SEARCH), ...data })
   } catch (e) {

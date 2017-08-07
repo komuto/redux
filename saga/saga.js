@@ -69,9 +69,9 @@ const user = function* () {
 }
 
 const home = function* () {
-  yield takeEvery(typeReq(homeActions.HOME_PRODUCT), homeSaga.product)
+  yield takeLatest(typeReq(homeActions.HOME_PRODUCT), homeSaga.product)
   yield takeLatest(typeReq(homeActions.SEARCH_PRODUCT), homeSaga.search)
-  yield takeEvery(typeReq(homeActions.FILTER_PRODUCT), homeSaga.filterProduct)
+  yield takeLatest(typeReq(homeActions.FILTER_PRODUCT), homeSaga.filterProduct)
   yield takeEvery(typeReq(homeActions.ALL_CATEGORY), homeSaga.allCategory)
   yield takeEvery(typeReq(homeActions.HOME_CATEGORY), homeSaga.categoryList)
   yield takeEvery(typeReq(homeActions.HOME_SUBCATEGORY), homeSaga.subCategory)
@@ -79,8 +79,8 @@ const home = function* () {
 
 const product = function* () {
   yield takeEvery(typeReq(productActions.GET_PRODUCT), productSaga.getProduct)
-  yield takeEvery(typeReq(productActions.LIST_PRODUCT_BY_CATEGORY), productSaga.productByCategory)
-  yield takeEvery(typeReq(productActions.LIST_PRODUCT_BY_SEARCH), productSaga.productBySearch)
+  yield takeLatest(typeReq(productActions.LIST_PRODUCT_BY_CATEGORY), productSaga.productByCategory)
+  yield takeLatest(typeReq(productActions.LIST_PRODUCT_BY_SEARCH), productSaga.productBySearch)
   yield takeEvery(typeReq(productActions.ADD_TO_WISHLIST), productSaga.addToWishlist)
   yield takeEvery(typeReq(productActions.ADD_TO_WISHLIST_HOME), productSaga.addToWishlistHome)
   yield takeEvery(typeReq(productActions.GET_DISCUSSION), productSaga.getDiscussion)

@@ -7,6 +7,7 @@ import { errorHandling, typeSucc, typeFail } from '../config'
 
 function * product (action) {
   try {
+    yield call(delay, 200)
     const {data} = yield getProductBy(action)
     yield put({ type: typeSucc(homeActions.HOME_PRODUCT), ...data })
   } catch (e) {
@@ -16,6 +17,7 @@ function * product (action) {
 
 function * filterProduct (action) {
   try {
+    yield call(delay, 200)
     const {data} = yield getProductBy(action)
     yield put({ type: typeSucc(homeActions.FILTER_PRODUCT), ...data })
   } catch (e) {
