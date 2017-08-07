@@ -167,6 +167,7 @@ const location = function* () {
 const payment = function* () {
   yield takeEvery(typeReq(paymentActions.GET_PAYMENT_METHODS), paymentSaga.getPaymentMethods)
   yield takeEvery(typeReq(paymentActions.CHOOSE_PAYMENT_METHOD), paymentSaga.choosePaymentMethod)
+  yield takeEvery(typeReq(paymentActions.PAY_BANK_TRANSFER), paymentSaga.payBankTransfer)
 }
 
 const review = function* () {

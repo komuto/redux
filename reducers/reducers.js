@@ -127,7 +127,8 @@ const location = {
 
 const payment = {
   paymentMethods: paymentReducers.getPaymentMethods,
-  choosePayment: paymentReducers.choosePaymentMethod
+  choosePayment: paymentReducers.choosePaymentMethod,
+  payment: paymentReducers.payBankTransfer
 }
 
 const review = {

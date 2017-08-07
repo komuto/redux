@@ -14,7 +14,7 @@ import {store} from './store'
 // import * as payment from './actions/payment'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().choosePayment, null, 2))
+  console.log(JSON.stringify(store.getState().updateCatalog, null, 2))
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -231,3 +231,4 @@ store.subscribe(function () {
 // setTimeout(() => store.dispatch(cart.deleteItem({ id: 401 })), 4000)
 // store.dispatch(payment.getPaymentMethods())
 // store.dispatch(payment.choosePaymentMethods({ id: 259, payment_method_id: 1 }))
+// store.dispatch(payment.payBankTransfer({ id: 259, bank_account_id: 10, date: 1477242000, amount: 150000, bank: 'BNI', holder_account_number: 837375393910, attachment: 'attachment.png' }))
