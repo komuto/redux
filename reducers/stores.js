@@ -15,11 +15,6 @@ const initVerify = {
   ...initState()
 }
 
-const initUpload = {
-  payload: [],
-  ...initState()
-}
-
 const initOwnStore = {
   ownStore: {},
   ...initState()
@@ -70,7 +65,7 @@ function expeditionStore (state = initExpedition, action) {
   }
 }
 
-function photoUpload (state = initUpload, action) {
+function photoUpload (state = initState({ payload: {} }), action) {
   const type = buildType(action.type)
   switch (type) {
     case actions.PHOTO_UPLOAD:

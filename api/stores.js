@@ -59,14 +59,14 @@ export const storeUpdateExpedition = (action) => {
   return axios.put('users/store/expeditions', action).catch((err) => { throw err })
 }
 
-export const verifyStore = (action) => {
+export const verifyStore = ({ code }) => {
   const axios = authApiKomuto()
-  return axios.post('users/store/verify', action).catch((err) => { throw err })
+  return axios.post('users/store/verify', { code }).catch((err) => { throw err })
 }
 
-export const sendMessageStore = (action) => {
+export const sendMessageStore = ({ id, ...action }) => {
   const axios = authApiKomuto()
-  return axios.post('stores/' + action.id + '/message', action).catch((err) => { throw err })
+  return axios.post(`stores/${id}/message`, action).catch((err) => { throw err })
 }
 
 export const getOwnStore = () => {

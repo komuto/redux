@@ -1,4 +1,5 @@
-import { put } from 'redux-saga/effects'
+import { delay } from 'redux-saga'
+import { put, call } from 'redux-saga/effects'
 
 export const serviceUrl = 'https://private-f0902d-komuto.apiary-mock.com'
 export const apiKomuto = 'https://api.komuto.skyshi.com'
@@ -172,18 +173,37 @@ export const buildQuery = (params, take) => Object.keys(params)
  * @param actionType {string}
  * @param props {[string]} take specific prop for data from api
  * ['user', 'province', 'id'] only take data.user.province.id for data
+ * @param keep {[string]} keep action data
  */
-export const buildSaga = (args, callApi, actionType, props = false) => function* (action) {
+export const buildSaga = (args, callApi, actionType, props = [], keep = []) => function* (action) {
   try {
     const params = !args.length > 0 ? action
       : args.reduce((params, prop) => ({ ...params, [prop]: action[prop] }), {})
+    const keepAction = !keep.length > 0 ? {}
+      : keep.reduce((keeps, prop) => ({ ...keeps, [prop]: action[prop] }), {})
     const { data } = yield callApi(params)
     if (props) {
       data.data = props.reduce((data, prop) => data[prop] || {}, data.data)
     }
-    yield put({ type: typeSucc(actionType), ...data })
+    yield put({ type: typeSucc(actionType), ...data, ...keepAction })
   } catch (e) {
-    console.log(e.response.data)
+    yield errorHandling(typeFail(actionType), e)
+  }
+}
+
+export const buildSagaDelay = (args, callApi, actionType, delayCount = 200, props = [], keep = []) => function* (action) {
+  try {
+    const params = !args.length > 0 ? action
+      : args.reduce((params, prop) => ({ ...params, [prop]: action[prop] }), {})
+    const keepAction = !keep.length > 0 ? {}
+      : keep.reduce((keeps, prop) => ({ ...keeps, [prop]: action[prop] }), {})
+    yield call(delay, delayCount)
+    const { data } = yield callApi(params)
+    if (props !== undefined) {
+      data.data = props.reduce((data, prop) => data[prop] || {}, data.data)
+    }
+    yield put({ type: typeSucc(actionType), ...data, ...keepAction })
+  } catch (e) {
     yield errorHandling(typeFail(actionType), e)
   }
 }

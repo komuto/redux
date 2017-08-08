@@ -1,13 +1,13 @@
 import { publicApiKomuto, authApiKomuto, publicApi } from './api'
 
-export const getExpedition = (action) => {
+export const getExpedition = () => {
   const axios = publicApiKomuto()
-  return axios.get('expeditions', action).catch((err) => { throw err })
+  return axios.get('expeditions').catch((err) => { throw err })
 }
 
-export const getServices = (action) => {
+export const getServices = () => {
   const axios = publicApiKomuto()
-  return axios.get('expeditions/services', action).catch((err) => { throw err })
+  return axios.get('expeditions/services').catch((err) => { throw err })
 }
 
 export const estimatedShipping = ({ id, origin_id: oriId, destination_id: destId, weight }) => {

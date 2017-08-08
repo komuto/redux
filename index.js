@@ -8,13 +8,13 @@ import {store} from './store'
 // import * as review from './actions/review'
 // import * as stores from './actions/stores'
 // import * as address from './actions/address'
-import * as bank from './actions/bank'
+// import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
-// import * as cart from './actions/cart'
+import * as cart from './actions/cart'
 // import * as payment from './actions/payment'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().addToCart, null, 2))
+  console.log(JSON.stringify(store.getState().cart, null, 2))
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -217,9 +217,9 @@ store.subscribe(function () {
 // store.dispatch(payment.getPaymentMethods())
 // store.dispatch(payment.choosePaymentMethods({ id: 259, payment_method_id: 1 }))
 // store.dispatch(payment.payBankTransfer({ id: 259, bank_account_id: 10, date: 1477242000, amount: 150000, bank: 'BNI', holder_account_number: 837375393910, attachment: 'attachment.png' }))
-// store.dispatch(cart.getCart())
-// setTimeout(() => store.dispatch(cart.deleteItem({ id: 411 })), 4000)
+store.dispatch(cart.getCart())
+setTimeout(() => store.dispatch(cart.deleteItem({ id: 412 })), 4000)
 // store.dispatch(cart.addToCart({product_id: 8, expedition_id: 1, expedition_service_id: 3, qty: 1, note: 'lorem ipsum', address_id: 145, is_insurance: true, additional_cost: 500, delivery_cost: 32000}))
 // setTimeout(() => store.dispatch(cart.cancelPromo()), 5 * 1000)
 // store.dispatch(cart.checkout({ items: [] }))
-store.dispatch(bank.getKomutoBankAccounts())
+// store.dispatch(bank.getKomutoBankAccounts())
