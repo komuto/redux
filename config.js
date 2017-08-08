@@ -57,7 +57,8 @@ export const reqState = (state, meta) => {
   const res = {
     ...state,
     status: 0,
-    isLoading: true
+    isLoading: true,
+    isFound: false
   }
   if (meta) res['meta'] = { page: 0, limit: 10 }
   return res

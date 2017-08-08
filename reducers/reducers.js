@@ -104,6 +104,7 @@ const catalog = {
 
 const cart = {
   cart: cartReducers.cart,
+  addToCart: cartReducers.addToCart,
   promo: cartReducers.getPromo,
   cancelPromo: cartReducers.cancelPromo,
   countCart: cartReducers.countCart
