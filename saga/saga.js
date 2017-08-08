@@ -11,6 +11,7 @@ import * as bankActions from '../actions/bank'
 import * as catalogActions from '../actions/catalog'
 import * as cartActions from '../actions/cart'
 import * as paymentActions from '../actions/payment'
+import * as transactionActions from '../actions/transaction'
 import * as userSaga from './user'
 import * as homeSaga from './home'
 import * as brandSaga from './brand'
@@ -24,6 +25,7 @@ import * as bankSaga from './bank'
 import * as catalogSaga from './catalog'
 import * as cartSaga from './cart'
 import * as paymentSaga from './payment'
+import * as transactionSaga from './transaction'
 import { takeEvery, takeLatest } from 'redux-saga/effects'
 import { typeReq } from '../config'
 
@@ -41,6 +43,7 @@ function* dataSaga () {
   yield * location()
   yield * payment()
   yield * review()
+  yield * transaction()
 }
 
 const user = function* () {
@@ -174,6 +177,10 @@ const payment = function* () {
 const review = function* () {
   yield takeEvery(typeReq(reviewActions.GET_REVIEWS), reviewSaga.getReviews)
   yield takeEvery(typeReq(reviewActions.ADD_REVIEW), reviewSaga.addReview)
+}
+
+const transaction = function* () {
+  yield takeEvery(typeReq(transactionActions.LIST_TRANSACTIONS), transactionSaga.listTransactions)
 }
 
 export default dataSaga

@@ -8,5 +8,5 @@ export const countCart = buildSaga([], apis.countCart, actions.COUNT_CART, ['cou
 export const getPromo = buildSaga(['code'], apis.getPromo, actions.GET_PROMO)
 export const cancelPromo = buildSaga([], apis.cancelPromo, actions.CANCEL_PROMO)
 export const checkout = buildSaga([], apis.checkout, actions.CHECKOUT)
-export const deleteItem = buildSaga(['id'], apis.deleteItem, actions.DELETE_ITEM, false, ['id'])
+export const deleteItem = buildSaga(['id'], apis.deleteItem, actions.DELETE_ITEM, [], ['id'])
 

@@ -13,6 +13,7 @@ import * as bankReducers from './bank'
 import * as catalogReducers from './catalog'
 import * as cartReducers from './cart'
 import * as paymentReducers from './payment'
+import * as transactionReducers from './transaction'
 
 const user = {
   user: userReducers.auth,
@@ -138,6 +139,10 @@ const review = {
   addReview: reviewReducers.addReview
 }
 
+const transaction = {
+  listTransactions: transactionReducers.listTransactions
+}
+
 const komutoApps = storage.reducer(combineReducers({
   ...user,
   ...home,
@@ -151,7 +156,8 @@ const komutoApps = storage.reducer(combineReducers({
   ...expedition,
   ...location,
   ...review,
-  ...payment
+  ...payment,
+  ...transaction
 }))
 
 export default komutoApps
