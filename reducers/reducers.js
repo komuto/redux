@@ -86,7 +86,8 @@ const bank = {
   bank: bankReducers.getBank,
   banks: bankReducers.listBank,
   bankAccount: bankReducers.bankAccount,
-  listBankAccounts: bankReducers.getBankAccounts
+  listBankAccounts: bankReducers.getBankAccounts,
+  komutoAccounts: bankReducers.getKomutoBankAccounts
 }
 
 const brand = {
