@@ -131,7 +131,7 @@ const location = {
 const payment = {
   paymentMethods: paymentReducers.getPaymentMethods,
   choosePayment: paymentReducers.choosePaymentMethod,
-  payment: paymentReducers.payBankTransfer
+  confirmation: paymentReducers.confirmTransfer
 }
 
 const review = {

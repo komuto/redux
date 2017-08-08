@@ -21,11 +21,11 @@ export const choosePaymentMethod = (state = initState({ cart: {} }), action) => 
   }
 }
 
-export const payBankTransfer = (state = initState({ payment: {} }), action) => {
+export const confirmTransfer = (state = initState({ confirmation: {} }), action) => {
   const type = buildType(action.type)
   switch (type) {
-    case actions.PAY_BANK_TRANSFER:
-      return buildReducer(state, action, type, 'payment')
+    case actions.CONFIRM_TRANSFER:
+      return buildReducer(state, action, type, 'confirmation')
     default:
       return state
   }

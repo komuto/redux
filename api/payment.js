@@ -10,7 +10,7 @@ export const choosePaymentMethod = ({ id, payment_method_id }) => {
   return axios.post(`buckets/${id}/payment`, { payment_method_id }).catch((err) => { throw err })
 }
 
-export const payBankTransfer = ({ id, ...action }) => {
+export const confirmTransfer = ({ id, ...action }) => {
   const axios = authApiKomuto()
   return axios.post(`buckets/${id}/bank`, action).catch((err) => { throw err })
 }

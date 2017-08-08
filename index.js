@@ -217,7 +217,7 @@ store.subscribe(function () {
 // store.dispatch(stores.getStoreCatalogProducts({ id: 33 }))
 // store.dispatch(payment.getPaymentMethods())
 // store.dispatch(payment.choosePaymentMethods({ id: 259, payment_method_id: 1 }))
-// store.dispatch(payment.payBankTransfer({ id: 259, bank_account_id: 10, date: 1477242000, amount: 150000, bank: 'BNI', holder_account_number: 837375393910, attachment: 'attachment.png' }))
+// store.dispatch(payment.confirmTransfer({ id: 259, bank_account_id: 10, date: 1477242000, amount: 150000, bank: 'BNI', holder_account_number: 837375393910, attachment: 'attachment.png' }))
 // store.dispatch(cart.getCart())
 // setTimeout(() => store.dispatch(cart.deleteItem({ id: 412 })), 4000)
 // store.dispatch(cart.addToCart({product_id: 8, expedition_id: 1, expedition_service_id: 3, qty: 1, note: 'lorem ipsum', address_id: 145, is_insurance: true, additional_cost: 500, delivery_cost: 32000}))
