@@ -15,7 +15,7 @@ import {store} from './store'
 import * as transaction from './actions/transaction'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().listTransactions, null, 2))
+  console.log(JSON.stringify(store.getState().transaction, null, 2))
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -224,4 +224,5 @@ store.subscribe(function () {
 // setTimeout(() => store.dispatch(cart.cancelPromo()), 5 * 1000)
 // store.dispatch(cart.checkout({ items: [] }))
 // store.dispatch(bank.getKomutoBankAccounts())
-store.dispatch(transaction.listTransactions())
+// store.dispatch(transaction.listTransactions())
+store.dispatch(transaction.getTransaction({ id: 259 }))

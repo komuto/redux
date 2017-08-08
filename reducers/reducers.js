@@ -140,7 +140,8 @@ const review = {
 }
 
 const transaction = {
-  listTransactions: transactionReducers.listTransactions
+  listTransactions: transactionReducers.listTransactions,
+  transaction: transactionReducers.getTransaction
 }
 
 const komutoApps = storage.reducer(combineReducers({

@@ -11,3 +11,13 @@ export const listTransactions = (state = initState({ listTransactions: [] }), ac
   }
 }
 
+export const getTransaction = (state = initState({ transaction: {} }), action) => {
+  const type = buildType(action.type)
+  switch (type) {
+    case actions.GET_TRANSACTION:
+      return buildReducer(state, action, type, 'transaction')
+    default:
+      return state
+  }
+}
+
