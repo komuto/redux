@@ -12,6 +12,7 @@ export const MESSAGE_STORE_RESET = 'MESSAGE_STORE_RESET'
 export const GET_OWN_STORE = 'GET_OWN_STORE'
 export const GET_STORE_PRODUCTS = 'GET_STORE_PRODUCTS'
 export const GET_STORE_CATALOG_PRODUCTS = 'GET_STORE_CATALOG_PRODUCTS'
+export const UPDATE_INFORMATION = 'UPDATE_INFORMATION'
 
 export const getStores = params => buildAction(typeReq(GET_STORE), params)
 export const photoUpload = params => buildAction(typeReq(PHOTO_UPLOAD), params)
@@ -25,4 +26,5 @@ export const sendMessageStoreReset = () => buildAction(MESSAGE_STORE_RESET)
 export const getOwnStore = () => buildAction(typeReq(GET_OWN_STORE))
 export const getStoreProducts = params => buildAction(typeReq(GET_STORE_PRODUCTS), params)
 export const getStoreCatalogProducts = params => buildAction(typeReq(GET_STORE_CATALOG_PRODUCTS), params)
+export const updateInformation = params => buildAction(typeReq(UPDATE_INFORMATION), params)
 

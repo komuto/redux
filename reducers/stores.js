@@ -127,6 +127,16 @@ export const getStoreCatalogProducts = (state = initState({ storeCatalogProducts
   }
 }
 
+export const updateStore = (state = initState({ updateStore: {} }), action) => {
+  const type = buildType(action.type)
+  switch (type) {
+    case actions.UPDATE_INFORMATION:
+      return { ...buildReducer(state, action, type, 'updateStore'), type: 'information' }
+    default:
+      return state
+  }
+}
+
 export {
     stores,
     photoUpload,

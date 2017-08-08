@@ -83,3 +83,8 @@ export const getStoreCatalogProducts = ({ id }) => {
   const axios = authApiKomuto()
   return axios.get(`users/store/products/catalogs/${id}`).catch((err) => { throw err })
 }
+
+export const updateInformation = (data) => {
+  const axios = authApiKomuto()
+  return axios.put('users/store', data).catch((err) => { throw err })
+}

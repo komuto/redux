@@ -71,7 +71,8 @@ const store = {
   sendMessageStore: storeReducers.sendMessageStore,
   ownStore: storeReducers.getOwnStore,
   storeProducts: storeReducers.getStoreProducts,
-  storeCatalogProducts: storeReducers.getStoreCatalogProducts
+  storeCatalogProducts: storeReducers.getStoreCatalogProducts,
+  updateStore: storeReducers.updateStore
 }
 
 const address = {
