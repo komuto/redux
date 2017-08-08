@@ -83,19 +83,6 @@ export const succState = (action, data) => {
 }
 
 /**
- * Build success state by keeping previous data
- * @param action {object}
- * @param data {string} Prop name
- * @param value {array} previous data
- */
-export const succKeepState = (action, data, value) => {
-  return {
-    ...succState(action),
-    [data]: [action.data, ...value]
-  }
-}
-
-/**
  * Build failure state
  * @param action {object}
  * @param data {string} Prop name
@@ -129,15 +116,14 @@ export const buildAction = (type, params = false) => {
  * @param action {object}
  * @param type {string}
  * @param name {string} additional field name
- * @param keep {boolean} Keep previous state
  * @param meta {boolean}
  */
-export const buildReducer = (state, action, type, name, keep = false, meta = false) => {
+export const buildReducer = (state, action, type, name, meta = false) => {
   switch (action.type) {
     case typeReq(type):
       return reqState(state, meta)
     case typeSucc(type):
-      return !keep ? succState(action, name) : succKeepState(action, name, state[name])
+      return succState(action, name)
     case typeFail(type):
       return failState(action, name, state[name])
     default:

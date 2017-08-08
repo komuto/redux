@@ -47,7 +47,7 @@ function productByCategory (state = initState({ products: [] }, true), action) {
   const type = buildType(action.type)
   switch (type) {
     case actions.LIST_PRODUCT_BY_CATEGORY:
-      return buildReducer(state, action, type, 'products', false, true)
+      return buildReducer(state, action, type, 'products', true)
     default:
       return state
   }
@@ -57,7 +57,7 @@ function productBySearch (state = initState({ products: [] }, true), action) {
   const type = buildType(action.type)
   switch (type) {
     case actions.LIST_PRODUCT_BY_SEARCH:
-      return buildReducer(state, action, type, 'products', false, true)
+      return buildReducer(state, action, type, 'products', true)
     default:
       return state
   }
@@ -91,7 +91,7 @@ function getDiscussion (state = initState({ discussions: [] }, true), action) {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_DISCUSSION:
-      return buildReducer(state, action, type, 'discussions', false, true)
+      return buildReducer(state, action, type, 'discussions', true)
     default:
       return state
   }
@@ -113,7 +113,7 @@ function getComment (state = initState({ comments: [] }, true), action) {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_COMMENT:
-      return buildReducer(state, action, type, 'comments', false, true)
+      return buildReducer(state, action, type, 'comments', true)
     default:
       return state
   }
