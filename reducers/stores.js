@@ -132,6 +132,8 @@ export const updateStore = (state = initState({ updateStore: {} }), action) => {
   switch (type) {
     case actions.UPDATE_INFORMATION:
       return { ...buildReducer(state, action, type, 'updateStore'), type: 'information' }
+    case actions.UPDATE_TERM:
+      return { ...buildReducer(state, action, type, 'updateStore'), type: 'term' }
     default:
       return state
   }
