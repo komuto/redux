@@ -1,4 +1,4 @@
-import { publicApiKomuto, authApiKomuto, publicApi } from './api'
+import { publicApiKomuto, authApiKomuto } from './api'
 
 export const getExpedition = () => {
   const axios = publicApiKomuto()
@@ -11,7 +11,7 @@ export const getServices = () => {
 }
 
 export const estimatedShipping = ({ id, origin_id: oriId, destination_id: destId, weight }) => {
-  const axios = publicApi()
+  const axios = publicApiKomuto()
   return axios.get(`expeditions/cost?product_id=${id}&origin_ro_id=${oriId}&destination_ro_id=${destId}&weight=${weight}`).catch((err) => { throw err })
 }
 
