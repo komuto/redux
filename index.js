@@ -15,7 +15,7 @@ import * as cart from './actions/cart'
 // import * as transaction from './actions/transaction'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().addToCart, null, 2))
+  console.log(JSON.stringify(store.getState().estimatedCharges, null, 2))
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
