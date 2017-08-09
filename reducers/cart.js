@@ -59,3 +59,13 @@ export const cancelPromo = (state = initState(), action) => {
       return state
   }
 }
+
+export const getItem = (state = initState({ item: {} }), action) => {
+  const type = buildType(action.type)
+  switch (type) {
+    case actions.GET_ITEM:
+      return buildReducer(state, action, type, 'item')
+    default:
+      return state
+  }
+}

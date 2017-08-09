@@ -34,3 +34,8 @@ export const deleteItem = ({ id }) => {
   const axios = authApiKomuto()
   return axios.delete(`buckets/items/${id}`, { data: {} }).catch((err) => { throw err })
 }
+
+export const getItem = ({ id }) => {
+  const axios = authApiKomuto()
+  return axios.get(`users/bucket/items/${id}`).catch((err) => { throw err })
+}

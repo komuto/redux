@@ -110,7 +110,8 @@ const cart = {
   addToCart: cartReducers.addToCart,
   promo: cartReducers.getPromo,
   cancelPromo: cartReducers.cancelPromo,
-  countCart: cartReducers.countCart
+  countCart: cartReducers.countCart,
+  item: cartReducers.getItem
 }
 
 const expedition = {
