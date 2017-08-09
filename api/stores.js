@@ -93,3 +93,8 @@ export const updateTerm = (data) => {
   const axios = authApiKomuto()
   return axios.put('users/store/term-condition', data).catch((err) => { throw err })
 }
+
+export const getStoreAddress = () => {
+  const axios = authApiKomuto()
+  return axios.get('users/store/address').catch((err) => { throw err })
+}

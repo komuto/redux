@@ -110,6 +110,7 @@ const store = function* () {
   yield takeEvery(typeReq(storeActions.GET_STORE_CATALOG_PRODUCTS), storeSaga.getStoreCatalogProducts)
   yield takeEvery(typeReq(storeActions.UPDATE_INFORMATION), storeSaga.updateInformation)
   yield takeEvery(typeReq(storeActions.UPDATE_TERM), storeSaga.updateTerm)
+  yield takeEvery(typeReq(storeActions.GET_ADDRESS), storeSaga.getStoreAddress)
 }
 
 const address = function* () {

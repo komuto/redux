@@ -14,6 +14,7 @@ export const GET_STORE_PRODUCTS = 'GET_STORE_PRODUCTS'
 export const GET_STORE_CATALOG_PRODUCTS = 'GET_STORE_CATALOG_PRODUCTS'
 export const UPDATE_INFORMATION = 'UPDATE_INFORMATION'
 export const UPDATE_TERM = 'UPDATE_TERM'
+export const GET_ADDRESS = 'GET_ADDRESS'
 
 export const getStores = params => buildAction(typeReq(GET_STORE), params)
 export const photoUpload = params => buildAction(typeReq(PHOTO_UPLOAD), params)
@@ -29,4 +30,5 @@ export const getStoreProducts = params => buildAction(typeReq(GET_STORE_PRODUCTS
 export const getStoreCatalogProducts = params => buildAction(typeReq(GET_STORE_CATALOG_PRODUCTS), params)
 export const updateInformation = params => buildAction(typeReq(UPDATE_INFORMATION), params)
 export const updateTerm = params => buildAction(typeReq(UPDATE_TERM), params)
+export const getStoreAddress = () => buildAction(typeReq(GET_ADDRESS))
 

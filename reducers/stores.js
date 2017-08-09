@@ -139,6 +139,16 @@ export const updateStore = (state = initState({ updateStore: {} }), action) => {
   }
 }
 
+export const getStoreAddress = (state = initState({ storeAddress: {} }), action) => {
+  const type = buildType(action.type)
+  switch (type) {
+    case actions.GET_ADDRESS:
+      return buildReducer(state, action, type, 'storeAddress')
+    default:
+      return state
+  }
+}
+
 export {
     stores,
     photoUpload,

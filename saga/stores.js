@@ -14,3 +14,4 @@ export const getStoreProducts = buildSaga(['hidden'], apis.getStoreProducts, act
 export const getStoreCatalogProducts = buildSaga(['id'], apis.getStoreCatalogProducts, actions.GET_STORE_CATALOG_PRODUCTS)
 export const updateInformation = buildSaga([], apis.updateInformation, actions.UPDATE_INFORMATION)
 export const updateTerm = buildSaga([], apis.updateTerm, actions.UPDATE_TERM)
+export const getStoreAddress = buildSaga([], apis.getStoreAddress, actions.GET_ADDRESS)
