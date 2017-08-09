@@ -98,3 +98,8 @@ export const getStoreAddress = () => {
   const axios = authApiKomuto()
   return axios.get('users/store/address').catch((err) => { throw err })
 }
+
+export const updateStoreAddress = (data) => {
+  const axios = authApiKomuto()
+  return axios.put('users/store/address', data).catch((err) => { throw err })
+}
