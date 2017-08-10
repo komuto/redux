@@ -122,7 +122,8 @@ const expedition = {
   estimatedCharges: expeditionReducers.estimatedShipping,
   shippingCharges: expeditionReducers.shippingCharge,
   updateExpedition: expeditionReducers.updateExpediton,
-  storeExpeditions: expeditionReducers.getStoreExpeditions
+  storeExpeditions: expeditionReducers.getStoreExpeditions,
+  manageExpeditions: expeditionReducers.manageStoreExpeditions
 }
 
 const location = {

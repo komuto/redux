@@ -29,3 +29,8 @@ export const getStoreExpeditions = () => {
   const axios = authApiKomuto()
   return axios.get('users/store/expeditions').catch((err) => { throw err })
 }
+
+export const manageStoreExpeditions = () => {
+  const axios = authApiKomuto()
+  return axios.get('users/store/expeditions/manage').catch((err) => { throw err })
+}

@@ -2,11 +2,11 @@ import {store} from './store'
 // import * as user from './actions/user'
 // import * as home from './actions/home'
 // import * as brand from './actions/brand'
-// import * as expedition from './actions/expedition'
+import * as expedition from './actions/expedition'
 // import * as location from './actions/location'
 // import * as product from './actions/product'
 // import * as review from './actions/review'
-import * as stores from './actions/stores'
+// import * as stores from './actions/stores'
 // import * as address from './actions/address'
 // import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
@@ -15,7 +15,7 @@ import * as stores from './actions/stores'
 // import * as transaction from './actions/transaction'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().storeAddress, null, 2))
+  console.log(JSON.stringify(store.getState().manageExpeditions, null, 2))
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -134,7 +134,7 @@ store.subscribe(function () {
 // store.dispatch(review.listReviews({id: 9, page: 1, limit: 2}))
 // store.dispatch(review.addReview({id: 9, review: 'Obatnya manjur ganteng', quality: 4, accuracy: 5}))
 // store.dispatch(expedition.getServices())
-// store.dispatch(expedition.getShippingCharge({id: 2, weight: 2, origin_ro_id: 32, destination_ro_id: 1116}))
+// store.dispatch(expedition.getShippingCharge({id: 2, weight: 2, origin_id: 32, destination_id: 1116}))
 // store.dispatch(expedition.estimatedShipping({id: 1, weight: 2000, origin_id: 32, destination_id: 1116}))
 // store.dispatch(location.getProvince())
 // store.dispatch(location.getDistrict({ q: 'aceh' }))
@@ -229,11 +229,12 @@ store.subscribe(function () {
 // store.dispatch(transaction.getTransaction({ id: 259 }))
 // store.dispatch(cart.getItem({ id: 418 }))
 // store.dispatch(stores.getStoreAddress())
-store.dispatch(stores.updateStoreAddress({
-  province_id: 32,
-  district_id: 3273,
-  sub_district_id: 1111110,
-  village_id: 1111110073,
-  postal_code: '84341',
-  address: 'Jl. Kucing'
-}))
+// store.dispatch(stores.updateStoreAddress({
+//   province_id: 32,
+//   district_id: 3273,
+//   sub_district_id: 1111110,
+//   village_id: 1111110073,
+//   postal_code: '84341',
+//   address: 'Jl. Kucing'
+// }))
+store.dispatch(expedition.manageStoreExpeditions())
