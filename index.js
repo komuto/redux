@@ -2,7 +2,7 @@ import {store} from './store'
 // import * as user from './actions/user'
 // import * as home from './actions/home'
 // import * as brand from './actions/brand'
-import * as expedition from './actions/expedition'
+// import * as expedition from './actions/expedition'
 // import * as location from './actions/location'
 // import * as product from './actions/product'
 // import * as review from './actions/review'
@@ -15,7 +15,7 @@ import * as expedition from './actions/expedition'
 // import * as transaction from './actions/transaction'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().manageExpeditions, null, 2))
+  console.log(JSON.stringify(store.getState().districts, null, 2))
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -134,10 +134,10 @@ store.subscribe(function () {
 // store.dispatch(review.listReviews({id: 9, page: 1, limit: 2}))
 // store.dispatch(review.addReview({id: 9, review: 'Obatnya manjur ganteng', quality: 4, accuracy: 5}))
 // store.dispatch(expedition.getServices())
-// store.dispatch(expedition.getShippingCharge({id: 2, weight: 2, origin_id: 32, destination_id: 1116}))
+// store.dispatch(expedition.getShippingCharge({id: 2, weight: 1700, origin_id: 152, destination_id: 10}))
 // store.dispatch(expedition.estimatedShipping({id: 1, weight: 2000, origin_id: 32, destination_id: 1116}))
 // store.dispatch(location.getProvince())
-// store.dispatch(location.getDistrict({ q: 'aceh' }))
+// store.dispatch(location.getDistrict({ province_id: 34 }))
 // store.dispatch(location.getSubDistrict({district_id: 3404}))
 // store.dispatch(location.getVillage({sub_district_id: 3404110}))
 // setTimeout(function () {
@@ -237,4 +237,4 @@ store.subscribe(function () {
 //   postal_code: '84341',
 //   address: 'Jl. Kucing'
 // }))
-store.dispatch(expedition.manageStoreExpeditions())
+// store.dispatch(expedition.manageStoreExpeditions())

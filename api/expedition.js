@@ -17,7 +17,7 @@ export const estimatedShipping = ({ id, origin_id: oriId, destination_id: destId
 
 export const getShippingCharge = ({ id, origin_id: oriId, destination_id: destId, weight }) => {
   const axios = publicApiKomuto()
-  return axios.get(`expeditions/${id}/cost?origin_ro_id=${oriId}&destination_ro_id=${destId}&weight=${weight}`).catch((err) => { throw err })
+  return axios.get(`expeditions/${id}/cost?origin_ro_id=${oriId}&destination_ro_id=${destId}&weight=${weight}`)
 }
 
 export const updateExpedition = ({ data }) => {
