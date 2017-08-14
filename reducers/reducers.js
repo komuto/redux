@@ -91,6 +91,7 @@ const bank = {
   banks: bankReducers.listBank,
   bankAccount: bankReducers.bankAccount,
   listBankAccounts: bankReducers.getBankAccounts,
+  bankAccountDetail: bankReducers.getBankAccountDetail,
   komutoAccounts: bankReducers.getKomutoBankAccounts
 }
 

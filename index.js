@@ -8,14 +8,14 @@ import {store} from './store'
 // import * as review from './actions/review'
 // import * as stores from './actions/stores'
 // import * as address from './actions/address'
-// import * as bank from './actions/bank'
+import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
 // import * as cart from './actions/cart'
 // import * as payment from './actions/payment'
 // import * as transaction from './actions/transaction'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().user, null, 2))
+  console.log(JSON.stringify(store.getState().bankAccountDetail, null, 2))
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -29,7 +29,7 @@ store.subscribe(function () {
 // store.dispatch(user.verification({token: '9d5e51c87294a378b3e8376d0059e012'}))
 // store.dispatch(user.favoriteStore({id: 6}))
 // store.dispatch(user.getPhone())
-  // store.dispatch(user.getProfile())
+//   store.dispatch(user.getProfile())
 // store.dispatch(user.getDiscussion())
 // store.dispatch(email.checkEmail({email: 'testregister@skyshi.com'}))
 // store.dispatch(user.updateProfile({
@@ -239,4 +239,4 @@ store.subscribe(function () {
 //   address: 'Jl. Kucing'
 // }))
 // store.dispatch(expedition.manageStoreExpeditions())
-// store.dispatch(bank.getBankAccounts())
+store.dispatch(bank.getBankAccountDetail({ id: 18 }))
