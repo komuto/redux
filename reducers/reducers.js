@@ -115,7 +115,8 @@ const cart = {
   promo: cartReducers.getPromo,
   cancelPromo: cartReducers.cancelPromo,
   countCart: cartReducers.countCart,
-  item: cartReducers.getItem
+  item: cartReducers.getItem,
+  deleteItem: cartReducers.deleteItem
 }
 
 const expedition = {
