@@ -20,6 +20,7 @@ export const HIDE_PRODUCTS = 'HIDE_PRODUCTS'
 export const DELETE_PRODUCTS = 'DELETE_PRODUCTS'
 export const CHANGE_CATALOG = 'CHANGE_CATALOG'
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT'
+export const GET_PRODUCT_EXPEDITIONS = 'GET_PRODUCT_EXPEDITIONS'
 
 /**
  * @params id {int} product id
@@ -123,3 +124,9 @@ export const changeCatalogProducts = params => buildAction(typeReq(CHANGE_CATALO
  * @state alterProducts
  */
 export const updateProduct = params => buildAction(typeReq(UPDATE_PRODUCT), params)
+
+/**
+ * @params id {int} product id
+ * @state productExpeditions
+ */
+export const getProductExpeditions = params => buildAction(typeReq(GET_PRODUCT_EXPEDITIONS), params)

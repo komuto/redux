@@ -15,7 +15,7 @@ import * as product from './actions/product'
 // import * as transaction from './actions/transaction'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().alterProducts, null, 2))
+  console.log(JSON.stringify(store.getState().productExpeditions, null, 2))
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -240,4 +240,5 @@ store.subscribe(function () {
 // }))
 // store.dispatch(expedition.manageStoreExpeditions())
 // store.dispatch(bank.getBankAccountDetail({ id: 18 }))
-store.dispatch(product.updateProduct({ id: 94, name: 'Masak sih?' }))
+// store.dispatch(product.updateProduct({ id: 94, name: 'Masak sih?' }))
+store.dispatch(product.getProductExpeditions({ id: 94 }))

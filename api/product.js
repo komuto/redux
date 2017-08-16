@@ -82,3 +82,8 @@ export const updateProduct = ({ id, ...data }) => {
   const axios = authApiKomuto()
   return axios.put(`users/store/products/${id}`, data)
 }
+
+export const getProductExpeditions = ({ id }) => {
+  const axios = authApiKomuto()
+  return axios.get(`users/store/products/${id}/expeditions/manage`)
+}

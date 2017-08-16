@@ -159,6 +159,16 @@ export const alterProducts = (state = initAlterProduct, action) => {
   }
 }
 
+export const getProductExpeditions = (state = initState({ productExpeditions: [] }), action) => {
+  const type = buildType(action.type)
+  switch (type) {
+    case actions.GET_PRODUCT_EXPEDITIONS:
+      return buildReducer(state, action, type, 'productExpeditions')
+    default:
+      return state
+  }
+}
+
 export {
     getProduct,
     productByCategory,
