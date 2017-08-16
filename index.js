@@ -3,8 +3,8 @@ import {store} from './store'
 // import * as home from './actions/home'
 // import * as brand from './actions/brand'
 // import * as expedition from './actions/expedition'
-import * as location from './actions/location'
-// import * as product from './actions/product'
+// import * as location from './actions/location'
+import * as product from './actions/product'
 // import * as review from './actions/review'
 // import * as stores from './actions/stores'
 // import * as address from './actions/address'
@@ -15,10 +15,8 @@ import * as location from './actions/location'
 // import * as transaction from './actions/transaction'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().districts, null, 2))
+  console.log(JSON.stringify(store.getState().alterProducts, null, 2))
 })
-
-// TODO: Create JS DOC on every action page
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
 // setTimeout (function () {
@@ -140,7 +138,7 @@ store.subscribe(function () {
 // store.dispatch(expedition.getShippingCharge({id: 2, weight: 1700, origin_id: 152, destination_id: 10}))
 // store.dispatch(expedition.estimatedShipping({id: 1, weight: 2000, origin_id: 32, destination_id: 1116}))
 // store.dispatch(location.getProvince())
-store.dispatch(location.getDistrict({ q: 'aceh' }))
+// store.dispatch(location.getDistrict({ q: 'aceh' }))
 // store.dispatch(location.getSubDistrict({district_id: 3404}))
 // store.dispatch(location.getVillage({sub_district_id: 3404110}))
 // setTimeout(function () {
@@ -242,3 +240,4 @@ store.dispatch(location.getDistrict({ q: 'aceh' }))
 // }))
 // store.dispatch(expedition.manageStoreExpeditions())
 // store.dispatch(bank.getBankAccountDetail({ id: 18 }))
+store.dispatch(product.updateProduct({ id: 94, name: 'Masak sih?' }))

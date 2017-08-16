@@ -19,6 +19,7 @@ export const CREATE_PRODUCT = 'CREATE_PRODUCT'
 export const HIDE_PRODUCTS = 'HIDE_PRODUCTS'
 export const DELETE_PRODUCTS = 'DELETE_PRODUCTS'
 export const CHANGE_CATALOG = 'CHANGE_CATALOG'
+export const UPDATE_PRODUCT = 'UPDATE_PRODUCT'
 
 /**
  * @params id {int} product id
@@ -115,3 +116,10 @@ export const createProduct = params => buildAction(typeReq(CREATE_PRODUCT), para
  * @state alterProducts
  */
 export const changeCatalogProducts = params => buildAction(typeReq(CHANGE_CATALOG), params)
+
+/**
+ * @params id {int} product id
+ * @param params are the same as the api
+ * @state alterProducts
+ */
+export const updateProduct = params => buildAction(typeReq(UPDATE_PRODUCT), params)

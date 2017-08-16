@@ -77,3 +77,8 @@ export const changeCatalogProducts = (action) => {
   const axios = authApiKomuto()
   return axios.post('users/store/products/move-catalog', action).catch((err) => { throw err })
 }
+
+export const updateProduct = ({ id, ...data }) => {
+  const axios = authApiKomuto()
+  return axios.put(`users/store/products/${id}`, data)
+}

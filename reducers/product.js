@@ -152,6 +152,8 @@ export const alterProducts = (state = initAlterProduct, action) => {
       return { ...buildReducer(state, action, type), type: 'delete' }
     case actions.CHANGE_CATALOG:
       return { ...buildReducer(state, action, type), type: 'change' }
+    case actions.UPDATE_PRODUCT:
+      return { ...buildReducer(state, action, type, 'product'), type: 'update' }
     default:
       return state
   }
