@@ -18,6 +18,10 @@ store.subscribe(function () {
   console.log(JSON.stringify(store.getState().stores, null, 2))
 })
 
+// TODO: Create JS DOC on every action page
+// TODO: Handle when get store products by catalog with no id
+// TODO: Delete choose payment
+
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
 // setTimeout (function () {
 // store.dispatch(user.login({email: 'testregister@skyshi.com', password: 'testkomuto'}))

@@ -138,7 +138,6 @@ const location = {
 
 const payment = {
   paymentMethods: paymentReducers.getPaymentMethods,
-  choosePayment: paymentReducers.choosePaymentMethod,
   confirmation: paymentReducers.confirmTransfer
 }
 
