@@ -3,10 +3,10 @@ import {store} from './store'
 // import * as home from './actions/home'
 // import * as brand from './actions/brand'
 // import * as expedition from './actions/expedition'
-// import * as location from './actions/location'
+import * as location from './actions/location'
 // import * as product from './actions/product'
 // import * as review from './actions/review'
-import * as stores from './actions/stores'
+// import * as stores from './actions/stores'
 // import * as address from './actions/address'
 // import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
@@ -15,11 +15,10 @@ import * as stores from './actions/stores'
 // import * as transaction from './actions/transaction'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().storeCatalogProducts, null, 2))
+  console.log(JSON.stringify(store.getState().districts, null, 2))
 })
 
 // TODO: Create JS DOC on every action page
-// TODO: Handle when get store products by catalog with no id
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
 // setTimeout (function () {
@@ -141,7 +140,7 @@ store.subscribe(function () {
 // store.dispatch(expedition.getShippingCharge({id: 2, weight: 1700, origin_id: 152, destination_id: 10}))
 // store.dispatch(expedition.estimatedShipping({id: 1, weight: 2000, origin_id: 32, destination_id: 1116}))
 // store.dispatch(location.getProvince())
-// store.dispatch(location.getDistrict({ province_id: 34 }))
+store.dispatch(location.getDistrict({ q: 'aceh' }))
 // store.dispatch(location.getSubDistrict({district_id: 3404}))
 // store.dispatch(location.getVillage({sub_district_id: 3404110}))
 // setTimeout(function () {
@@ -218,7 +217,7 @@ store.subscribe(function () {
 // store.dispatch(expedition.getStoreExpeditions())
 // store.dispatch(bank.updateBankAccount({ id: 15, code: '10373', master_bank_id: 2, holder_name: 'aep', holder_account_number: '43254362541', bank_branch_office_name: 'iap' }))
 // store.dispatch(bank.deleteBankAccount({ id: 31, code: '10373' }))
-store.dispatch(stores.getStoreCatalogProducts({ id: 33, hidden: true }))
+// store.dispatch(stores.getStoreCatalogProducts({ id: 33, hidden: true }))
 // store.dispatch(payment.getPaymentMethods())
 // store.dispatch(payment.choosePaymentMethods({ id: 259, payment_method_id: 1 }))
 // store.dispatch(payment.confirmTransfer({ id: 259, bank_account_id: 10, date: 1477242000, amount: 150000, bank: 'BNI', holder_account_number: 837375393910, attachment: 'attachment.png' }))
