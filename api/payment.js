@@ -19,3 +19,8 @@ export const payDoku = (data) => {
   const axios = authApiKomuto()
   return axios.post('payments', data)
 }
+
+export const withdraw = (data) => {
+  const axios = authApiKomuto()
+  return axios.post('users/saldo/withdraw', data)
+}

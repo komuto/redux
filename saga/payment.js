@@ -6,4 +6,4 @@ export const getPaymentMethods = buildSaga([], apis.getPaymentMethods, actions.G
 export const confirmTransfer = buildSaga([], apis.confirmTransfer, actions.CONFIRM_TRANSFER)
 export const getDokuInvoice = buildSaga([], apis.getDokuInvoice, actions.GET_DOKU_INVOICE)
 export const payDoku = buildSaga([], apis.payDoku, actions.PAY_DOKU)
-
+export const withdraw = buildSaga([], apis.withdraw, actions.WITHDRAW)

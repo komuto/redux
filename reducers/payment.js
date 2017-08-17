@@ -40,3 +40,13 @@ export const payDoku = (state = initState({ payment: {} }), action) => {
       return state
   }
 }
+
+export const withdraw = (state = initState(), action) => {
+  const type = buildType(action.type)
+  switch (type) {
+    case actions.WITHDRAW:
+      return buildReducer(state, action, type)
+    default:
+      return state
+  }
+}

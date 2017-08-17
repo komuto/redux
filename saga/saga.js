@@ -182,6 +182,7 @@ const payment = function* () {
   yield takeEvery(typeReq(paymentActions.GET_DOKU_INVOICE), paymentSaga.getDokuInvoice)
   yield takeEvery(typeReq(paymentActions.GET_PAYMENT_METHODS), paymentSaga.getPaymentMethods)
   yield takeEvery(typeReq(paymentActions.CONFIRM_TRANSFER), paymentSaga.confirmTransfer)
+  yield takeEvery(typeReq(paymentActions.WITHDRAW), paymentSaga.withdraw)
 }
 
 const review = function* () {

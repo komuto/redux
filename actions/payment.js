@@ -4,6 +4,7 @@ export const GET_PAYMENT_METHODS = 'GET_PAYMENT_METHODS'
 export const CONFIRM_TRANSFER = 'CONFIRM_TRANSFER'
 export const GET_DOKU_INVOICE = 'GET_DOKU_INVOICE'
 export const PAY_DOKU = 'PAY_DOKU'
+export const WITHDRAW = 'WITHDRAW'
 
 /**
  * @state paymentMethods
@@ -28,3 +29,8 @@ export const getDokuInvoice = () => buildAction(typeReq(GET_DOKU_INVOICE))
  */
 export const payDoku = params => buildAction(typeReq(PAY_DOKU), params)
 
+/**
+ * @param params are the same as the api
+ * @state withdrawal
+ */
+export const withdraw = params => buildAction(typeReq(WITHDRAW), params)

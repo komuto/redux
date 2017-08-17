@@ -15,7 +15,7 @@ import * as payment from './actions/payment'
 // import * as transaction from './actions/transaction'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().invoice, null, 2))
+  console.log(JSON.stringify(store.getState().withdrawal, null, 2))
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -242,5 +242,6 @@ store.subscribe(function () {
 // store.dispatch(bank.getBankAccountDetail({ id: 18 }))
 // store.dispatch(product.updateProduct({ id: 94, name: 'Masak sih?' }))
 // store.dispatch(product.getProductExpeditions({ id: 94 }))
-store.dispatch(payment.getDokuInvoice())
+// store.dispatch(payment.getDokuInvoice())
+store.dispatch(payment.withdraw({ amount: 25000, bank_account_id: 21, code: 42343 }))
 
