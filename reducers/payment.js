@@ -30,3 +30,13 @@ export const getDokuInvoice = (state = initState({ invoice: {} }), action) => {
       return state
   }
 }
+
+export const payDoku = (state = initState({ payment: {} }), action) => {
+  const type = buildType(action.type)
+  switch (type) {
+    case actions.PAY_DOKU:
+      return buildReducer(state, action, type, 'payment')
+    default:
+      return state
+  }
+}

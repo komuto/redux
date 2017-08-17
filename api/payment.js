@@ -14,3 +14,8 @@ export const getDokuInvoice = () => {
   const axios = authApiKomuto()
   return axios.get('payments')
 }
+
+export const payDoku = (data) => {
+  const axios = authApiKomuto()
+  return axios.post('payments', data)
+}
