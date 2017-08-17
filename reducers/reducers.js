@@ -142,6 +142,7 @@ const payment = {
   invoice: paymentReducers.getDokuInvoice,
   paymentMethods: paymentReducers.getPaymentMethods,
   confirmation: paymentReducers.confirmTransfer,
+  confirmationPaymentMethod: paymentReducers.confirmPaymentMethod,
   withdrawal: paymentReducers.withdraw
 }
 
