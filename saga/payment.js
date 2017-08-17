@@ -4,3 +4,5 @@ import { buildSaga } from '../config'
 
 export const getPaymentMethods = buildSaga([], apis.getPaymentMethods, actions.GET_PAYMENT_METHODS)
 export const confirmTransfer = buildSaga([], apis.confirmTransfer, actions.CONFIRM_TRANSFER)
+export const getDokuInvoice = buildSaga([], apis.getDokuInvoice, actions.GET_DOKU_INVOICE)
+

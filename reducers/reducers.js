@@ -138,6 +138,7 @@ const location = {
 }
 
 const payment = {
+  invoice: paymentReducers.getDokuInvoice,
   paymentMethods: paymentReducers.getPaymentMethods,
   confirmation: paymentReducers.confirmTransfer
 }

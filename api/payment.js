@@ -9,3 +9,8 @@ export const confirmTransfer = ({ id, ...action }) => {
   const axios = authApiKomuto()
   return axios.post(`buckets/${id}/bank`, action).catch((err) => { throw err })
 }
+
+export const getDokuInvoice = () => {
+  const axios = authApiKomuto()
+  return axios.get('payments')
+}
