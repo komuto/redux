@@ -84,3 +84,13 @@ export const getItem = (state = initState({ item: {} }), action) => {
       return state
   }
 }
+
+export const updateCart = (state = initState({ items: [] }), action) => {
+  const type = buildType(action.type)
+  switch (type) {
+    case actions.UPDATE_CART:
+      return buildReducer(state, action, type, 'items')
+    default:
+      return state
+  }
+}
