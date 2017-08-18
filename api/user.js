@@ -76,15 +76,15 @@ export const updatePhone = (action) => {
   return axios.put('accounts/phone', action).catch((err) => { throw err })
 }
 
-export const getDiscussion = ({ page, limit }) => {
+export const getDiscussion = (params) => {
   const axios = authApiKomuto()
-  const query = buildQuery({ page, limit })
+  const query = buildQuery(params)
   return axios.get(`users/discussions?${query}`).catch((err) => { throw err })
 }
 
-export const listFavoriteStore = ({ page, limit }) => {
+export const listFavoriteStore = (params) => {
   const axios = authApiKomuto()
-  const query = buildQuery({ page, limit })
+  const query = buildQuery(params)
   return axios.get(`users/store/favorites?${query}`).catch((err) => { throw err })
 }
 
