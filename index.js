@@ -6,7 +6,7 @@ import {store} from './store'
 // import * as location from './actions/location'
 // import * as product from './actions/product'
 // import * as review from './actions/review'
-// import * as stores from './actions/stores'
+import * as stores from './actions/stores'
 // import * as address from './actions/address'
 // import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
@@ -15,7 +15,7 @@ import {store} from './store'
 // import * as transaction from './actions/transaction'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().productBySearch, null, 2))
+  console.log(JSON.stringify(store.getState().hiddenStoreProducts, null, 2))
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -33,12 +33,11 @@ store.subscribe(function () {
 // store.dispatch(user.getDiscussion())
 // store.dispatch(email.checkEmail({email: 'testregister@skyshi.com'}))
 // store.dispatch(user.updateProfile({
-  // name: 'Indra Skyshi Baru',
-  // photo: 'http://asikasik',
-  // gender: 'male',
-  // place_of_birth: 5,
-  // date_of_birth: '07/20/1994'}))
-// }, 4000)
+//   name: 'kucing',
+//   photo: 'http://bawahkolong',
+//   gender: 'male',
+//   place_of_birth: 3471,
+//   date_of_birth: 1502730000 }))
 // setTimeout(function (){
     // asik = localStorage.getItem('user')
     // asoy=JSON.parse(asik)
@@ -244,4 +243,5 @@ store.subscribe(function () {
 // store.dispatch(product.getProductExpeditions({ id: 94 }))
 // store.dispatch(payment.getDokuInvoice())
 // store.dispatch(payment.withdraw({ amount: 25000, bank_account_id: 21, code: 42343 }))
-
+// store.dispatch(cart.updateCart({ items: [{id: 470, expedition_id: 2, expedition_service_id: 1, qty: 1, note: 'Kirimnya cepat ya gan', address_id: 142, is_insurance: true, service: 'YES', origin_ro_id: 152, destination_ro_id: 108}] }))
+store.dispatch(stores.getHiddenStoreProducts())
