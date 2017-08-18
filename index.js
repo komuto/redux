@@ -11,11 +11,11 @@ import {store} from './store'
 // import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
 // import * as cart from './actions/cart'
-import * as payment from './actions/payment'
+// import * as payment from './actions/payment'
 // import * as transaction from './actions/transaction'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().withdrawal, null, 2))
+  console.log(JSON.stringify(store.getState().profile, null, 2))
 })
 
 // store.dispatch(user.register({name: 'Indra Bayu', phone_number: '081327', email: 'k.indrabayu@gmail.com', gender: 'L', password: 'aku'}))
@@ -29,7 +29,7 @@ store.subscribe(function () {
 // store.dispatch(user.verification({token: '9d5e51c87294a378b3e8376d0059e012'}))
 // store.dispatch(user.favoriteStore({id: 6}))
 // store.dispatch(user.getPhone())
-//   store.dispatch(user.getProfile())
+// store.dispatch(user.getProfile())
 // store.dispatch(user.getDiscussion())
 // store.dispatch(email.checkEmail({email: 'testregister@skyshi.com'}))
 // store.dispatch(user.updateProfile({
@@ -243,5 +243,5 @@ store.subscribe(function () {
 // store.dispatch(product.updateProduct({ id: 94, name: 'Masak sih?' }))
 // store.dispatch(product.getProductExpeditions({ id: 94 }))
 // store.dispatch(payment.getDokuInvoice())
-store.dispatch(payment.withdraw({ amount: 25000, bank_account_id: 21, code: 42343 }))
+// store.dispatch(payment.withdraw({ amount: 25000, bank_account_id: 21, code: 42343 }))
 
