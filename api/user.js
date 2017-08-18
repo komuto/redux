@@ -93,9 +93,9 @@ export const sendOTPPhone = () => {
   return axios.post('accounts/otp/phone', {}).catch((err) => { throw err })
 }
 
-export const verifyPhone = (action) => {
+export const verifyPhone = ({ code }) => {
   const axios = authApiKomuto()
-  return axios.post('accounts/phone/verify', action).catch((err) => { throw err })
+  return axios.post('accounts/phone/verify', { code }).catch((err) => { throw err })
 }
 
 export const wishlist = () => {
