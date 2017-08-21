@@ -73,6 +73,7 @@ const store = {
   ownStore: storeReducers.getOwnStore,
   storeProducts: storeReducers.getStoreProducts,
   storeCatalogProducts: storeReducers.getStoreCatalogProducts,
+  createStoreTemp: storeReducers.processCreateStore,
   updateStore: storeReducers.updateStore,
   storeAddress: storeReducers.getStoreAddress,
   updateStoreAddress: storeReducers.updateStoreAddress,

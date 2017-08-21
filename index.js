@@ -6,7 +6,7 @@ import {store} from './store'
 // import * as location from './actions/location'
 // import * as product from './actions/product'
 // import * as review from './actions/review'
-// import * as stores from './actions/stores'
+import * as stores from './actions/stores'
 // import * as address from './actions/address'
 // import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
@@ -15,10 +15,8 @@ import {store} from './store'
 // import * as transaction from './actions/transaction'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().profile, null, 2))
+  console.log(JSON.stringify(store.getState().createStoreTemp, null, 2))
 })
-
-// TODO: Fix profile manage
 
 // store.dispatch(user.register({name: 'kucing', phone_number: '081327', email: 'testregister@skyshi.com', gender: 'male', password: 'aku'}))
 // setTimeout (function () {
@@ -138,7 +136,7 @@ store.subscribe(function () {
 // store.dispatch(review.addReview({id: 9, review: 'Obatnya manjur ganteng', quality: 4, accuracy: 5}))
 // store.dispatch(expedition.getServices())
 // store.dispatch(expedition.getShippingCharge({id: 2, weight: 1700, origin_id: 152, destination_id: 10}))
-// store.dispatch(expedition.estimatedShipping({id: 1, weight: 2000, origin_id: 32, destination_id: 1116}))
+// store.dispatch(expedition.estimatedShipping({id: 9, weight: 2000, origin_id: 152, destination_id: 108}))
 // store.dispatch(location.getProvince())
 // store.dispatch(location.getDistrict({ q: 'aceh' }))
 // store.dispatch(location.getSubDistrict({district_id: 3404}))
@@ -248,3 +246,4 @@ store.subscribe(function () {
 // store.dispatch(payment.withdraw({ amount: 25000, bank_account_id: 21, code: 42343 }))
 // store.dispatch(cart.updateCart({ items: [{id: 470, expedition_id: 2, expedition_service_id: 1, qty: 1, note: 'Kirimnya cepat ya gan', address_id: 142, is_insurance: true, service: 'YES', origin_ro_id: 152, destination_ro_id: 108}] }))
 // store.dispatch(stores.getHiddenStoreProducts())
+store.dispatch(stores.createStoreTemp({ user: {id_number: '0982390923989', mother_name: 'example'} }))
