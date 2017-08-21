@@ -1,5 +1,5 @@
 import {store} from './store'
-import * as user from './actions/user'
+// import * as user from './actions/user'
 // import * as home from './actions/home'
 // import * as brand from './actions/brand'
 // import * as expedition from './actions/expedition'
@@ -18,6 +18,8 @@ store.subscribe(function () {
   console.log(JSON.stringify(store.getState().profile, null, 2))
 })
 
+// TODO: Fix profile manage
+
 // store.dispatch(user.register({name: 'kucing', phone_number: '081327', email: 'testregister@skyshi.com', gender: 'male', password: 'aku'}))
 // setTimeout (function () {
 // store.dispatch(user.login({email: 'testregister@skyshi.com', password: 'testkomuto'}))
@@ -29,7 +31,8 @@ store.subscribe(function () {
 // store.dispatch(user.verification({token: '9d5e51c87294a378b3e8376d0059e012'}))
 // store.dispatch(user.favoriteStore({id: 6}))
 // store.dispatch(user.getPhone())
-store.dispatch(user.getProfileManage())
+// store.dispatch(user.getProfile())
+// store.dispatch(user.getProfileManage())
 // store.dispatch(user.getDiscussion())
 // store.dispatch(email.checkEmail({email: 'testregister@skyshi.com'}))
 // store.dispatch(user.updateProfile({

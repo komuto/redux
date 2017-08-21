@@ -119,6 +119,10 @@ function verify (state = initState(), action) {
 }
 
 function getProfile (state = initProfile, action) {
+  const type = buildType(action.type)
+  if (type === actions.GET_PROFILE_MANAGE) {
+    return { ...buildReducer(state, action, type, 'user'), verifyStatus: state.verifyStatus || '' }
+  }
   switch (action.type) {
     case typeReq(actions.GET_PROFILE):
       return reqState(state)
@@ -129,19 +133,6 @@ function getProfile (state = initProfile, action) {
         ...succState(action)
       }
     case typeFail(actions.GET_PROFILE):
-      return {
-        ...initProfile,
-        ...failState(action)
-      }
-    case typeReq(actions.GET_PROFILE_MANAGE):
-      return reqState(state)
-    case typeSucc(actions.GET_PROFILE_MANAGE):
-      return {
-        verifyStatus: action.data.user.status,
-        user: action.data,
-        ...succState(action)
-      }
-    case typeFail(actions.GET_PROFILE_MANAGE):
       return {
         ...initProfile,
         ...failState(action)
