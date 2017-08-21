@@ -117,7 +117,7 @@ export const buildAction = (type, params = false) => {
  * @param action {object}
  * @param type {string}
  * @param name {string} additional field name
- * @param meta {boolean}
+ * @param meta {boolean} add meta init on req state
  */
 export const buildReducer = (state, action, type, name, meta = false) => {
   switch (action.type) {
