@@ -72,7 +72,7 @@ store.subscribe(function () {
 // store.dispatch(product.newComment({productId: 4, id: 3, content: 'Tapi harga nya diturunin dikit ya mas?'}))
 // store.dispatch(home.products({ page: 1, limit: 2, q: 'sepatu', category_id: 63 }))
 // store.dispatch(product.listProductByCategory({category_id: 120}))
-store.dispatch(product.listProductBySearch({}))
+store.dispatch(product.listProductBySearch({services: [1, 2, 3, 4], limit: 2, page: 1, q: 'kain'}))
 // store.dispatch(home.filter({ is_dropship: false, limit: 2, page: 1 }))
 // store.dispatch(home.search({query: 'aya'}))
 // store.dispatch(home.allCategory())
