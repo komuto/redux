@@ -18,12 +18,6 @@ export const UPDATE_TERM = 'UPDATE_TERM'
 export const GET_ADDRESS = 'GET_ADDRESS'
 export const UPDATE_STORE_ADDRESS = 'UPDATE_STORE_ADDRESS'
 export const CREATE_STORE_TEMP = 'CREATE_STORE_TEMP'
-// create store
-export const INFO_STORE = 'INFO_STORE'
-export const SHIPPING_EXPEDITION = 'SHIPPING_EXPEDITION'
-export const OWNER_INFO = 'OWNER_INFO'
-export const ADDRESS_INFO = 'ADDRESS_INFO'
-// =======
 
 /**
  * @params id {int} store id

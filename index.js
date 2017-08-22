@@ -4,9 +4,9 @@ import {store} from './store'
 // import * as brand from './actions/brand'
 // import * as expedition from './actions/expedition'
 // import * as location from './actions/location'
-// import * as product from './actions/product'
+import * as product from './actions/product'
 // import * as review from './actions/review'
-import * as stores from './actions/stores'
+// import * as stores from './actions/stores'
 // import * as address from './actions/address'
 // import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
@@ -15,8 +15,10 @@ import * as stores from './actions/stores'
 // import * as transaction from './actions/transaction'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().createStoreTemp, null, 2))
+  console.log(JSON.stringify(store.getState().productBySearch, null, 2))
 })
+
+// TODO: Create dropship products
 
 // store.dispatch(user.register({name: 'kucing', phone_number: '081327', email: 'testregister@skyshi.com', gender: 'male', password: 'aku'}))
 // setTimeout (function () {
@@ -70,7 +72,7 @@ store.subscribe(function () {
 // store.dispatch(product.newComment({productId: 4, id: 3, content: 'Tapi harga nya diturunin dikit ya mas?'}))
 // store.dispatch(home.products({ page: 1, limit: 2, q: 'sepatu', category_id: 63 }))
 // store.dispatch(product.listProductByCategory({category_id: 120}))
-// store.dispatch(product.listProductBySearch({services: [1, 2, 3, 4], limit: 2, page: 1, q: 'kain'}))
+store.dispatch(product.listProductBySearch({}))
 // store.dispatch(home.filter({ is_dropship: false, limit: 2, page: 1 }))
 // store.dispatch(home.search({query: 'aya'}))
 // store.dispatch(home.allCategory())
@@ -158,11 +160,7 @@ store.subscribe(function () {
 //   alias_address: 'Alamat Toko',
 //   is_primary: true})
 // )
-// store.dispatch(address.updateAddress({
-//   id: 259,
-//   village_id: 3404050003,
-//   is_primary: true})
-// )
+// store.dispatch(address.updateAddress({ id: 262, village_id: 1111110073 }))
 // store.dispatch(address.deleteAddress({id: 361}))
 // store.dispatch(address.getListAddress())
 // store.dispatch(address.getAddressDetail({id: 2670}))
@@ -246,4 +244,5 @@ store.subscribe(function () {
 // store.dispatch(payment.withdraw({ amount: 25000, bank_account_id: 21, code: 42343 }))
 // store.dispatch(cart.updateCart({ items: [{id: 470, expedition_id: 2, expedition_service_id: 1, qty: 1, note: 'Kirimnya cepat ya gan', address_id: 142, is_insurance: true, service: 'YES', origin_ro_id: 152, destination_ro_id: 108}] }))
 // store.dispatch(stores.getHiddenStoreProducts())
-store.dispatch(stores.createStoreTemp({ user: {id_number: '0982390923989', mother_name: 'example'} }))
+// store.dispatch(stores.createStoreTemp({ user: {id_number: '0982390923989', mother_name: 'example'} }))
+// store.dispatch(address.addAddress())

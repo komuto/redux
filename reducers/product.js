@@ -139,3 +139,13 @@ export const getProductExpeditions = (state = initState({ productExpeditions: []
   }
 }
 
+export const addDropshipProducts = (state = initState({ addDropshipProducts: {} }), action) => {
+  const type = buildType(action.type)
+  switch (type) {
+    case actions.ADD_DROPSHIP_PRODUCTS:
+      return buildReducer(state, action, type, 'addDropshipProducts')
+    default:
+      return state
+  }
+}
+
