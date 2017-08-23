@@ -13,10 +13,10 @@ import {store} from './store'
 // import * as cart from './actions/cart'
 // import * as payment from './actions/payment'
 // import * as transaction from './actions/transaction'
-// import * as message from './actions/message'
+import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().buyerMessages, null, 2))
+  console.log(JSON.stringify(store.getState().sellerDetailMessage, null, 2))
 })
 
 // TODO: Create dropship products
@@ -248,3 +248,4 @@ store.subscribe(function () {
 // store.dispatch(stores.createStoreTemp({ user: {id_number: '0982390923989', mother_name: 'example'} }))
 // store.dispatch(address.addAddress())
 // store.dispatch(message.getBuyerMessages({ is_archived: true }))
+store.dispatch(message.getSellerDetailMessage({id: 14}))

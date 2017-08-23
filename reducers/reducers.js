@@ -144,7 +144,9 @@ const location = {
 
 const message = {
   buyerMessages: messageReducers.getBuyerMessages,
-  sellerMessages: messageReducers.getSellerMessages
+  sellerMessages: messageReducers.getSellerMessages,
+  buyerDetailMessage: messageReducers.getBuyerDetailMessage,
+  sellerDetailMessage: messageReducers.getSellerDetailMessage
 }
 
 const payment = {

@@ -21,3 +21,23 @@ export const getSellerMessages = (state = initState({ sellerMessages: [] }), act
   }
 }
 
+export const getBuyerDetailMessage = (state = initState({ buyerDetailMessage: {} }), action) => {
+  const type = buildType(action.type)
+  switch (type) {
+    case actions.GET_BUYER_DETAIL_MESSAGE:
+      return buildReducer(state, action, type, 'buyerDetailMessage')
+    default:
+      return state
+  }
+}
+
+export const getSellerDetailMessage = (state = initState({ sellerDetailMessage: {} }), action) => {
+  const type = buildType(action.type)
+  switch (type) {
+    case actions.GET_SELLER_DETAIL_MESSAGE:
+      return buildReducer(state, action, type, 'sellerDetailMessage')
+    default:
+      return state
+  }
+}
+

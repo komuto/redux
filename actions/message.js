@@ -1,7 +1,9 @@
 import { buildAction, typeReq } from '../config'
 
 export const GET_BUYER_MESSAGES = 'GET_BUYER_MESSAGES'
+export const GET_BUYER_DETAIL_MESSAGE = 'GET_BUYER_DETAIL_MESSAGE'
 export const GET_SELLER_MESSAGES = 'GET_SELLER_MESSAGES'
+export const GET_SELLER_DETAIL_MESSAGE = 'GET_SELLER_DETAIL_MESSAGE'
 
 /**
  * @params params are the same as the api query
@@ -14,4 +16,16 @@ export const getBuyerMessages = params => buildAction(typeReq(GET_BUYER_MESSAGES
  * @state sellerMessages
  */
 export const getSellerMessages = params => buildAction(typeReq(GET_SELLER_MESSAGES), params)
+
+/**
+ * @params id {int} message id
+ * @state buyerDetailMessage
+ */
+export const getBuyerDetailMessage = params => buildAction(typeReq(GET_BUYER_DETAIL_MESSAGE), params)
+
+/**
+ * @params id {int} message id
+ * @state sellerDetailMessage
+ */
+export const getSellerDetailMessage = params => buildAction(typeReq(GET_SELLER_DETAIL_MESSAGE), params)
 

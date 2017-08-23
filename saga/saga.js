@@ -186,6 +186,8 @@ const location = function* () {
 const message = function* () {
   yield takeEvery(typeReq(messageActions.GET_BUYER_MESSAGES), messageSaga.getBuyerMessages)
   yield takeEvery(typeReq(messageActions.GET_SELLER_MESSAGES), messageSaga.getSellerMessages)
+  yield takeEvery(typeReq(messageActions.GET_BUYER_DETAIL_MESSAGE), messageSaga.getBuyerDetailMessage)
+  yield takeEvery(typeReq(messageActions.GET_SELLER_DETAIL_MESSAGE), messageSaga.getSellerDetailMessage)
 }
 
 const payment = function* () {

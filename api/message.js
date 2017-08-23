@@ -8,8 +8,18 @@ export const getBuyerMessages = (params) => {
 }
 
 export const getSellerMessages = (params) => {
-  let axios = authApiKomuto()
+  const axios = authApiKomuto()
   const query = buildQuery(params)
-  return axios.post(`users/store/messages?${query}`)
+  return axios.get(`users/store/messages?${query}`)
+}
+
+export const getBuyerDetailMessage = ({ id }) => {
+  const axios = authApiKomuto()
+  return axios.get(`/users/messages/${id}`)
+}
+
+export const getSellerDetailMessage = ({ id }) => {
+  const axios = authApiKomuto()
+  return axios.get(`/users/store/messages/${id}`)
 }
 
