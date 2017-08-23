@@ -111,3 +111,9 @@ export const getHiddenStoreProducts = () => {
   const axios = authApiKomuto()
   return axios.get('users/store/products?hidden=true')
 }
+
+export const getStoreDiscussions = (params) => {
+  const axios = authApiKomuto()
+  const query = buildQuery(params)
+  return axios.get(`users/store/discussions?${query}`)
+}
