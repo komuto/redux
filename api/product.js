@@ -48,9 +48,9 @@ export const getComment = ({ id, ...params }) => {
   return axios.get(`discussions/${id}/comments?${query}`)
 }
 
-export const newComment = ({ productId, id, ...action }) => {
+export const newComment = ({ id, ...action }) => {
   const axios = authApiKomuto()
-  return axios.post(`products/${productId}/discussions/${id}/comments`, action)
+  return axios.post(`discussions/${id}/comments`, action)
 }
 
 export const reportProduct = ({ id, ...action }) => {
