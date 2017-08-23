@@ -72,7 +72,6 @@ export const newDiscussion = params => buildAction(typeReq(NEW_DISCUSSION), para
 export const resetDiscussion = () => buildAction(NEW_DISCUSSION_RESET)
 
 /**
- * @params productId {int}
  * @params id {int} discussion id
  * @params params are the same as the api query
  * @state comments
