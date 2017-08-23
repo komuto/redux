@@ -4,6 +4,8 @@ export const GET_BUYER_MESSAGES = 'GET_BUYER_MESSAGES'
 export const GET_BUYER_DETAIL_MESSAGE = 'GET_BUYER_DETAIL_MESSAGE'
 export const GET_SELLER_MESSAGES = 'GET_SELLER_MESSAGES'
 export const GET_SELLER_DETAIL_MESSAGE = 'GET_SELLER_DETAIL_MESSAGE'
+export const ARCHIVE_BUYER_MESSAGE = 'ARCHIVE_BUYER_MESSAGE'
+export const ARCHIVE_SELLER_MESSAGE = 'ARCHIVE_SELLER_MESSAGE'
 
 /**
  * @params params are the same as the api query
@@ -28,4 +30,16 @@ export const getBuyerDetailMessage = params => buildAction(typeReq(GET_BUYER_DET
  * @state sellerDetailMessage
  */
 export const getSellerDetailMessage = params => buildAction(typeReq(GET_SELLER_DETAIL_MESSAGE), params)
+
+/**
+ * @params id {int} message id
+ * @state archiveMessage
+ */
+export const archiveBuyerMessage = params => buildAction(typeReq(ARCHIVE_BUYER_MESSAGE), params)
+
+/**
+ * @params id {int} message id
+ * @state archiveMessage
+ */
+export const archiveSellerMessage = params => buildAction(typeReq(ARCHIVE_SELLER_MESSAGE), params)
 

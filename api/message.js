@@ -23,3 +23,13 @@ export const getSellerDetailMessage = ({ id }) => {
   return axios.get(`/users/store/messages/${id}`)
 }
 
+export const archiveBuyerMessage = ({ id }) => {
+  const axios = authApiKomuto()
+  return axios.get(`/users/messages/${id}/archive`)
+}
+
+export const archiveSellerMessage = ({ id }) => {
+  const axios = authApiKomuto()
+  return axios.get(`/users/store/messages/${id}/archive`)
+}
+

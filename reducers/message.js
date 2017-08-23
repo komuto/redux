@@ -41,3 +41,15 @@ export const getSellerDetailMessage = (state = initState({ sellerDetailMessage: 
   }
 }
 
+export const archiveMessage = (state = initState({ archiveMessage: {} }), action) => {
+  const type = buildType(action.type)
+  switch (type) {
+    case actions.ARCHIVE_BUYER_MESSAGE:
+      return buildReducer(state, action, type, 'archiveMessage')
+    case actions.ARCHIVE_SELLER_MESSAGE:
+      return buildReducer(state, action, type, 'archiveMessage')
+    default:
+      return state
+  }
+}
+
