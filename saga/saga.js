@@ -203,6 +203,8 @@ const payment = function* () {
 const review = function* () {
   yield takeEvery(typeReq(reviewActions.GET_REVIEWS), reviewSaga.getReviews)
   yield takeEvery(typeReq(reviewActions.ADD_REVIEW), reviewSaga.addReview)
+  yield takeEvery(typeReq(reviewActions.GET_BUYER_REVIEW), reviewSaga.getBuyerReview)
+  yield takeEvery(typeReq(reviewActions.GET_SELLER_REVIEW), reviewSaga.getSellerReview)
 }
 
 const transaction = function* () {

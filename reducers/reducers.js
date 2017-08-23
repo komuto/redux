@@ -160,7 +160,9 @@ const payment = {
 
 const review = {
   productReview: reviewReducers.getReviews,
-  addReview: reviewReducers.addReview
+  addReview: reviewReducers.addReview,
+  buyerReview: reviewReducers.getBuyerReview,
+  sellerReview: reviewReducers.getSellerReview
 }
 
 const transaction = {
