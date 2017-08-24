@@ -74,6 +74,7 @@ const store = {
   sendMessageStore: storeReducers.sendMessageStore,
   ownStore: storeReducers.getOwnStore,
   storeProducts: storeReducers.getStoreProducts,
+  storeProductDetail: storeReducers.getStoreProductDetail,
   storeCatalogProducts: storeReducers.getStoreCatalogProducts,
   createStoreTemp: storeReducers.processCreateStore,
   updateStore: storeReducers.updateStore,

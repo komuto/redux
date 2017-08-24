@@ -11,6 +11,7 @@ export const MESSAGE_STORE = 'MESSAGE_STORE'
 export const MESSAGE_STORE_RESET = 'MESSAGE_STORE_RESET'
 export const GET_OWN_STORE = 'GET_OWN_STORE'
 export const GET_STORE_PRODUCTS = 'GET_STORE_PRODUCTS'
+export const GET_STORE_PRODUCT_DETAIL = 'GET_STORE_PRODUCT_DETAIL'
 export const GET_HIDDEN_STORE_PRODUCTS = 'GET_HIDDEN_STORE_PRODUCTS'
 export const GET_STORE_CATALOG_PRODUCTS = 'GET_STORE_CATALOG_PRODUCTS'
 export const UPDATE_INFORMATION = 'UPDATE_INFORMATION'
@@ -122,3 +123,9 @@ export const createStoreTemp = params => buildAction(CREATE_STORE_TEMP, params)
  * @state storeDiscussions
  */
 export const getStoreDiscussions = params => buildAction(typeReq(GET_STORE_DISCUSSIONS), params)
+
+/**
+ * @params params are the same as the api query
+ * @state storeProductsDetail
+ */
+export const getStoreProductDetail = params => buildAction(typeReq(GET_STORE_PRODUCT_DETAIL), params)

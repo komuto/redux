@@ -192,3 +192,13 @@ export const getStoreDiscussions = (state = initState({ storeDiscussions: [] }, 
       return state
   }
 }
+
+export const getStoreProductDetail = (state = initState({ storeProductDetail: {} }), action) => {
+  const type = buildType(action.type)
+  switch (type) {
+    case actions.GET_STORE_PRODUCT_DETAIL:
+      return buildReducer(state, action, type, 'storeProductDetail')
+    default:
+      return state
+  }
+}

@@ -5,8 +5,8 @@ import {store} from './store'
 // import * as expedition from './actions/expedition'
 // import * as location from './actions/location'
 // import * as product from './actions/product'
-import * as review from './actions/review'
-// import * as stores from './actions/stores'
+// import * as review from './actions/review'
+import * as stores from './actions/stores'
 // import * as address from './actions/address'
 // import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
@@ -16,7 +16,7 @@ import * as review from './actions/review'
 // import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().sellerReview, null, 2))
+  console.log(JSON.stringify(store.getState().storeProductDetail, null, 2))
 })
 
 // TODO: Create dropship products
@@ -69,7 +69,7 @@ store.subscribe(function () {
 // store.dispatch(product.addToWishlist({id: 1}))
 // store.dispatch(product.getDiscussion({id: 4, page: 1, limit: 10}))
 // store.dispatch(product.newDiscussion({id: 4, question: 'Barang sudah habis gan?'}))
-// store.dispatch(product.getComment({productId: 4, id: 3}))
+// store.dispatch(product.getComment({id: 3}))
 // store.dispatch(product.newComment({productId: 4, id: 3, content: 'Tapi harga nya diturunin dikit ya mas?'}))
 // store.dispatch(home.products({ page: 1, limit: 2, q: 'sepatu', category_id: 63 }))
 // store.dispatch(product.listProductByCategory({category_id: 120}))
@@ -187,7 +187,6 @@ store.subscribe(function () {
 // store.dispatch(bank.addBankAccount({code: '77575', master_bank_id: 5, holder_name: 'kucing', holder_account_number: '123456788243', bank_branch_office_name: 'bawah kasur'}))
 // store.dispatch(stores.getOwnStore())
 // store.dispatch(bank.getBankAccounts())
-// setTimeout(() => store.dispatch(bank.getBankAccounts({ id: 18 })), 5000)
 // store.dispatch(cart.getPromo({ code: 'BELANJAENAK' }))
 // store.dispatch(stores.getStoreProducts({ hidden: true }))
 // store.dispatch(product.hideProducts({ product_ids: [93, 116] }))
@@ -249,4 +248,13 @@ store.subscribe(function () {
 // store.dispatch(address.addAddress())
 // store.dispatch(message.getBuyerMessages({ is_archived: true }))
 // store.dispatch(message.getSellerDetailMessage({id: 14}))
-store.dispatch(review.getSellerReview())
+// store.dispatch(review.getSellerReview())
+// setTimeout(() => {
+//   console.log('DELETING BANK ACCOUNT')
+//   store.dispatch(bank.deleteBankAccount({ id: 18, code: 42343 }))
+// }, 2000)
+// setTimeout(() => {
+//   console.log('REGET BANK ACCOUNT')
+//   store.dispatch(bank.getBankAccounts())
+// }, 5000)
+store.dispatch(stores.getStoreProductDetail({ id: 93 }))
