@@ -139,6 +139,8 @@ export const alterProducts = (state = initState({ product: {} }), action) => {
       return { ...buildReducer(state, action, type), type: 'change' }
     case actions.UPDATE_PRODUCT:
       return { ...buildReducer(state, action, type, 'product'), type: 'update' }
+    case actions.ALTER_PRODUCT_RESET:
+      return initState({ product: {} })
     default:
       return state
   }

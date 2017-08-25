@@ -23,6 +23,7 @@ export const UPDATE_PRODUCT = 'UPDATE_PRODUCT'
 export const GET_PRODUCT_EXPEDITIONS = 'GET_PRODUCT_EXPEDITIONS'
 export const ADD_DROPSHIP_PRODUCTS = 'ADD_DROPSHIP_PRODUCTS'
 export const TEMP_CREATE_PRODUCT = 'TEMP_CREATE_PRODUCT'
+export const ALTER_PRODUCT_RESET = 'ALTER_PRODUCT_RESET'
 
 /**
  * @params id {int} product id
@@ -124,6 +125,7 @@ export const changeCatalogProducts = params => buildAction(typeReq(CHANGE_CATALO
  * @state alterProducts
  */
 export const updateProduct = params => buildAction(typeReq(UPDATE_PRODUCT), params)
+export const resetAlterProduct = () => buildAction(ALTER_PRODUCT_RESET)
 
 /**
  * @params id {int} product id
@@ -141,3 +143,4 @@ export const addDropshipProducts = params => buildAction(typeReq(ADD_DROPSHIP_PR
  * @state tempCreateProduct
  */
 export const tempCreateProduct = params => buildAction(TEMP_CREATE_PRODUCT, params)
+
