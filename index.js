@@ -6,7 +6,7 @@ import {store} from './store'
 // import * as location from './actions/location'
 // import * as product from './actions/product'
 // import * as review from './actions/review'
-import * as stores from './actions/stores'
+// import * as stores from './actions/stores'
 // import * as address from './actions/address'
 // import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
@@ -16,10 +16,11 @@ import * as stores from './actions/stores'
 // import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().storeProductDetail, null, 2))
+  console.log(JSON.stringify(store.getState().tempCreateProduct, null, 2))
 })
 
 // TODO: Create dropship products
+// TODO: if possible get bankAccountDetail get data from listBankAccounts
 
 // store.dispatch(user.register({name: 'kucing', phone_number: '081327', email: 'testregister@skyshi.com', gender: 'male', password: 'aku'}))
 // setTimeout (function () {
@@ -244,17 +245,18 @@ store.subscribe(function () {
 // store.dispatch(payment.withdraw({ amount: 25000, bank_account_id: 21, code: 42343 }))
 // store.dispatch(cart.updateCart({ items: [{id: 470, expedition_id: 2, expedition_service_id: 1, qty: 1, note: 'Kirimnya cepat ya gan', address_id: 142, is_insurance: true, service: 'YES', origin_ro_id: 152, destination_ro_id: 108}] }))
 // store.dispatch(stores.getHiddenStoreProducts())
-// store.dispatch(stores.createStoreTemp({ user: {id_number: '0982390923989', mother_name: 'example'} }))
+// store.dispatch(stores.tempCreateStore({ user: {id_number: '0982390923989', mother_name: 'example'} }))
 // store.dispatch(address.addAddress())
 // store.dispatch(message.getBuyerMessages({ is_archived: true }))
 // store.dispatch(message.getSellerDetailMessage({id: 14}))
 // store.dispatch(review.getSellerReview())
+// store.dispatch(bank.getBankAccounts())
 // setTimeout(() => {
 //   console.log('DELETING BANK ACCOUNT')
 //   store.dispatch(bank.deleteBankAccount({ id: 18, code: 42343 }))
 // }, 2000)
 // setTimeout(() => {
-//   console.log('REGET BANK ACCOUNT')
-//   store.dispatch(bank.getBankAccounts())
-// }, 5000)
-store.dispatch(stores.getStoreProductDetail({ id: 93 }))
+//   store.dispatch(bank.getBankAccountDetail({ id: 17 }))
+// }, 2000)
+// store.dispatch(stores.getStoreProductDetail({ id: 93 }))
+// store.dispatch(product.tempCreateProduct({ stepOne: { kucing: 'apa' } }))
