@@ -4,7 +4,7 @@ import {store} from './store'
 // import * as brand from './actions/brand'
 // import * as expedition from './actions/expedition'
 // import * as location from './actions/location'
-// import * as product from './actions/product'
+import * as product from './actions/product'
 // import * as review from './actions/review'
 // import * as stores from './actions/stores'
 // import * as address from './actions/address'
@@ -16,7 +16,7 @@ import {store} from './store'
 // import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().tempCreateProduct, null, 2))
+  console.log(JSON.stringify(store.getState().alterProducts, null, 2))
 })
 
 // TODO: Create dropship products
@@ -239,7 +239,7 @@ store.subscribe(function () {
 // }))
 // store.dispatch(expedition.manageStoreExpeditions())
 // store.dispatch(bank.getBankAccountDetail({ id: 18 }))
-// store.dispatch(product.updateProduct({ id: 94, name: 'Masak sih?' }))
+store.dispatch(product.updateProduct({ name: '$', description: 'kucing', id: 93 }))
 // store.dispatch(product.getProductExpeditions({ id: 94 }))
 // store.dispatch(payment.getDokuInvoice())
 // store.dispatch(payment.withdraw({ amount: 25000, bank_account_id: 21, code: 42343 }))

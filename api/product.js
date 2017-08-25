@@ -1,6 +1,6 @@
 import { publicApiKomuto, authApiKomuto } from './api'
 import {localStorage} from '../localStorage'
-import { buildQuery } from '../config'
+import { buildQuery, filterUpdate } from '../config'
 
 export const getProduct = ({ id }) => {
   const token = localStorage.getItem('token')
@@ -80,7 +80,7 @@ export const changeCatalogProducts = (action) => {
 
 export const updateProduct = ({ id, ...data }) => {
   const axios = authApiKomuto()
-  return axios.put(`users/store/products/${id}`, data)
+  return axios.put(`users/store/products/${id}`, filterUpdate(data))
 }
 
 export const getProductExpeditions = ({ id }) => {
