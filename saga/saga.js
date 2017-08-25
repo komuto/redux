@@ -79,8 +79,10 @@ const home = function* () {
   yield takeLatest(typeReq(homeActions.SEARCH_PRODUCT), homeSaga.search)
   yield takeLatest(typeReq(homeActions.FILTER_PRODUCT), homeSaga.filterProduct)
   yield takeEvery(typeReq(homeActions.ALL_CATEGORY), homeSaga.allCategory)
-  yield takeEvery(typeReq(homeActions.HOME_CATEGORY), homeSaga.categoryList)
-  yield takeEvery(typeReq(homeActions.HOME_SUBCATEGORY), homeSaga.subCategory)
+  yield takeEvery(typeReq(homeActions.GET_CATEGORIES_1), homeSaga.categoryList)
+  yield takeEvery(typeReq(homeActions.GET_CATEGORIES_2), homeSaga.subCategory)
+  yield takeEvery(typeReq(homeActions.GET_CATEGORIES_3), homeSaga.subCategory2)
+  yield takeEvery(typeReq(homeActions.GET_CATEGORIES_4), homeSaga.subCategory3)
 }
 
 const product = function* () {

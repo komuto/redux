@@ -45,7 +45,9 @@ const home = {
   filterProduct: homeReducers.filterProduct,
   allCategory: homeReducers.allCategory,
   category: homeReducers.categoryList,
-  subCategory: homeReducers.subCategory
+  subCategory: homeReducers.subCategory,
+  subCategory2: homeReducers.subCategory2,
+  subCategory3: homeReducers.subCategory3
 }
 
 const product = {

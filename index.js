@@ -1,6 +1,6 @@
 import {store} from './store'
 // import * as user from './actions/user'
-// import * as home from './actions/home'
+import * as home from './actions/home'
 // import * as brand from './actions/brand'
 // import * as expedition from './actions/expedition'
 // import * as location from './actions/location'
@@ -16,7 +16,7 @@ import * as product from './actions/product'
 // import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().alterProducts, null, 2))
+  console.log(JSON.stringify(store.getState().subCategory, null, 2))
 })
 
 // TODO: Create dropship products
@@ -78,8 +78,7 @@ store.subscribe(function () {
 // store.dispatch(home.filter({ is_dropship: false, limit: 2, page: 1 }))
 // store.dispatch(home.search({query: 'aya'}))
 // store.dispatch(home.allCategory())
-// store.dispatch(home.categoryList())
-// store.dispatch(home.subCategory({id: 6}))
+// store.dispatch(home.getCategories({id: 6}))
 // store.dispatch(stores.getStores({id: 41}))
 // store.dispatch(brand.getBrand())
 // store.dispatch(brand.getBrandByCategory({id: 763}))
@@ -239,7 +238,7 @@ store.subscribe(function () {
 // }))
 // store.dispatch(expedition.manageStoreExpeditions())
 // store.dispatch(bank.getBankAccountDetail({ id: 18 }))
-store.dispatch(product.updateProduct({ name: '$', description: 'kucing', id: 93 }))
+store.dispatch(product.updateProduct({ id: 93, images: [{ name: 'nucing.png' }, { name: 'naambing.png ' }] }))
 // store.dispatch(product.getProductExpeditions({ id: 94 }))
 // store.dispatch(payment.getDokuInvoice())
 // store.dispatch(payment.withdraw({ amount: 25000, bank_account_id: 21, code: 42343 }))
@@ -260,3 +259,4 @@ store.dispatch(product.updateProduct({ name: '$', description: 'kucing', id: 93 
 // }, 2000)
 // store.dispatch(stores.getStoreProductDetail({ id: 93 }))
 // store.dispatch(product.tempCreateProduct({ stepOne: { kucing: 'apa' } }))
+store.dispatch(home.subCategory({ id: 6 }))
