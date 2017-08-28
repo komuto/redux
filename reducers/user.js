@@ -1,18 +1,18 @@
 import * as actions from '../actions/user'
-import { reqState, succState, failState, typeReq, typeSucc, typeFail, buildReducer, buildType, initState } from '../config'
+import { reqState, succState, failState, typeReq, typeSucc, typeFail, buildReducer, buildType, buildInitState } from '../config'
 
 const initUser = {
   email: '',
   token: '',
   uid: 0,
   user: {},
-  ...initState()
+  ...buildInitState()
 }
 
 const initProfile = {
   verifyStatus: '',
   user: {},
-  ...initState()
+  ...buildInitState()
 }
 
 export const auth = (state = initUser, action) => {
@@ -74,7 +74,7 @@ export const auth = (state = initUser, action) => {
   }
 }
 
-export const newPassword = (state = initState(), action) => {
+export const newPassword = (state = buildInitState(), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.USER_NEW_PASSWORD:
@@ -84,7 +84,7 @@ export const newPassword = (state = initState(), action) => {
   }
 }
 
-export const verify = (state = initState(), action) => {
+export const verify = (state = buildInitState(), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.USER_VERIFICATION:
@@ -118,7 +118,7 @@ export const getProfile = (state = initProfile, action) => {
   }
 }
 
-export const updateProfile = (state = initState({ updateProfile: {} }), action) => {
+export const updateProfile = (state = buildInitState({ updateProfile: {} }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.UPDATE_PROFILE:
@@ -154,7 +154,7 @@ export const register = (state = initUser, action) => {
   }
 }
 
-export const validateToken = (state = initState(), action) => {
+export const validateToken = (state = buildInitState(), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.VALIDATE_TOKEN_FORGET_PASSWORD:
@@ -164,11 +164,11 @@ export const validateToken = (state = initState(), action) => {
   }
 }
 
-export const forgetPassword = (state = initState({ email: '' }), action) => {
+export const forgetPassword = (state = buildInitState({ email: '' }), action) => {
   switch (action.type) {
     case typeReq(actions.FORGET_PASSWORD):
       return {
-        ...initState({ email: '' }),
+        ...buildInitState({ email: '' }),
         email: action.email,
         isLoading: true
       }
@@ -199,7 +199,7 @@ export const isLogin = (state = { login: false }, action) => {
   }
 }
 
-export const getBalance = (state = initState({ balance: 0 }), action) => {
+export const getBalance = (state = buildInitState({ balance: 0 }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.USER_BALANCE:
@@ -209,7 +209,7 @@ export const getBalance = (state = initState({ balance: 0 }), action) => {
   }
 }
 
-export const changePassword = (state = initState(), action) => {
+export const changePassword = (state = buildInitState(), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.CHANGE_PASSWORD:
@@ -219,7 +219,7 @@ export const changePassword = (state = initState(), action) => {
   }
 }
 
-export const favoriteStore = (state = initState(), action) => {
+export const favoriteStore = (state = buildInitState(), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.FAVORITE_STORE:
@@ -229,7 +229,7 @@ export const favoriteStore = (state = initState(), action) => {
   }
 }
 
-export const getPhone = (state = initState({ phone: '' }), action) => {
+export const getPhone = (state = buildInitState({ phone: '' }), action) => {
   switch (action.type) {
     case typeReq(actions.GET_PHONE):
       return reqState(state)
@@ -248,7 +248,7 @@ export const getPhone = (state = initState({ phone: '' }), action) => {
   }
 }
 
-export const updatePhone = (state = initState(), action) => {
+export const updatePhone = (state = buildInitState(), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.UPDATE_PHONE:
@@ -258,7 +258,7 @@ export const updatePhone = (state = initState(), action) => {
   }
 }
 
-export const getDiscussion = (state = initState({ discussions: [] }, true), action) => {
+export const getDiscussion = (state = buildInitState({ discussions: [] }, true), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_USER_DISCUSSION:
@@ -268,7 +268,7 @@ export const getDiscussion = (state = initState({ discussions: [] }, true), acti
   }
 }
 
-export const sendOTPPhone = (state = initState(), action) => {
+export const sendOTPPhone = (state = buildInitState(), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.SEND_PHONE_OTP:
@@ -278,7 +278,7 @@ export const sendOTPPhone = (state = initState(), action) => {
   }
 }
 
-export const verifyPhone = (state = initState(), action) => {
+export const verifyPhone = (state = buildInitState(), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.VERIFIY_PHONE:
@@ -288,7 +288,7 @@ export const verifyPhone = (state = initState(), action) => {
   }
 }
 
-export const wishlist = (state = initState({ wishlist: [] }), action) => {
+export const wishlist = (state = buildInitState({ wishlist: [] }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_WISHLIST:
@@ -298,7 +298,7 @@ export const wishlist = (state = initState({ wishlist: [] }), action) => {
   }
 }
 
-export const sendOTPBank = (state = initState(), action) => {
+export const sendOTPBank = (state = buildInitState(), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.SEND_BANK_OTP:
@@ -308,7 +308,7 @@ export const sendOTPBank = (state = initState(), action) => {
   }
 }
 
-export const listFavoriteStore = (state = initState({ stores: [] }, true), action) => {
+export const listFavoriteStore = (state = buildInitState({ stores: [] }, true), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.LIST_FAVORIT_STORE:

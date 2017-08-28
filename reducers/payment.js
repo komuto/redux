@@ -1,7 +1,7 @@
 import * as actions from '../actions/payment'
-import { buildReducer, initState, buildType } from '../config'
+import { buildReducer, buildInitState, buildType } from '../config'
 
-export const getPaymentMethods = (state = initState({ paymentMethods: [] }), action) => {
+export const getPaymentMethods = (state = buildInitState({ paymentMethods: [] }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_PAYMENT_METHODS:
@@ -11,7 +11,7 @@ export const getPaymentMethods = (state = initState({ paymentMethods: [] }), act
   }
 }
 
-export const confirmTransfer = (state = initState({ confirmation: {} }), action) => {
+export const confirmTransfer = (state = buildInitState({ confirmation: {} }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.CONFIRM_TRANSFER:
@@ -21,7 +21,7 @@ export const confirmTransfer = (state = initState({ confirmation: {} }), action)
   }
 }
 
-export const getDokuInvoice = (state = initState({ invoice: {} }), action) => {
+export const getDokuInvoice = (state = buildInitState({ invoice: {} }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_DOKU_INVOICE:
@@ -31,7 +31,7 @@ export const getDokuInvoice = (state = initState({ invoice: {} }), action) => {
   }
 }
 
-export const payDoku = (state = initState({ payment: {} }), action) => {
+export const payDoku = (state = buildInitState({ payment: {} }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.PAY_DOKU:
@@ -41,7 +41,7 @@ export const payDoku = (state = initState({ payment: {} }), action) => {
   }
 }
 
-export const withdraw = (state = initState(), action) => {
+export const withdraw = (state = buildInitState(), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.WITHDRAW:

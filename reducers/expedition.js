@@ -1,17 +1,13 @@
 import * as actions from '../actions/expedition'
-import { buildReducer, buildType, initState } from '../config'
+import { buildReducer, buildType, buildInitState, createReducer } from '../config'
 
-export const expedition = (state = initState({ expeditions: [] }), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_EXPEDITION:
-      return buildReducer(state, action, type, 'expeditions')
-    default:
-      return state
-  }
-}
+export const expedition = createReducer(buildInitState({ expeditions: [] }))
+  .addReducer({
+    type: actions.GET_EXPEDITION,
+    resultName: 'expeditions'
+  }).run()
 
-export const expeditionServices = (state = initState({ expeditionServices: [] }), action) => {
+export const expeditionServices = (state = buildInitState({ expeditionServices: [] }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_EXPEDITION_SERVICES:
@@ -21,7 +17,7 @@ export const expeditionServices = (state = initState({ expeditionServices: [] })
   }
 }
 
-export const estimatedShipping = (state = initState({ charges: [] }), action) => {
+export const estimatedShipping = (state = buildInitState({ charges: [] }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.ESTIMATED_SHIPPING:
@@ -31,7 +27,7 @@ export const estimatedShipping = (state = initState({ charges: [] }), action) =>
   }
 }
 
-export const shippingCharge = (state = initState({ charges: [] }), action) => {
+export const shippingCharge = (state = buildInitState({ charges: [] }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_SHIPPING_CHARGE:
@@ -41,7 +37,7 @@ export const shippingCharge = (state = initState({ charges: [] }), action) => {
   }
 }
 
-export const updateExpediton = (state = initState(), action) => {
+export const updateExpediton = (state = buildInitState(), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.UPDATE_EXPEDITION:
@@ -51,7 +47,7 @@ export const updateExpediton = (state = initState(), action) => {
   }
 }
 
-export const getStoreExpeditions = (state = initState({ storeExpeditions: [] }), action) => {
+export const getStoreExpeditions = (state = buildInitState({ storeExpeditions: [] }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_STORE_EXPEDITIONS:
@@ -61,7 +57,7 @@ export const getStoreExpeditions = (state = initState({ storeExpeditions: [] }),
   }
 }
 
-export const manageStoreExpeditions = (state = initState({ manageExpeditions: [] }), action) => {
+export const manageStoreExpeditions = (state = buildInitState({ manageExpeditions: [] }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.MANAGE_STORE_EXPEDITIONS:

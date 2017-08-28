@@ -35,7 +35,7 @@ export function errorHandling (actionType, res) {
  * @param props {object} additional fields
  * @param meta {boolean}
  */
-export const initState = (props = {}, meta = false) => {
+export const buildInitState = (props = {}, meta = false) => {
   const state = {
     message: '',
     status: 0,
@@ -52,16 +52,14 @@ export const initState = (props = {}, meta = false) => {
 /**
  * Build request state
  * @param state {object} current state
- * @param meta {boolean}
  */
-export const reqState = (state, meta) => {
+export const reqState = (state) => {
   const res = {
     ...state,
     status: 0,
     isLoading: true,
     isFound: false
   }
-  if (meta) res['meta'] = { page: 0, limit: 10 }
   return res
 }
 
@@ -117,12 +115,11 @@ export const buildAction = (type, params = false) => {
  * @param action {object}
  * @param type {string}
  * @param name {string} additional field name
- * @param meta {boolean} add meta init on req state
  */
-export const buildReducer = (state, action, type, name, meta = false) => {
+export const buildReducer = (state, action, type, name) => {
   switch (action.type) {
     case typeReq(type):
-      return reqState(state, meta)
+      return reqState(state)
     case typeSucc(type):
       return succState(action, name)
     case typeFail(type):
@@ -133,7 +130,7 @@ export const buildReducer = (state, action, type, name, meta = false) => {
 }
 
 /**
- * Remove [REQUEST, SUCCESS, FAILURE] from action type
+ * Remove toBeRemoved from action type
  * @param type {string}
  */
 export const buildType = (type) => {
@@ -147,6 +144,8 @@ export const buildType = (type) => {
 export const typeReq = type => `${type}_REQUEST`
 export const typeSucc = type => `${type}_SUCCESS`
 export const typeFail = type => `${type}_FAILURE`
+export const typeReset = type => `${type}_RESET`
+export const typeTemp = type => `${type}_TEMP`
 
 /**
  * Build query string
@@ -206,3 +205,54 @@ export const filterUpdate = obj => Object.keys(obj).reduce((res, prop) => {
   res[prop] = obj[prop]
   return res
 }, {})
+
+const composeReducer = (initState, sagaReducer) => (state = initState, { type, ...data }) => {
+  const actionType = buildType(type)
+  let resultState = {}
+  const check = sagaReducer.some((options) => {
+    const { resultName, type: reducerType, add, includeNonSaga, resetPrevState } = options
+    if (actionType === reducerType) {
+      // For _REQUEST/_SUCCESS/_FAILURE action type
+      resultState = { ...buildReducer(state, { type, data }, actionType, resultName), ...add }
+      return true
+    }
+    if (includeNonSaga) {
+      if (type === typeReset(reducerType)) {
+        // For _RESET action type
+        resultState = initState
+        if (resetPrevState) resultState = { ...state, ...resetPrevState }
+        return true
+      } else if (type === typeTemp(reducerType)) {
+        // For _TEMP action type
+        resultState = { ...state, ...data }
+        return true
+      }
+    }
+    return false
+  })
+  return check ? resultState : state
+}
+
+/**
+ * @param initState {object} initial state for this reducer
+ */
+export const createReducer = (initState) => {
+  const reducerTypes = []
+  return {
+    /**
+     * @param options {object}
+     * @options resultName {string} prop name for the api result
+     * @options type {string} reducer action type
+     * @options add {object} other objects to add to the state
+     * @options includeNonSaga {boolean} non saga reducer operation
+     * @options resetPrevState {object} change prev state with the provided object
+     */
+    addReducer (options) {
+      reducerTypes.push(options)
+      return this
+    },
+    run () {
+      return composeReducer(initState, reducerTypes)
+    }
+  }
+}

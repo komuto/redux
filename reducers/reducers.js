@@ -87,7 +87,7 @@ const store = {
 }
 
 const address = {
-  address: addressReducers.address,
+  address: addressReducers.getAddressDetail,
   updateAddress: addressReducers.updateAddress,
   deleteAddress: addressReducers.deleteAddress,
   addAddress: addressReducers.addAddress,

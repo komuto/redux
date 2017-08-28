@@ -1,7 +1,7 @@
 import * as actions from '../actions/transaction'
-import { buildReducer, buildType, initState } from '../config'
+import { buildReducer, buildType, buildInitState } from '../config'
 
-export const listTransactions = (state = initState({ listTransactions: [] }), action) => {
+export const listTransactions = (state = buildInitState({ listTransactions: [] }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.LIST_TRANSACTIONS:
@@ -11,7 +11,7 @@ export const listTransactions = (state = initState({ listTransactions: [] }), ac
   }
 }
 
-export const getTransaction = (state = initState({ transaction: {} }), action) => {
+export const getTransaction = (state = buildInitState({ transaction: {} }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_TRANSACTION:

@@ -1,7 +1,7 @@
 import * as actions from '../actions/message'
-import { buildReducer, buildType, initState } from '../config'
+import { buildReducer, buildType, buildInitState } from '../config'
 
-export const getBuyerMessages = (state = initState({ buyerMessages: [] }), action) => {
+export const getBuyerMessages = (state = buildInitState({ buyerMessages: [] }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_BUYER_MESSAGES:
@@ -11,7 +11,7 @@ export const getBuyerMessages = (state = initState({ buyerMessages: [] }), actio
   }
 }
 
-export const getSellerMessages = (state = initState({ sellerMessages: [] }), action) => {
+export const getSellerMessages = (state = buildInitState({ sellerMessages: [] }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_SELLER_MESSAGES:
@@ -21,7 +21,7 @@ export const getSellerMessages = (state = initState({ sellerMessages: [] }), act
   }
 }
 
-export const getBuyerDetailMessage = (state = initState({ buyerDetailMessage: {} }), action) => {
+export const getBuyerDetailMessage = (state = buildInitState({ buyerDetailMessage: {} }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_BUYER_DETAIL_MESSAGE:
@@ -31,7 +31,7 @@ export const getBuyerDetailMessage = (state = initState({ buyerDetailMessage: {}
   }
 }
 
-export const getSellerDetailMessage = (state = initState({ sellerDetailMessage: {} }), action) => {
+export const getSellerDetailMessage = (state = buildInitState({ sellerDetailMessage: {} }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_SELLER_DETAIL_MESSAGE:
@@ -41,7 +41,7 @@ export const getSellerDetailMessage = (state = initState({ sellerDetailMessage: 
   }
 }
 
-export const archiveMessage = (state = initState({ archiveMessage: {} }), action) => {
+export const archiveMessage = (state = buildInitState({ archiveMessage: {} }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.ARCHIVE_BUYER_MESSAGE:

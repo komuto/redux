@@ -1,10 +1,10 @@
 import {store} from './store'
 // import * as user from './actions/user'
-import * as home from './actions/home'
+// import * as home from './actions/home'
 // import * as brand from './actions/brand'
 // import * as expedition from './actions/expedition'
 // import * as location from './actions/location'
-import * as product from './actions/product'
+// import * as product from './actions/product'
 // import * as review from './actions/review'
 // import * as stores from './actions/stores'
 // import * as address from './actions/address'
@@ -16,11 +16,10 @@ import * as product from './actions/product'
 // import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().subCategory, null, 2))
+  console.log(JSON.stringify(store.getState().primaryAddress, null, 2))
 })
 
 // TODO: Create dropship products
-// TODO: if possible get bankAccountDetail get data from listBankAccounts
 
 // store.dispatch(user.register({name: 'kucing', phone_number: '081327', email: 'testregister@skyshi.com', gender: 'male', password: 'aku'}))
 // setTimeout (function () {
@@ -183,6 +182,7 @@ store.subscribe(function () {
 // store.dispatch(stores.sendMessageStore({id: 1, subject: 'Mau nanya nih', content: 'Sepatu ini sepatu siapa?'}))
 // store.dispatch(product.reportProduct({id: 1, report_type: 1, description: 'Salah saya ini, saya cowok'}))
 // store.dispatch(address.getPrimaryAddress())
+// setTimeout(() => store.dispatch(address.resetPrimaryAddress()), 5000)
 // setTimeout(() => store.dispatch(cart.addToCartReset()), 2000)
 // store.dispatch(bank.addBankAccount({code: '77575', master_bank_id: 5, holder_name: 'kucing', holder_account_number: '123456788243', bank_branch_office_name: 'bawah kasur'}))
 // store.dispatch(stores.getOwnStore())
@@ -238,7 +238,7 @@ store.subscribe(function () {
 // }))
 // store.dispatch(expedition.manageStoreExpeditions())
 // store.dispatch(bank.getBankAccountDetail({ id: 18 }))
-store.dispatch(product.updateProduct({ id: 93, images: [{ name: 'nucing.png' }, { name: 'naambing.png ' }] }))
+// store.dispatch(product.updateProduct({ id: 93, images: [{ name: 'nucing.png' }, { name: 'naambing.png ' }] }))
 // store.dispatch(product.getProductExpeditions({ id: 94 }))
 // store.dispatch(payment.getDokuInvoice())
 // store.dispatch(payment.withdraw({ amount: 25000, bank_account_id: 21, code: 42343 }))
@@ -259,4 +259,4 @@ store.dispatch(product.updateProduct({ id: 93, images: [{ name: 'nucing.png' }, 
 // }, 2000)
 // store.dispatch(stores.getStoreProductDetail({ id: 93 }))
 // store.dispatch(product.tempCreateProduct({ stepOne: { kucing: 'apa' } }))
-store.dispatch(home.subCategory({ id: 6 }))
+// store.dispatch(home.subCategory({ id: 6 }))

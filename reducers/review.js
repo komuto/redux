@@ -1,7 +1,7 @@
 import * as actions from '../actions/review'
-import { buildReducer, buildType, initState } from '../config'
+import { buildReducer, buildType, buildInitState } from '../config'
 
-export const getReviews = (state = initState({ reviews: [] }, true), action) => {
+export const getReviews = (state = buildInitState({ reviews: [] }, true), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_REVIEWS:
@@ -11,19 +11,19 @@ export const getReviews = (state = initState({ reviews: [] }, true), action) => 
   }
 }
 
-export const addReview = (state = initState(), action) => {
+export const addReview = (state = buildInitState(), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.ADD_REVIEW:
       return buildReducer(state, action, type)
     case actions.ADD_REVIEW_RESET:
-      return initState()
+      return buildInitState()
     default:
       return state
   }
 }
 
-export const getBuyerReview = (state = initState({ buyerReview: [] }, true), action) => {
+export const getBuyerReview = (state = buildInitState({ buyerReview: [] }, true), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_BUYER_REVIEW:
@@ -33,7 +33,7 @@ export const getBuyerReview = (state = initState({ buyerReview: [] }, true), act
   }
 }
 
-export const getSellerReview = (state = initState({ sellerReview: [] }, true), action) => {
+export const getSellerReview = (state = buildInitState({ sellerReview: [] }, true), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_SELLER_REVIEW:

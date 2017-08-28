@@ -1,5 +1,5 @@
 import * as actions from '../actions/stores'
-import { buildReducer, buildType, initState } from '../config'
+import { buildReducer, buildType, buildInitState } from '../config'
 
 const initTempCreateStore = {
   store: {
@@ -30,7 +30,7 @@ const initTempCreateStore = {
   }
 }
 
-export const stores = (state = initState({ store: {} }), action) => {
+export const stores = (state = buildInitState({ store: {} }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_STORE:
@@ -40,7 +40,7 @@ export const stores = (state = initState({ store: {} }), action) => {
   }
 }
 
-export const createStore = (state = initState({ store: {} }), action) => {
+export const createStore = (state = buildInitState({ store: {} }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.CREATE_STORE:
@@ -50,7 +50,7 @@ export const createStore = (state = initState({ store: {} }), action) => {
   }
 }
 
-export const expeditionListStore = (state = initState({ expeditions: [] }), action) => {
+export const expeditionListStore = (state = buildInitState({ expeditions: [] }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.STORE_EXPEDITION_LIST:
@@ -60,7 +60,7 @@ export const expeditionListStore = (state = initState({ expeditions: [] }), acti
   }
 }
 
-export const expeditionStore = (state = initState({ expeditions: [] }), action) => {
+export const expeditionStore = (state = buildInitState({ expeditions: [] }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.STORE_EXPEDITION_MANAGE:
@@ -70,7 +70,7 @@ export const expeditionStore = (state = initState({ expeditions: [] }), action) 
   }
 }
 
-export const photoUpload = (state = initState({ payload: {} }), action) => {
+export const photoUpload = (state = buildInitState({ payload: {} }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.PHOTO_UPLOAD:
@@ -80,7 +80,7 @@ export const photoUpload = (state = initState({ payload: {} }), action) => {
   }
 }
 
-export const verifyStore = (state = initState(), action) => {
+export const verifyStore = (state = buildInitState(), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.VERIFY_STORE:
@@ -90,19 +90,19 @@ export const verifyStore = (state = initState(), action) => {
   }
 }
 
-export const sendMessageStore = (state = initState({ store: {} }), action) => {
+export const sendMessageStore = (state = buildInitState({ store: {} }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.MESSAGE_STORE:
       return buildReducer(state, action, type, 'store')
     case actions.MESSAGE_STORE_RESET:
-      return initState({ store: {} })
+      return buildInitState({ store: {} })
     default:
       return state
   }
 }
 
-export const getOwnStore = (state = initState({ ownStore: {} }), action) => {
+export const getOwnStore = (state = buildInitState({ ownStore: {} }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_OWN_STORE:
@@ -112,7 +112,7 @@ export const getOwnStore = (state = initState({ ownStore: {} }), action) => {
   }
 }
 
-export const getStoreProducts = (state = initState({ storeProducts: {} }), action) => {
+export const getStoreProducts = (state = buildInitState({ storeProducts: {} }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_STORE_PRODUCTS:
@@ -122,7 +122,7 @@ export const getStoreProducts = (state = initState({ storeProducts: {} }), actio
   }
 }
 
-export const getStoreCatalogProducts = (state = initState({ storeCatalogProducts: {} }, true), action) => {
+export const getStoreCatalogProducts = (state = buildInitState({ storeCatalogProducts: {} }, true), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_STORE_CATALOG_PRODUCTS:
@@ -132,7 +132,7 @@ export const getStoreCatalogProducts = (state = initState({ storeCatalogProducts
   }
 }
 
-export const updateStore = (state = initState({ updateStore: {} }), action) => {
+export const updateStore = (state = buildInitState({ updateStore: {} }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.UPDATE_INFORMATION:
@@ -144,7 +144,7 @@ export const updateStore = (state = initState({ updateStore: {} }), action) => {
   }
 }
 
-export const getStoreAddress = (state = initState({ storeAddress: {} }), action) => {
+export const getStoreAddress = (state = buildInitState({ storeAddress: {} }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_ADDRESS:
@@ -154,7 +154,7 @@ export const getStoreAddress = (state = initState({ storeAddress: {} }), action)
   }
 }
 
-export const updateStoreAddress = (state = initState({ updateStoreAddress: {} }), action) => {
+export const updateStoreAddress = (state = buildInitState({ updateStoreAddress: {} }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.UPDATE_STORE_ADDRESS:
@@ -164,7 +164,7 @@ export const updateStoreAddress = (state = initState({ updateStoreAddress: {} })
   }
 }
 
-export const getHiddenStoreProducts = (state = initState({ hiddenStoreProducts: [] }), action) => {
+export const getHiddenStoreProducts = (state = buildInitState({ hiddenStoreProducts: [] }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_HIDDEN_STORE_PRODUCTS:
@@ -183,7 +183,7 @@ export const tempCreateStore = (state = initTempCreateStore, { type, ...temp }) 
   }
 }
 
-export const getStoreDiscussions = (state = initState({ storeDiscussions: [] }, true), action) => {
+export const getStoreDiscussions = (state = buildInitState({ storeDiscussions: [] }, true), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_STORE_DISCUSSIONS:
@@ -193,7 +193,7 @@ export const getStoreDiscussions = (state = initState({ storeDiscussions: [] }, 
   }
 }
 
-export const getStoreProductDetail = (state = initState({ storeProductDetail: {} }), action) => {
+export const getStoreProductDetail = (state = buildInitState({ storeProductDetail: {} }), action) => {
   const type = buildType(action.type)
   switch (type) {
     case actions.GET_STORE_PRODUCT_DETAIL:
