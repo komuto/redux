@@ -41,15 +41,42 @@ export const getSellerDetailMessage = (state = initState({ sellerDetailMessage: 
   }
 }
 
-export const archiveMessage = (state = initState({ archiveMessage: {} }), action) => {
+export const getArchiveBuyerMessages = (state = initState({ archiveMessages: {} }), action) => {
   const type = buildType(action.type)
   switch (type) {
-    case actions.ARCHIVE_BUYER_MESSAGE:
-      return buildReducer(state, action, type, 'archiveMessage')
-    case actions.ARCHIVE_SELLER_MESSAGE:
-      return buildReducer(state, action, type, 'archiveMessage')
+    case actions.GET_ARCHIVE_BUYER_MESSAGES:
+      return buildReducer(state, action, type, 'archiveMessages')
     default:
       return state
   }
 }
 
+export const getArchiveSellerMessages = (state = initState({ archiveMessages: {} }), action) => {
+  const type = buildType(action.type)
+  switch (type) {
+    case actions.GET_ARCHIVE_SELLER_MESSAGES:
+      return buildReducer(state, action, type, 'archiveMessages')
+    default:
+      return state
+  }
+}
+
+export const updateBuyerMessage = (state = initState({ updateMessage: {} }), action) => {
+  const type = buildType(action.type)
+  switch (type) {
+    case actions.UPDATE_BUYER_MESSAGE:
+      return buildReducer(state, action, type, 'updateMessage')
+    default:
+      return state
+  }
+}
+
+export const updateSellerMessage = (state = initState({ updateMessage: {} }), action) => {
+  const type = buildType(action.type)
+  switch (type) {
+    case actions.UPDATE_SELLER_MESSAGE:
+      return buildReducer(state, action, type, 'updateMessage')
+    default:
+      return state
+  }
+}
