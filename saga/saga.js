@@ -126,6 +126,7 @@ const store = function* () {
   yield takeEvery(typeReq(storeActions.UPDATE_STORE_ADDRESS), storeSaga.updateStoreAddress)
   yield takeEvery(typeReq(storeActions.GET_HIDDEN_STORE_PRODUCTS), storeSaga.getHiddenStoreProducts)
   yield takeEvery(typeReq(storeActions.GET_STORE_DISCUSSIONS), storeSaga.getStoreDiscussions)
+  yield takeEvery(typeReq(storeActions.GET_STORE_PRODUCTS_BY_CATALOG), storeSaga.getStoreProductsByCatalog)
 }
 
 const address = function* () {

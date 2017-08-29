@@ -138,3 +138,9 @@ export const getStoreProductDetail = createReducer(buildInitState({ storeProduct
     resultName: 'storeProductDetail'
   }).run()
 
+export const getStoreProductsByCatalog = createReducer(buildInitState({ products: [] }, true))
+  .addReducer({
+    type: actions.GET_STORE_PRODUCTS_BY_CATALOG,
+    resultName: 'products'
+  }).run()
+

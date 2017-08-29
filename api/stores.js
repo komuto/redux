@@ -122,3 +122,9 @@ export const getStoreProductDetail = ({ id }) => {
   const axios = authApiKomuto()
   return axios.get(`users/store/products/${id}`)
 }
+
+export const getStoreProductsByCatalog = ({ id, ...data }) => {
+  const axios = authApiKomuto()
+  const query = buildQuery(data)
+  return axios.get(`users/store/products/catalogs/${id}/list?${query}`)
+}

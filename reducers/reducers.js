@@ -86,7 +86,8 @@ const store = {
   storeAddress: storeReducers.getStoreAddress,
   updateStoreAddress: storeReducers.updateStoreAddress,
   hiddenStoreProducts: storeReducers.getHiddenStoreProducts,
-  storeDiscussions: storeReducers.getStoreDiscussions
+  storeDiscussions: storeReducers.getStoreDiscussions,
+  storeProductsByCatalog: storeReducers.getStoreProductsByCatalog
 }
 
 const address = {
