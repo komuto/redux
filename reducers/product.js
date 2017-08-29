@@ -121,6 +121,6 @@ export const addDropshipProducts = createReducer(buildInitState({ addDropshipPro
 
 export const tempCreateProduct = createReducer(initTempCreateProduct)
   .addReducer({
-    type: actions.TEMP_CREATE_PRODUCT,
+    type: actions.CREATE_PRODUCT,
     includeNonSaga: true
   }).run()

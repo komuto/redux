@@ -1,4 +1,4 @@
-import { buildAction, typeReq, typeReset } from '../config'
+import { buildAction, typeReq, typeReset, typeTemp } from '../config'
 
 export const GET_PRODUCT = 'GET_PRODUCT'
 export const LIST_PRODUCT_BY_CATEGORY = 'LIST_PRODUCT_BY_CATEGORY'
@@ -17,7 +17,6 @@ export const CHANGE_CATALOG = 'CHANGE_CATALOG'
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT'
 export const GET_PRODUCT_EXPEDITIONS = 'GET_PRODUCT_EXPEDITIONS'
 export const ADD_DROPSHIP_PRODUCTS = 'ADD_DROPSHIP_PRODUCTS'
-export const TEMP_CREATE_PRODUCT = 'TEMP_CREATE_PRODUCT'
 
 /**
  * @params id {int} product id
@@ -136,5 +135,5 @@ export const addDropshipProducts = params => buildAction(typeReq(ADD_DROPSHIP_PR
 /**
  * @state tempCreateProduct
  */
-export const tempCreateProduct = params => buildAction(TEMP_CREATE_PRODUCT, params)
+export const tempCreateProduct = params => buildAction(typeTemp(CREATE_PRODUCT), params)
 

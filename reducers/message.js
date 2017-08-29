@@ -1,55 +1,51 @@
 import * as actions from '../actions/message'
-import { buildReducer, buildType, buildInitState } from '../config'
+import { buildInitState, createReducer } from '../config'
 
-export const getBuyerMessages = (state = buildInitState({ buyerMessages: [] }), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_BUYER_MESSAGES:
-      return buildReducer(state, action, type, 'buyerMessages')
-    default:
-      return state
-  }
-}
+export const getBuyerMessages = createReducer(buildInitState({ buyerMessages: [] }))
+  .addReducer({
+    type: actions.GET_BUYER_MESSAGES,
+    resultName: 'buyerMessages'
+  }).run()
 
-export const getSellerMessages = (state = buildInitState({ sellerMessages: [] }), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_SELLER_MESSAGES:
-      return buildReducer(state, action, type, 'sellerMessages')
-    default:
-      return state
-  }
-}
+export const getSellerMessages = createReducer(buildInitState({ sellerMessages: [] }))
+  .addReducer({
+    type: actions.GET_SELLER_MESSAGES,
+    resultName: 'sellerMessages'
+  }).run()
 
-export const getBuyerDetailMessage = (state = buildInitState({ buyerDetailMessage: {} }), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_BUYER_DETAIL_MESSAGE:
-      return buildReducer(state, action, type, 'buyerDetailMessage')
-    default:
-      return state
-  }
-}
+export const getBuyerDetailMessage = createReducer(buildInitState({ buyerDetailMessage: {} }))
+  .addReducer({
+    type: actions.GET_BUYER_DETAIL_MESSAGE,
+    resultName: 'buyerDetailMessage'
+  }).run()
 
-export const getSellerDetailMessage = (state = buildInitState({ sellerDetailMessage: {} }), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_SELLER_DETAIL_MESSAGE:
-      return buildReducer(state, action, type, 'sellerDetailMessage')
-    default:
-      return state
-  }
-}
+export const getSellerDetailMessage = createReducer(buildInitState({ sellerDetailMessage: {} }))
+  .addReducer({
+    type: actions.GET_SELLER_DETAIL_MESSAGE,
+    resultName: 'sellerDetailMessage'
+  }).run()
 
-export const archiveMessage = (state = buildInitState({ archiveMessage: {} }), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.ARCHIVE_BUYER_MESSAGE:
-      return buildReducer(state, action, type, 'archiveMessage')
-    case actions.ARCHIVE_SELLER_MESSAGE:
-      return buildReducer(state, action, type, 'archiveMessage')
-    default:
-      return state
-  }
-}
+export const getArchiveBuyerMessages = createReducer(buildInitState({ archiveMessages: {} }))
+  .addReducer({
+    type: actions.GET_ARCHIVE_BUYER_MESSAGES,
+    resultName: 'archiveMessages'
+  }).run()
+
+export const getArchiveSellerMessages = createReducer(buildInitState({ archiveMessage: {} }))
+  .addReducer({
+    type: actions.GET_ARCHIVE_SELLER_MESSAGES,
+    resultName: 'archiveMessages'
+  }).run()
+
+export const updateBuyerMessage = createReducer(buildInitState({ updateMessage: {} }))
+  .addReducer({
+    type: actions.UPDATE_BUYER_MESSAGE,
+    resultName: 'updateMessage'
+  }).run()
+
+export const updateSellerMessage = createReducer(buildInitState({ updateMessage: {} }))
+  .addReducer({
+    type: actions.UPDATE_SELLER_MESSAGE,
+    resultName: 'updateMessage'
+  }).run()
 

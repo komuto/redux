@@ -1,4 +1,4 @@
-import { buildAction, typeReq } from '../config'
+import { buildAction, typeReq, typeTemp } from '../config'
 
 export const USER_LOGIN = 'USER_LOGIN'
 export const USER_VERIFICATION = 'USER_VERIFICATION'
@@ -85,7 +85,7 @@ export const forgetPassword = params => buildAction(typeReq(FORGET_PASSWORD), pa
  * @params login {boolean}
  * @state isLogin
  */
-export const stateLogin = params => buildAction(IS_LOGIN, params)
+export const stateLogin = params => buildAction(typeTemp(IS_LOGIN), params)
 
 /**
  * @params token {string}

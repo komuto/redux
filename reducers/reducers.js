@@ -83,7 +83,8 @@ const store = {
   updateStore: storeReducers.updateStore,
   storeAddress: storeReducers.getStoreAddress,
   updateStoreAddress: storeReducers.updateStoreAddress,
-  hiddenStoreProducts: storeReducers.getHiddenStoreProducts
+  hiddenStoreProducts: storeReducers.getHiddenStoreProducts,
+  storeDiscussions: storeReducers.getStoreDiscussions
 }
 
 const address = {

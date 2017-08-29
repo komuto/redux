@@ -1,5 +1,5 @@
 import * as actions from '../actions/user'
-import { reqState, succState, failState, typeReq, typeSucc, typeFail, buildReducer, buildType, buildInitState } from '../config'
+import { reqState, succState, failState, typeReq, typeSucc, typeFail, buildReducer, buildType, buildInitState, createReducer } from '../config'
 
 const initUser = {
   email: '',
@@ -74,25 +74,15 @@ export const auth = (state = initUser, action) => {
   }
 }
 
-export const newPassword = (state = buildInitState(), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.USER_NEW_PASSWORD:
-      return buildReducer(state, action, type)
-    default:
-      return state
-  }
-}
+export const newPassword = createReducer(buildInitState())
+  .addReducer({
+    type: actions.USER_NEW_PASSWORD
+  }).run()
 
-export const verify = (state = buildInitState(), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.USER_VERIFICATION:
-      return buildReducer(state, action, type)
-    default:
-      return state
-  }
-}
+export const verify = createReducer(buildInitState())
+  .addReducer({
+    type: actions.USER_VERIFICATION
+  }).run()
 
 export const getProfile = (state = initProfile, action) => {
   const type = buildType(action.type)
@@ -118,15 +108,11 @@ export const getProfile = (state = initProfile, action) => {
   }
 }
 
-export const updateProfile = (state = buildInitState({ updateProfile: {} }), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.UPDATE_PROFILE:
-      return buildReducer(state, action, type, 'updateProfile')
-    default:
-      return state
-  }
-}
+export const updateProfile = createReducer(buildInitState({ updateProfile: {} }))
+  .addReducer({
+    type: actions.UPDATE_PROFILE,
+    resultName: 'updateProfile'
+  }).run()
 
 export const register = (state = initUser, action) => {
   switch (action.type) {
@@ -154,15 +140,10 @@ export const register = (state = initUser, action) => {
   }
 }
 
-export const validateToken = (state = buildInitState(), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.VALIDATE_TOKEN_FORGET_PASSWORD:
-      return buildReducer(state, action, type)
-    default:
-      return state
-  }
-}
+export const validateToken = createReducer(buildInitState())
+  .addReducer({
+    type: actions.VALIDATE_TOKEN_FORGET_PASSWORD
+  }).run()
 
 export const forgetPassword = (state = buildInitState({ email: '' }), action) => {
   switch (action.type) {
@@ -187,47 +168,27 @@ export const forgetPassword = (state = buildInitState({ email: '' }), action) =>
   }
 }
 
-export const isLogin = (state = { login: false }, action) => {
-  switch (action.type) {
-    case actions.IS_LOGIN:
-      return {
-        ...state,
-        login: action.login
-      }
-    default:
-      return state
-  }
-}
+export const isLogin = createReducer({ login: false })
+  .addReducer({
+    type: actions.IS_LOGIN,
+    includeNonSaga: true
+  }).run()
 
-export const getBalance = (state = buildInitState({ balance: 0 }), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.USER_BALANCE:
-      return buildReducer(state, action, type, 'balance')
-    default:
-      return state
-  }
-}
+export const getBalance = createReducer(buildInitState({ balance: 0 }))
+  .addReducer({
+    type: actions.USER_BALANCE,
+    resultName: 'balance'
+  }).run()
 
-export const changePassword = (state = buildInitState(), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.CHANGE_PASSWORD:
-      return buildReducer(state, action, type)
-    default:
-      return state
-  }
-}
+export const changePassword = createReducer(buildInitState())
+  .addReducer({
+    type: actions.CHANGE_PASSWORD
+  }).run()
 
-export const favoriteStore = (state = buildInitState(), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.FAVORITE_STORE:
-      return buildReducer(state, action, type)
-    default:
-      return state
-  }
-}
+export const favoriteStore = createReducer(buildInitState())
+  .addReducer({
+    type: actions.FAVORITE_STORE
+  }).run()
 
 export const getPhone = (state = buildInitState({ phone: '' }), action) => {
   switch (action.type) {
@@ -248,72 +209,40 @@ export const getPhone = (state = buildInitState({ phone: '' }), action) => {
   }
 }
 
-export const updatePhone = (state = buildInitState(), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.UPDATE_PHONE:
-      return buildReducer(state, action, type)
-    default:
-      return state
-  }
-}
+export const updatePhone = createReducer(buildInitState())
+  .addReducer({
+    type: actions.UPDATE_PHONE
+  }).run()
 
-export const getDiscussion = (state = buildInitState({ discussions: [] }, true), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_USER_DISCUSSION:
-      return buildReducer(state, action, type, 'discussions', true)
-    default:
-      return state
-  }
-}
+export const getDiscussion = createReducer(buildInitState({ discussions: [] }, true))
+  .addReducer({
+    type: actions.GET_USER_DISCUSSION,
+    resultName: 'discussions'
+  }).run()
 
-export const sendOTPPhone = (state = buildInitState(), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.SEND_PHONE_OTP:
-      return buildReducer(state, action, type)
-    default:
-      return state
-  }
-}
+export const sendOTPPhone = createReducer(buildInitState())
+  .addReducer({
+    type: actions.SEND_PHONE_OTP
+  }).run()
 
-export const verifyPhone = (state = buildInitState(), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.VERIFIY_PHONE:
-      return buildReducer(state, action, type)
-    default:
-      return state
-  }
-}
+export const verifyPhone = createReducer(buildInitState())
+  .addReducer({
+    type: actions.VERIFIY_PHONE
+  }).run()
 
-export const wishlist = (state = buildInitState({ wishlist: [] }), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_WISHLIST:
-      return buildReducer(state, action, type, 'wishlist')
-    default:
-      return state
-  }
-}
+export const wishlist = createReducer(buildInitState({ wishlist: [] }))
+  .addReducer({
+    type: actions.GET_WISHLIST,
+    resultName: 'wishlist'
+  }).run()
 
-export const sendOTPBank = (state = buildInitState(), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.SEND_BANK_OTP:
-      return buildReducer(state, action, type)
-    default:
-      return state
-  }
-}
+export const sendOTPBank = createReducer(buildInitState())
+  .addReducer({
+    type: actions.SEND_BANK_OTP
+  }).run()
 
-export const listFavoriteStore = (state = buildInitState({ stores: [] }, true), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.LIST_FAVORIT_STORE:
-      return buildReducer(state, action, type, 'stores', true)
-    default:
-      return state
-  }
-}
+export const listFavoriteStore = createReducer(buildInitState({ stores: [] }, true))
+  .addReducer({
+    type: actions.LIST_FAVORIT_STORE,
+    resultName: 'stores'
+  }).run()

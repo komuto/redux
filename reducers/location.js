@@ -1,5 +1,5 @@
 import * as actions from '../actions/location'
-import { buildReducer, buildType, buildInitState, typeReq, typeSucc, typeFail, reqState, succState, failState } from '../config'
+import { buildInitState, typeReq, typeSucc, typeFail, reqState, succState, failState, createReducer } from '../config'
 
 export const province = (state = buildInitState({ provinces: [] }), action) => {
   switch (action.type) {
@@ -63,12 +63,9 @@ export const subdistrict = (state = buildInitState({ subdistricts: [] }), action
   }
 }
 
-export const village = (state = buildInitState({ villages: [] }), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_VILLAGE:
-      return buildReducer(state, action, type, 'villages')
-    default:
-      return state
-  }
-}
+export const village = createReducer(buildInitState({ villages: [] }))
+  .addReducer({
+    type: actions.GET_VILLAGE,
+    resultName: 'villages'
+  }).run()
+
