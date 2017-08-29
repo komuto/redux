@@ -213,7 +213,7 @@ const composeReducer = (initState, sagaReducer) => (state = initState, { type, .
     const { resultName, type: reducerType, add, includeNonSaga, resetPrevState } = options
     if (actionType === reducerType) {
       // For _REQUEST/_SUCCESS/_FAILURE action type
-      resultState = { ...buildReducer(state, { type, data }, actionType, resultName), ...add }
+      resultState = { ...buildReducer(state, { type, ...data }, actionType, resultName), ...add }
       return true
     }
     if (includeNonSaga) {
