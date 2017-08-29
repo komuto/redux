@@ -115,15 +115,16 @@ export const buildAction = (type, params = false) => {
  * @param action {object}
  * @param type {string}
  * @param name {string} additional field name
+ * @param customState {array}
  */
-export const buildReducer = (state, action, type, name) => {
+export const buildReducer = (state, action, type, name, customState) => {
   switch (action.type) {
     case typeReq(type):
-      return reqState(state)
+      return !customState[0] ? reqState(state) : customState[0](state, action)
     case typeSucc(type):
-      return succState(action, name)
+      return !customState[1] ? succState(action, name) : customState[1](state, action)
     case typeFail(type):
-      return failState(action, name, state[name])
+      return !customState[2] ? failState(action, name, state[name]) : customState[2](state, action)
     default:
       return state
   }
@@ -211,9 +212,10 @@ const composeReducer = (initState, sagaReducer) => (state = initState, { type, .
   let resultState = {}
   const check = sagaReducer.some((options) => {
     const { resultName, type: reducerType, add, includeNonSaga, resetPrevState } = options
+    const customState = [options.customReqState, options.customSuccState, options.customFailState]
     if (actionType === reducerType) {
       // For _REQUEST/_SUCCESS/_FAILURE action type
-      resultState = { ...buildReducer(state, { type, ...data }, actionType, resultName), ...add }
+      resultState = { ...buildReducer(state, { type, ...data }, actionType, resultName, customState), ...add }
       return true
     }
     if (includeNonSaga) {
@@ -246,6 +248,9 @@ export const createReducer = (initState) => {
      * @options add {object} other objects to add to the state
      * @options includeNonSaga {boolean} non saga reducer operation
      * @options resetPrevState {object} change prev state with the provided object
+     * @options customReqState {function}
+     * @options customSuccState {function}
+     * @options customfailState {function}
      */
     addReducer (options) {
       reducerTypes.push(options)

@@ -1,10 +1,10 @@
 import {store} from './store'
-// import * as user from './actions/user'
+import * as user from './actions/user'
 // import * as home from './actions/home'
 // import * as brand from './actions/brand'
 // import * as expedition from './actions/expedition'
 // import * as location from './actions/location'
-import * as product from './actions/product'
+// import * as product from './actions/product'
 // import * as review from './actions/review'
 // import * as stores from './actions/stores'
 // import * as address from './actions/address'
@@ -16,7 +16,7 @@ import * as product from './actions/product'
 // import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().alterProducts, null, 2))
+  console.log(JSON.stringify(store.getState().user, null, 2))
 })
 
 // TODO: Create dropship products
@@ -144,9 +144,7 @@ store.subscribe(function () {
 // store.dispatch(location.getSubDistrict({district_id: 3404}))
 // store.dispatch(location.getVillage({sub_district_id: 3404110}))
 // setTimeout(function () {
-// store.dispatch(user.logout())
-// }, 10000)
-
+store.dispatch(user.logout())
 // store.dispatch(address.addAddress({
 //   province_id: 34,
 //   district_id: 3404,
@@ -261,4 +259,4 @@ store.subscribe(function () {
 // store.dispatch(product.tempCreateProduct({ stepOne: { kucing: 'apa' } }))
 // store.dispatch(home.subCategory({ id: 6 }))
 // store.dispatch(product.getDropshipProducts({ limit: 2 }))
-store.dispatch(product.updateDropshipStatus({ product_ids: [93] }))
+// store.dispatch(product.updateDropshipStatus({ product_ids: [93] }))
