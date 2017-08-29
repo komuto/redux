@@ -13,6 +13,7 @@ import * as cartActions from '../actions/cart'
 import * as paymentActions from '../actions/payment'
 import * as transactionActions from '../actions/transaction'
 import * as messageActions from '../actions/message'
+import * as otherActions from '../actions/other'
 import * as userSaga from './user'
 import * as homeSaga from './home'
 import * as brandSaga from './brand'
@@ -28,6 +29,7 @@ import * as cartSaga from './cart'
 import * as paymentSaga from './payment'
 import * as transactionSaga from './transaction'
 import * as messageSaga from './message'
+import * as otherSaga from './other'
 import { takeEvery, takeLatest } from 'redux-saga/effects'
 import { typeReq } from '../config'
 
@@ -47,6 +49,7 @@ function* dataSaga () {
   yield * review()
   yield * transaction()
   yield * message()
+  yield * other()
 }
 
 const user = function* () {
@@ -202,6 +205,10 @@ const message = function* () {
   yield takeEvery(typeReq(messageActions.UPDATE_SELLER_MESSAGE), messageSaga.updateSellerMessage)
   yield takeEvery(typeReq(messageActions.BUYER_REPLY_MESSAGE), messageSaga.buyerReplyMessage)
   yield takeEvery(typeReq(messageActions.SELLER_REPLY_MESSAGE), messageSaga.sellerReplyMessage)
+}
+
+const other = function* () {
+  yield takeEvery(typeReq(otherActions.GET_COMMISSION), otherSaga.getCommission)
 }
 
 const payment = function* () {

@@ -15,6 +15,7 @@ import * as cartReducers from './cart'
 import * as paymentReducers from './payment'
 import * as transactionReducers from './transaction'
 import * as messageReducers from './message'
+import * as otherReducers from './other'
 
 const user = {
   user: userReducers.auth,
@@ -162,6 +163,10 @@ const message = {
   deleteMessage: messageReducers.deleteMessage
 }
 
+const other = {
+  commission: otherReducers.getCommission
+}
+
 const payment = {
   dokuPayment: paymentReducers.payDoku,
   invoice: paymentReducers.getDokuInvoice,
@@ -197,7 +202,8 @@ const komutoApps = storage.reducer(combineReducers({
   ...review,
   ...payment,
   ...transaction,
-  ...message
+  ...message,
+  ...other
 }))
 
 export default komutoApps
