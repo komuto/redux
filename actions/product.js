@@ -17,6 +17,7 @@ export const CHANGE_CATALOG = 'CHANGE_CATALOG'
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT'
 export const GET_PRODUCT_EXPEDITIONS = 'GET_PRODUCT_EXPEDITIONS'
 export const ADD_DROPSHIP_PRODUCTS = 'ADD_DROPSHIP_PRODUCTS'
+export const GET_DROPSHIP_PRODUCTS = 'GET_DROPSHIP_PRODUCTS'
 
 /**
  * @params id {int} product id
@@ -136,4 +137,10 @@ export const addDropshipProducts = params => buildAction(typeReq(ADD_DROPSHIP_PR
  * @state tempCreateProduct
  */
 export const tempCreateProduct = params => buildAction(typeTemp(CREATE_PRODUCT), params)
+
+/**
+ * @param params are the same as the api query
+ * @state dropshipProducts
+ */
+export const getDropshipProducts = params => buildAction(typeReq(GET_DROPSHIP_PRODUCTS), params)
 

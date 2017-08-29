@@ -4,7 +4,7 @@ import {store} from './store'
 // import * as brand from './actions/brand'
 // import * as expedition from './actions/expedition'
 // import * as location from './actions/location'
-// import * as product from './actions/product'
+import * as product from './actions/product'
 // import * as review from './actions/review'
 // import * as stores from './actions/stores'
 // import * as address from './actions/address'
@@ -16,7 +16,7 @@ import {store} from './store'
 // import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().primaryAddress, null, 2))
+  console.log(JSON.stringify(store.getState().dropshipProducts, null, 2))
 })
 
 // TODO: Create dropship products
@@ -260,3 +260,4 @@ store.subscribe(function () {
 // store.dispatch(stores.getStoreProductDetail({ id: 93 }))
 // store.dispatch(product.tempCreateProduct({ stepOne: { kucing: 'apa' } }))
 // store.dispatch(home.subCategory({ id: 6 }))
+store.dispatch(product.getDropshipProducts({ limit: 2 }))

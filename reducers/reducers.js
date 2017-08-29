@@ -64,7 +64,8 @@ const product = {
   alterProducts: productReducers.alterProducts,
   productExpeditions: productReducers.getProductExpeditions,
   addDropshipProducts: productReducers.addDropshipProducts,
-  tempCreateProduct: productReducers.tempCreateProduct
+  tempCreateProduct: productReducers.tempCreateProduct,
+  dropshipProducts: productReducers.getDropshipProducts
 }
 
 const store = {
