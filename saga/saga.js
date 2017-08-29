@@ -199,6 +199,8 @@ const message = function* () {
   yield takeEvery(typeReq(messageActions.GET_ARCHIVE_SELLER_MESSAGES), messageSaga.getArchiveSellerMessages)
   yield takeEvery(typeReq(messageActions.UPDATE_BUYER_MESSAGE), messageSaga.updateBuyerMessage)
   yield takeEvery(typeReq(messageActions.UPDATE_SELLER_MESSAGE), messageSaga.updateSellerMessage)
+  yield takeEvery(typeReq(messageActions.BUYER_REPLY_MESSAGE), messageSaga.buyerReplyMessage)
+  yield takeEvery(typeReq(messageActions.SELLER_REPLY_MESSAGE), messageSaga.sellerReplyMessage)
 }
 
 const payment = function* () {

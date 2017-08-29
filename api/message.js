@@ -42,3 +42,13 @@ export const updateSellerMessage = ({ id, ...data }) => {
   const axios = authApiKomuto()
   return axios.put(`users/store/messages/${id}`, data)
 }
+
+export const buyerReplyMessage = ({ id, ...data }) => {
+  const axios = authApiKomuto()
+  return axios.post(`users/messages/${id}`, data)
+}
+
+export const sellerReplyMessage = ({ id, ...data }) => {
+  const axios = authApiKomuto()
+  return axios.post(`users/store/messages/${id}`, data)
+}

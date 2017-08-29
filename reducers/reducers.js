@@ -157,7 +157,8 @@ const message = {
   archiveBuyerMessages: messageReducers.getArchiveBuyerMessages,
   archiveSellerMessages: messageReducers.getArchiveSellerMessages,
   updateBuyerMessage: messageReducers.updateBuyerMessage,
-  updateSellerMessage: messageReducers.updateSellerMessage
+  updateSellerMessage: messageReducers.updateSellerMessage,
+  replyMessage: messageReducers.replyMessage
 }
 
 const payment = {

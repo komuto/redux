@@ -10,4 +10,5 @@ export const getArchiveBuyerMessages = buildSaga(apis.getArchiveBuyerMessages, a
 export const getArchiveSellerMessages = buildSaga(apis.getArchiveSellerMessages, actions.GET_ARCHIVE_SELLER_MESSAGES)
 export const updateBuyerMessage = buildSaga(apis.updateBuyerMessage, actions.UPDATE_BUYER_MESSAGE)
 export const updateSellerMessage = buildSaga(apis.updateSellerMessage, actions.UPDATE_SELLER_MESSAGE)
-
+export const buyerReplyMessage = buildSaga(apis.buyerReplyMessage, actions.BUYER_REPLY_MESSAGE)
+export const sellerReplyMessage = buildSaga(apis.sellerReplyMessage, actions.SELLER_REPLY_MESSAGE)

@@ -8,6 +8,8 @@ export const GET_ARCHIVE_BUYER_MESSAGES = 'GET_ARCHIVE_BUYER_MESSAGES'
 export const GET_ARCHIVE_SELLER_MESSAGES = 'GET_ARCHIVE_SELLER_MESSAGES'
 export const UPDATE_BUYER_MESSAGE = 'UPDATE_BUYER_MESSAGE'
 export const UPDATE_SELLER_MESSAGE = 'UPDATE_SELLER_MESSAGE'
+export const BUYER_REPLY_MESSAGE = 'BUYER_REPLY_MESSAGE'
+export const SELLER_REPLY_MESSAGE = 'SELLER_REPLY_MESSAGE'
 
 /**
  * @params params are the same as the api query
@@ -54,3 +56,17 @@ export const updateBuyerMessage = params => buildAction(typeReq(UPDATE_BUYER_MES
  * @state updateSellerMessage
  */
 export const updateSellerMessage = params => buildAction(typeReq(UPDATE_SELLER_MESSAGE), params)
+
+/**
+ * @params id {int} message id
+ * @param params are the same as the api
+ * @state replyMessage
+ */
+export const buyerReplyMessage = params => buildAction(typeReq(BUYER_REPLY_MESSAGE), params)
+
+/**
+ * @params id {int} message id
+ * @param params are the same as the api
+ * @state replyMessage
+ */
+export const sellerReplyMessage = params => buildAction(typeReq(SELLER_REPLY_MESSAGE), params)

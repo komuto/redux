@@ -48,3 +48,13 @@ export const updateSellerMessage = createReducer(buildInitState({ updateMessage:
     type: actions.UPDATE_SELLER_MESSAGE,
     resultName: 'updateMessage'
   }).run()
+
+export const replyMessage = createReducer(buildInitState({ message: {} }))
+  .addReducer({
+    type: actions.BUYER_REPLY_MESSAGE,
+    resultName: 'message'
+  })
+  .addReducer({
+    type: actions.SELLER_REPLY_MESSAGE,
+    resultName: 'message'
+  }).run()
