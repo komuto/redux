@@ -246,3 +246,9 @@ export const listFavoriteStore = createReducer(buildInitState({ stores: [] }, tr
     type: actions.LIST_FAVORIT_STORE,
     resultName: 'stores'
   }).run()
+
+export const alterUser = createReducer(buildInitState())
+  .addReducer({
+    type: actions.UPDATE_FIREBASE_REG_TOKEN
+  }).run()
+

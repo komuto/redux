@@ -36,7 +36,8 @@ const user = {
   sendOTPPhone: userReducers.sendOTPPhone,
   verifyPhone: userReducers.verifyPhone,
   sendOTPBank: userReducers.sendOTPBank,
-  wishlist: userReducers.wishlist
+  wishlist: userReducers.wishlist,
+  alterUser: userReducers.alterUser
 }
 
 const home = {

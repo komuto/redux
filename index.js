@@ -16,7 +16,7 @@ import * as product from './actions/product'
 // import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().dropshipProducts, null, 2))
+  console.log(JSON.stringify(store.getState().alterProducts, null, 2))
 })
 
 // TODO: Create dropship products
@@ -260,4 +260,5 @@ store.subscribe(function () {
 // store.dispatch(stores.getStoreProductDetail({ id: 93 }))
 // store.dispatch(product.tempCreateProduct({ stepOne: { kucing: 'apa' } }))
 // store.dispatch(home.subCategory({ id: 6 }))
-store.dispatch(product.getDropshipProducts({ limit: 2 }))
+// store.dispatch(product.getDropshipProducts({ limit: 2 }))
+store.dispatch(product.updateDropshipStatus({ product_ids: [93] }))

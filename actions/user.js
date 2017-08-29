@@ -23,6 +23,7 @@ export const VERIFIY_PHONE = 'VERIFIY_PHONE'
 export const SEND_BANK_OTP = 'SEND_BANK_OTP'
 export const IS_LOGIN = 'IS_LOGIN'
 export const GET_WISHLIST = 'GET_WISHLIST'
+export const UPDATE_FIREBASE_REG_TOKEN = 'UPDATE_FIREBASE_REG_TOKEN'
 
 /**
  * @param params are the same as the api
@@ -152,3 +153,9 @@ export const sendOTPBank = () => buildAction(typeReq(SEND_BANK_OTP))
  * @state wishlist
  */
 export const wishlist = () => buildAction(typeReq(GET_WISHLIST))
+
+/**
+ * @param params are the same as the api
+ * @state alterUser
+ */
+export const updateFirebaseToken = params => buildAction(typeReq(UPDATE_FIREBASE_REG_TOKEN), params)
