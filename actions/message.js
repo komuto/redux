@@ -10,6 +10,8 @@ export const UPDATE_BUYER_MESSAGE = 'UPDATE_BUYER_MESSAGE'
 export const UPDATE_SELLER_MESSAGE = 'UPDATE_SELLER_MESSAGE'
 export const BUYER_REPLY_MESSAGE = 'BUYER_REPLY_MESSAGE'
 export const SELLER_REPLY_MESSAGE = 'SELLER_REPLY_MESSAGE'
+export const BUYER_DELETE_MESSAGE = 'BUYER_DELETE_MESSAGE'
+export const SELLER_DELETE_MESSAGE = 'SELLER_DELETE_MESSAGE'
 
 /**
  * @params params are the same as the api query
@@ -70,3 +72,15 @@ export const buyerReplyMessage = params => buildAction(typeReq(BUYER_REPLY_MESSA
  * @state replyMessage
  */
 export const sellerReplyMessage = params => buildAction(typeReq(SELLER_REPLY_MESSAGE), params)
+
+/**
+ * @params id {int} message id
+ * @state deleteMessage
+ */
+export const buyerDeleteMessage = params => buildAction(typeReq(BUYER_DELETE_MESSAGE), params)
+
+/**
+ * @params id {int} message id
+ * @state deleteMessage
+ */
+export const sellerDeleteMessage = params => buildAction(typeReq(SELLER_DELETE_MESSAGE), params)

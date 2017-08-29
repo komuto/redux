@@ -156,9 +156,9 @@ const message = {
   sellerDetailMessage: messageReducers.getSellerDetailMessage,
   archiveBuyerMessages: messageReducers.getArchiveBuyerMessages,
   archiveSellerMessages: messageReducers.getArchiveSellerMessages,
-  updateBuyerMessage: messageReducers.updateBuyerMessage,
-  updateSellerMessage: messageReducers.updateSellerMessage,
-  replyMessage: messageReducers.replyMessage
+  updateMessage: messageReducers.updateMessage,
+  replyMessage: messageReducers.replyMessage,
+  deleteMessage: messageReducers.deleteMessage
 }
 
 const payment = {

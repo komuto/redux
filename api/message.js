@@ -52,3 +52,13 @@ export const sellerReplyMessage = ({ id, ...data }) => {
   const axios = authApiKomuto()
   return axios.post(`users/store/messages/${id}`, data)
 }
+
+export const buyerDeleteMessage = ({ id }) => {
+  const axios = authApiKomuto()
+  return axios.delete(`users/messages/${id}`)
+}
+
+export const sellerDeleteMessage = ({ id }) => {
+  const axios = authApiKomuto()
+  return axios.delete(`users/store/messages/${id}`)
+}

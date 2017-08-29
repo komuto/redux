@@ -37,13 +37,11 @@ export const getArchiveSellerMessages = createReducer(buildInitState({ archiveMe
     resultName: 'archiveMessages'
   }).run()
 
-export const updateBuyerMessage = createReducer(buildInitState({ updateMessage: {} }))
+export const updateMessage = createReducer(buildInitState({ updateMessage: {} }))
   .addReducer({
     type: actions.UPDATE_BUYER_MESSAGE,
     resultName: 'updateMessage'
-  }).run()
-
-export const updateSellerMessage = createReducer(buildInitState({ updateMessage: {} }))
+  })
   .addReducer({
     type: actions.UPDATE_SELLER_MESSAGE,
     resultName: 'updateMessage'
@@ -57,4 +55,12 @@ export const replyMessage = createReducer(buildInitState({ message: {} }))
   .addReducer({
     type: actions.SELLER_REPLY_MESSAGE,
     resultName: 'message'
+  }).run()
+
+export const deleteMessage = createReducer(buildInitState())
+  .addReducer({
+    type: actions.BUYER_DELETE_MESSAGE
+  })
+  .addReducer({
+    type: actions.SELLER_DELETE_MESSAGE
   }).run()
