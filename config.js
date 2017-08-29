@@ -53,7 +53,7 @@ export const buildInitState = (props = {}, meta = false) => {
  * Build request state
  * @param state {object} current state
  */
-export const reqState = (state) => {
+export const reqState = (state = {}) => {
   const res = {
     ...state,
     status: 0,
@@ -68,7 +68,7 @@ export const reqState = (state) => {
  * @param action {object}
  * @param data {string} Prop name
  */
-export const succState = (action, data) => {
+export const succState = (action, data = '') => {
   const state = {
     message: action.message,
     status: action.code,
@@ -87,7 +87,7 @@ export const succState = (action, data) => {
  * @param data {string} Prop name
  * @param value {*} value for the prop
  */
-export const failState = (action, data, value = false) => {
+export const failState = (action, data = '', value = false) => {
   const state = {
     message: action.message,
     status: action.code,

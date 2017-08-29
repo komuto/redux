@@ -1,5 +1,5 @@
 import * as actions from '../actions/user'
-import { reqState, succState, failState, typeReq, typeSucc, typeFail, buildReducer, buildType, buildInitState, createReducer } from '../config'
+import { reqState, succState, failState, buildInitState, createReducer } from '../config'
 
 const initUser = buildInitState({
   email: '',
@@ -16,7 +16,7 @@ const initProfile = buildInitState({
 export const auth = createReducer(initUser)
   .addReducer({
     type: actions.USER_LOGIN,
-    customReqState: (state, action) => ({ ...initUser, email: action.email, isLoading: true }),
+    customReqState: (state, action) => ({ ...reqState(initUser), email: action.email }),
     customSuccState: (state, action) => ({
       email: action.data.email,
       token: action.data.token,
@@ -27,7 +27,7 @@ export const auth = createReducer(initUser)
   })
   .addReducer({
     type: actions.LOGIN_SOCIAL,
-    customReqState: (state, action) => ({ ...initUser, email: action.email, isLoading: true }),
+    customReqState: (state, action) => ({ ...reqState(initUser), email: action.email }),
     customSuccState: (state, action) => ({
       email: action.data.email,
       token: action.data.token,
@@ -40,11 +40,11 @@ export const auth = createReducer(initUser)
   .addReducer({
     type: actions.USER_LOGOUT,
     customReqState: (state, action) => ({
-      email: action.data.email,
-      token: action.data.token,
-      uid: action.data.id,
-      user: action.data,
-      ...succState(action) }),
+      email: state.email,
+      token: state.token,
+      uid: state.uid,
+      user: state.user,
+      ...reqState() }),
     customSuccState: (state, action) => ({ ...initUser, ...succState(action) })
   }).run()
 
@@ -58,29 +58,17 @@ export const verify = createReducer(buildInitState())
     type: actions.USER_VERIFICATION
   }).run()
 
-export const getProfile = (state = initProfile, action) => {
-  const type = buildType(action.type)
-  if (type === actions.GET_PROFILE_MANAGE) {
-    return { ...buildReducer(state, action, type, 'user'), verifyStatus: state.verifyStatus || '' }
-  }
-  switch (action.type) {
-    case typeReq(actions.GET_PROFILE):
-      return reqState(state)
-    case typeSucc(actions.GET_PROFILE):
-      return {
-        verifyStatus: action.data.user.status,
-        user: action.data,
-        ...succState(action)
-      }
-    case typeFail(actions.GET_PROFILE):
-      return {
-        ...initProfile,
-        ...failState(action)
-      }
-    default:
-      return state
-  }
-}
+export const getProfile = createReducer(initProfile)
+  .addReducer({
+    type: actions.GET_PROFILE,
+    customSuccState: (state, action) => ({ verifyStatus: action.data.user.status, ...succState(action, 'user') }),
+    customFailState: (state, action) => ({ ...initProfile, ...failState(action) })
+  })
+  .addReducer({
+    type: actions.GET_PROFILE_MANAGE,
+    resultName: 'user',
+    add: { verifyStatus: '' }
+  }).run()
 
 export const updateProfile = createReducer(buildInitState({ updateProfile: {} }))
   .addReducer({
@@ -91,7 +79,7 @@ export const updateProfile = createReducer(buildInitState({ updateProfile: {} })
 export const register = createReducer(initUser)
   .addReducer({
     type: actions.USER_REGISTER,
-    customReqState: (state, action) => ({ ...initUser, email: action.email, isLoading: true }),
+    customReqState: (state, action) => ({ ...reqState(initUser), email: action.email }),
     customSuccState: (state, action) => ({
       email: action.data.email,
       uid: action.data.id,
@@ -106,28 +94,13 @@ export const validateToken = createReducer(buildInitState())
     type: actions.VALIDATE_TOKEN_FORGET_PASSWORD
   }).run()
 
-export const forgetPassword = (state = buildInitState({ email: '' }), action) => {
-  switch (action.type) {
-    case typeReq(actions.FORGET_PASSWORD):
-      return {
-        ...buildInitState({ email: '' }),
-        email: action.email,
-        isLoading: true
-      }
-    case typeSucc(actions.FORGET_PASSWORD):
-      return {
-        email: state.email,
-        ...succState(action)
-      }
-    case typeFail(actions.FORGET_PASSWORD):
-      return {
-        email: state.email,
-        ...failState(action)
-      }
-    default:
-      return state
-  }
-}
+export const forgetPassword = createReducer(buildInitState({ email: '' }))
+  .addReducer({
+    type: actions.FORGET_PASSWORD,
+    customReqState: (state, action) => reqState({ email: action.email }),
+    customSuccState: (state, action) => ({ email: state.email, ...succState(action) }),
+    customFailState: (state, action) => ({ email: state.email, ...failState(action) })
+  }).run()
 
 export const isLogin = createReducer({ login: false })
   .addReducer({
