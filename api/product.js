@@ -102,3 +102,8 @@ export const getDropshipProducts = (data) => {
   const query = prepareGetProducts(data)
   return axios.get(`products/dropship?${query}`)
 }
+
+export const updateDropshipStatus = (data) => {
+  const axios = authApiKomuto()
+  return axios.post('users/store/products/dropships', data)
+}

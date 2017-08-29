@@ -19,4 +19,4 @@ export const updateProduct = buildSaga(apis.updateProduct, actions.UPDATE_PRODUC
 export const getProductExpeditions = buildSaga(apis.getProductExpeditions, actions.GET_PRODUCT_EXPEDITIONS)
 export const addDropshipProducts = buildSaga(apis.addDropshipProducts, actions.ADD_DROPSHIP_PRODUCTS)
 export const getDropshipProducts = buildSaga(apis.getDropshipProducts, actions.GET_DROPSHIP_PRODUCTS)
-
+export const updateDropshipStatus = buildSaga(apis.updateDropshipStatus, actions.UPDATE_DROPSHIP_STATUS)
