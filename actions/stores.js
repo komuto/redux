@@ -110,9 +110,10 @@ export const getStoreAddress = () => buildAction(typeReq(GET_ADDRESS))
 export const updateStoreAddress = params => buildAction(typeReq(UPDATE_STORE_ADDRESS), params)
 
 /**
+ * @params params are the same as the api query
  * @state hiddenStoreProducts
  */
-export const getHiddenStoreProducts = () => buildAction(typeReq(GET_HIDDEN_STORE_PRODUCTS))
+export const getHiddenStoreProducts = params => buildAction(typeReq(GET_HIDDEN_STORE_PRODUCTS), params)
 
 /**
  * @state tempCreateStore

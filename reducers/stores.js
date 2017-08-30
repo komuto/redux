@@ -114,10 +114,10 @@ export const updateStoreAddress = createReducer(buildInitState({ updateStoreAddr
     resultName: 'updateStoreAddress'
   }).run()
 
-export const getHiddenStoreProducts = createReducer(buildInitState({ hiddenStoreProducts: [] }))
+export const getHiddenStoreProducts = createReducer(buildInitState({ products: [] }))
   .addReducer({
     type: actions.GET_HIDDEN_STORE_PRODUCTS,
-    resultName: 'hiddenStoreProducts'
+    resultName: 'products'
   }).run()
 
 export const tempCreateStore = createReducer(initTempCreateStore)
