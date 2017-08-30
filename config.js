@@ -173,9 +173,12 @@ export const buildQuery = (params) => Object.keys(params)
  */
 export const buildSaga = (callApi, actionType, getState = false) => function* ({ type, ...params }) {
   try {
-    let res
-    if (getState) res = yield select(getState(params))
-    else if (!res) {
+    let res, fromState
+    if (getState) {
+      fromState = yield select(getState(params))
+      res = { data: fromState }
+    }
+    if (!fromState) {
       const { data } = yield callApi(params)
       res = data
     }
@@ -187,10 +190,13 @@ export const buildSaga = (callApi, actionType, getState = false) => function* ({
 
 export const buildSagaDelay = (callApi, actionType, delayCount = 200, getState = false) => function* ({ type, ...params }) {
   try {
-    let res
     yield call(delay, delayCount)
-    if (getState) res = yield select(getState(params))
-    else {
+    let res, fromState
+    if (getState) {
+      fromState = yield select(getState(params))
+      res = { data: fromState }
+    }
+    if (!fromState) {
       const { data } = yield callApi(params)
       res = data
     }
@@ -264,3 +270,16 @@ export const createReducer = (initState) => {
     }
   }
 }
+
+/**
+ * Get state from another state
+ * @param from {function} state to search
+ * @param get {string} amount to get
+ * @param match {string}
+ */
+export const getState = ({ from, get, match = 'id' }) => (params) => (state) => {
+  const result = from(state).filter(value => value[match] === params.id)
+  if (get === 'all') return result[0] ? result : false
+  return result[0]
+}
+

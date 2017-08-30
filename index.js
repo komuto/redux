@@ -8,15 +8,15 @@ import {store} from './store'
 // import * as review from './actions/review'
 // import * as stores from './actions/stores'
 // import * as address from './actions/address'
-import * as bank from './actions/bank'
+// import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
 // import * as cart from './actions/cart'
 // import * as payment from './actions/payment'
 // import * as transaction from './actions/transaction'
-// import * as message from './actions/message'
+import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().bankAccountDetail, null, 2))
+  console.log(JSON.stringify(store.getState().updateMessage, null, 2))
 })
 
 // TODO: Create dropship products
@@ -79,7 +79,7 @@ store.subscribe(function () {
 // store.dispatch(home.getCategories({id: 6}))
 // store.dispatch(stores.getStores({id: 41}))
 // store.dispatch(brand.getBrand())
-// store.dispatch(brand.getBrandByCategory({id: 763}))
+// setTimeout(() => store.dispatch(brand.getBrandByCategory({id: 763})), 4000)
 // store.dispatch(expedition.getExpedition())
 // store.dispatch(stores.createStore({
 //   store: [
@@ -160,7 +160,7 @@ store.subscribe(function () {
 // store.dispatch(address.updateAddress({ id: 262, village_id: 1111110073 }))
 // store.dispatch(address.deleteAddress({id: 361}))
 // store.dispatch(address.getListAddress())
-// store.dispatch(address.getAddressDetail({id: 2670}))
+// store.dispatch(address.getAddressDetail({id: 262}))
 
 // store.dispatch(bank.getBank({id: 1}))
 // store.dispatch(bank.listBank())
@@ -240,22 +240,21 @@ store.subscribe(function () {
 // store.dispatch(payment.getDokuInvoice())
 // store.dispatch(payment.withdraw({ amount: 25000, bank_account_id: 21, code: 42343 }))
 // store.dispatch(cart.updateCart({ items: [{id: 470, expedition_id: 2, expedition_service_id: 1, qty: 1, note: 'Kirimnya cepat ya gan', address_id: 142, is_insurance: true, service: 'YES', origin_ro_id: 152, destination_ro_id: 108}] }))
-// store.dispatch(stores.getHiddenStoreProducts())
+// store.dispatch(stores.getHiddenStoreProducts({ page: 1, limit: 1 }))
 // store.dispatch(stores.tempCreateStore({ user: {id_number: '0982390923989', mother_name: 'example'} }))
 // store.dispatch(address.addAddress())
 // store.dispatch(message.getBuyerMessages({ is_archived: true }))
 // store.dispatch(message.getSellerDetailMessage({id: 14}))
 // store.dispatch(review.getSellerReview())
-store.dispatch(bank.getBankAccounts())
+// store.dispatch(bank.getBankAccounts())
 // setTimeout(() => {
 //   console.log('DELETING BANK ACCOUNT')
 //   store.dispatch(bank.deleteBankAccount({ id: 18, code: 42343 }))
 // }, 2000)
-setTimeout(() => {
-  store.dispatch(bank.getBankAccountDetail({ id: 17 }))
-}, 5000)
+// setTimeout(() => store.dispatch(bank.getBankAccountDetail({ id: 17 })), 5000)
 // store.dispatch(stores.getStoreProductDetail({ id: 93 }))
 // store.dispatch(product.tempCreateProduct({ stepOne: { kucing: 'apa' } }))
 // store.dispatch(home.subCategory({ id: 6 }))
 // store.dispatch(product.getDropshipProducts({ limit: 2 }))
 // store.dispatch(product.updateDropshipStatus({ product_ids: [93] }))
+store.dispatch(message.updateBuyerMessage({ id: 9, messageType: 'conversation' }))
