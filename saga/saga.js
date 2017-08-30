@@ -207,6 +207,8 @@ const message = function* () {
   yield takeEvery(typeReq(messageActions.UPDATE_SELLER_MESSAGE), messageSaga.updateSellerMessage)
   yield takeEvery(typeReq(messageActions.BUYER_REPLY_MESSAGE), messageSaga.buyerReplyMessage)
   yield takeEvery(typeReq(messageActions.SELLER_REPLY_MESSAGE), messageSaga.sellerReplyMessage)
+  yield takeEvery(typeReq(messageActions.BUYER_DELETE_MESSAGE), messageSaga.buyerDeleteMessage)
+  yield takeEvery(typeReq(messageActions.SELLER_DELETE_MESSAGE), messageSaga.sellerDeleteMessage)
 }
 
 const other = function* () {

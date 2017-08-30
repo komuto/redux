@@ -1,5 +1,5 @@
 import { delay } from 'redux-saga'
-import { put, call } from 'redux-saga/effects'
+import { put, call, select } from 'redux-saga/effects'
 
 export const serviceUrl = 'https://private-f0902d-komuto.apiary-mock.com'
 export const apiKomuto = 'https://api.komuto.skyshi.com/4690fa4c3d68f93b/'
@@ -70,8 +70,8 @@ export const reqState = (state = {}) => {
  */
 export const succState = (action, data = '') => {
   const state = {
-    message: action.message,
-    status: action.code,
+    message: action.message || '',
+    status: action.code || 200,
     isLoading: false,
     isFound: true,
     isOnline: true
@@ -169,29 +169,32 @@ export const buildQuery = (params) => Object.keys(params)
  * Build sagas
  * @param callApi {function}
  * @param actionType {string}
- * @param props {[string]} take specific prop for data from api
- * ['user', 'province', 'id'] only take data.user.province.id for data
+ * @param getState {function} Get result from other state
  */
-export const buildSaga = (callApi, actionType, props = []) => function* ({ type, ...params }) {
+export const buildSaga = (callApi, actionType, getState = false) => function* ({ type, ...params }) {
   try {
-    const { data } = yield callApi(params)
-    if (props) {
-      data.data = props.reduce((data, prop) => data[prop] || {}, data.data)
+    let res
+    if (getState) res = yield select(getState(params))
+    else if (!res) {
+      const { data } = yield callApi(params)
+      res = data
     }
-    yield put({ type: typeSucc(actionType), ...data })
+    yield put({ type: typeSucc(actionType), ...res })
   } catch (e) {
     yield errorHandling(typeFail(actionType), e)
   }
 }
 
-export const buildSagaDelay = (callApi, actionType, delayCount = 200, props = []) => function* ({ type, ...params }) {
+export const buildSagaDelay = (callApi, actionType, delayCount = 200, getState = false) => function* ({ type, ...params }) {
   try {
+    let res
     yield call(delay, delayCount)
-    const { data } = yield callApi(params)
-    if (props !== undefined) {
-      data.data = props.reduce((data, prop) => data[prop] || {}, data.data)
+    if (getState) res = yield select(getState(params))
+    else {
+      const { data } = yield callApi(params)
+      res = data
     }
-    yield put({ type: typeSucc(actionType), ...data })
+    yield put({ type: typeSucc(actionType), ...res })
   } catch (e) {
     yield errorHandling(typeFail(actionType), e)
   }

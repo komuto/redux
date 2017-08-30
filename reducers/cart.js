@@ -1,5 +1,5 @@
 import * as actions from '../actions/cart'
-import { buildInitState, createReducer } from '../config'
+import { buildInitState, createReducer, succState } from '../config'
 
 export const cart = createReducer(buildInitState({ cart: [] }))
   .addReducer({
@@ -26,13 +26,12 @@ export const addToCart = createReducer(buildInitState({ addToCart: {} }))
 export const countCart = createReducer(buildInitState({ cartCount: 0 }))
   .addReducer({
     type: actions.COUNT_CART,
-    resultName: 'cartCount'
+    customSuccState: (state, action) => ({ cartCount: action.data.count, ...succState(action) })
   }).run()
 
 export const deleteItem = createReducer(buildInitState({ deleteItem: {} }))
   .addReducer({
-    type: actions.DELETE_ITEM,
-    resultName: 'deleteItem'
+    type: actions.DELETE_ITEM
   }).run()
 
 export const getPromo = createReducer(buildInitState({ promo: {} }))

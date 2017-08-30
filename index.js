@@ -1,5 +1,5 @@
 import {store} from './store'
-import * as user from './actions/user'
+// import * as user from './actions/user'
 // import * as home from './actions/home'
 // import * as brand from './actions/brand'
 // import * as expedition from './actions/expedition'
@@ -8,7 +8,7 @@ import * as user from './actions/user'
 // import * as review from './actions/review'
 // import * as stores from './actions/stores'
 // import * as address from './actions/address'
-// import * as bank from './actions/bank'
+import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
 // import * as cart from './actions/cart'
 // import * as payment from './actions/payment'
@@ -16,11 +16,10 @@ import * as user from './actions/user'
 // import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().user, null, 2))
+  console.log(JSON.stringify(store.getState().bankAccountDetail, null, 2))
 })
 
 // TODO: Create dropship products
-
 // store.dispatch(user.register({name: 'kucing', phone_number: '081327', email: 'testregister@skyshi.com', gender: 'male', password: 'aku'}))
 // setTimeout (function () {
 // store.dispatch(user.login({email: 'testregister@skyshi.com', password: 'testkomuto'}))
@@ -144,7 +143,7 @@ store.subscribe(function () {
 // store.dispatch(location.getSubDistrict({district_id: 3404}))
 // store.dispatch(location.getVillage({sub_district_id: 3404110}))
 // setTimeout(function () {
-store.dispatch(user.logout())
+// store.dispatch(user.logout())
 // store.dispatch(address.addAddress({
 //   province_id: 34,
 //   district_id: 3404,
@@ -216,7 +215,7 @@ store.dispatch(user.logout())
 // store.dispatch(payment.choosePaymentMethods({ id: 259, payment_method_id: 1 }))
 // store.dispatch(payment.confirmTransfer({ id: 259, bank_account_id: 10, date: 1477242000, amount: 150000, bank: 'BNI', holder_account_number: 837375393910, attachment: 'attachment.png' }))
 // store.dispatch(cart.getCart())
-// setTimeout(() => store.dispatch(cart.deleteItem({ id: 417 })), 4000)
+// store.dispatch(cart.deleteItem({ id: 516 }))
 // store.dispatch(cart.addToCart({product_id: 97, expedition_id: 1, expedition_service_id: 3, qty: 1, note: 'lorem ipsum', address_id: 145, is_insurance: true, additional_cost: 500, delivery_cost: 32000}))
 // setTimeout(() => store.dispatch(cart.addToCart({product_id: 96, expedition_id: 1, expedition_service_id: 3, qty: 1, note: 'lorem ipsum', address_id: 145, is_insurance: true, additional_cost: 500, delivery_cost: 32000})), 4000)
 // setTimeout(() => store.dispatch(cart.cancelPromo()), 5 * 1000)
@@ -247,14 +246,14 @@ store.dispatch(user.logout())
 // store.dispatch(message.getBuyerMessages({ is_archived: true }))
 // store.dispatch(message.getSellerDetailMessage({id: 14}))
 // store.dispatch(review.getSellerReview())
-// store.dispatch(bank.getBankAccounts())
+store.dispatch(bank.getBankAccounts())
 // setTimeout(() => {
 //   console.log('DELETING BANK ACCOUNT')
 //   store.dispatch(bank.deleteBankAccount({ id: 18, code: 42343 }))
 // }, 2000)
-// setTimeout(() => {
-//   store.dispatch(bank.getBankAccountDetail({ id: 17 }))
-// }, 2000)
+setTimeout(() => {
+  store.dispatch(bank.getBankAccountDetail({ id: 17 }))
+}, 5000)
 // store.dispatch(stores.getStoreProductDetail({ id: 93 }))
 // store.dispatch(product.tempCreateProduct({ stepOne: { kucing: 'apa' } }))
 // store.dispatch(home.subCategory({ id: 6 }))
