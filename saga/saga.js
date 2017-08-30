@@ -76,6 +76,8 @@ const user = function* () {
   yield takeEvery(typeReq(userActions.SEND_BANK_OTP), userSaga.sendOTPBank)
   yield takeEvery(typeReq(userActions.GET_WISHLIST), userSaga.wishlist)
   yield takeEvery(typeReq(userActions.UPDATE_FIREBASE_REG_TOKEN), userSaga.updateFirebaseToken)
+  yield takeEvery(typeReq(userActions.GET_NOTIF_SETTINGS), userSaga.getNotifSettings)
+  yield takeEvery(typeReq(userActions.UPDATE_NOTIF_SETTINGS), userSaga.updateNotifSettings)
 }
 
 const home = function* () {

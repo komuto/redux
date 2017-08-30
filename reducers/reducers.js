@@ -38,7 +38,8 @@ const user = {
   verifyPhone: userReducers.verifyPhone,
   sendOTPBank: userReducers.sendOTPBank,
   wishlist: userReducers.wishlist,
-  alterUser: userReducers.alterUser
+  alterUser: userReducers.alterUser,
+  notifSettings: userReducers.notifSettings
 }
 
 const home = {

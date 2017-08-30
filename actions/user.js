@@ -24,6 +24,8 @@ export const SEND_BANK_OTP = 'SEND_BANK_OTP'
 export const IS_LOGIN = 'IS_LOGIN'
 export const GET_WISHLIST = 'GET_WISHLIST'
 export const UPDATE_FIREBASE_REG_TOKEN = 'UPDATE_FIREBASE_REG_TOKEN'
+export const GET_NOTIF_SETTINGS = 'GET_NOTIF_SETTINGS'
+export const UPDATE_NOTIF_SETTINGS = 'UPDATE_NOTIF_SETTINGS'
 
 /**
  * @param params are the same as the api
@@ -159,3 +161,14 @@ export const wishlist = () => buildAction(typeReq(GET_WISHLIST))
  * @state alterUser
  */
 export const updateFirebaseToken = params => buildAction(typeReq(UPDATE_FIREBASE_REG_TOKEN), params)
+
+/**
+ * @state notifSettings
+ */
+export const getNotifSettings = () => buildAction(typeReq(GET_NOTIF_SETTINGS))
+
+/**
+ * @params params are the same as the api query
+ * @state notifSettings
+ */
+export const updateNotifSettings = params => buildAction(typeReq(UPDATE_NOTIF_SETTINGS), params)

@@ -173,3 +173,15 @@ export const alterUser = createReducer(buildInitState())
     type: actions.UPDATE_FIREBASE_REG_TOKEN
   }).run()
 
+export const notifSettings = createReducer(buildInitState({ settings: [] }))
+  .addReducer({
+    type: actions.GET_NOTIF_SETTINGS,
+    resultName: 'settings',
+    add: { type: 'get' }
+  })
+  .addReducer({
+    type: actions.UPDATE_NOTIF_SETTINGS,
+    resultName: 'settings',
+    add: { type: 'update' }
+  }).run()
+

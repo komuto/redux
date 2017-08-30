@@ -113,4 +113,14 @@ export const updateFirebaseToken = (data) => {
   return axios.put('users/registration-token', data)
 }
 
+export const getNotifSettings = () => {
+  const axios = authApiKomuto()
+  return axios.get('users/notifications')
+}
+
+export const updateNotifSettings = (data) => {
+  const axios = authApiKomuto()
+  return axios.post('users/notifications', data)
+}
+
 export const logout = () => ({ message: 'LOGOUT SUCCESS', code: 0 })
