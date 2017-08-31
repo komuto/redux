@@ -1,5 +1,5 @@
 import {store} from './store'
-import * as user from './actions/user'
+// import * as user from './actions/user'
 // import * as home from './actions/home'
 // import * as brand from './actions/brand'
 // import * as expedition from './actions/expedition'
@@ -12,16 +12,16 @@ import * as user from './actions/user'
 // import * as catalog from './actions/catalog'
 // import * as cart from './actions/cart'
 // import * as payment from './actions/payment'
-// import * as transaction from './actions/transaction'
+import * as transaction from './actions/transaction'
 // import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().user, null, 2))
+  console.log(JSON.stringify(store.getState().transaction, null, 2))
 })
 
 // store.dispatch(user.register({name: 'kucing', phone_number: '081327', email: 'testregister@skyshi.com', gender: 'male', password: 'aku'}))
 // setTimeout (function () {
-store.dispatch(user.login({email: 'testregister@skyshi.com', password: 'testkomuto'}))
+// store.dispatch(user.login({email: 'testregister@skyshi.com', password: 'testkomuto'}))
 // store.dispatch(user.loginSocial({ provider_uid: 10208922684330118, provider_name: 'facebook', access_token: 'EAALyQXlqQYEBAA2dZCUKIvShcXMUJxxpYzD8TaT4ZBDZBeHj6tH2qqJXh24bPReZCffV8ofdRgsrbVZAquT78j5roJZCxQHMPYakU8RlfWQDBgn79CZAA2ELXDVFB4GANtgcILbLG5So70Xt9DM0zY70NcdXoM9N8rkevG2luWScr3YZC8VV7rI3mDiVFMKKC3EefKh48tcUWAZDZD' }))
 // store.dispatch(user.logout())
 // setTimeout(function () {
@@ -215,8 +215,8 @@ store.dispatch(user.login({email: 'testregister@skyshi.com', password: 'testkomu
 // setTimeout(() => store.dispatch(cart.cancelPromo()), 5 * 1000)
 // store.dispatch(cart.checkout({ items: [] }))
 // store.dispatch(bank.getKomutoBankAccounts())
-// store.dispatch(transaction.listTransactions())
-// store.dispatch(transaction.getTransaction({ id: 259 }))
+store.dispatch(transaction.listTransactions())
+setTimeout(() => store.dispatch(transaction.getTransaction({ id: 259 })), 5000)
 // store.dispatch(cart.getItem({ id: 418 }))
 // store.dispatch(stores.getStoreAddress())
 // store.dispatch(stores.updateStoreAddress({

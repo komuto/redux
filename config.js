@@ -276,10 +276,15 @@ export const createReducer = (initState) => {
  * Get state from another state
  * @param from {function} state to search
  * @param get {string} amount to get
- * @param match {string}
+ * @param match {string/array}
  */
 export const getState = ({ from, get, match = 'id' }) => (params) => (state) => {
-  const result = from(state).filter(value => value[match] === params.id)
+  let toMatch
+  const result = from(state).filter(value => {
+    if (!Array.isArray(match)) toMatch = value[match]
+    else toMatch = match.reduce((value, prop) => value[prop], value)
+    return toMatch === params.id
+  })
   if (get === 'all') return result[0] ? result : false
   return result[0]
 }
