@@ -1,5 +1,5 @@
 import {store} from './store'
-// import * as user from './actions/user'
+import * as user from './actions/user'
 // import * as home from './actions/home'
 // import * as brand from './actions/brand'
 // import * as expedition from './actions/expedition'
@@ -13,17 +13,17 @@ import {store} from './store'
 // import * as cart from './actions/cart'
 // import * as payment from './actions/payment'
 // import * as transaction from './actions/transaction'
-import * as message from './actions/message'
+// import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().updateMessage, null, 2))
+  console.log(JSON.stringify(store.getState().user, null, 2))
 })
 
-// TODO: Create dropship products
 // store.dispatch(user.register({name: 'kucing', phone_number: '081327', email: 'testregister@skyshi.com', gender: 'male', password: 'aku'}))
 // setTimeout (function () {
-// store.dispatch(user.login({email: 'testregister@skyshi.com', password: 'testkomuto'}))
+store.dispatch(user.login({email: 'testregister@skyshi.com', password: 'testkomuto'}))
 // store.dispatch(user.loginSocial({ provider_uid: 10208922684330118, provider_name: 'facebook', access_token: 'EAALyQXlqQYEBAA2dZCUKIvShcXMUJxxpYzD8TaT4ZBDZBeHj6tH2qqJXh24bPReZCffV8ofdRgsrbVZAquT78j5roJZCxQHMPYakU8RlfWQDBgn79CZAA2ELXDVFB4GANtgcILbLG5So70Xt9DM0zY70NcdXoM9N8rkevG2luWScr3YZC8VV7rI3mDiVFMKKC3EefKh48tcUWAZDZD' }))
+// store.dispatch(user.logout())
 // setTimeout(function () {
 //   console.log('ini token', token())
 // store.dispatch(user.validateToken({token: '9d5e51c87294a378b3e8376d0059e012'}))
@@ -41,11 +41,6 @@ store.subscribe(function () {
 //   gender: 'male',
 //   place_of_birth: 3471,
 //   date_of_birth: 1502730000 }))
-// setTimeout(function (){
-    // asik = localStorage.getItem('user')
-    // asoy=JSON.parse(asik)
-    // console.log(asoy.token)
-// },6000)
 // setTimeout(function (){
 // store.dispatch(user.newPassword({password: '123456789'}))
 // store.dispatch(user.getBalance())
@@ -143,7 +138,6 @@ store.subscribe(function () {
 // store.dispatch(location.getSubDistrict({district_id: 3404}))
 // store.dispatch(location.getVillage({sub_district_id: 3404110}))
 // setTimeout(function () {
-// store.dispatch(user.logout())
 // store.dispatch(address.addAddress({
 //   province_id: 34,
 //   district_id: 3404,
@@ -257,4 +251,4 @@ store.subscribe(function () {
 // store.dispatch(home.subCategory({ id: 6 }))
 // store.dispatch(product.getDropshipProducts({ limit: 2 }))
 // store.dispatch(product.updateDropshipStatus({ product_ids: [93] }))
-store.dispatch(message.updateBuyerMessage({ id: 9, messageType: 'conversation' }))
+// store.dispatch(message.updateBuyerMessage({ id: 9, messageType: 'conversation' }))
