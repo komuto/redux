@@ -6,8 +6,8 @@ export const apiKomuto = 'https://api.komuto.skyshi.com/4690fa4c3d68f93b/'
 export const storage = localStorage
 
 export function errorHandling (actionType, res) {
-  const errorOffline = {
-    message: 'Your device is offline',
+  const errorTimeout = {
+    message: 'Timeout reached!',
     code: 'ENOENT',
     isOnline: false
   }
@@ -19,15 +19,15 @@ export function errorHandling (actionType, res) {
       data.isOnline = true
       return put({ type: actionType, ...data })
     } else {
-      let errorBadGateway = {
+      const errorBadRequest = {
         message: res.response.statusText,
         code: res.response.status,
         isOnline: true
       }
-      return put({ type: actionType, ...errorBadGateway })
+      return put({ type: actionType, ...errorBadRequest })
     }
   } else {
-    return put({ type: actionType, ...errorOffline })
+    return put({ type: actionType, ...errorTimeout })
   }
 }
 
