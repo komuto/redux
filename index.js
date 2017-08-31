@@ -4,7 +4,7 @@ import {store} from './store'
 // import * as brand from './actions/brand'
 // import * as expedition from './actions/expedition'
 // import * as location from './actions/location'
-// import * as product from './actions/product'
+import * as product from './actions/product'
 // import * as review from './actions/review'
 // import * as stores from './actions/stores'
 // import * as address from './actions/address'
@@ -12,11 +12,11 @@ import {store} from './store'
 // import * as catalog from './actions/catalog'
 // import * as cart from './actions/cart'
 // import * as payment from './actions/payment'
-import * as transaction from './actions/transaction'
+// import * as transaction from './actions/transaction'
 // import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().transaction, null, 2))
+  console.log(JSON.stringify(store.getState().productBySearch, null, 2))
 })
 
 // store.dispatch(user.register({name: 'kucing', phone_number: '081327', email: 'testregister@skyshi.com', gender: 'male', password: 'aku'}))
@@ -67,7 +67,7 @@ store.subscribe(function () {
 // store.dispatch(product.newComment({productId: 4, id: 3, content: 'Tapi harga nya diturunin dikit ya mas?'}))
 // store.dispatch(home.products({ page: 1, limit: 2, q: 'sepatu', category_id: 63 }))
 // store.dispatch(product.listProductByCategory({category_id: 120}))
-// store.dispatch(product.listProductBySearch({services: [1, 2, 3, 4], limit: 2, page: 1, q: 'kain'}))
+store.dispatch(product.listProductBySearch({services: [1, 2, 3, 4], limit: 2, page: 1, q: 'kain'}))
 // store.dispatch(home.filter({ is_dropship: false, limit: 2, page: 1 }))
 // store.dispatch(home.search({query: 'aya'}))
 // store.dispatch(home.allCategory())
@@ -215,15 +215,15 @@ store.subscribe(function () {
 // setTimeout(() => store.dispatch(cart.cancelPromo()), 5 * 1000)
 // store.dispatch(cart.checkout({ items: [] }))
 // store.dispatch(bank.getKomutoBankAccounts())
-store.dispatch(transaction.listTransactions())
-setTimeout(() => store.dispatch(transaction.getTransaction({ id: 259 })), 5000)
+// store.dispatch(transaction.listTransactions())
+// setTimeout(() => store.dispatch(transaction.getTransaction({ id: 259 })), 5000)
 // store.dispatch(cart.getItem({ id: 418 }))
 // store.dispatch(stores.getStoreAddress())
 // store.dispatch(stores.updateStoreAddress({
 //   province_id: 32,
 //   district_id: 3273,
 //   sub_district_id: 1111110,
-//   village_id: 1111110073,
+//   village_id: 1111110073,`
 //   postal_code: '84341',
 //   address: 'Jl. Kucing'
 // }))

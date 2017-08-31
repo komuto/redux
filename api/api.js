@@ -30,9 +30,9 @@ export function uploadApi () {
       'enctype': 'multipart/form-data'
     }
   })
-  api.interceptors.request.use(config => {
+  api.interceptors.request.use(async config => {
     try {
-      const token = storage.getItem('token')
+      const token = await storage.getItem('token')
       if (token !== null) {
         config.headers['Authorization'] = 'JWT ' + token
       }
@@ -49,9 +49,9 @@ export function authApiKomuto () {
     baseURL: apiKomuto + '/',
     timeout: 10000
   })
-  api.interceptors.request.use(config => {
+  api.interceptors.request.use(async config => {
     try {
-      const token = storage.getItem('token')
+      const token = await storage.getItem('token')
       if (token !== null) {
         config.headers['Authorization'] = 'JWT ' + token
       }
