@@ -1,27 +1,7 @@
 import * as actions from '../actions/location'
-import { buildReducer, buildType, initState, typeReq, typeSucc, typeFail, reqState, succState, failState } from '../config'
+import { buildInitState, typeReq, typeSucc, typeFail, reqState, succState, failState, createReducer } from '../config'
 
-const initProvince = {
-  provinces: [],
-  ...initState()
-}
-
-const initDistrict = {
-  districts: [],
-  ...initState()
-}
-
-const initSubDistrict = {
-  subdistricts: [],
-  ...initState()
-}
-
-const initVillage = {
-  villages: [],
-  ...initState()
-}
-
-function province (state = initProvince, action) {
+export const province = (state = buildInitState({ provinces: [] }), action) => {
   switch (action.type) {
     case typeReq(actions.GET_PROVINCE):
       return reqState(state)
@@ -42,7 +22,7 @@ function province (state = initProvince, action) {
   }
 }
 
-function district (state = initDistrict, action) {
+export const district = (state = buildInitState({ districts: [] }), action) => {
   switch (action.type) {
     case typeReq(actions.GET_DISTRICT):
       return reqState(state)
@@ -62,7 +42,7 @@ function district (state = initDistrict, action) {
   }
 }
 
-function subdistrict (state = initSubDistrict, action) {
+export const subdistrict = (state = buildInitState({ subdistricts: [] }), action) => {
   switch (action.type) {
     case typeReq(actions.GET_SUBDISTRICT):
       return reqState(state)
@@ -83,19 +63,9 @@ function subdistrict (state = initSubDistrict, action) {
   }
 }
 
-function village (state = initVillage, action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_VILLAGE:
-      return buildReducer(state, action, type, 'villages')
-    default:
-      return state
-  }
-}
+export const village = createReducer(buildInitState({ villages: [] }))
+  .addReducer({
+    type: actions.GET_VILLAGE,
+    resultName: 'villages'
+  }).run()
 
-export {
-  province,
-  district,
-  subdistrict,
-  village
-}

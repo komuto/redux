@@ -1,83 +1,51 @@
 import * as actions from '../actions/home'
-import { buildReducer, buildType, initState } from '../config'
+import { buildInitState, createReducer } from '../config'
 
-const initCategory = {
-  categories: [],
-  ...initState()
-}
+export const product = createReducer(buildInitState({ products: [] }, true))
+  .addReducer({
+    type: actions.HOME_PRODUCT,
+    resultName: 'products'
+  }).run()
 
-const initAllCategory = {
-  allCategory: [],
-  ...initState()
-}
+export const searchProduct = createReducer(buildInitState({ products: [] }))
+  .addReducer({
+    type: actions.SEARCH_PRODUCT,
+    resultName: 'products'
+  }).run()
 
-function product (state = initState({ products: [] }, true), action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.HOME_PRODUCT:
-      return buildReducer(state, action, type, 'products', true)
-    default:
-      return state
-  }
-}
+export const filterProduct = createReducer(buildInitState({ products: [] }, true))
+  .addReducer({
+    type: actions.FILTER_PRODUCT,
+    resultName: 'products'
+  }).run()
 
-function searchProduct (state = initState({ products: [] }), action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.SEARCH_PRODUCT:
-      return buildReducer(state, action, type, 'products')
-    default:
-      return state
-  }
-}
+export const allCategory = createReducer(buildInitState({ allCategory: [] }))
+  .addReducer({
+    type: actions.ALL_CATEGORY,
+    resultName: 'allCategory'
+  }).run()
 
-function filterProduct (state = initState({ products: [] }, true), action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.FILTER_PRODUCT:
-      return buildReducer(state, action, type, 'products', true)
-    default:
-      return state
-  }
-}
+export const categoryList = createReducer(buildInitState({ categories: [] }))
+  .addReducer({
+    type: actions.GET_CATEGORIES_1,
+    resultName: 'categories'
+  }).run()
 
-function allCategory (state = initAllCategory, action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.ALL_CATEGORY:
-      return buildReducer(state, action, type, 'allCategory')
-    default:
-      return state
-  }
-}
+export const subCategory = createReducer(buildInitState({ categories: [] }))
+  .addReducer({
+    type: actions.GET_CATEGORIES_2,
+    resultName: 'categories',
+    includeNonSaga: true
+  }).run()
 
-function categoryList (state = initCategory, action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.HOME_CATEGORY:
-      return buildReducer(state, action, type, 'categories')
-    default:
-      return state
-  }
-}
+export const subCategory2 = createReducer(buildInitState({ categories: [] }))
+  .addReducer({
+    type: actions.GET_CATEGORIES_3,
+    resultName: 'categories'
+  }).run()
 
-function subCategory (state = initCategory, action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.STATUS_SUBCATEGORY_RESET:
-      return initCategory
-    case actions.HOME_SUBCATEGORY:
-      return buildReducer(state, action, type, 'categories')
-    default:
-      return state
-  }
-}
-
-export {
-  product,
-  searchProduct,
-  filterProduct,
-  allCategory,
-  categoryList,
-  subCategory
-}
+export const subCategory3 = createReducer(buildInitState({ categories: [] }))
+  .addReducer({
+    type: actions.GET_CATEGORIES_4,
+    resultName: 'categories'
+  }).run()

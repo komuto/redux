@@ -1,183 +1,136 @@
 import * as actions from '../actions/product'
-import { buildReducer, initState, buildType } from '../config'
+import { buildInitState, createReducer } from '../config'
 
-const initDetailProduct = {
-  detail: {},
-  ...initState()
-}
-
-const initNewDiscussion = {
-  discussion: {},
-  ...initState()
-}
-
-const initNewComment = {
-  comment: {},
-  ...initState()
-}
-
-const initAddWishlist = {
-  wishlist: [],
-  ...initState()
-}
-
-const initReport = {
-  report: {},
-  ...initState()
-}
-
-const initAlterProduct = {
-  product: {},
-  ...initState()
-}
-
-function getProduct (state = initDetailProduct, action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_PRODUCT:
-      return buildReducer(state, action, type, 'detail')
-    case actions.GET_PRODUCT_RESET:
-      return { ...state, status: 0 }
-    default:
-      return state
+const initTempCreateProduct = {
+  stepOne: {
+    isFound: false
+  },
+  stepTwo: {
+    isFound: false
+  },
+  stepThree: {
+    isFound: false
+  },
+  stepFour: {
+    isFound: false
   }
 }
 
-function productByCategory (state = initState({ products: [] }, true), action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.LIST_PRODUCT_BY_CATEGORY:
-      return buildReducer(state, action, type, 'products', true)
-    default:
-      return state
-  }
-}
+export const getProduct = createReducer(buildInitState({ detail: {} }))
+  .addReducer({
+    type: actions.GET_PRODUCT,
+    resultName: 'detail',
+    includeNonSaga: true,
+    resetPrevState: { state: 0 }
+  }).run()
 
-function productBySearch (state = initState({ products: [] }, true), action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.LIST_PRODUCT_BY_SEARCH:
-      return buildReducer(state, action, type, 'products', true)
-    default:
-      return state
-  }
-}
+export const productByCategory = createReducer(buildInitState({ products: [] }, true))
+  .addReducer({
+    type: actions.LIST_PRODUCT_BY_CATEGORY,
+    resultName: 'products'
+  }).run()
 
-function addToWishlist (state = initAddWishlist, action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.ADD_TO_WISHLIST:
-      return buildReducer(state, action, type, 'wishlist')
-    case actions.ADD_TO_WISHLIST_RESET:
-      return initAddWishlist
-    default:
-      return state
-  }
-}
+export const productBySearch = createReducer(buildInitState({ products: [] }, true))
+  .addReducer({
+    type: actions.LIST_PRODUCT_BY_SEARCH,
+    resultName: 'products'
+  }).run()
 
-function addToWishlistHome (state = initAddWishlist, action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.ADD_TO_WISHLIST_HOME:
-      return buildReducer(state, action, type, 'wishlist')
-    case actions.ADD_TO_WISHLIST_HOME_RESET:
-      return initAddWishlist
-    default:
-      return state
-  }
-}
+export const addToWishlist = createReducer(buildInitState({ wishlist: [] }))
+  .addReducer({
+    type: actions.ADD_TO_WISHLIST,
+    resultName: 'wishlist',
+    includeNonSaga: true
+  }).run()
 
-function getDiscussion (state = initState({ discussions: [] }, true), action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_DISCUSSION:
-      return buildReducer(state, action, type, 'discussions', true)
-    default:
-      return state
-  }
-}
+export const addToWishlistHome = createReducer(buildInitState({ wishlist: [] }))
+  .addReducer({
+    type: actions.ADD_TO_WISHLIST_HOME,
+    resultName: 'wishlist',
+    includeNonSaga: true
+  }).run()
 
-function newDiscussion (state = initNewDiscussion, action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.NEW_DISCUSSION:
-      return buildReducer(state, action, type, 'discussion')
-    case actions.NEW_DISCUSSION_RESET:
-      return initNewDiscussion
-    default:
-      return state
-  }
-}
+export const getDiscussion = createReducer(buildInitState({ discussions: [] }, true))
+  .addReducer({
+    type: actions.GET_DISCUSSION,
+    resultName: true
+  }).run()
 
-function getComment (state = initState({ comments: [] }, true), action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_COMMENT:
-      return buildReducer(state, action, type, 'comments', true)
-    default:
-      return state
-  }
-}
+export const newDiscussion = createReducer(buildInitState({ discussion: {} }))
+  .addReducer({
+    type: actions.NEW_DISCUSSION,
+    resultName: 'discussion',
+    includeNonSaga: true
+  }).run()
 
-function newComment (state = initNewComment, action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.NEW_COMMENT:
-      return buildReducer(state, action, type, 'comment')
-    case actions.NEW_COMMENT_RESET:
-      return initNewComment
-    default:
-      return state
-  }
-}
+export const getComment = createReducer(buildInitState({ comments: [] }, true))
+  .addReducer({
+    type: actions.GET_COMMENT,
+    resultName: 'comments'
+  }).run()
 
-function reportProduct (state = initReport, action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.REPORT_PRODUCT:
-      return buildReducer(state, action, type, 'report')
-    default:
-      return state
-  }
-}
+export const newComment = createReducer(buildInitState({ comment: {} }))
+  .addReducer({
+    type: actions.NEW_COMMENT,
+    resultName: 'comment',
+    includeNonSaga: true
+  }).run()
 
-export const alterProducts = (state = initAlterProduct, action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.CREATE_PRODUCT:
-      return { ...buildReducer(state, action, type, 'product'), type: 'create' }
-    case actions.HIDE_PRODUCTS:
-      return { ...buildReducer(state, action, type), type: 'hide' }
-    case actions.DELETE_PRODUCTS:
-      return { ...buildReducer(state, action, type), type: 'delete' }
-    case actions.CHANGE_CATALOG:
-      return { ...buildReducer(state, action, type), type: 'change' }
-    case actions.UPDATE_PRODUCT:
-      return { ...buildReducer(state, action, type, 'product'), type: 'update' }
-    default:
-      return state
-  }
-}
+export const reportProduct = createReducer(buildInitState({ report: {} }))
+  .addReducer({
+    type: actions.REPORT_PRODUCT,
+    resultName: 'report'
+  }).run()
 
-export const getProductExpeditions = (state = initState({ productExpeditions: [] }), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_PRODUCT_EXPEDITIONS:
-      return buildReducer(state, action, type, 'productExpeditions')
-    default:
-      return state
-  }
-}
+export const alterProducts = createReducer(buildInitState({ product: {} }))
+  .addReducer({
+    type: actions.CREATE_PRODUCT,
+    resultName: 'product',
+    add: { type: 'create' }
+  })
+  .addReducer({
+    type: actions.HIDE_PRODUCTS,
+    add: { type: 'hide' }
+  })
+  .addReducer({
+    type: actions.DELETE_PRODUCTS,
+    add: { type: 'delete' }
+  })
+  .addReducer({
+    type: actions.CHANGE_CATALOG,
+    add: { type: 'change' }
+  })
+  .addReducer({
+    type: actions.UPDATE_PRODUCT,
+    resultName: 'product',
+    add: { type: 'update' },
+    includeNonSaga: true
+  })
+  .addReducer({
+    type: actions.UPDATE_DROPSHIP_STATUS,
+    add: { type: 'dropship_status' }
+  }).run()
 
-export {
-    getProduct,
-    productByCategory,
-    productBySearch,
-    addToWishlist,
-    addToWishlistHome,
-    getDiscussion,
-    newDiscussion,
-    getComment,
-    newComment,
-    reportProduct
-}
+export const getProductExpeditions = createReducer(buildInitState({ productExpeditions: [] }))
+  .addReducer({
+    type: actions.GET_PRODUCT_EXPEDITIONS,
+    resultName: 'productExpeditions'
+  }).run()
+
+export const addDropshipProducts = createReducer(buildInitState({ addDropshipProducts: {} }))
+  .addReducer({
+    type: actions.ADD_DROPSHIP_PRODUCTS,
+    resultName: 'addDropshipProducts'
+  }).run()
+
+export const tempCreateProduct = createReducer(initTempCreateProduct)
+  .addReducer({
+    type: actions.CREATE_PRODUCT,
+    includeNonSaga: true
+  }).run()
+
+export const getDropshipProducts = createReducer(buildInitState({ products: [] }, true))
+  .addReducer({
+    type: actions.GET_DROPSHIP_PRODUCTS,
+    resultName: 'products'
+  }).run()

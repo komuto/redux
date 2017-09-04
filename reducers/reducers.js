@@ -14,6 +14,8 @@ import * as catalogReducers from './catalog'
 import * as cartReducers from './cart'
 import * as paymentReducers from './payment'
 import * as transactionReducers from './transaction'
+import * as messageReducers from './message'
+import * as otherReducers from './other'
 
 const user = {
   user: userReducers.auth,
@@ -35,7 +37,9 @@ const user = {
   sendOTPPhone: userReducers.sendOTPPhone,
   verifyPhone: userReducers.verifyPhone,
   sendOTPBank: userReducers.sendOTPBank,
-  wishlist: userReducers.wishlist
+  wishlist: userReducers.wishlist,
+  alterUser: userReducers.alterUser,
+  notifSettings: userReducers.notifSettings
 }
 
 const home = {
@@ -44,7 +48,9 @@ const home = {
   filterProduct: homeReducers.filterProduct,
   allCategory: homeReducers.allCategory,
   category: homeReducers.categoryList,
-  subCategory: homeReducers.subCategory
+  subCategory: homeReducers.subCategory,
+  subCategory2: homeReducers.subCategory2,
+  subCategory3: homeReducers.subCategory3
 }
 
 const product = {
@@ -59,7 +65,10 @@ const product = {
   newComment: productReducers.newComment,
   report: productReducers.reportProduct,
   alterProducts: productReducers.alterProducts,
-  productExpeditions: productReducers.getProductExpeditions
+  productExpeditions: productReducers.getProductExpeditions,
+  addDropshipProducts: productReducers.addDropshipProducts,
+  tempCreateProduct: productReducers.tempCreateProduct,
+  dropshipProducts: productReducers.getDropshipProducts
 }
 
 const store = {
@@ -72,14 +81,19 @@ const store = {
   sendMessageStore: storeReducers.sendMessageStore,
   ownStore: storeReducers.getOwnStore,
   storeProducts: storeReducers.getStoreProducts,
+  storeProductDetail: storeReducers.getStoreProductDetail,
   storeCatalogProducts: storeReducers.getStoreCatalogProducts,
+  tempCreateStore: storeReducers.tempCreateStore,
   updateStore: storeReducers.updateStore,
   storeAddress: storeReducers.getStoreAddress,
-  updateStoreAddress: storeReducers.updateStoreAddress
+  updateStoreAddress: storeReducers.updateStoreAddress,
+  hiddenStoreProducts: storeReducers.getHiddenStoreProducts,
+  storeDiscussions: storeReducers.getStoreDiscussions,
+  storeProductsByCatalog: storeReducers.getStoreProductsByCatalog
 }
 
 const address = {
-  address: addressReducers.address,
+  address: addressReducers.getAddressDetail,
   updateAddress: addressReducers.updateAddress,
   deleteAddress: addressReducers.deleteAddress,
   addAddress: addressReducers.addAddress,
@@ -117,7 +131,8 @@ const cart = {
   cancelPromo: cartReducers.cancelPromo,
   countCart: cartReducers.countCart,
   item: cartReducers.getItem,
-  deleteItem: cartReducers.deleteItem
+  deleteItem: cartReducers.deleteItem,
+  updateCart: cartReducers.updateCart
 }
 
 const expedition = {
@@ -137,6 +152,22 @@ const location = {
   villages: locationReducers.village
 }
 
+const message = {
+  buyerMessages: messageReducers.getBuyerMessages,
+  sellerMessages: messageReducers.getSellerMessages,
+  buyerDetailMessage: messageReducers.getBuyerDetailMessage,
+  sellerDetailMessage: messageReducers.getSellerDetailMessage,
+  archiveBuyerMessages: messageReducers.getArchiveBuyerMessages,
+  archiveSellerMessages: messageReducers.getArchiveSellerMessages,
+  updateMessage: messageReducers.updateMessage,
+  replyMessage: messageReducers.replyMessage,
+  deleteMessage: messageReducers.deleteMessage
+}
+
+const other = {
+  commission: otherReducers.getCommission
+}
+
 const payment = {
   dokuPayment: paymentReducers.payDoku,
   invoice: paymentReducers.getDokuInvoice,
@@ -148,12 +179,15 @@ const payment = {
 
 const review = {
   productReview: reviewReducers.getReviews,
-  addReview: reviewReducers.addReview
+  addReview: reviewReducers.addReview,
+  buyerReview: reviewReducers.getBuyerReview,
+  sellerReview: reviewReducers.getSellerReview
 }
 
 const transaction = {
   listTransactions: transactionReducers.listTransactions,
-  transaction: transactionReducers.getTransaction
+  transaction: transactionReducers.getTransaction,
+  saldoHistory: transactionReducers.getSaldoHistory
 }
 
 const komutoApps = storage.reducer(combineReducers({
@@ -170,7 +204,9 @@ const komutoApps = storage.reducer(combineReducers({
   ...location,
   ...review,
   ...payment,
-  ...transaction
+  ...transaction,
+  ...message,
+  ...other
 }))
 
 export default komutoApps

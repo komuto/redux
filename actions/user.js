@@ -1,4 +1,4 @@
-import { buildAction, typeReq } from '../config'
+import { buildAction, typeReq, typeTemp } from '../config'
 
 export const USER_LOGIN = 'USER_LOGIN'
 export const USER_VERIFICATION = 'USER_VERIFICATION'
@@ -23,6 +23,9 @@ export const VERIFIY_PHONE = 'VERIFIY_PHONE'
 export const SEND_BANK_OTP = 'SEND_BANK_OTP'
 export const IS_LOGIN = 'IS_LOGIN'
 export const GET_WISHLIST = 'GET_WISHLIST'
+export const UPDATE_FIREBASE_REG_TOKEN = 'UPDATE_FIREBASE_REG_TOKEN'
+export const GET_NOTIF_SETTINGS = 'GET_NOTIF_SETTINGS'
+export const UPDATE_NOTIF_SETTINGS = 'UPDATE_NOTIF_SETTINGS'
 
 /**
  * @param params are the same as the api
@@ -85,7 +88,7 @@ export const forgetPassword = params => buildAction(typeReq(FORGET_PASSWORD), pa
  * @params login {boolean}
  * @state isLogin
  */
-export const stateLogin = params => buildAction(IS_LOGIN, params)
+export const stateLogin = params => buildAction(typeTemp(IS_LOGIN), params)
 
 /**
  * @params token {string}
@@ -124,7 +127,7 @@ export const updatePhone = params => buildAction(typeReq(UPDATE_PHONE), params)
 /**
  * @state userDiscussion
  */
-export const getDiscussion = () => buildAction(typeReq(GET_USER_DISCUSSION))
+export const getDiscussion = params => buildAction(typeReq(GET_USER_DISCUSSION), params)
 
 /**
  * @param params are the same as the api query
@@ -152,3 +155,20 @@ export const sendOTPBank = () => buildAction(typeReq(SEND_BANK_OTP))
  * @state wishlist
  */
 export const wishlist = () => buildAction(typeReq(GET_WISHLIST))
+
+/**
+ * @param params are the same as the api
+ * @state alterUser
+ */
+export const updateFirebaseToken = params => buildAction(typeReq(UPDATE_FIREBASE_REG_TOKEN), params)
+
+/**
+ * @state notifSettings
+ */
+export const getNotifSettings = () => buildAction(typeReq(GET_NOTIF_SETTINGS))
+
+/**
+ * @params params are the same as the api query
+ * @state notifSettings
+ */
+export const updateNotifSettings = params => buildAction(typeReq(UPDATE_NOTIF_SETTINGS), params)

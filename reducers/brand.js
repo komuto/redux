@@ -1,32 +1,14 @@
 import * as actions from '../actions/brand'
-import { buildReducer, buildType, initState } from '../config'
+import { buildInitState, createReducer } from '../config'
 
-const initBrand = {
-  brands: [],
-  ...initState()
-}
+export const brand = createReducer(buildInitState({ brands: [] }))
+  .addReducer({
+    type: actions.GET_BRAND,
+    resultName: 'brands'
+  }).run()
 
-function brand (state = initBrand, action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_BRAND:
-      return buildReducer(state, action, type, 'brands')
-    default:
-      return state
-  }
-}
-
-function brandByCategory (state = initBrand, action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.BRAND_BY_CATEGORY:
-      return buildReducer(state, action, type, 'brands')
-    default:
-      return state
-  }
-}
-
-export {
-  brand,
-  brandByCategory
-}
+export const brandByCategory = createReducer(buildInitState({ brands: [] }))
+  .addReducer({
+    type: actions.BRAND_BY_CATEGORY,
+    resultName: 'brands'
+  }).run()

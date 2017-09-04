@@ -1,99 +1,43 @@
 import * as actions from '../actions/expedition'
-import { buildReducer, buildType, initState } from '../config'
+import { buildInitState, createReducer } from '../config'
 
-const initExpedition = {
-  expeditions: [],
-  ...initState()
-}
+export const expedition = createReducer(buildInitState({ expeditions: [] }))
+  .addReducer({
+    type: actions.GET_EXPEDITION,
+    resultName: 'expeditions'
+  }).run()
 
-const initExpeditionServices = {
-  expeditionServices: [],
-  ...initState()
-}
+export const expeditionServices = createReducer(buildInitState({ expeditionServices: [] }))
+  .addReducer({
+    type: actions.GET_EXPEDITION_SERVICES,
+    resultName: 'expeditionServices'
+  }).run()
 
-const initCharge = {
-  charges: [],
-  ...initState()
-}
+export const estimatedShipping = createReducer(buildInitState({ charges: [] }))
+  .addReducer({
+    type: actions.ESTIMATED_SHIPPING,
+    resultName: 'charges'
+  }).run()
 
-const initUpdate = {
-  ...initState()
-}
+export const shippingCharge = createReducer(buildInitState({ charges: [] }))
+  .addReducer({
+    type: actions.GET_SHIPPING_CHARGE,
+    resultName: 'charges'
+  }).run()
 
-function expedition (state = initExpedition, action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_EXPEDITION:
-      return buildReducer(state, action, type, 'expeditions')
-    default:
-      return state
-  }
-}
+export const updateExpediton = createReducer(buildInitState())
+  .addReducer({
+    type: actions.UPDATE_EXPEDITION
+  }).run()
 
-function expeditionServices (state = initExpeditionServices, action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_EXPEDITION_SERVICES:
-      return buildReducer(state, action, type, 'expeditionServices')
-    default:
-      return state
-  }
-}
+export const getStoreExpeditions = createReducer(buildInitState({ storeExpeditions: [] }))
+  .addReducer({
+    type: actions.GET_STORE_EXPEDITIONS,
+    resultName: 'storeExpeditions'
+  }).run()
 
-function estimatedShipping (state = initCharge, action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.ESTIMATED_SHIPPING:
-      return buildReducer(state, action, type, 'charges')
-    default:
-      return state
-  }
-}
-
-function shippingCharge (state = initCharge, action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_SHIPPING_CHARGE:
-      return buildReducer(state, action, type, 'charges')
-    default:
-      return state
-  }
-}
-
-function updateExpediton (state = initUpdate, action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.UPDATE_EXPEDITION:
-      return buildReducer(state, action, type)
-    default:
-      return state
-  }
-}
-
-export const getStoreExpeditions = (state = initState({ storeExpeditions: [] }), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_STORE_EXPEDITIONS:
-      return buildReducer(state, action, type, 'storeExpeditions')
-    default:
-      return state
-  }
-}
-
-export const manageStoreExpeditions = (state = initState({ manageExpeditions: [] }), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.MANAGE_STORE_EXPEDITIONS:
-      return buildReducer(state, action, type, 'manageExpeditions')
-    default:
-      return state
-  }
-}
-
-export {
-  expedition,
-  expeditionServices,
-  estimatedShipping,
-  shippingCharge,
-  updateExpediton
-}
+export const manageStoreExpeditions = createReducer(buildInitState({ manageExpeditions: [] }))
+  .addReducer({
+    type: actions.MANAGE_STORE_EXPEDITIONS,
+    resultName: 'manageExpeditions'
+  }).run()

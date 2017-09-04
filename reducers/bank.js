@@ -1,87 +1,49 @@
 import * as actions from '../actions/bank'
-import { buildReducer, buildType, initState } from '../config'
+import { buildInitState, createReducer } from '../config'
 
-const initListBank = {
-  banks: [],
-  ...initState()
-}
+export const listBank = createReducer(buildInitState({ banks: [] }))
+  .addReducer({
+    type: actions.LIST_BANK,
+    resultName: 'banks'
+  }).run()
 
-const initBank = {
-  bank: '',
-  ...initState()
-}
+export const getBank = createReducer(buildInitState({ bank: {} }))
+  .addReducer({
+    type: actions.GET_BANK,
+    resultName: 'bank'
+  })
 
-const initBankAccount = {
-  bankAccount: {},
-  ...initState()
-}
+export const bankAccount = createReducer(buildInitState({ bankAccount: {} }))
+  .addReducer({
+    type: actions.ADD_BANK_ACCOUNT,
+    resultName: 'bankAccount',
+    add: { type: 'add' }
+  })
+  .addReducer({
+    type: actions.UPDATE_BANK_ACCOUNT,
+    resultName: 'bankAccount',
+    add: { type: 'update' }
+  })
+  .addReducer({
+    type: actions.DELETE_BANK_ACCOUNT,
+    add: { type: 'delete' }
+  }).run()
 
-const initBankAccounts = {
-  listBankAccounts: [],
-  ...initState()
-}
+export const getBankAccounts = createReducer(buildInitState({ listBankAccounts: [] }))
+  .addReducer({
+    type: actions.GET_BANK_ACCOUNTS,
+    resultName: 'listBankAccounts'
+  }).run()
 
-export const listBank = (state = initListBank, action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.LIST_BANK:
-      return buildReducer(state, action, type, 'banks')
-    default:
-      return state
-  }
-}
+export const getBankAccountDetail = createReducer(buildInitState({ bankAccountDetail: {} }))
+  .addReducer({
+    type: actions.GET_BANK_ACCOUNT_DETAIL,
+    resultName: 'bankAccountDetail'
+  }).run()
 
-export const getBank = (state = initBank, action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_BANK:
-      return buildReducer(state, action, type, 'bank')
-    default:
-      return state
-  }
-}
-
-export const bankAccount = (state = initBankAccount, action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.ADD_BANK_ACCOUNT:
-      return { ...buildReducer(state, action, type, 'bankAccount'), type: 'add' }
-    case actions.UPDATE_BANK_ACCOUNT:
-      return { ...buildReducer(state, action, type, 'bankAccount'), type: 'update' }
-    case actions.DELETE_BANK_ACCOUNT:
-      return { ...buildReducer(state, action, type), type: 'delete' }
-    default:
-      return state
-  }
-}
-
-export const getBankAccounts = (state = initBankAccounts, action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_BANK_ACCOUNTS:
-      return buildReducer(state, action, type, 'listBankAccounts')
-    default:
-      return state
-  }
-}
-
-export const getBankAccountDetail = (state = initState({ bankAccountDetail: {} }), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_BANK_ACCOUNT_DETAIL:
-      return buildReducer(state, action, type, 'bankAccountDetail')
-    default:
-      return state
-  }
-}
-
-export const getKomutoBankAccounts = (state = initState({ komutoAccounts: [] }), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_KOMUTO_BANK_ACCOUNTS:
-      return buildReducer(state, action, type, 'komutoAccounts')
-    default:
-      return state
-  }
-}
+export const getKomutoBankAccounts = createReducer(buildInitState({ komutoAccounts: [] }))
+  .addReducer({
+    type: actions.GET_KOMUTO_BANK_ACCOUNTS,
+    resultName: 'komutoAccounts'
+  })
 

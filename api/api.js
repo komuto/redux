@@ -1,7 +1,6 @@
 import axios from 'axios'
-import { serviceUrl, apiKomuto } from '../config'
+import { serviceUrl, apiKomuto, storage } from '../config'
 import {token} from '../store'
-import {localStorage} from '../localStorage'
 
 export function authApi () {
   return axios.create({
@@ -31,9 +30,9 @@ export function uploadApi () {
       'enctype': 'multipart/form-data'
     }
   })
-  api.interceptors.request.use(config => {
+  api.interceptors.request.use(async config => {
     try {
-      const token = localStorage.getItem('token')
+      const token = await storage.getItem('token')
       if (token !== null) {
         config.headers['Authorization'] = 'JWT ' + token
       }
@@ -50,9 +49,9 @@ export function authApiKomuto () {
     baseURL: apiKomuto + '/',
     timeout: 10000
   })
-  api.interceptors.request.use(config => {
+  api.interceptors.request.use(async config => {
     try {
-      const token = localStorage.getItem('token')
+      const token = await storage.getItem('token')
       if (token !== null) {
         config.headers['Authorization'] = 'JWT ' + token
       }

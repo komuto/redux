@@ -11,11 +11,16 @@ export const MESSAGE_STORE = 'MESSAGE_STORE'
 export const MESSAGE_STORE_RESET = 'MESSAGE_STORE_RESET'
 export const GET_OWN_STORE = 'GET_OWN_STORE'
 export const GET_STORE_PRODUCTS = 'GET_STORE_PRODUCTS'
+export const GET_STORE_PRODUCT_DETAIL = 'GET_STORE_PRODUCT_DETAIL'
+export const GET_HIDDEN_STORE_PRODUCTS = 'GET_HIDDEN_STORE_PRODUCTS'
 export const GET_STORE_CATALOG_PRODUCTS = 'GET_STORE_CATALOG_PRODUCTS'
 export const UPDATE_INFORMATION = 'UPDATE_INFORMATION'
 export const UPDATE_TERM = 'UPDATE_TERM'
 export const GET_ADDRESS = 'GET_ADDRESS'
 export const UPDATE_STORE_ADDRESS = 'UPDATE_STORE_ADDRESS'
+export const TEMP_CREATE_STORE = 'TEMP_CREATE_STORE'
+export const GET_STORE_DISCUSSIONS = 'GET_STORE_DISCUSSIONS'
+export const GET_STORE_PRODUCTS_BY_CATALOG = 'GET_STORE_PRODUCTS_BY_CATALOG'
 
 /**
  * @params id {int} store id
@@ -104,3 +109,32 @@ export const getStoreAddress = () => buildAction(typeReq(GET_ADDRESS))
  */
 export const updateStoreAddress = params => buildAction(typeReq(UPDATE_STORE_ADDRESS), params)
 
+/**
+ * @params params are the same as the api query
+ * @state hiddenStoreProducts
+ */
+export const getHiddenStoreProducts = params => buildAction(typeReq(GET_HIDDEN_STORE_PRODUCTS), params)
+
+/**
+ * @state tempCreateStore
+ */
+export const tempCreateStore = params => buildAction(TEMP_CREATE_STORE, params)
+
+/**
+ * @params params are the same as the api query
+ * @state storeDiscussions
+ */
+export const getStoreDiscussions = params => buildAction(typeReq(GET_STORE_DISCUSSIONS), params)
+
+/**
+ * @params params are the same as the api query
+ * @state storeProductsDetail
+ */
+export const getStoreProductDetail = params => buildAction(typeReq(GET_STORE_PRODUCT_DETAIL), params)
+
+/**
+ * @params id {int} catalog id
+ * @param params are the same as the api query
+ * @state storeProductsByCatalog
+ */
+export const getStoreProductsByCatalog = params => buildAction(typeReq(GET_STORE_PRODUCTS_BY_CATALOG), params)

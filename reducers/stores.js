@@ -1,170 +1,146 @@
 import * as actions from '../actions/stores'
-import { buildReducer, buildType, initState } from '../config'
+import { buildInitState, createReducer } from '../config'
 
-const initStore = {
-  store: {},
-  ...initState()
-}
-
-const initExpedition = {
-  expeditions: [],
-  ...initState()
-}
-
-const initVerify = {
-  ...initState()
-}
-
-const initOwnStore = {
-  ownStore: {},
-  ...initState()
-}
-
-const initStoreProducts = {
-  storeProducts: {},
-  ...initState()
-}
-
-function stores (state = initStore, action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_STORE:
-      return buildReducer(state, action, type, 'store')
-    default:
-      return state
+const initTempCreateStore = {
+  store: {
+    name: '',
+    slogan: '',
+    description: '',
+    logo: '',
+    path: ''
+  },
+  expedition_services: {
+    selectedExpeditions: [],
+    selectedServices: []
+  },
+  user: {
+    id_number: '',
+    mother_name: ''
+  },
+  address: {
+    province_id: 0,
+    district_id: 0,
+    sub_district_id: 0,
+    village_id: 0,
+    name: '',
+    email: '',
+    phone_number: '',
+    postal_code: '',
+    address: ''
   }
 }
 
-function createStore (state = initStore, action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.CREATE_STORE:
-      return buildReducer(state, action, type, 'store')
-    default:
-      return state
-  }
-}
+export const stores = createReducer(buildInitState({ store: {} }))
+  .addReducer({
+    type: actions.GET_STORE,
+    resultName: 'store'
+  }).run()
 
-function expeditionListStore (state = initExpedition, action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.STORE_EXPEDITION_LIST:
-      return buildReducer(state, action, type, 'expeditions')
-    default:
-      return state
-  }
-}
+export const createStore = createReducer(buildInitState({ store: {} }))
+  .addReducer({
+    type: actions.CREATE_STORE,
+    resultName: 'store'
+  }).run()
 
-function expeditionStore (state = initExpedition, action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.STORE_EXPEDITION_MANAGE:
-      return buildReducer(state, action, type, 'expeditions')
-    default:
-      return state
-  }
-}
+export const expeditionListStore = createReducer(buildInitState({ expeditions: [] }))
+  .addReducer({
+    type: actions.STORE_EXPEDITION_LIST,
+    resultName: 'expeditions'
+  }).run()
 
-function photoUpload (state = initState({ payload: {} }), action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.PHOTO_UPLOAD:
-      return buildReducer(state, action, type, 'payload')
-    default:
-      return state
-  }
-}
+export const expeditionStore = createReducer(buildInitState({ expeditions: [] }))
+  .addReducer({
+    type: actions.STORE_EXPEDITION_MANAGE,
+    resultName: 'expeditions'
+  }).run()
 
-function verifyStore (state = initVerify, action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.VERIFY_STORE:
-      return buildReducer(state, action, type)
-    default:
-      return state
-  }
-}
+export const photoUpload = createReducer(buildInitState({ payload: {} }))
+  .addReducer({
+    type: actions.PHOTO_UPLOAD,
+    resultName: 'payload'
+  }).run()
 
-function sendMessageStore (state = initStore, action) {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.MESSAGE_STORE:
-      return buildReducer(state, action, type, 'store')
-    case actions.MESSAGE_STORE_RESET:
-      return initStore
-    default:
-      return state
-  }
-}
+export const verifyStore = createReducer(buildInitState())
+  .addReducer({
+    type: actions.VERIFY_STORE
+  }).run()
 
-export const getOwnStore = (state = initOwnStore, action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_OWN_STORE:
-      return buildReducer(state, action, type, 'ownStore')
-    default:
-      return state
-  }
-}
+export const sendMessageStore = createReducer(buildInitState({ store: {} }))
+  .addReducer({
+    type: actions.MESSAGE_STORE,
+    resultName: 'store',
+    includeNonSaga: true
+  }).run()
 
-export const getStoreProducts = (state = initStoreProducts, action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_STORE_PRODUCTS:
-      return buildReducer(state, action, type, 'storeProducts')
-    default:
-      return state
-  }
-}
+export const getOwnStore = createReducer(buildInitState({ ownStore: {} }))
+  .addReducer({
+    type: actions.GET_OWN_STORE,
+    resultName: 'ownStore'
+  }).run()
 
-export const getStoreCatalogProducts = (state = initState({ storeCatalogProducts: {} }), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_STORE_CATALOG_PRODUCTS:
-      return buildReducer(state, action, type, 'storeCatalogProducts')
-    default:
-      return state
-  }
-}
+export const getStoreProducts = createReducer(buildInitState({ storeProducts: {} }))
+  .addReducer({
+    type: actions.GET_STORE_PRODUCTS,
+    resultName: 'storeProducts'
+  }).run()
 
-export const updateStore = (state = initState({ updateStore: {} }), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.UPDATE_INFORMATION:
-      return { ...buildReducer(state, action, type, 'updateStore'), type: 'information' }
-    case actions.UPDATE_TERM:
-      return { ...buildReducer(state, action, type, 'updateStore'), type: 'term' }
-    default:
-      return state
-  }
-}
+export const getStoreCatalogProducts = createReducer(buildInitState({ storeCatalogProducts: {} }, true))
+  .addReducer({
+    type: actions.GET_STORE_CATALOG_PRODUCTS,
+    resultName: 'storeCatalogProducts'
+  }).run()
 
-export const getStoreAddress = (state = initState({ storeAddress: {} }), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.GET_ADDRESS:
-      return buildReducer(state, action, type, 'storeAddress')
-    default:
-      return state
-  }
-}
+export const updateStore = createReducer(buildInitState({ updateStore: {} }))
+  .addReducer({
+    type: actions.UPDATE_INFORMATION,
+    resultName: 'updateStore',
+    add: { type: 'information' }
+  })
+  .addReducer({
+    type: actions.UPDATE_TERM,
+    resultName: 'updateStore',
+    add: { type: 'term' }
+  }).run()
 
-export const updateStoreAddress = (state = initState({ updateStoreAddress: {} }), action) => {
-  const type = buildType(action.type)
-  switch (type) {
-    case actions.UPDATE_STORE_ADDRESS:
-      return buildReducer(state, action, type, 'updateStoreAddress')
-    default:
-      return state
-  }
-}
+export const getStoreAddress = createReducer(buildInitState({ storeAddress: {} }))
+  .addReducer({
+    type: actions.GET_ADDRESS,
+    resultName: 'storeAddress'
+  }).run()
 
-export {
-    stores,
-    photoUpload,
-    createStore,
-    expeditionListStore,
-    expeditionStore,
-    verifyStore,
-    sendMessageStore
-}
+export const updateStoreAddress = createReducer(buildInitState({ updateStoreAddress: {} }))
+  .addReducer({
+    type: actions.UPDATE_STORE_ADDRESS,
+    resultName: 'updateStoreAddress'
+  }).run()
+
+export const getHiddenStoreProducts = createReducer(buildInitState({ products: [] }))
+  .addReducer({
+    type: actions.GET_HIDDEN_STORE_PRODUCTS,
+    resultName: 'products'
+  }).run()
+
+export const tempCreateStore = createReducer(initTempCreateStore)
+  .addReducer({
+    type: actions.CREATE_STORE,
+    includeNonSaga: true
+  }).run()
+
+export const getStoreDiscussions = createReducer(buildInitState({ storeDiscussions: [] }, true))
+  .addReducer({
+    type: actions.GET_STORE_DISCUSSIONS,
+    resultName: 'storeDiscussions'
+  }).run()
+
+export const getStoreProductDetail = createReducer(buildInitState({ storeProductDetail: {} }))
+  .addReducer({
+    type: actions.GET_STORE_PRODUCT_DETAIL,
+    resultName: 'storeProductDetail'
+  }).run()
+
+export const getStoreProductsByCatalog = createReducer(buildInitState({ products: [] }, true))
+  .addReducer({
+    type: actions.GET_STORE_PRODUCTS_BY_CATALOG,
+    resultName: 'products'
+  }).run()
+
