@@ -6,17 +6,17 @@ import {store} from './store'
 // import * as location from './actions/location'
 // import * as product from './actions/product'
 // import * as review from './actions/review'
-import * as stores from './actions/stores'
+// import * as stores from './actions/stores'
 // import * as address from './actions/address'
 // import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
 // import * as cart from './actions/cart'
-// import * as payment from './actions/payment'
+import * as payment from './actions/payment'
 // import * as transaction from './actions/transaction'
 // import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().storeAddress, null, 2))
+  console.log(JSON.stringify(store.getState().snapToken, null, 2))
 })
 
 // store.dispatch(user.register({name: 'kucing', phone_number: '081327', email: 'testregister@skyshi.com', gender: 'male', password: 'aku'}))
@@ -218,15 +218,15 @@ store.subscribe(function () {
 // store.dispatch(transaction.listTransactions())
 // setTimeout(() => store.dispatch(transaction.getTransaction({ id: 259 })), 5000)
 // store.dispatch(cart.getItem({ id: 418 }))
-store.dispatch(stores.updateStoreAddress({
-  province_id: 32,
-  district_id: 3273,
-  sub_district_id: 1111110,
-  village_id: 1111110073,
-  postal_code: '84341',
-  address: 'Jl. jalan'
-}))
-setTimeout(() => store.dispatch(stores.getStoreAddress()), 4000)
+// store.dispatch(stores.updateStoreAddress({
+//   province_id: 32,
+//   district_id: 3273,
+//   sub_district_id: 1111110,
+//   village_id: 1111110073,
+//   postal_code: '84341',
+//   address: 'Jl. jalan'
+// }))
+// setTimeout(() => store.dispatch(stores.getStoreAddress()), 4000)
 // store.dispatch(expedition.manageStoreExpeditions())
 // store.dispatch(bank.getBankAccountDetail({ id: 18 }))
 // store.dispatch(product.updateProduct({ id: 93, images: [{ name: 'nucing.png' }, { name: 'naambing.png ' }] }))
@@ -252,3 +252,4 @@ setTimeout(() => store.dispatch(stores.getStoreAddress()), 4000)
 // store.dispatch(product.getDropshipProducts({ limit: 2 }))
 // store.dispatch(product.updateDropshipStatus({ product_ids: [93] }))
 // store.dispatch(message.updateBuyerMessage({ id: 9, messageType: 'conversation' }))
+store.dispatch(payment.getMidtransToken())
