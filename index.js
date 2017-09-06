@@ -4,7 +4,7 @@ import {store} from './store'
 // import * as brand from './actions/brand'
 // import * as expedition from './actions/expedition'
 // import * as location from './actions/location'
-import * as product from './actions/product'
+// import * as product from './actions/product'
 // import * as review from './actions/review'
 // import * as stores from './actions/stores'
 // import * as address from './actions/address'
@@ -13,10 +13,10 @@ import * as product from './actions/product'
 // import * as cart from './actions/cart'
 // import * as payment from './actions/payment'
 // import * as transaction from './actions/transaction'
-// import * as message from './actions/message'
+import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().addWishlistHome, null, 2))
+  console.log(JSON.stringify(store.getState().sellerDetailMessage, null, 2))
 })
 
 // store.dispatch(user.register({name: 'kucing', phone_number: '081327', email: 'testregister@skyshi.com', gender: 'male', password: 'aku'}))
@@ -60,7 +60,7 @@ store.subscribe(function () {
 // },4000)
 // store.dispatch(user.sendOTPBank())
 // store.dispatch(product.getProduct({id: 9}))
-store.dispatch(product.addToWishlistHome({id: 124}))
+// store.dispatch(product.addToWishlistHome({id: 124}))
 // store.dispatch(product.getDiscussion({id: 4, page: 1, limit: 10}))
 // store.dispatch(product.newDiscussion({id: 4, question: 'Barang sudah habis gan?'}))
 // store.dispatch(product.getComment({id: 3}))
@@ -238,7 +238,7 @@ store.dispatch(product.addToWishlistHome({id: 124}))
 // store.dispatch(stores.tempCreateStore({ user: {id_number: '0982390923989', mother_name: 'example'} }))
 // store.dispatch(address.addAddress())
 // store.dispatch(message.getBuyerMessages({ is_archived: true }))
-// store.dispatch(message.getSellerDetailMessage({id: 14}))
+store.dispatch(message.getSellerDetailMessage({id: 14}))
 // store.dispatch(review.getSellerReview())
 // store.dispatch(bank.getBankAccounts())
 // setTimeout(() => {

@@ -39,7 +39,10 @@ const user = {
   sendOTPBank: userReducers.sendOTPBank,
   wishlist: userReducers.wishlist,
   alterUser: userReducers.alterUser,
-  notifSettings: userReducers.notifSettings
+  notifSettings: userReducers.notifSettings,
+  resolvedResolutions: userReducers.getResolvedResolutions,
+  unresolvedResolutions: userReducers.getUnresolvedResolutions,
+  resolutionDetail: userReducers.getResolutionDetail
 }
 
 const home = {

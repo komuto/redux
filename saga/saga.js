@@ -78,6 +78,9 @@ const user = function* () {
   yield takeEvery(typeReq(userActions.UPDATE_FIREBASE_REG_TOKEN), userSaga.updateFirebaseToken)
   yield takeEvery(typeReq(userActions.GET_NOTIF_SETTINGS), userSaga.getNotifSettings)
   yield takeEvery(typeReq(userActions.UPDATE_NOTIF_SETTINGS), userSaga.updateNotifSettings)
+  yield takeEvery(typeReq(userActions.GET_RESOLVED_RESOLUTIONS), userSaga.getResolvedResolutions)
+  yield takeEvery(typeReq(userActions.GET_UNRESOLVED_RESOLUTIONS), userSaga.getUnresolvedResolutions)
+  yield takeEvery(typeReq(userActions.GET_RESOLUTION_DETAIL), userSaga.getResolutionDetail)
 }
 
 const home = function* () {

@@ -185,3 +185,20 @@ export const notifSettings = createReducer(buildInitState({ settings: [] }))
     add: { type: 'update' }
   }).run()
 
+export const getResolvedResolutions = createReducer(buildInitState({ resolutions: [] }))
+  .addReducer({
+    type: actions.GET_RESOLVED_RESOLUTIONS,
+    resultName: 'resolutions'
+  }).run()
+
+export const getUnresolvedResolutions = createReducer(buildInitState({ resolutions: [] }))
+  .addReducer({
+    type: actions.GET_UNRESOLVED_RESOLUTIONS,
+    resultName: 'resolutions'
+  }).run()
+
+export const getResolutionDetail = createReducer(buildInitState({ resolution: {} }))
+  .addReducer({
+    type: actions.GET_RESOLUTION_DETAIL,
+    resultName: 'resolution'
+  }).run()
