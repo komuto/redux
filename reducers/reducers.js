@@ -42,7 +42,8 @@ const user = {
   notifSettings: userReducers.notifSettings,
   resolvedResolutions: userReducers.getResolvedResolutions,
   unresolvedResolutions: userReducers.getUnresolvedResolutions,
-  resolutionDetail: userReducers.getResolutionDetail
+  resolutionDetail: userReducers.getResolutionDetail,
+  createResolution: userReducers.createResolution
 }
 
 const home = {

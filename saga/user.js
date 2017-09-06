@@ -71,3 +71,4 @@ export const updateNotifSettings = buildSaga(apis.updateNotifSettings, actions.U
 export const getResolvedResolutions = buildSaga(apis.getResolvedResolutions, actions.GET_RESOLVED_RESOLUTIONS)
 export const getUnresolvedResolutions = buildSaga(apis.getUnresolvedResolutions, actions.GET_UNRESOLVED_RESOLUTIONS)
 export const getResolutionDetail = buildSaga(apis.getResolutionDetail, actions.GET_RESOLUTION_DETAIL)
+export const createResolution = buildSaga(apis.createResolution, actions.CREATE_RESOLUTION)
