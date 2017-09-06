@@ -3,7 +3,7 @@ import * as actions from '../actions/user'
 import * as apis from '../api/user'
 import { errorHandling, typeSucc, typeFail, buildSaga, storage } from '../config'
 
-export const register = function* (action) {
+export const register = function * (action) {
   try {
     const {data} = yield apis.register(action)
     yield storage.setItem('token', data.data.token)
@@ -13,7 +13,7 @@ export const register = function* (action) {
   }
 }
 
-export const login = function* login (action) {
+export const login = function * login (action) {
   try {
     const {data} = yield apis.login(action)
     yield storage.setItem('token', data.data.token)
@@ -23,7 +23,7 @@ export const login = function* login (action) {
   }
 }
 
-export const logout = function* (action) {
+export const logout = function * (action) {
   try {
     const data = yield apis.logout(action)
     yield storage.removeItem('token')
@@ -37,7 +37,7 @@ export const logout = function* (action) {
   }
 }
 
-export const loginSocial = function* login (action) {
+export const loginSocial = function * login (action) {
   try {
     const {data} = yield apis.loginSocial(action)
     yield storage.setItem('token', data.data.token)

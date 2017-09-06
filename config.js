@@ -172,7 +172,7 @@ export const buildQuery = (params) => Object.keys(params)
  * @param actionType {string}
  * @param getState {function} Get result from other state
  */
-export const buildSaga = (callApi, actionType, getState = false) => function* ({ type, ...params }) {
+export const buildSaga = (callApi, actionType, getState = false) => function * ({ type, ...params }) {
   try {
     let res, fromState
     if (getState) {
@@ -189,7 +189,7 @@ export const buildSaga = (callApi, actionType, getState = false) => function* ({
   }
 }
 
-export const buildSagaDelay = (callApi, actionType, delayCount = 200, getState = false) => function* ({ type, ...params }) {
+export const buildSagaDelay = (callApi, actionType, delayCount = 200, getState = false) => function * ({ type, ...params }) {
   try {
     yield call(delay, delayCount)
     let res, fromState
@@ -288,4 +288,3 @@ export const getState = ({ from, get, match = 'id' }) => (params) => (state) => 
   if (get === 'all') return result[0] ? result : false
   return result[0]
 }
-

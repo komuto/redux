@@ -252,4 +252,4 @@ store.subscribe(function () {
 // store.dispatch(product.getDropshipProducts({ limit: 2 }))
 // store.dispatch(product.updateDropshipStatus({ product_ids: [93] }))
 // store.dispatch(message.updateBuyerMessage({ id: 9, messageType: 'conversation' }))
-store.dispatch(payment.getMidtransToken({ token: 'initoken' }))
+store.dispatch(payment.getMidtransToken())
