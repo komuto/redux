@@ -72,3 +72,4 @@ export const getResolvedResolutions = buildSaga(apis.getResolvedResolutions, act
 export const getUnresolvedResolutions = buildSaga(apis.getUnresolvedResolutions, actions.GET_UNRESOLVED_RESOLUTIONS)
 export const getResolutionDetail = buildSaga(apis.getResolutionDetail, actions.GET_RESOLUTION_DETAIL)
 export const createResolution = buildSaga(apis.createResolution, actions.CREATE_RESOLUTION)
+export const replyResolution = buildSaga(apis.replyResolution, actions.REPLY_RESOLUTION)

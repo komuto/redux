@@ -43,7 +43,7 @@ const user = {
   resolvedResolutions: userReducers.getResolvedResolutions,
   unresolvedResolutions: userReducers.getUnresolvedResolutions,
   resolutionDetail: userReducers.getResolutionDetail,
-  createResolution: userReducers.createResolution
+  resolution: userReducers.resolution
 }
 
 const home = {

@@ -82,6 +82,7 @@ const user = function * () {
   yield takeEvery(typeReq(userActions.GET_UNRESOLVED_RESOLUTIONS), userSaga.getUnresolvedResolutions)
   yield takeEvery(typeReq(userActions.GET_RESOLUTION_DETAIL), userSaga.getResolutionDetail)
   yield takeEvery(typeReq(userActions.CREATE_RESOLUTION), userSaga.createResolution)
+  yield takeEvery(typeReq(userActions.REPLY_RESOLUTION), userSaga.replyResolution)
 }
 
 const home = function * () {

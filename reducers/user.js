@@ -203,8 +203,12 @@ export const getResolutionDetail = createReducer(buildInitState({ resolution: {}
     resultName: 'resolution'
   }).run()
 
-export const createResolution = createReducer(buildInitState({ resolution: {} }))
+export const resolution = createReducer(buildInitState({ resolution: {} }))
   .addReducer({
     type: actions.CREATE_RESOLUTION,
+    resultName: 'resolution'
+  })
+  .addReducer({
+    type: actions.REPLY_RESOLUTION,
     resultName: 'resolution'
   }).run()
