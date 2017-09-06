@@ -216,12 +216,11 @@ const other = function* () {
 }
 
 const payment = function* () {
-  yield takeEvery(typeReq(paymentActions.PAY_DOKU), paymentSaga.payDoku)
-  yield takeEvery(typeReq(paymentActions.GET_DOKU_INVOICE), paymentSaga.getDokuInvoice)
   yield takeEvery(typeReq(paymentActions.GET_PAYMENT_METHODS), paymentSaga.getPaymentMethods)
   yield takeEvery(typeReq(paymentActions.CONFIRM_TRANSFER), paymentSaga.confirmTransfer)
   yield takeEvery(typeReq(paymentActions.WITHDRAW), paymentSaga.withdraw)
   yield takeEvery(typeReq(paymentActions.GET_MIDTRANS_TOKEN), paymentSaga.getMidtransToken)
+  yield takeEvery(typeReq(paymentActions.GET_MIDTRANS_TOKEN_2), paymentSaga.getMidtransToken2)
 }
 
 const review = function* () {

@@ -169,12 +169,11 @@ const other = {
 }
 
 const payment = {
-  dokuPayment: paymentReducers.payDoku,
-  invoice: paymentReducers.getDokuInvoice,
   paymentMethods: paymentReducers.getPaymentMethods,
   confirmation: paymentReducers.confirmTransfer,
   withdrawal: paymentReducers.withdraw,
-  snapToken: paymentReducers.getMidtransToken
+  snapToken: paymentReducers.getMidtransToken,
+  snapToken2: paymentReducers.getMidtransToken2
 }
 
 const review = {
