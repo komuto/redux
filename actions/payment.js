@@ -27,13 +27,13 @@ export const confirmTransfer = params => buildAction(typeReq(CONFIRM_TRANSFER), 
 export const withdraw = params => buildAction(typeReq(WITHDRAW), params)
 
 /**
- * @params params are the same as the api query
+ * @params token {string} optional
  * @state snapToken
  */
 export const getMidtransToken = params => buildAction(typeReq(GET_MIDTRANS_TOKEN), params)
 
 /**
- * @params params are the same as the api query
+ * @params token {string} optional
  * @state snapToken2
  */
 export const getMidtransToken2 = params => buildAction(typeReq(GET_MIDTRANS_TOKEN_2), params)

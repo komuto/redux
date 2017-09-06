@@ -11,12 +11,12 @@ import {store} from './store'
 // import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
 // import * as cart from './actions/cart'
-// import * as payment from './actions/payment'
+import * as payment from './actions/payment'
 // import * as transaction from './actions/transaction'
-import * as message from './actions/message'
+// import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().sellerDetailMessage, null, 2))
+  console.log(JSON.stringify(store.getState().snapToken, null, 2))
 })
 
 // store.dispatch(user.register({name: 'kucing', phone_number: '081327', email: 'testregister@skyshi.com', gender: 'male', password: 'aku'}))
@@ -238,7 +238,7 @@ store.subscribe(function () {
 // store.dispatch(stores.tempCreateStore({ user: {id_number: '0982390923989', mother_name: 'example'} }))
 // store.dispatch(address.addAddress())
 // store.dispatch(message.getBuyerMessages({ is_archived: true }))
-store.dispatch(message.getSellerDetailMessage({id: 14}))
+// store.dispatch(message.getSellerDetailMessage({id: 14}))
 // store.dispatch(review.getSellerReview())
 // store.dispatch(bank.getBankAccounts())
 // setTimeout(() => {
@@ -252,4 +252,4 @@ store.dispatch(message.getSellerDetailMessage({id: 14}))
 // store.dispatch(product.getDropshipProducts({ limit: 2 }))
 // store.dispatch(product.updateDropshipStatus({ product_ids: [93] }))
 // store.dispatch(message.updateBuyerMessage({ id: 9, messageType: 'conversation' }))
-// store.dispatch(payment.getMidtransToken())
+store.dispatch(payment.getMidtransToken({ token: 'initoken' }))
