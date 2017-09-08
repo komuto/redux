@@ -16,29 +16,33 @@ export function errorHandling (actionType, err) {
       const errorGateway = {
         message: err.response.statusText,
         status: data.status,
-        isOnline: true
+        isOnline: true,
+        isLoading: false
       }
       return put({ type: actionType, ...errorGateway })
     }
   } else if (err.code === 'ECONNABORTED') {
     const errorTimeout = {
       message: 'Timeout reached!',
-      code: 'ETIMEOUT',
-      isOnline: true
+      status: 'ETIMEOUT',
+      isOnline: true,
+      isLoading: false
     }
     return put({ type: actionType, ...errorTimeout })
   } else if (err.code === 'ENOTFOUND' && !err.response) {
     const errorOffline = {
       message: 'Device offline!',
-      code: 'EOFFLINE',
-      isOnline: false
+      status: 'EOFFLINE',
+      isOnline: false,
+      isLoading: false
     }
     return put({ type: actionType, ...errorOffline })
   } else {
     const errorUnknown = {
       message: err.message,
-      code: 'EUNKNOWN',
-      isOnline: true
+      status: 'EUNKNOWN',
+      isOnline: true,
+      isLoading: false
     }
     return put({ type: actionType, ...errorUnknown })
   }
