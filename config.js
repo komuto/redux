@@ -15,7 +15,7 @@ export function errorHandling (actionType, err) {
     } else {
       const errorGateway = {
         message: err.response.statusText,
-        code: err.response.status,
+        status: data.status,
         isOnline: true
       }
       return put({ type: actionType, ...errorGateway })
