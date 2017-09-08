@@ -5,29 +5,36 @@ export const serviceUrl = 'https://private-f0902d-komuto.apiary-mock.com'
 export const apiKomuto = 'https://api.komuto.skyshi.com/4690fa4c3d68f93b/'
 export const storage = localStorage
 
-export function errorHandling (actionType, res) {
-  const errorTimeout = {
-    message: 'Timeout reached!',
-    code: 'ENOENT',
-    isOnline: false
-  }
-
-  const data = res.response
-  if (data !== undefined) {
+export function errorHandling (actionType, err) {
+  console.log(err)
+  if (err.response) {
+    const data = err.response
     if (data.status !== 502) {
-      const {data} = res.response
+      const {data} = err.response
       data.isOnline = true
       return put({ type: actionType, ...data })
     } else {
-      const errorBadRequest = {
-        message: res.response.statusText,
-        code: res.response.status,
+      const errorGateway = {
+        message: err.response.statusText,
+        code: err.response.status,
         isOnline: true
       }
-      return put({ type: actionType, ...errorBadRequest })
+      return put({ type: actionType, ...errorGateway })
     }
-  } else {
+  } else if (err.code === 'ECONNABORTED') {
+    const errorTimeout = {
+      message: 'Timeout reached!',
+      code: 'ETIMEOUT',
+      isOnline: false
+    }
     return put({ type: actionType, ...errorTimeout })
+  } else {
+    const errorUnknown = {
+      message: err.message,
+      code: 'EUNKNOWN',
+      isOnline: true
+    }
+    return put({ type: actionType, ...errorUnknown })
   }
 }
 

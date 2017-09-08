@@ -59,7 +59,7 @@ store.subscribe(function () {
 // }))¢¢¢
 // },4000)
 // store.dispatch(user.sendOTPBank())
-// store.dispatch(product.getProduct({id: 9}))
+// store.dispatch(product.getProduct({id: 9000000}))
 // store.dispatch(product.addToWishlistHome({id: 124}))
 // store.dispatch(product.getDiscussion({id: 4, page: 1, limit: 10}))
 // store.dispatch(product.newDiscussion({id: 4, question: 'Barang sudah habis gan?'}))
@@ -252,5 +252,5 @@ store.subscribe(function () {
 // store.dispatch(product.updateDropshipStatus({ product_ids: [93] }))
 // store.dispatch(message.updateBuyerMessage({ id: 9, messageType: 'conversation' }))
 // store.dispatch(payment.getMidtransToken())
-store.dispatch(product.getDropshipProducts({ limit: 2 }))
+// store.dispatch(product.getDropshipProducts({ limit: 2 }))
 setTimeout(() => store.dispatch(product.getDropshipProductDetail({ id: 93.41 })), 5000)
