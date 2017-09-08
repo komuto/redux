@@ -25,9 +25,16 @@ export function errorHandling (actionType, err) {
     const errorTimeout = {
       message: 'Timeout reached!',
       code: 'ETIMEOUT',
-      isOnline: false
+      isOnline: true
     }
     return put({ type: actionType, ...errorTimeout })
+  } else if (err.code === 'ENOTFOUND' && !err.response) {
+    const errorOffline = {
+      message: 'Device offline!',
+      code: 'EOFFLINE',
+      isOnline: false
+    }
+    return put({ type: actionType, ...errorOffline })
   } else {
     const errorUnknown = {
       message: err.message,
