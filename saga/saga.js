@@ -116,6 +116,7 @@ const product = function * () {
   yield takeEvery(typeReq(productActions.ADD_DROPSHIP_PRODUCTS), productSaga.addDropshipProducts)
   yield takeEvery(typeReq(productActions.GET_DROPSHIP_PRODUCTS), productSaga.getDropshipProducts)
   yield takeEvery(typeReq(productActions.UPDATE_DROPSHIP_STATUS), productSaga.updateDropshipStatus)
+  yield takeEvery(typeReq(productActions.GET_DROPSHIP_PRODUCT_DETAIL), productSaga.getDropshipProductDetail)
 }
 
 const store = function * () {
