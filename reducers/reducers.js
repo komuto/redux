@@ -192,7 +192,8 @@ const transaction = {
   listTransactions: transactionReducers.listTransactions,
   transaction: transactionReducers.getTransaction,
   saldoHistory: transactionReducers.getSaldoHistory,
-  buyerInvoiceDetail: transactionReducers.getBuyerInvoiceDetail
+  buyerInvoiceDetail: transactionReducers.getBuyerInvoiceDetail,
+  transactionReviews: transactionReducers.addTransactionReviews
 }
 
 const komutoApps = storage.reducer(combineReducers({

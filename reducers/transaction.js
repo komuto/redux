@@ -24,3 +24,9 @@ export const getBuyerInvoiceDetail = createReducer(buildInitState({ invoice: {} 
     type: actions.GET_BUYER_INVOICE_DETAIL,
     resultName: 'invoice'
   }).run()
+
+export const addTransactionReviews = createReducer(buildInitState({ reviews: [] }))
+  .addReducer({
+    type: actions.ADD_TRANSACTION_REVIEWS,
+    resultName: 'reviews'
+  }).run()
