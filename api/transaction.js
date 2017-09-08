@@ -19,8 +19,3 @@ export const getBuyerInvoiceDetail = ({ id, invoiceId }) => {
   const axios = authApiKomuto()
   return axios.get(`transactions/${id}/invoices/${invoiceId}`)
 }
-
-export const addTransactionReviews = ({ id, invoiceId, ...data }) => {
-  const axios = authApiKomuto()
-  return axios.post(`transactions/${id}/invoices/${invoiceId}`, data)
-}

@@ -4,8 +4,8 @@ import {store} from './store'
 // import * as brand from './actions/brand'
 // import * as expedition from './actions/expedition'
 // import * as location from './actions/location'
-import * as product from './actions/product'
-// import * as review from './actions/review'
+// import * as product from './actions/product'
+import * as review from './actions/review'
 // import * as stores from './actions/stores'
 // import * as address from './actions/address'
 // import * as bank from './actions/bank'
@@ -16,7 +16,7 @@ import * as product from './actions/product'
 // import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().productDetail, null, 2))
+  console.log(JSON.stringify(store.getState().addReviews, null, 2))
 })
 
 // store.dispatch(user.register({name: 'kucing', phone_number: '081327', email: 'testregister@skyshi.com', gender: 'male', password: 'aku'}))
@@ -32,6 +32,7 @@ store.subscribe(function () {
 // store.dispatch(user.favoriteStore({id: 6}))
 // store.dispatch(user.getPhone())
 // store.dispatch(user.getProfile())
+// store.dispatch(user.updateProfile({ place_of_birth: 3402 }))
 // store.dispatch(user.getProfileManage())
 // store.dispatch(user.getDiscussion())
 // store.dispatch(email.checkEmail({email: 'testregister@skyshi.com'}))
@@ -59,7 +60,7 @@ store.subscribe(function () {
 // }))¢¢¢
 // },4000)
 // store.dispatch(user.sendOTPBank())
-store.dispatch(product.getProduct({id: 9.34}))
+// store.dispatch(product.getProduct({id: 9.34}))
 // store.dispatch(product.addToWishlistHome({id: 124}))
 // store.dispatch(product.getDiscussion({id: 4, page: 1, limit: 10}))
 // store.dispatch(product.newDiscussion({id: 4, question: 'Barang sudah habis gan?'}))
@@ -129,7 +130,7 @@ store.dispatch(product.getProduct({id: 9.34}))
 //   }
 // ]}))
 // store.dispatch(review.listReviews({id: 9, page: 1, limit: 2}))
-// store.dispatch(review.addReview({id: 9, review: 'Obatnya manjur ganteng', quality: 4, accuracy: 5}))
+store.dispatch(review.addReviews({transId: 269, invoiceId: 211, reviews: [{product_id: 96, review: 'Obatnya manjur ganteng', quality: 4, accuracy: 5}]}))
 // store.dispatch(expedition.getServices())
 // store.dispatch(expedition.getShippingCharge({id: 2, weight: 1700, origin_id: 152, destination_id: 10}))
 // store.dispatch(expedition.estimatedShipping({id: 9, weight: 2000, origin_id: 152, destination_id: 108}))

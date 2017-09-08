@@ -231,7 +231,7 @@ const payment = function * () {
 
 const review = function * () {
   yield takeEvery(typeReq(reviewActions.GET_REVIEWS), reviewSaga.getReviews)
-  yield takeEvery(typeReq(reviewActions.ADD_REVIEW), reviewSaga.addReview)
+  yield takeEvery(typeReq(reviewActions.ADD_REVIEWS), reviewSaga.addReviews)
   yield takeEvery(typeReq(reviewActions.GET_BUYER_REVIEW), reviewSaga.getBuyerReview)
   yield takeEvery(typeReq(reviewActions.GET_SELLER_REVIEW), reviewSaga.getSellerReview)
 }
@@ -241,7 +241,6 @@ const transaction = function * () {
   yield takeEvery(typeReq(transactionActions.GET_TRANSACTION), transactionSaga.getTransaction)
   yield takeEvery(typeReq(transactionActions.GET_SALDO_HISTORY), transactionSaga.getSaldoHistory)
   yield takeEvery(typeReq(transactionActions.GET_BUYER_INVOICE_DETAIL), transactionSaga.getBuyerInvoiceDetail)
-  yield takeEvery(typeReq(transactionActions.ADD_TRANSACTION_REVIEWS), transactionSaga.addTransactionReviews)
 }
 
 export default dataSaga

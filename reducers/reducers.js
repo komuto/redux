@@ -183,7 +183,7 @@ const payment = {
 
 const review = {
   productReview: reviewReducers.getReviews,
-  addReview: reviewReducers.addReview,
+  addReviews: reviewReducers.addReviews,
   buyerReview: reviewReducers.getBuyerReview,
   sellerReview: reviewReducers.getSellerReview
 }
@@ -192,8 +192,7 @@ const transaction = {
   listTransactions: transactionReducers.listTransactions,
   transaction: transactionReducers.getTransaction,
   saldoHistory: transactionReducers.getSaldoHistory,
-  buyerInvoiceDetail: transactionReducers.getBuyerInvoiceDetail,
-  transactionReviews: transactionReducers.addTransactionReviews
+  buyerInvoiceDetail: transactionReducers.getBuyerInvoiceDetail
 }
 
 const komutoApps = storage.reducer(combineReducers({
