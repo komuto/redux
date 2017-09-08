@@ -16,7 +16,7 @@ import * as review from './actions/review'
 // import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().addReviews, null, 2))
+  console.log(JSON.stringify(store.getState().snapToken, null, 2))
 })
 
 // store.dispatch(user.register({name: 'kucing', phone_number: '081327', email: 'testregister@skyshi.com', gender: 'male', password: 'aku'}))
