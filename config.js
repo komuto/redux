@@ -6,7 +6,6 @@ export const apiKomuto = 'https://api.komuto.skyshi.com/4690fa4c3d68f93b/'
 export const storage = localStorage
 
 export function errorHandling (actionType, err) {
-  console.log(err)
   if (err.response) {
     const data = err.response
     if (data.status !== 502) {
