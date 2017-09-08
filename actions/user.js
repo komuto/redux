@@ -196,12 +196,12 @@ export const getResolutionDetail = params => buildAction(typeReq(GET_RESOLUTION_
 
 /**
  * @params params are the same as the api
- * @state resolution
+ * @state createResolution
  */
 export const createResolution = params => buildAction(typeReq(CREATE_RESOLUTION), params)
 
 /**
  * @params id {int} resolution id
- * @state resolution
+ * @state replyResolution
  */
 export const replyResolution = params => buildAction(typeReq(REPLY_RESOLUTION), params)
