@@ -44,7 +44,8 @@ const user = {
   unresolvedResolutions: userReducers.getUnresolvedResolutions,
   resolutionDetail: userReducers.getResolutionDetail,
   createResolution: userReducers.createResolution,
-  replyResolution: userReducers.replyResolution
+  replyResolution: userReducers.replyResolution,
+  saldoToken: userReducers.getSaldoToken
 }
 
 const home = {
