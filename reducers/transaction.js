@@ -24,3 +24,9 @@ export const getBuyerInvoiceDetail = createReducer(buildInitState({ invoice: {} 
     type: actions.GET_BUYER_INVOICE_DETAIL,
     resultName: 'invoice'
   }).run()
+
+export const addComplaint = createReducer(buildInitState({ complaint: {} }))
+  .addReducer({
+    type: actions.ADD_COMPLAINT,
+    resultName: 'complaint'
+  }).run()

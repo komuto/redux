@@ -7,3 +7,4 @@ export const getTransaction = buildSaga(apis.getTransaction, actions.GET_TRANSAC
   getState({ from: (state) => state.listTransactions.listTransactions, match: ['bucket', 'id'] }))
 export const getSaldoHistory = buildSaga(apis.getSaldoHistory, actions.GET_SALDO_HISTORY)
 export const getBuyerInvoiceDetail = buildSaga(apis.getBuyerInvoiceDetail, actions.GET_BUYER_INVOICE_DETAIL)
+export const addComplaint = buildSaga(apis.addComplaint, actions.ADD_COMPLAINT)
