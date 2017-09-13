@@ -148,9 +148,4 @@ export const replyResolution = ({ id, ...data }) => {
   return axios.post(`users/resolutions/${id}`, data)
 }
 
-export const getSaldoToken = ({ id }) => {
-  const axios = authApiKomuto()
-  return axios.get(`saldo/nominal/${id}/token`)
-}
-
 export const logout = () => ({ message: 'LOGOUT SUCCESS', code: 0 })

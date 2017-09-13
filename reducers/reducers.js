@@ -16,6 +16,7 @@ import * as paymentReducers from './payment'
 import * as transactionReducers from './transaction'
 import * as messageReducers from './message'
 import * as otherReducers from './other'
+import * as saldoReducers from './saldo'
 
 const user = {
   user: userReducers.auth,
@@ -44,8 +45,7 @@ const user = {
   unresolvedResolutions: userReducers.getUnresolvedResolutions,
   resolutionDetail: userReducers.getResolutionDetail,
   createResolution: userReducers.createResolution,
-  replyResolution: userReducers.replyResolution,
-  saldoToken: userReducers.getSaldoToken
+  replyResolution: userReducers.replyResolution
 }
 
 const home = {
@@ -177,7 +177,6 @@ const other = {
 const payment = {
   paymentMethods: paymentReducers.getPaymentMethods,
   confirmation: paymentReducers.confirmTransfer,
-  withdrawal: paymentReducers.withdraw,
   snapToken: paymentReducers.getMidtransToken,
   snapToken2: paymentReducers.getMidtransToken2
 }
@@ -189,10 +188,16 @@ const review = {
   sellerReview: reviewReducers.getSellerReview
 }
 
+const saldo = {
+  saldoHistory: saldoReducers.getSaldoHistory,
+  withdrawal: saldoReducers.withdraw,
+  saldoToken: saldoReducers.getSaldoToken,
+  nominals: saldoReducers.getNominals
+}
+
 const transaction = {
   listTransactions: transactionReducers.listTransactions,
   transaction: transactionReducers.getTransaction,
-  saldoHistory: transactionReducers.getSaldoHistory,
   buyerInvoiceDetail: transactionReducers.getBuyerInvoiceDetail,
   addComplaint: transactionReducers.addComplaint
 }
@@ -213,7 +218,8 @@ const komutoApps = storage.reducer(combineReducers({
   ...payment,
   ...transaction,
   ...message,
-  ...other
+  ...other,
+  ...saldo
 }))
 
 export default komutoApps

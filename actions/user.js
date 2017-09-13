@@ -31,7 +31,6 @@ export const GET_UNRESOLVED_RESOLUTIONS = 'GET_UNRESOLVED_RESOLUTIONS'
 export const GET_RESOLUTION_DETAIL = 'GET_RESOLUTION_DETAIL'
 export const CREATE_RESOLUTION = 'CREATE_RESOLUTION'
 export const REPLY_RESOLUTION = 'REPLY_RESOLUTION'
-export const GET_SALDO_TOKEN = 'GET_SALDO_TOKEN'
 
 /**
  * @param params are the same as the api
@@ -206,9 +205,3 @@ export const createResolution = params => buildAction(typeReq(CREATE_RESOLUTION)
  * @state replyResolution
  */
 export const replyResolution = params => buildAction(typeReq(REPLY_RESOLUTION), params)
-
-/**
- * @param id {int} nominal id
- * @state saldoToken
- */
-export const getSaldoToken = params => buildAction(typeReq(GET_SALDO_TOKEN), params)

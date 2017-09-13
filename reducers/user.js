@@ -214,9 +214,3 @@ export const replyResolution = createReducer(buildInitState({ resolution: {} }))
     type: actions.REPLY_RESOLUTION,
     resultName: 'resolution'
   }).run()
-
-export const getSaldoToken = createReducer(buildInitState())
-  .addReducer({
-    type: actions.GET_SALDO_TOKEN,
-    customSuccState: (state, action) => ({ ...succState(action), token: action.data.token })
-  }).run()
