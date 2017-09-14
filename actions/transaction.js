@@ -6,6 +6,7 @@ export const GET_BUYER_INVOICE_DETAIL = 'GET_BUYER_INVOICE_DETAIL'
 export const ADD_COMPLAINT = 'ADD_COMPLAINT'
 export const GET_NEW_ORDERS = 'GET_NEW_ORDERS'
 export const GET_NEW_ORDER_DETAIL = 'GET_NEW_ORDER_DETAIL'
+export const GET_PROCESSING_ORDERS = 'GET_PROCESSING_ORDERS'
 
 /**
  * @state listTransactions
@@ -43,3 +44,8 @@ export const getNewOrders = () => buildAction(typeReq(GET_NEW_ORDERS))
  * @state newOrderDetail
  */
 export const getNewOrderDetail = params => buildAction(typeReq(GET_NEW_ORDER_DETAIL), params)
+
+/**
+ * @state processingOrders
+ */
+export const getProcessingOrders = () => buildAction(typeReq(GET_PROCESSING_ORDERS))

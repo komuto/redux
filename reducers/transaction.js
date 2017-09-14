@@ -36,3 +36,9 @@ export const getNewOrderDetail = createReducer(buildInitState({ orderDetail: {} 
     type: actions.GET_NEW_ORDER_DETAIL,
     resultName: 'orderDetail'
   }).run()
+
+export const getProcessingOrders = createReducer(buildInitState({ orders: [] }))
+  .addReducer({
+    type: actions.GET_PROCESSING_ORDERS,
+    resultName: 'orders'
+  }).run()
