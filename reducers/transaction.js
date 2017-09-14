@@ -55,4 +55,7 @@ export const updateStatus = createReducer(buildInitState())
   })
   .addReducer({
     type: actions.REJECT_ORDER
+  })
+  .addReducer({
+    type: actions.INPUT_AIRWAY_BILL
   }).run()

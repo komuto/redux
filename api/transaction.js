@@ -49,3 +49,8 @@ export const rejectOrder = ({ id }) => {
   const axios = authApiKomuto()
   return axios.put(`invoices/${id}/reject`, {})
 }
+
+export const inputAirwayBill = ({ id, ...data }) => {
+  const axios = authApiKomuto()
+  return axios.put(`invoices/${id}/airway-bill`, data)
+}

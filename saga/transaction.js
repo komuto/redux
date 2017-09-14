@@ -13,3 +13,4 @@ export const getProcessingOrders = buildSaga(apis.getProcessingOrders, actions.G
 export const getProcessingOrderDetail = buildSaga(apis.getProcessingOrderDetail, actions.GET_PROCESSING_ORDER_DETAIL)
 export const acceptOrder = buildSaga(apis.acceptOrder, actions.ACCEPT_ORDER)
 export const rejectOrder = buildSaga(apis.rejectOrder, actions.REJECT_ORDER)
+export const inputAirwayBill = buildSaga(apis.inputAirwayBill, actions.INPUT_AIRWAY_BILL)
