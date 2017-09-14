@@ -13,6 +13,8 @@ export const REJECT_ORDER = 'REJECT_ORDER'
 export const INPUT_AIRWAY_BILL = 'INPUT_AIRWAY_BILL'
 export const GET_COMPLAINED_ORDERS_BUYER = 'GET_COMPLAINED_ORDERS_BUYER'
 export const GET_COMPLAINED_ORDERS_SELLER = 'GET_COMPLAINED_ORDERS_SELLER'
+export const GET_COMPLAINED_ORDER_DETAIL_BUYER = 'GET_COMPLAINED_ORDER_DETAIL_BUYER'
+export const GET_COMPLAINED_ORDER_DETAIL_SELLER = 'GET_COMPLAINED_ORDER_DETAIL_SELLER'
 
 /**
  * @state listTransactions
@@ -92,3 +94,15 @@ export const getComplainedOrdersBuyer = params => buildAction(typeReq(GET_COMPLA
  * @state sellerComplainedOrders
  */
 export const getComplainedOrdersSeller = params => buildAction(typeReq(GET_COMPLAINED_ORDERS_SELLER), params)
+
+/**
+ * @params id {int} dispute id
+ * @state buyerComplainedOrderDetail
+ */
+export const getComplainedOrderDetailBuyer = params => buildAction(typeReq(GET_COMPLAINED_ORDER_DETAIL_BUYER), params)
+
+/**
+ * @params id {int} dispute id
+ * @state sellerComplainedOrderDetail
+ */
+export const getComplainedOrderDetailSeller = params => buildAction(typeReq(GET_COMPLAINED_ORDER_DETAIL_SELLER), params)

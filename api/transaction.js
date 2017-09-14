@@ -67,3 +67,13 @@ export const getComplainedOrdersSeller = (data) => {
   const query = buildQuery(data)
   return axios.get(`users/store/disputes?${query}`)
 }
+
+export const getComplainedOrderDetailBuyer = ({ id }) => {
+  const axios = authApiKomuto()
+  return axios.get(`users/disputes/${id}`)
+}
+
+export const getComplainedOrderDetailSeller = ({ id }) => {
+  const axios = authApiKomuto()
+  return axios.get(`users/store/disputes/${id}`)
+}

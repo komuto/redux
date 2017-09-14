@@ -71,3 +71,15 @@ export const getComplainedOrdersSeller = createReducer(buildInitState({ orders: 
     type: actions.GET_COMPLAINED_ORDERS_SELLER,
     resultName: 'orders'
   }).run()
+
+export const getComplainedOrderDetailBuyer = createReducer(buildInitState({ orderDetail: {} }))
+  .addReducer({
+    type: actions.GET_COMPLAINED_ORDER_DETAIL_BUYER,
+    resultName: 'orderDetail'
+  }).run()
+
+export const getComplainedOrderDetailSeller = createReducer(buildInitState({ orderDetail: {} }))
+  .addReducer({
+    type: actions.GET_COMPLAINED_ORDER_DETAIL_SELLER,
+    resultName: 'orderDetail'
+  }).run()

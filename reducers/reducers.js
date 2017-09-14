@@ -207,7 +207,9 @@ const transaction = {
   processingOrderDetail: transactionReducers.getProcessingOrderDetail,
   updateStatus: transactionReducers.updateStatus,
   buyerComplainedOrders: transactionReducers.getComplainedOrdersBuyer,
-  sellerComplainedOrders: transactionReducers.getComplainedOrdersSeller
+  sellerComplainedOrders: transactionReducers.getComplainedOrdersSeller,
+  buyerComplainedOrderDetail: transactionReducers.getComplainedOrderDetailBuyer,
+  sellerComplainedOrderDetail: transactionReducers.getComplainedOrderDetailSeller
 }
 
 const komutoApps = storage.reducer(combineReducers({
