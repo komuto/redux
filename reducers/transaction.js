@@ -48,3 +48,11 @@ export const getProcessingOrderDetail = createReducer(buildInitState({ orderDeta
     type: actions.GET_PROCESSING_ORDER_DETAIL,
     resultName: 'orderDetail'
   }).run()
+
+export const updateStatus = createReducer(buildInitState())
+  .addReducer({
+    type: actions.ACCEPT_ORDER
+  })
+  .addReducer({
+    type: actions.REJECT_ORDER
+  }).run()

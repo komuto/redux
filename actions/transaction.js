@@ -8,6 +8,8 @@ export const GET_NEW_ORDERS = 'GET_NEW_ORDERS'
 export const GET_NEW_ORDER_DETAIL = 'GET_NEW_ORDER_DETAIL'
 export const GET_PROCESSING_ORDERS = 'GET_PROCESSING_ORDERS'
 export const GET_PROCESSING_ORDER_DETAIL = 'GET_PROCESSING_ORDER_DETAIL'
+export const ACCEPT_ORDER = 'ACCEPT_ORDER'
+export const REJECT_ORDER = 'REJECT_ORDER'
 
 /**
  * @state listTransactions
@@ -56,3 +58,15 @@ export const getProcessingOrders = () => buildAction(typeReq(GET_PROCESSING_ORDE
  * @state processingOrderDetail
  */
 export const getProcessingOrderDetail = params => buildAction(typeReq(GET_PROCESSING_ORDER_DETAIL), params)
+
+/**
+ * @params id {int} invoice id
+ * @state updateStatus
+ */
+export const acceptOrder = params => buildAction(typeReq(ACCEPT_ORDER), params)
+
+/**
+ * @params id {int} invoice id
+ * @state updateStatus
+ */
+export const rejectOrder = params => buildAction(typeReq(REJECT_ORDER), params)
