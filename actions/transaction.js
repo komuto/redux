@@ -5,6 +5,7 @@ export const GET_TRANSACTION = 'GET_TRANSACTION'
 export const GET_BUYER_INVOICE_DETAIL = 'GET_BUYER_INVOICE_DETAIL'
 export const ADD_COMPLAINT = 'ADD_COMPLAINT'
 export const GET_NEW_ORDERS = 'GET_NEW_ORDERS'
+export const GET_NEW_ORDER_DETAIL = 'GET_NEW_ORDER_DETAIL'
 
 /**
  * @state listTransactions
@@ -36,3 +37,9 @@ export const addComplaint = params => buildAction(typeReq(ADD_COMPLAINT), params
  * @state newOrders
  */
 export const getNewOrders = () => buildAction(typeReq(GET_NEW_ORDERS))
+
+/**
+ * @params id {int} invoice id
+ * @state newOrderDetail
+ */
+export const getNewOrderDetail = params => buildAction(typeReq(GET_NEW_ORDER_DETAIL), params)

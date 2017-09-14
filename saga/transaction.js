@@ -8,3 +8,4 @@ export const getTransaction = buildSaga(apis.getTransaction, actions.GET_TRANSAC
 export const getBuyerInvoiceDetail = buildSaga(apis.getBuyerInvoiceDetail, actions.GET_BUYER_INVOICE_DETAIL)
 export const addComplaint = buildSaga(apis.addComplaint, actions.ADD_COMPLAINT)
 export const getNewOrders = buildSaga(apis.getNewOrders, actions.GET_NEW_ORDERS)
+export const getNewOrderDetail = buildSaga(apis.getNewOrderDetail, actions.GET_NEW_ORDER_DETAIL)
