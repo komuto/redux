@@ -19,3 +19,8 @@ export const addComplaint = ({ id, invoiceId, ...data }) => {
   const axios = authApiKomuto()
   return axios.post(`transactions/${id}/invoices/${invoiceId}/dispute`, data)
 }
+
+export const getNewOrders = () => {
+  const axios = authApiKomuto()
+  return axios.get('new-orders')
+}

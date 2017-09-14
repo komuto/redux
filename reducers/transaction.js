@@ -24,3 +24,9 @@ export const addComplaint = createReducer(buildInitState({ complaint: {} }))
     type: actions.ADD_COMPLAINT,
     resultName: 'complaint'
   }).run()
+
+export const getNewOrders = createReducer(buildInitState({ orders: [] }))
+  .addReducer({
+    type: actions.GET_NEW_ORDERS,
+    resultName: 'orders'
+  }).run()
