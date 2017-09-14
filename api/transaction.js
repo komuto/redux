@@ -34,3 +34,8 @@ export const getProcessingOrders = () => {
   const axios = authApiKomuto()
   return axios.get('processing-orders')
 }
+
+export const getProcessingOrderDetail = ({ id }) => {
+  const axios = authApiKomuto()
+  return axios.get(`invoices/${id}/processing-order-detail`)
+}
