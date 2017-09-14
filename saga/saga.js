@@ -260,6 +260,8 @@ const transaction = function * () {
   yield takeEvery(typeReq(transactionActions.ACCEPT_ORDER), transactionSaga.acceptOrder)
   yield takeEvery(typeReq(transactionActions.REJECT_ORDER), transactionSaga.rejectOrder)
   yield takeEvery(typeReq(transactionActions.INPUT_AIRWAY_BILL), transactionSaga.inputAirwayBill)
+  yield takeEvery(typeReq(transactionActions.GET_COMPLAINED_ORDERS_BUYER), transactionSaga.getComplainedOrdersBuyer)
+  yield takeEvery(typeReq(transactionActions.GET_COMPLAINED_ORDERS_SELLER), transactionSaga.getComplainedOrdersSeller)
 }
 
 export default dataSaga

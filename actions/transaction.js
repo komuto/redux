@@ -11,6 +11,8 @@ export const GET_PROCESSING_ORDER_DETAIL = 'GET_PROCESSING_ORDER_DETAIL'
 export const ACCEPT_ORDER = 'ACCEPT_ORDER'
 export const REJECT_ORDER = 'REJECT_ORDER'
 export const INPUT_AIRWAY_BILL = 'INPUT_AIRWAY_BILL'
+export const GET_COMPLAINED_ORDERS_BUYER = 'GET_COMPLAINED_ORDERS_BUYER'
+export const GET_COMPLAINED_ORDERS_SELLER = 'GET_COMPLAINED_ORDERS_SELLER'
 
 /**
  * @state listTransactions
@@ -78,3 +80,15 @@ export const rejectOrder = params => buildAction(typeReq(REJECT_ORDER), params)
  * @state updateStatus
  */
 export const inputAirwayBill = params => buildAction(typeReq(INPUT_AIRWAY_BILL), params)
+
+/**
+ * @params params are the same as the api query
+ * @state buyerComplainedOrders
+ */
+export const getComplainedOrdersBuyer = params => buildAction(typeReq(GET_COMPLAINED_ORDERS_BUYER), params)
+
+/**
+ * @params params are the same as the api
+ * @state sellerComplainedOrders
+ */
+export const getComplainedOrdersSeller = params => buildAction(typeReq(GET_COMPLAINED_ORDERS_SELLER), params)

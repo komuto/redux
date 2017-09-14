@@ -1,4 +1,5 @@
 import { authApiKomuto } from './api'
+import { buildQuery } from '../config'
 
 export const listTransactions = () => {
   const axios = authApiKomuto()
@@ -53,4 +54,16 @@ export const rejectOrder = ({ id }) => {
 export const inputAirwayBill = ({ id, ...data }) => {
   const axios = authApiKomuto()
   return axios.put(`invoices/${id}/airway-bill`, data)
+}
+
+export const getComplainedOrdersBuyer = (data) => {
+  const axios = authApiKomuto()
+  const query = buildQuery(data)
+  return axios.get(`users/disputes?${query}`)
+}
+
+export const getComplainedOrdersSeller = (data) => {
+  const axios = authApiKomuto()
+  const query = buildQuery(data)
+  return axios.get(`users/store/disputes?${query}`)
 }

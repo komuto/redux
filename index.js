@@ -5,18 +5,18 @@ import {store} from './store'
 // import * as expedition from './actions/expedition'
 // import * as location from './actions/location'
 // import * as product from './actions/product'
-import * as review from './actions/review'
+// import * as review from './actions/review'
 // import * as stores from './actions/stores'
 // import * as address from './actions/address'
 // import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
 // import * as cart from './actions/cart'
 // import * as payment from './actions/payment'
-// import * as transaction from './actions/transaction'
+import * as transaction from './actions/transaction'
 // import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().snapToken, null, 2))
+  console.log(JSON.stringify(store.getState().buyerComplainedOrders, null, 2))
 })
 
 // store.dispatch(user.register({name: 'kucing', phone_number: '081327', email: 'testregister@skyshi.com', gender: 'male', password: 'aku'}))
@@ -130,7 +130,7 @@ store.subscribe(function () {
 //   }
 // ]}))
 // store.dispatch(review.listReviews({id: 9, page: 1, limit: 2}))
-store.dispatch(review.addReviews({transId: 269, invoiceId: 211, reviews: [{product_id: 96, review: 'Obatnya manjur ganteng', quality: 4, accuracy: 5}]}))
+// store.dispatch(review.addReviews({transId: 269, invoiceId: 211, reviews: [{product_id: 96, review: 'Obatnya manjur ganteng', quality: 4, accuracy: 5}]}))
 // store.dispatch(expedition.getServices())
 // store.dispatch(expedition.getShippingCharge({id: 2, weight: 1700, origin_id: 152, destination_id: 10}))
 // store.dispatch(expedition.estimatedShipping({id: 9, weight: 2000, origin_id: 152, destination_id: 108}))
@@ -255,3 +255,4 @@ store.dispatch(review.addReviews({transId: 269, invoiceId: 211, reviews: [{produ
 // store.dispatch(payment.getMidtransToken())
 // store.dispatch(product.getDropshipProducts({ limit: 2 }))
 // setTimeout(() => store.dispatch(product.getDropshipProductDetail({ id: 93.41 })), 5000)
+store.dispatch(transaction.getComplainedOrdersBuyer({is_resolved: true}))
