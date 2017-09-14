@@ -15,6 +15,8 @@ export const GET_COMPLAINED_ORDERS_BUYER = 'GET_COMPLAINED_ORDERS_BUYER'
 export const GET_COMPLAINED_ORDERS_SELLER = 'GET_COMPLAINED_ORDERS_SELLER'
 export const GET_COMPLAINED_ORDER_DETAIL_BUYER = 'GET_COMPLAINED_ORDER_DETAIL_BUYER'
 export const GET_COMPLAINED_ORDER_DETAIL_SELLER = 'GET_COMPLAINED_ORDER_DETAIL_SELLER'
+export const CREATE_COMPLAINT_DISCUSSION_BUYER = 'CREATE_COMPLAINT_DISCUSSION_BUYER'
+export const CREATE_COMPLAINT_DISCUSSION_SELLER = 'CREATE_COMPLAINT_DISCUSSION_SELLER'
 
 /**
  * @state listTransactions
@@ -106,3 +108,17 @@ export const getComplainedOrderDetailBuyer = params => buildAction(typeReq(GET_C
  * @state sellerComplainedOrderDetail
  */
 export const getComplainedOrderDetailSeller = params => buildAction(typeReq(GET_COMPLAINED_ORDER_DETAIL_SELLER), params)
+
+/**
+ * @params id {int} dispute id
+ * @params params are the same as the api
+ * @state buyerComplaintDiscussion
+ */
+export const createComplaintDiscussionBuyer = params => buildAction(typeReq(CREATE_COMPLAINT_DISCUSSION_BUYER), params)
+
+/**
+ * @params id {int} dispute id
+ * @params params are the same as the api
+ * @state sellerComplaintDiscussion
+ */
+export const createComplaintDiscussionSeller = params => buildAction(typeReq(CREATE_COMPLAINT_DISCUSSION_SELLER), params)

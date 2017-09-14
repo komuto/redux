@@ -18,3 +18,5 @@ export const getComplainedOrdersBuyer = buildSaga(apis.getComplainedOrdersBuyer,
 export const getComplainedOrdersSeller = buildSaga(apis.getComplainedOrdersSeller, actions.GET_COMPLAINED_ORDERS_SELLER)
 export const getComplainedOrderDetailBuyer = buildSaga(apis.getComplainedOrderDetailBuyer, actions.GET_COMPLAINED_ORDER_DETAIL_BUYER)
 export const getComplainedOrderDetailSeller = buildSaga(apis.getComplainedOrderDetailSeller, actions.GET_COMPLAINED_ORDER_DETAIL_SELLER)
+export const createComplaintDiscussionBuyer = buildSaga(apis.createComplaintDiscussionBuyer, actions.CREATE_COMPLAINT_DISCUSSION_BUYER)
+export const createComplaintDiscussionSeller = buildSaga(apis.createComplaintDiscussionSeller, actions.CREATE_COMPLAINT_DISCUSSION_SELLER)

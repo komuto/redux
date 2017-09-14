@@ -77,3 +77,13 @@ export const getComplainedOrderDetailSeller = ({ id }) => {
   const axios = authApiKomuto()
   return axios.get(`users/store/disputes/${id}`)
 }
+
+export const createComplaintDiscussionBuyer = ({ id, ...data }) => {
+  const axios = authApiKomuto()
+  return axios.post(`users/disputes/${id}/discussions`, data)
+}
+
+export const createComplaintDiscussionSeller = ({ id, ...data }) => {
+  const axios = authApiKomuto()
+  return axios.post(`users/store/disputes/${id}/discussions`, data)
+}
