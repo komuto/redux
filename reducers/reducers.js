@@ -167,7 +167,8 @@ const message = {
   archiveSellerMessages: messageReducers.getArchiveSellerMessages,
   updateMessage: messageReducers.updateMessage,
   replyMessage: messageReducers.replyMessage,
-  deleteMessage: messageReducers.deleteMessage
+  deleteMessage: messageReducers.deleteMessage,
+  transactionMessage: messageReducers.transactionMessage
 }
 
 const other = {
