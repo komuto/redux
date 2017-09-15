@@ -15,7 +15,7 @@ export function errorHandling (actionType, err) {
     } else {
       const errorGateway = {
         message: err.response.statusText,
-        status: data.status,
+        code: data.status,
         isOnline: true,
         isLoading: false
       }
@@ -24,7 +24,7 @@ export function errorHandling (actionType, err) {
   } else if (err.code === 'ECONNABORTED') {
     const errorTimeout = {
       message: 'Timeout reached!',
-      status: 'ETIMEOUT',
+      code: 'ETIMEOUT',
       isOnline: true,
       isLoading: false
     }
@@ -32,7 +32,7 @@ export function errorHandling (actionType, err) {
   } else if (err.code === 'ENOTFOUND' && !err.response) {
     const errorOffline = {
       message: 'Device offline!',
-      status: 'EOFFLINE',
+      code: 'EOFFLINE',
       isOnline: false,
       isLoading: false
     }
@@ -40,7 +40,7 @@ export function errorHandling (actionType, err) {
   } else {
     const errorUnknown = {
       message: err.message,
-      status: 'EUNKNOWN',
+      code: 'EUNKNOWN',
       isOnline: true,
       isLoading: false
     }

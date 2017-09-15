@@ -4,19 +4,19 @@ import {store} from './store'
 // import * as brand from './actions/brand'
 // import * as expedition from './actions/expedition'
 // import * as location from './actions/location'
-// import * as product from './actions/product'
+import * as product from './actions/product'
 // import * as review from './actions/review'
-// import * as stores from './actions/stores'
+import * as stores from './actions/stores'
 // import * as address from './actions/address'
 // import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
 // import * as cart from './actions/cart'
 // import * as payment from './actions/payment'
-import * as transaction from './actions/transaction'
+// import * as transaction from './actions/transaction'
 // import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().buyerComplainedOrders, null, 2))
+  console.log(JSON.stringify(store.getState().productDetail, null, 2))
 })
 
 // store.dispatch(user.register({name: 'kucing', phone_number: '081327', email: 'testregister@skyshi.com', gender: 'male', password: 'aku'}))
@@ -254,5 +254,8 @@ store.subscribe(function () {
 // store.dispatch(message.updateBuyerMessage({ id: 9, messageType: 'conversation' }))
 // store.dispatch(payment.getMidtransToken())
 // store.dispatch(product.getDropshipProducts({ limit: 2 }))
-// setTimeout(() => store.dispatch(product.getDropshipProductDetail({ id: 93.41 })), 5000)
-store.dispatch(transaction.getComplainedOrdersBuyer({is_resolved: true}))
+// setTimeout(() => store.dispatch(product.getDropshipProductForAdd({ id: 93.41 })), 5000)
+// store.dispatch(transaction.getComplainedOrdersBuyer({is_resolved: true}))
+// store.dispatch(product.updateProduct({ id: 213, stock: 40 }))
+store.dispatch(stores.getStoreProducts())
+setTimeout(() => store.dispatch(product.getDropshipProductForManage({ id: 121 })), 6000)
