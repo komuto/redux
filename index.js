@@ -4,11 +4,11 @@ import {store} from './store'
 // import * as brand from './actions/brand'
 // import * as expedition from './actions/expedition'
 // import * as location from './actions/location'
-import * as product from './actions/product'
+// import * as product from './actions/product'
 // import * as review from './actions/review'
-import * as stores from './actions/stores'
+// import * as stores from './actions/stores'
 // import * as address from './actions/address'
-// import * as bank from './actions/bank'
+import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
 // import * as cart from './actions/cart'
 // import * as payment from './actions/payment'
@@ -16,7 +16,7 @@ import * as stores from './actions/stores'
 // import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().productDetail, null, 2))
+  console.log(JSON.stringify(store.getState().bankAccount, null, 2))
 })
 
 // store.dispatch(user.register({name: 'kucing', phone_number: '081327', email: 'testregister@skyshi.com', gender: 'male', password: 'aku'}))
@@ -60,7 +60,7 @@ store.subscribe(function () {
 // }))¢¢¢
 // },4000)
 // store.dispatch(user.sendOTPBank())
-// store.dispatch(product.getProduct({id: 9.34}))
+// store.dispatch(product.getProduct({id: 93.41 }))
 // store.dispatch(product.addToWishlistHome({id: 124}))
 // store.dispatch(product.getDiscussion({id: 4, page: 1, limit: 10}))
 // store.dispatch(product.newDiscussion({id: 4, question: 'Barang sudah habis gan?'}))
@@ -166,7 +166,7 @@ store.subscribe(function () {
 // store.dispatch(catalog.getCatalog({id: 33}))
 // store.dispatch(catalog.getListCatalog())
 // store.dispatch(catalog.updateCatalog({id: 33, name: 'Batik kumur kumur'}))
-// store.dispatch(catalog.deleteCatalog({id: 78}))
+// store.dispatch(catalog.deleteCatalog({id: 182}))
 // store.dispatch(user.listFavorite({ page: 1, limit: 5 }))
 // store.dispatch(user.sendOTPPhone())
 // store.dispatch(user.verifyPhone({code: '87325'}))
@@ -204,7 +204,7 @@ store.subscribe(function () {
 // store.dispatch(product.changeCatalogProducts({ catalog_id: 33, product_ids: [ 30, 40 ] }))
 // store.dispatch(expedition.getStoreExpeditions())
 // store.dispatch(bank.updateBankAccount({ id: 15, code: '10373', master_bank_id: 2, holder_name: 'aep', holder_account_number: '43254362541', bank_branch_office_name: 'iap' }))
-// store.dispatch(bank.deleteBankAccount({ id: 31, code: '10373' }))
+store.dispatch(bank.deleteBankAccount({ id: 71, code: '42343' }))
 // store.dispatch(stores.getStoreCatalogProducts({ id: 33, hidden: true }))
 // store.dispatch(payment.getPaymentMethods())
 // store.dispatch(payment.choosePaymentMethods({ id: 259, payment_method_id: 1 }))
@@ -257,5 +257,5 @@ store.subscribe(function () {
 // setTimeout(() => store.dispatch(product.getDropshipProductForAdd({ id: 93.41 })), 5000)
 // store.dispatch(transaction.getComplainedOrdersBuyer({is_resolved: true}))
 // store.dispatch(product.updateProduct({ id: 213, stock: 40 }))
-store.dispatch(stores.getStoreProducts())
-setTimeout(() => store.dispatch(product.getDropshipProductForManage({ id: 121 })), 6000)
+// store.dispatch(stores.getStoreProducts())
+// setTimeout(() => store.dispatch(product.getDropshipProductForManage({ id: 121 })), 10000)

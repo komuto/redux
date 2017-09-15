@@ -6,45 +6,46 @@ export const apiKomuto = 'https://api.komuto.skyshi.com/4690fa4c3d68f93b/'
 export const storage = localStorage
 
 export function errorHandling (actionType, err) {
-  if (err.response) {
-    const data = err.response
-    if (data.status !== 502) {
-      const {data} = err.response
+  const { problem, status } = err
+  console.log(err.data.data)
+  switch (problem) {
+    case 'CLIENT_ERROR':
+      const { data } = err
       data.isOnline = true
       return put({ type: actionType, ...data })
-    } else {
-      const errorGateway = {
-        message: err.response.statusText,
-        code: data.status,
+    case 'SERVER_ERROR':
+      const errorServer = {
+        message: 'Server error!',
+        code: status,
         isOnline: true,
         isLoading: false
       }
-      return put({ type: actionType, ...errorGateway })
-    }
-  } else if (err.code === 'ECONNABORTED') {
-    const errorTimeout = {
-      message: 'Timeout reached!',
-      code: 'ETIMEOUT',
-      isOnline: true,
-      isLoading: false
-    }
-    return put({ type: actionType, ...errorTimeout })
-  } else if (err.code === 'ENOTFOUND' && !err.response) {
-    const errorOffline = {
-      message: 'Device offline!',
-      code: 'EOFFLINE',
-      isOnline: false,
-      isLoading: false
-    }
-    return put({ type: actionType, ...errorOffline })
-  } else {
-    const errorUnknown = {
-      message: err.message,
-      code: 'EUNKNOWN',
-      isOnline: true,
-      isLoading: false
-    }
-    return put({ type: actionType, ...errorUnknown })
+      return put({ type: actionType, ...errorServer })
+    case 'TIMEOUT_ERROR':
+      const errorTimeout = {
+        message: 'Timeout reached!',
+        code: 'ETIMEOUT',
+        isOnline: true,
+        isLoading: false
+      }
+      return put({ type: actionType, ...errorTimeout })
+    case 'CONNECTION_ERROR':
+    case 'NETWORK_ERROR':
+      const errorOffline = {
+        message: 'Device offline!',
+        code: 'EOFFLINE',
+        isOnline: false,
+        isLoading: false
+      }
+      return put({ type: actionType, ...errorOffline })
+    default:
+      const errorUnknown = {
+        message: err.message,
+        code: 'EUNKNOWN',
+        isOnline: true,
+        isLoading: false
+      }
+      return put({ type: actionType, ...errorUnknown })
   }
 }
 
@@ -198,8 +199,9 @@ export const buildSaga = (callApi, actionType, getState = false, combine = false
       res = { data: fromState }
     }
     if (!fromState || combine) {
-      const { data } = yield callApi(params)
-      res = !combine ? data : combine(fromState, data)
+      const result = yield callApi(params)
+      if (!result.ok) throw result
+      res = !combine ? result.data : combine(fromState, result.data)
     }
     yield put({ type: typeSucc(actionType), ...res })
   } catch (e) {
@@ -216,8 +218,9 @@ export const buildSagaDelay = (callApi, actionType, delayCount = 200, getState =
       res = { data: fromState }
     }
     if (!fromState || combine) {
-      const { data } = yield callApi(params)
-      res = !combine ? data : combine(fromState, data)
+      const result = yield callApi(params)
+      if (!result.ok) throw result
+      res = !combine ? result.data : combine(fromState, result.data)
     }
     yield put({ type: typeSucc(actionType), ...res })
   } catch (e) {
