@@ -7,7 +7,6 @@ export const storage = localStorage
 
 export function errorHandling (actionType, err) {
   const { problem, status } = err
-  console.log(err.data.data)
   switch (problem) {
     case 'CLIENT_ERROR':
       const { data } = err
@@ -40,7 +39,7 @@ export function errorHandling (actionType, err) {
       return put({ type: actionType, ...errorOffline })
     default:
       const errorUnknown = {
-        message: err.message,
+        message: err.message || err.response || err,
         code: 'EUNKNOWN',
         isOnline: true,
         isLoading: false

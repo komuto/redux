@@ -213,7 +213,8 @@ const transaction = {
   buyerComplaintDiscussion: transactionReducers.createComplaintDiscussionBuyer,
   sellerComplaintDiscussion: transactionReducers.createComplaintDiscussionSeller,
   buyerReceived: transactionReducers.buyerDisputeReceived,
-  sellerReceived: transactionReducers.sellerDisputeReceived
+  sellerReceived: transactionReducers.sellerDisputeReceived,
+  sales: transactionReducers.getSales
 }
 
 const komutoApps = storage.reducer(combineReducers({

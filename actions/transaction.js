@@ -20,6 +20,7 @@ export const CREATE_COMPLAINT_DISCUSSION_SELLER = 'CREATE_COMPLAINT_DISCUSSION_S
 export const UPDATE_AIRWAY_BILL = 'UPDATE_AIRWAY_BILL'
 export const BUYER_DISPUTE_RECEIVED = 'BUYER_DISPUTE_RECEIVED'
 export const SELLER_DISPUTE_RECEIVED = 'SELLER_DISPUTE_RECEIVED'
+export const GET_SALES = 'GET_SALES'
 
 /**
  * @state listTransactions
@@ -145,3 +146,9 @@ export const buyerDisputeReceived = params => buildAction(typeReq(BUYER_DISPUTE_
  * @state sellerReceived
  */
 export const sellerDisputeReceived = params => buildAction(typeReq(SELLER_DISPUTE_RECEIVED), params)
+
+/**
+ * @params params are the same as the api query
+ * @state sales
+ */
+export const getSales = params => buildAction(typeReq(GET_SALES), params)

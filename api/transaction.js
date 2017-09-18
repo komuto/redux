@@ -102,3 +102,9 @@ export const sellerDisputeReceived = ({ id }) => {
   const axios = authApiKomuto()
   return axios.put(`users/store/disputes/${id}/received`)
 }
+
+export const getSales = (data) => {
+  const axios = authApiKomuto()
+  const query = buildQuery(data)
+  return axios.get(`sales/?${query}`)
+}
