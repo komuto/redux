@@ -24,9 +24,10 @@ export const GET_SALES = 'GET_SALES'
 export const GET_SALE_DETAIL = 'GET_SALE_DETAIL'
 
 /**
+ * @params params are the same as the api query
  * @state listTransactions
  */
-export const listTransactions = () => buildAction(typeReq(LIST_TRANSACTIONS))
+export const listTransactions = params => buildAction(typeReq(LIST_TRANSACTIONS), params)
 
 /**
  * @params id {int} transaction id

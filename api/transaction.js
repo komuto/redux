@@ -1,9 +1,10 @@
 import { authApiKomuto } from './api'
 import { buildQuery } from '../config'
 
-export const listTransactions = () => {
+export const listTransactions = (data) => {
   const axios = authApiKomuto()
-  return axios.get('transactions')
+  const query = buildQuery(data)
+  return axios.get(`transactions?${query}`)
 }
 
 export const getTransaction = ({ id }) => {
