@@ -8,15 +8,15 @@ import {store} from './store'
 // import * as review from './actions/review'
 // import * as stores from './actions/stores'
 // import * as address from './actions/address'
-import * as bank from './actions/bank'
+// import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
 // import * as cart from './actions/cart'
 // import * as payment from './actions/payment'
-// import * as transaction from './actions/transaction'
+import * as transaction from './actions/transaction'
 // import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().bankAccount, null, 2))
+  console.log(JSON.stringify(store.getState().newOrders, null, 2))
 })
 
 // store.dispatch(user.register({name: 'kucing', phone_number: '081327', email: 'testregister@skyshi.com', gender: 'male', password: 'aku'}))
@@ -204,7 +204,7 @@ store.subscribe(function () {
 // store.dispatch(product.changeCatalogProducts({ catalog_id: 33, product_ids: [ 30, 40 ] }))
 // store.dispatch(expedition.getStoreExpeditions())
 // store.dispatch(bank.updateBankAccount({ id: 15, code: '10373', master_bank_id: 2, holder_name: 'aep', holder_account_number: '43254362541', bank_branch_office_name: 'iap' }))
-store.dispatch(bank.deleteBankAccount({ id: 71, code: '42343' }))
+// store.dispatch(bank.deleteBankAccount({ id: 71, code: '42343' }))
 // store.dispatch(stores.getStoreCatalogProducts({ id: 33, hidden: true }))
 // store.dispatch(payment.getPaymentMethods())
 // store.dispatch(payment.choosePaymentMethods({ id: 259, payment_method_id: 1 }))
@@ -259,3 +259,4 @@ store.dispatch(bank.deleteBankAccount({ id: 71, code: '42343' }))
 // store.dispatch(product.updateProduct({ id: 213, stock: 40 }))
 // store.dispatch(stores.getStoreProducts())
 // setTimeout(() => store.dispatch(product.getDropshipProductForManage({ id: 121 })), 10000)
+store.dispatch(transaction.getNewOrders())
