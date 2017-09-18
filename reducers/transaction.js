@@ -116,3 +116,9 @@ export const getSales = createReducer(buildInitState({ sales: [] }))
     type: actions.GET_SALES,
     resultName: 'sales'
   }).run()
+
+export const getSaleDetail = createReducer(buildInitState({ sale: {} }))
+  .addReducer({
+    type: actions.GET_SALE_DETAIL,
+    resultName: 'sale'
+  }).run()

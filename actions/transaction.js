@@ -21,6 +21,7 @@ export const UPDATE_AIRWAY_BILL = 'UPDATE_AIRWAY_BILL'
 export const BUYER_DISPUTE_RECEIVED = 'BUYER_DISPUTE_RECEIVED'
 export const SELLER_DISPUTE_RECEIVED = 'SELLER_DISPUTE_RECEIVED'
 export const GET_SALES = 'GET_SALES'
+export const GET_SALE_DETAIL = 'GET_SALE_DETAIL'
 
 /**
  * @state listTransactions
@@ -152,3 +153,9 @@ export const sellerDisputeReceived = params => buildAction(typeReq(SELLER_DISPUT
  * @state sales
  */
 export const getSales = params => buildAction(typeReq(GET_SALES), params)
+
+/**
+ * @params id {int} invoice id
+ * @state saleDetail
+ */
+export const getSaleDetail = params => buildAction(typeReq(GET_SALE_DETAIL), params)

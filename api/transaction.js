@@ -108,3 +108,8 @@ export const getSales = (data) => {
   const query = buildQuery(data)
   return axios.get(`sales/?${query}`)
 }
+
+export const getSaleDetail = ({ id }) => {
+  const axios = authApiKomuto()
+  return axios.get(`invoices/${id}/sale-detail`)
+}

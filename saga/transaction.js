@@ -23,3 +23,4 @@ export const updateAirwayBill = buildSaga(apis.updateAirwayBill, actions.UPDATE_
 export const buyerDisputeReceived = buildSaga(apis.buyerDisputeReceived, actions.BUYER_DISPUTE_RECEIVED)
 export const sellerDisputeReceived = buildSaga(apis.sellerDisputeReceived, actions.SELLER_DISPUTE_RECEIVED)
 export const getSales = buildSaga(apis.getSales, actions.GET_SALES)
+export const getSaleDetail = buildSaga(apis.getSaleDetail, actions.GET_SALE_DETAIL)
