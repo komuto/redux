@@ -26,3 +26,9 @@ export const getTopupStatus = (data) => {
   const query = buildQuery(data)
   return axios.get(`users/saldo/topup?${query}`)
 }
+
+export const getWithdrawStatus = (data) => {
+  const axios = authApiKomuto()
+  const query = buildQuery(data)
+  return axios.get(`users/saldo/withdraw?${query}`)
+}
