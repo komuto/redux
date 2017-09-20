@@ -22,9 +22,10 @@ export const addComplaint = ({ id, invoiceId, ...data }) => {
   return axios.post(`transactions/${id}/invoices/${invoiceId}/dispute`, data)
 }
 
-export const getNewOrders = () => {
+export const getNewOrders = (data) => {
   const axios = authApiKomuto()
-  return axios.get('new-orders')
+  const query = buildQuery(data)
+  return axios.get(`new-orders?${query}`)
 }
 
 export const getNewOrderDetail = ({ id }) => {
@@ -32,9 +33,10 @@ export const getNewOrderDetail = ({ id }) => {
   return axios.get(`invoices/${id}/new-order-detail`)
 }
 
-export const getProcessingOrders = () => {
+export const getProcessingOrders = (data) => {
   const axios = authApiKomuto()
-  return axios.get('processing-orders')
+  const query = buildQuery(data)
+  return axios.get(`processing-orders?${query}`)
 }
 
 export const getProcessingOrderDetail = ({ id }) => {

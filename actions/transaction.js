@@ -51,9 +51,10 @@ export const getBuyerInvoiceDetail = params => buildAction(typeReq(GET_BUYER_INV
 export const addComplaint = params => buildAction(typeReq(ADD_COMPLAINT), params)
 
 /**
+ * @params params are the same as the api query
  * @state newOrders
  */
-export const getNewOrders = () => buildAction(typeReq(GET_NEW_ORDERS))
+export const getNewOrders = params => buildAction(typeReq(GET_NEW_ORDERS), params)
 
 /**
  * @params id {int} invoice id
@@ -62,9 +63,10 @@ export const getNewOrders = () => buildAction(typeReq(GET_NEW_ORDERS))
 export const getNewOrderDetail = params => buildAction(typeReq(GET_NEW_ORDER_DETAIL), params)
 
 /**
+ * @params params are the same as the api query
  * @state processingOrders
  */
-export const getProcessingOrders = () => buildAction(typeReq(GET_PROCESSING_ORDERS))
+export const getProcessingOrders = params => buildAction(typeReq(GET_PROCESSING_ORDERS), params)
 
 /**
  * @params id {int} invoice id
