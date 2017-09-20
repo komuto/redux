@@ -23,3 +23,9 @@ export const withdraw = createReducer(buildInitState())
   .addReducer({
     type: actions.WITHDRAW
   }).run()
+
+export const getTopupStatus = createReducer(buildInitState({ statuses: [] }))
+  .addReducer({
+    type: actions.GET_TOPUP_STATUS,
+    resultName: 'statuses'
+  }).run()

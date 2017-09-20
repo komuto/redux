@@ -247,6 +247,7 @@ const saldo = function * () {
   yield takeEvery(typeReq(saldoActions.GET_SALDO_HISTORY), saldoSaga.getSaldoHistory)
   yield takeEvery(typeReq(saldoActions.WITHDRAW), saldoSaga.withdraw)
   yield takeEvery(typeReq(saldoActions.GET_NOMINALS), saldoSaga.getNominals)
+  yield takeEvery(typeReq(saldoActions.GET_TOPUP_STATUS), saldoSaga.getTopupStatus)
 }
 
 const transaction = function * () {
