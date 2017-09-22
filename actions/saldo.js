@@ -19,9 +19,10 @@ export const getSaldoToken = params => buildAction(typeReq(GET_SALDO_TOKEN), par
 export const getNominals = () => buildAction(typeReq(GET_NOMINALS))
 
 /**
+ * @params params are the same as the api query
  * @state saldoHistory
  */
-export const getSaldoHistory = () => buildAction(typeReq(GET_SALDO_HISTORY))
+export const getSaldoHistory = params => buildAction(typeReq(GET_SALDO_HISTORY), params)
 
 /**
  * @param params are the same as the api

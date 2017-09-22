@@ -11,9 +11,10 @@ export const getNominals = () => {
   return axios.get('saldo/nominal')
 }
 
-export const getSaldoHistory = () => {
+export const getSaldoHistory = (data) => {
   const axios = authApiKomuto()
-  return axios.get('users/saldo/history')
+  const query = buildQuery(data)
+  return axios.get(`users/saldo/history?${query}`)
 }
 
 export const withdraw = (data) => {
