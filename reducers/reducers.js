@@ -195,7 +195,8 @@ const saldo = {
   saldoToken: saldoReducers.getSaldoToken,
   nominals: saldoReducers.getNominals,
   topupStatus: saldoReducers.getTopupStatus,
-  withdrawStatus: saldoReducers.getWithdrawStatus
+  withdrawStatus: saldoReducers.getWithdrawStatus,
+  saldoHistoryDetail: saldoReducers.getSaldoHistoryDetail
 }
 
 const transaction = {

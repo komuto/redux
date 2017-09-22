@@ -33,3 +33,8 @@ export const getWithdrawStatus = (data) => {
   const query = buildQuery(data)
   return axios.get(`users/saldo/withdraw?${query}`)
 }
+
+export const getSaldoHistoryDetail = ({ id }) => {
+  const axios = authApiKomuto()
+  return axios.get(`users/saldo/history/${id}`)
+}
