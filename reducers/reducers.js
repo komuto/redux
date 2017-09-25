@@ -211,6 +211,8 @@ const transaction = {
   updateStatus: transactionReducers.updateStatus,
   buyerComplainedOrders: transactionReducers.getComplainedOrdersBuyer,
   sellerComplainedOrders: transactionReducers.getComplainedOrdersSeller,
+  buyerComplainedOrders2: transactionReducers.getComplainedOrdersBuyer,
+  sellerComplainedOrders2: transactionReducers.getComplainedOrdersSeller,
   buyerComplainedOrderDetail: transactionReducers.getComplainedOrderDetailBuyer,
   sellerComplainedOrderDetail: transactionReducers.getComplainedOrderDetailSeller,
   buyerComplaintDiscussion: transactionReducers.createComplaintDiscussionBuyer,
