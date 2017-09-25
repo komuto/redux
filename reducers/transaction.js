@@ -25,47 +25,27 @@ export const addComplaint = createReducer(buildInitState({ complaint: {} }))
     resultName: 'complaint'
   }).run()
 
-export const getOrders = createReducer(buildInitState({ orders: [] }))
+export const getNewOrders = createReducer(buildInitState({ orders: [] }))
   .addReducer({
     type: actions.GET_NEW_ORDERS,
     resultName: 'orders'
-  })
-  .addReducer({
-    type: actions.GET_PROCESSING_ORDERS,
-    resultName: 'orders'
-  })
-  .addReducer({
-    type: actions.GET_COMPLAINED_ORDERS_BUYER,
-    resultName: 'orders'
-  })
-  .addReducer({
-    type: actions.GET_COMPLAINED_ORDERS_BUYER_2,
-    resultName: 'orders'
-  })
-  .addReducer({
-    type: actions.GET_COMPLAINED_ORDERS_SELLER,
-    resultName: 'orders'
-  })
-  .addReducer({
-    type: actions.GET_COMPLAINED_ORDERS_SELLER_2,
-    resultName: 'orders'
   }).run()
 
-export const getOrderDetail = createReducer(buildInitState({ orderDetail: {} }))
+export const getNewOrderDetail = createReducer(buildInitState({ orderDetail: {} }))
   .addReducer({
     type: actions.GET_NEW_ORDER_DETAIL,
     resultName: 'orderDetail'
-  })
+  }).run()
+
+export const getProcessingOrders = createReducer(buildInitState({ orders: [] }))
+  .addReducer({
+    type: actions.GET_PROCESSING_ORDERS,
+    resultName: 'orders'
+  }).run()
+
+export const getProcessingOrderDetail = createReducer(buildInitState({ orderDetail: {} }))
   .addReducer({
     type: actions.GET_PROCESSING_ORDER_DETAIL,
-    resultName: 'orderDetail'
-  })
-  .addReducer({
-    type: actions.GET_COMPLAINED_ORDER_DETAIL_BUYER,
-    resultName: 'orderDetail'
-  })
-  .addReducer({
-    type: actions.GET_COMPLAINED_ORDER_DETAIL_SELLER,
     resultName: 'orderDetail'
   }).run()
 
@@ -83,11 +63,45 @@ export const updateStatus = createReducer(buildInitState())
     type: actions.UPDATE_AIRWAY_BILL
   }).run()
 
-export const createDiscussion = createReducer(buildInitState({ discussion: {} }))
+export const getComplainedOrdersBuyer = createReducer(buildInitState({ orders: [] }))
+  .addReducer({
+    type: actions.GET_COMPLAINED_ORDERS_BUYER,
+    resultName: 'orders'
+  })
+  .addReducer({
+    type: actions.GET_COMPLAINED_ORDERS_BUYER_2,
+    resultName: 'orders'
+  }).run()
+
+export const getComplainedOrdersSeller = createReducer(buildInitState({ orders: [] }))
+  .addReducer({
+    type: actions.GET_COMPLAINED_ORDERS_SELLER,
+    resultName: 'orders'
+  })
+  .addReducer({
+    type: actions.GET_COMPLAINED_ORDERS_SELLER_2,
+    resultName: 'orders'
+  }).run()
+
+export const getComplainedOrderDetailBuyer = createReducer(buildInitState({ orderDetail: {} }))
+  .addReducer({
+    type: actions.GET_COMPLAINED_ORDER_DETAIL_BUYER,
+    resultName: 'orderDetail'
+  }).run()
+
+export const getComplainedOrderDetailSeller = createReducer(buildInitState({ orderDetail: {} }))
+  .addReducer({
+    type: actions.GET_COMPLAINED_ORDER_DETAIL_SELLER,
+    resultName: 'orderDetail'
+  }).run()
+
+export const createComplaintDiscussionBuyer = createReducer(buildInitState({ discussion: {} }))
   .addReducer({
     type: actions.CREATE_COMPLAINT_DISCUSSION_BUYER,
     resultName: 'discussion'
-  })
+  }).run()
+
+export const createComplaintDiscussionSeller = createReducer(buildInitState({ discussion: {} }))
   .addReducer({
     type: actions.CREATE_COMPLAINT_DISCUSSION_SELLER,
     resultName: 'discussion'
