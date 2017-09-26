@@ -23,6 +23,7 @@ export const UPDATE_AIRWAY_BILL = 'UPDATE_AIRWAY_BILL'
 export const BUYER_DISPUTE_RECEIVED = 'BUYER_DISPUTE_RECEIVED'
 export const SELLER_DISPUTE_RECEIVED = 'SELLER_DISPUTE_RECEIVED'
 export const GET_SALES = 'GET_SALES'
+export const GET_SALES_2 = 'GET_SALES_2'
 export const GET_SALE_DETAIL = 'GET_SALE_DETAIL'
 
 /**
@@ -170,6 +171,12 @@ export const sellerDisputeReceived = params => buildAction(typeReq(SELLER_DISPUT
  * @state sales
  */
 export const getSales = params => buildAction(typeReq(GET_SALES), params)
+
+/**
+ * @params params are the same as the api
+ * @state sales2
+ */
+export const getSales2 = params => buildAction(typeReq(GET_SALES_2), params)
 
 /**
  * @params id {int} invoice id

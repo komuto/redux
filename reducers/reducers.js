@@ -220,6 +220,7 @@ const transaction = {
   buyerReceived: transactionReducers.buyerDisputeReceived,
   sellerReceived: transactionReducers.sellerDisputeReceived,
   sales: transactionReducers.getSales,
+  sales2: transactionReducers.getSales2,
   saleDetail: transactionReducers.getSaleDetail
 }
 
