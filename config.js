@@ -241,7 +241,7 @@ const composeReducer = (initState, sagaReducer) => (state = initState, { type, .
   const actionType = buildType(type)
   let resultState = {}
   const check = sagaReducer.some((options) => {
-    const { resultName, type: reducerType, add, includeNonSaga, resetPrevState, keepParams } = options
+    const { resultName, type: reducerType, add = {}, includeNonSaga, resetPrevState, keepParams = [] } = options
     keepParams.forEach((param) => { add[param] = data[param] })
     const customState = [options.customReqState, options.customSuccState, options.customFailState]
     if (actionType === reducerType) {

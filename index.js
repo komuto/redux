@@ -12,12 +12,13 @@ import {store} from './store'
 // import * as catalog from './actions/catalog'
 // import * as cart from './actions/cart'
 // import * as payment from './actions/payment'
-import * as transaction from './actions/transaction'
+// import * as transaction from './actions/transaction'
+import * as saldo from './actions/saldo'
 // import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
   // console.log('Yang satu:', JSON.stringify(store.getState().buyerComplainedOrders, null, 2))
-  console.log('Yang dua:', JSON.stringify(store.getState().buyerComplainedOrders2, null, 2))
+  console.log('Yang dua:', JSON.stringify(store.getState().saldoHistory, null, 2))
 })
 
 // store.dispatch(user.register({name: 'kucing', phone_number: '081327', email: 'testregister@skyshi.com', gender: 'male', password: 'aku'}))
@@ -260,5 +261,6 @@ store.subscribe(function () {
 // store.dispatch(product.updateProduct({ id: 213, stock: 40 }))
 // store.dispatch(stores.getStoreProducts())
 // setTimeout(() => store.dispatch(product.getDropshipProductForManage({ id: 121 })), 10000)
-store.dispatch(transaction.getComplainedOrdersBuyer({is_resolved: true}))
-setTimeout(() => store.dispatch(transaction.getComplainedOrdersBuyer2({is_resolved: false})))
+// store.dispatch(transaction.getComplainedOrdersBuyer({is_resolved: true}))
+// setTimeout(() => store.dispatch(transaction.getComplainedOrdersBuyer2({is_resolved: false})))
+store.dispatch(saldo.getSaldoHistory({filter: ['commission', 'sale', 'topup', 'refund', 'buy', 'withdraw'], start_at: 1448841600, end_at: 1512000000}))
