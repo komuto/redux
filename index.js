@@ -10,15 +10,15 @@ import {store} from './store'
 // import * as address from './actions/address'
 // import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
-// import * as cart from './actions/cart'
+import * as cart from './actions/cart'
 // import * as payment from './actions/payment'
 // import * as transaction from './actions/transaction'
-import * as saldo from './actions/saldo'
+// import * as saldo from './actions/saldo'
 // import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
   // console.log('Yang satu:', JSON.stringify(store.getState().buyerComplainedOrders, null, 2))
-  console.log('Yang dua:', JSON.stringify(store.getState().saldoHistory, null, 2))
+  console.log('Yang dua:', JSON.stringify(store.getState().deleteItem, null, 2))
 })
 
 // store.dispatch(user.register({name: 'kucing', phone_number: '081327', email: 'testregister@skyshi.com', gender: 'male', password: 'aku'}))
@@ -212,7 +212,7 @@ store.subscribe(function () {
 // store.dispatch(payment.choosePaymentMethods({ id: 259, payment_method_id: 1 }))
 // store.dispatch(payment.confirmTransfer({ id: 259, bank_account_id: 10, date: 1477242000, amount: 150000, bank: 'BNI', holder_account_number: 837375393910, attachment: 'attachment.png' }))
 // store.dispatch(cart.getCart())
-// store.dispatch(cart.deleteItem({ id: 516 }))
+store.dispatch(cart.deleteItem({ id: 662 }))
 // store.dispatch(cart.addToCart({product_id: 97, expedition_id: 1, expedition_service_id: 3, qty: 1, note: 'lorem ipsum', address_id: 145, is_insurance: true, additional_cost: 500, delivery_cost: 32000}))
 // setTimeout(() => store.dispatch(cart.addToCart({product_id: 96, expedition_id: 1, expedition_service_id: 3, qty: 1, note: 'lorem ipsum', address_id: 145, is_insurance: true, additional_cost: 500, delivery_cost: 32000})), 4000)
 // setTimeout(() => store.dispatch(cart.cancelPromo()), 5 * 1000)
@@ -263,4 +263,4 @@ store.subscribe(function () {
 // setTimeout(() => store.dispatch(product.getDropshipProductForManage({ id: 121 })), 10000)
 // store.dispatch(transaction.getComplainedOrdersBuyer({is_resolved: true}))
 // setTimeout(() => store.dispatch(transaction.getComplainedOrdersBuyer2({is_resolved: false})))
-store.dispatch(saldo.getSaldoHistory({filter: ['commission', 'sale', 'topup', 'refund', 'buy', 'withdraw'], start_at: 1448841600, end_at: 1512000000}))
+// store.dispatch(saldo.getSaldoHistory({filter: ['commission', 'sale', 'topup', 'refund', 'buy', 'withdraw'], start_at: 1448841600, end_at: 1512000000}))
