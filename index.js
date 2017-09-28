@@ -1,5 +1,5 @@
 import {store} from './store'
-import * as user from './actions/user'
+// import * as user from './actions/user'
 // import * as home from './actions/home'
 // import * as brand from './actions/brand'
 // import * as expedition from './actions/expedition'
@@ -10,7 +10,7 @@ import * as user from './actions/user'
 // import * as address from './actions/address'
 // import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
-// import * as cart from './actions/cart'
+import * as cart from './actions/cart'
 // import * as payment from './actions/payment'
 // import * as transaction from './actions/transaction'
 // import * as saldo from './actions/saldo'
@@ -18,12 +18,12 @@ import * as user from './actions/user'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
   // console.log('Yang satu:', JSON.stringify(store.getState().buyerComplainedOrders, null, 2))
-  console.log('Yang dua:', JSON.stringify(store.getState().user, null, 2))
+  console.log(JSON.stringify(store.getState().checkout, null, 2))
 })
 
 // store.dispatch(user.register({name: 'kucing', phone_number: '081327', email: 'testregister@skyshi.com', gender: 'male', password: 'aku'}))
 // setTimeout (function () {
-store.dispatch(user.login({email: 'testregister@skyshi.com', password: 'dstts'}))
+// store.dispatch(user.login({email: 'testregister@skyshi.com', password: 'testkomuto'}))
 // store.dispatch(user.loginSocial({ provider_uid: 10208922684330118, provider_name: 'facebook', access_token: 'EAALyQXlqQYEBAA2dZCUKIvShcXMUJxxpYzD8TaT4ZBDZBeHj6tH2qqJXh24bPReZCffV8ofdRgsrbVZAquT78j5roJZCxQHMPYakU8RlfWQDBgn79CZAA2ELXDVFB4GANtgcILbLG5So70Xt9DM0zY70NcdXoM9N8rkevG2luWScr3YZC8VV7rI3mDiVFMKKC3EefKh48tcUWAZDZD' }))
 // store.dispatch(user.logout())
 // setTimeout(function () {
@@ -216,7 +216,7 @@ store.dispatch(user.login({email: 'testregister@skyshi.com', password: 'dstts'})
 // store.dispatch(cart.addToCart({product_id: 97, expedition_id: 1, expedition_service_id: 3, qty: 1, note: 'lorem ipsum', address_id: 145, is_insurance: true, additional_cost: 500, delivery_cost: 32000}))
 // setTimeout(() => store.dispatch(cart.addToCart({product_id: 96, expedition_id: 1, expedition_service_id: 3, qty: 1, note: 'lorem ipsum', address_id: 145, is_insurance: true, additional_cost: 500, delivery_cost: 32000})), 4000)
 // setTimeout(() => store.dispatch(cart.cancelPromo()), 5 * 1000)
-// store.dispatch(cart.checkout({ items: [] }))
+store.dispatch(cart.checkout({ paymentType: 'balance', is_wallet: true }))
 // store.dispatch(bank.getKomutoBankAccounts())
 // store.dispatch(transaction.listTransactions())
 // setTimeout(() => store.dispatch(transaction.getTransaction({ id: 259 })), 5000)
