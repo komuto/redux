@@ -10,15 +10,15 @@ import {store} from './store'
 // import * as address from './actions/address'
 // import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
-import * as cart from './actions/cart'
-// import * as payment from './actions/payment'
+// import * as cart from './actions/cart'
+import * as payment from './actions/payment'
 // import * as transaction from './actions/transaction'
 // import * as saldo from './actions/saldo'
 // import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
   // console.log('Yang satu:', JSON.stringify(store.getState().buyerComplainedOrders, null, 2))
-  console.log(JSON.stringify(store.getState().checkout, null, 2))
+  console.log(JSON.stringify(store.getState().confirmation, null, 2))
 })
 
 // store.dispatch(user.register({name: 'kucing', phone_number: '081327', email: 'testregister@skyshi.com', gender: 'male', password: 'aku'}))
@@ -216,7 +216,7 @@ store.subscribe(function () {
 // store.dispatch(cart.addToCart({product_id: 97, expedition_id: 1, expedition_service_id: 3, qty: 1, note: 'lorem ipsum', address_id: 145, is_insurance: true, additional_cost: 500, delivery_cost: 32000}))
 // setTimeout(() => store.dispatch(cart.addToCart({product_id: 96, expedition_id: 1, expedition_service_id: 3, qty: 1, note: 'lorem ipsum', address_id: 145, is_insurance: true, additional_cost: 500, delivery_cost: 32000})), 4000)
 // setTimeout(() => store.dispatch(cart.cancelPromo()), 5 * 1000)
-store.dispatch(cart.checkout({ paymentType: 'balance', is_wallet: true }))
+// store.dispatch(cart.checkout({ paymentType: 'balance', is_wallet: true }))
 // store.dispatch(bank.getKomutoBankAccounts())
 // store.dispatch(transaction.listTransactions())
 // setTimeout(() => store.dispatch(transaction.getTransaction({ id: 259 })), 5000)
@@ -241,6 +241,7 @@ store.dispatch(cart.checkout({ paymentType: 'balance', is_wallet: true }))
 // store.dispatch(stores.tempCreateStore({ user: {id_number: '0982390923989', mother_name: 'example'} }))
 // store.dispatch(address.addAddress())
 // store.dispatch(message.getBuyerMessages({ is_archived: true }))
+// store.dispatch(message.getBuyerDetailMessage({ id: 24 }))
 // store.dispatch(message.getSellerDetailMessage({id: 14}))
 // store.dispatch(review.getSellerReview())
 // store.dispatch(bank.getBankAccounts())
@@ -264,3 +265,4 @@ store.dispatch(cart.checkout({ paymentType: 'balance', is_wallet: true }))
 // store.dispatch(transaction.getComplainedOrdersBuyer({is_resolved: true}))
 // setTimeout(() => store.dispatch(transaction.getComplainedOrdersBuyer2({is_resolved: false})))
 // store.dispatch(saldo.getSaldoHistory({filter: ['commission', 'sale', 'topup', 'refund', 'buy', 'withdraw'], start_at: 1448841600, end_at: 1512000000}))
+store.dispatch(payment.balancePayment({ id: 447 }))
