@@ -123,14 +123,16 @@ export const updateNotifSettings = (data) => {
   return axios.post('users/notifications', data)
 }
 
-export const getResolvedResolutions = () => {
+export const getResolvedResolutions = (data) => {
   const axios = authApiKomuto()
-  return axios.get('users/resolutions?is_closed=true')
+  const query = buildQuery(data)
+  return axios.get(`users/resolutions?is_closed=true&${query}`)
 }
 
-export const getUnresolvedResolutions = () => {
+export const getUnresolvedResolutions = (data) => {
   const axios = authApiKomuto()
-  return axios.get('users/resolutions?is_closed=false')
+  const query = buildQuery(data)
+  return axios.get(`users/resolutions?is_closed=false&${query}`)
 }
 
 export const getResolutionDetail = ({ id }) => {
