@@ -63,7 +63,7 @@ export const updateProfile = (action) => {
 
 export const favoriteStore = ({ id }) => {
   const axios = authApiKomuto()
-  return axios.post(`stores/${id}/favorite`)
+  return axios.put(`stores/${id}/favorite`)
 }
 
 export const getPhone = () => {
@@ -98,9 +98,10 @@ export const verifyPhone = ({ code }) => {
   return axios.post('accounts/phone/verify', { code })
 }
 
-export const wishlist = () => {
+export const wishlist = (data) => {
   const axios = authApiKomuto()
-  return axios.get('users/wishlist')
+  const query = buildQuery(data)
+  return axios.get(`users/wishlist?${query}`)
 }
 
 export const sendOTPBank = () => {

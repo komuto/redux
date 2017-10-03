@@ -157,9 +157,10 @@ export const verifyPhone = params => buildAction(typeReq(VERIFIY_PHONE), params)
 export const sendOTPBank = () => buildAction(typeReq(SEND_BANK_OTP))
 
 /**
+ * @params params are the same as the api query
  * @state wishlist
  */
-export const wishlist = () => buildAction(typeReq(GET_WISHLIST))
+export const wishlist = params => buildAction(typeReq(GET_WISHLIST), params)
 
 /**
  * @param params are the same as the api
