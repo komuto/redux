@@ -11,14 +11,14 @@ import {store} from './store'
 // import * as bank from './actions/bank'
 // import * as catalog from './actions/catalog'
 // import * as cart from './actions/cart'
-import * as payment from './actions/payment'
-// import * as transaction from './actions/transaction'
+// import * as payment from './actions/payment'
+import * as transaction from './actions/transaction'
 // import * as saldo from './actions/saldo'
 // import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
   // console.log('Yang satu:', JSON.stringify(store.getState().buyerComplainedOrders, null, 2))
-  console.log(JSON.stringify(store.getState().confirmation, null, 2))
+  console.log(JSON.stringify(store.getState().buyerReceived, null, 2))
 })
 
 // store.dispatch(user.register({name: 'kucing', phone_number: '081327', email: 'testregister@skyshi.com', gender: 'male', password: 'aku'}))
@@ -265,4 +265,5 @@ store.subscribe(function () {
 // store.dispatch(transaction.getComplainedOrdersBuyer({is_resolved: true}))
 // setTimeout(() => store.dispatch(transaction.getComplainedOrdersBuyer2({is_resolved: false})))
 // store.dispatch(saldo.getSaldoHistory({filter: ['commission', 'sale', 'topup', 'refund', 'buy', 'withdraw'], start_at: 1448841600, end_at: 1512000000}))
-store.dispatch(payment.balancePayment({ id: 447 }))
+// store.dispatch(payment.balancePayment({ id: 447 }))
+store.dispatch(transaction.buyerDisputeReceived({ id: 31, data: [{product_id: 93, review: 'Puas gan', quality: 4, accuracy: 4}] }))
