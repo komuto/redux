@@ -2,7 +2,10 @@ import { delay } from 'redux-saga'
 import { put, call, select } from 'redux-saga/effects'
 import {AsyncStorage as localStorage} from 'react-native'
 export const serviceUrl = 'https://private-f0902d-komuto.apiary-mock.com'
-export const apiKomuto = 'https://api.komuto.skyshi.com/4690fa4c3d68f93b/'
+// export const apiKomuto = 'https://api.komuto.skyshi.com/'
+export const apiKomuto = 'https://api.mobiledev.komuto.com/'
+export const baseUrl = 'https://mobiledev.komuto.com/'
+export const marketplace = 'Pasar Grobogan'
 export const storage = localStorage
 
 export function errorHandling (actionType, err) {
