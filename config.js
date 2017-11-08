@@ -1,33 +1,53 @@
 import { delay } from 'redux-saga'
 import { put, call, select } from 'redux-saga/effects'
-import {localStorage} from './localStorage'
+import {AsyncStorage as localStorage} from 'react-native'
 export const serviceUrl = 'https://private-f0902d-komuto.apiary-mock.com'
-export const apiKomuto = 'https://api.komuto.skyshi.com/4690fa4c3d68f93b/'
+// export const apiKomuto = 'https://api.komuto.skyshi.com/'
+export const apiKomuto = 'https://api.mobiledev.komuto.com/'
+export const baseUrl = 'https://mobiledev.komuto.com/'
+export const marketplace = 'Pasar Grobogan'
 export const storage = localStorage
 
-export function errorHandling (actionType, res) {
-  const errorTimeout = {
-    message: 'Timeout reached!',
-    code: 'ENOENT',
-    isOnline: false
-  }
-
-  const data = res.response
-  if (data !== undefined) {
-    if (data.status !== 502) {
-      const {data} = res.response
+export function errorHandling (actionType, err) {
+  const { problem, status } = err
+  switch (problem) {
+    case 'CLIENT_ERROR':
+      const { data } = err
       data.isOnline = true
       return put({ type: actionType, ...data })
-    } else {
-      const errorBadRequest = {
-        message: res.response.statusText,
-        code: res.response.status,
-        isOnline: true
+    case 'SERVER_ERROR':
+      const errorServer = {
+        message: 'Server error!',
+        code: status,
+        isOnline: true,
+        isLoading: false
       }
-      return put({ type: actionType, ...errorBadRequest })
-    }
-  } else {
-    return put({ type: actionType, ...errorTimeout })
+      return put({ type: actionType, ...errorServer })
+    case 'TIMEOUT_ERROR':
+      const errorTimeout = {
+        message: 'Timeout reached!',
+        code: 'ETIMEOUT',
+        isOnline: true,
+        isLoading: false
+      }
+      return put({ type: actionType, ...errorTimeout })
+    case 'CONNECTION_ERROR':
+    case 'NETWORK_ERROR':
+      const errorOffline = {
+        message: 'Device offline!',
+        code: 'EOFFLINE',
+        isOnline: false,
+        isLoading: false
+      }
+      return put({ type: actionType, ...errorOffline })
+    default:
+      const errorUnknown = {
+        message: err.message || err.response || err,
+        code: 'EUNKNOWN',
+        isOnline: true,
+        isLoading: false
+      }
+      return put({ type: actionType, ...errorUnknown })
   }
 }
 
@@ -119,6 +139,7 @@ export const buildAction = (type, params = false) => {
  * @param customState {array}
  */
 export const buildReducer = (state, action, type, name, customState) => {
+  console.log(action)
   switch (action.type) {
     case typeReq(type):
       return !customState[0] ? reqState(state) : customState[0](state, action)
@@ -171,25 +192,29 @@ export const buildQuery = (params) => Object.keys(params)
  * @param callApi {function}
  * @param actionType {string}
  * @param getState {function} Get result from other state
+ * @param combine {function} combine getState with api result
+ * @param keepParam {function} combine result with params
  */
-export const buildSaga = (callApi, actionType, getState = false) => function* ({ type, ...params }) {
+export const buildSaga = (callApi, actionType, getState = false, combine = false, keepParam = false) => function * ({ type, ...params }) {
   try {
     let res, fromState
     if (getState) {
       fromState = yield select(getState(params))
       res = { data: fromState }
     }
-    if (!fromState) {
-      const { data } = yield callApi(params)
-      res = data
+    if (!fromState || combine) {
+      const result = yield callApi(params)
+      if (!result.ok) throw result
+      res = !combine ? result.data : combine(fromState, result.data)
     }
+    if (keepParam) res = keepParam(res, params)
     yield put({ type: typeSucc(actionType), ...res })
   } catch (e) {
     yield errorHandling(typeFail(actionType), e)
   }
 }
 
-export const buildSagaDelay = (callApi, actionType, delayCount = 200, getState = false) => function* ({ type, ...params }) {
+export const buildSagaDelay = (callApi, actionType, delayCount = 200, getState = false, combine = false) => function * ({ type, ...params }) {
   try {
     yield call(delay, delayCount)
     let res, fromState
@@ -197,9 +222,10 @@ export const buildSagaDelay = (callApi, actionType, delayCount = 200, getState =
       fromState = yield select(getState(params))
       res = { data: fromState }
     }
-    if (!fromState) {
-      const { data } = yield callApi(params)
-      res = data
+    if (!fromState || combine) {
+      const result = yield callApi(params)
+      if (!result.ok) throw result
+      res = !combine ? result.data : combine(fromState, result.data)
     }
     yield put({ type: typeSucc(actionType), ...res })
   } catch (e) {
@@ -221,7 +247,7 @@ const composeReducer = (initState, sagaReducer) => (state = initState, { type, .
   const actionType = buildType(type)
   let resultState = {}
   const check = sagaReducer.some((options) => {
-    const { resultName, type: reducerType, add, includeNonSaga, resetPrevState } = options
+    const { resultName, type: reducerType, add = {}, includeNonSaga, resetPrevState } = options
     const customState = [options.customReqState, options.customSuccState, options.customFailState]
     if (actionType === reducerType) {
       // For _REQUEST/_SUCCESS/_FAILURE action type
@@ -256,7 +282,7 @@ export const createReducer = (initState) => {
      * @options resultName {string} prop name for the api result
      * @options type {string} reducer action type
      * @options add {object} other objects to add to the state
-     * @options includeNonSaga {boolean} non saga reducer operation
+     * @options includeNonSaga {boolean} non saga reducer operation [RESET || TEMP]
      * @options resetPrevState {object} change prev state with the provided object
      * @options customReqState {function}
      * @options customSuccState {function}
@@ -288,4 +314,3 @@ export const getState = ({ from, get, match = 'id' }) => (params) => (state) => 
   if (get === 'all') return result[0] ? result : false
   return result[0]
 }
-

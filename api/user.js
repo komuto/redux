@@ -63,7 +63,7 @@ export const updateProfile = (action) => {
 
 export const favoriteStore = ({ id }) => {
   const axios = authApiKomuto()
-  return axios.post(`stores/${id}/favorite`)
+  return axios.put(`stores/${id}/favorite`)
 }
 
 export const getPhone = () => {
@@ -98,9 +98,10 @@ export const verifyPhone = ({ code }) => {
   return axios.post('accounts/phone/verify', { code })
 }
 
-export const wishlist = () => {
+export const wishlist = (data) => {
   const axios = authApiKomuto()
-  return axios.get('users/wishlist')
+  const query = buildQuery(data)
+  return axios.get(`users/wishlist?${query}`)
 }
 
 export const sendOTPBank = () => {
@@ -123,4 +124,41 @@ export const updateNotifSettings = (data) => {
   return axios.post('users/notifications', data)
 }
 
+export const getResolvedResolutions = (data) => {
+  const axios = authApiKomuto()
+  const query = buildQuery(data)
+  return axios.get(`users/resolutions?is_closed=true&${query}`)
+}
+
+export const getUnresolvedResolutions = (data) => {
+  const axios = authApiKomuto()
+  const query = buildQuery(data)
+  return axios.get(`users/resolutions?is_closed=false&${query}`)
+}
+
+export const getResolutionDetail = ({ id }) => {
+  const axios = authApiKomuto()
+  return axios.get(`users/resolutions/${id}`)
+}
+
+export const createResolution = (data) => {
+  const axios = authApiKomuto()
+  return axios.post('users/resolutions', data)
+}
+
+export const replyResolution = ({ id, ...data }) => {
+  const axios = authApiKomuto()
+  return axios.post(`users/resolutions/${id}`, data)
+}
+
+export const resendSignup = () => {
+  const axios = authApiKomuto()
+  return axios.post('signup-verification', {})
+}
+
 export const logout = () => ({ message: 'LOGOUT SUCCESS', code: 0 })
+
+export const getUnreadDispute = () => {
+  const axios = authApiKomuto()
+  return axios.get('pages/notification')
+}

@@ -13,10 +13,12 @@ import * as stores from './actions/stores'
 // import * as cart from './actions/cart'
 // import * as payment from './actions/payment'
 // import * as transaction from './actions/transaction'
+// import * as saldo from './actions/saldo'
 // import * as message from './actions/message'
 // import {localStorage} from './localStorage'
 store.subscribe(function () {
-  console.log(JSON.stringify(store.getState().storeAddress, null, 2))
+  // console.log('Yang satu:', JSON.stringify(store.getState().buyerComplainedOrders, null, 2))
+  console.log(JSON.stringify(store.getState().tempCreateStore, null, 2))
 })
 
 // store.dispatch(user.register({name: 'kucing', phone_number: '081327', email: 'testregister@skyshi.com', gender: 'male', password: 'aku'}))
@@ -32,6 +34,7 @@ store.subscribe(function () {
 // store.dispatch(user.favoriteStore({id: 6}))
 // store.dispatch(user.getPhone())
 // store.dispatch(user.getProfile())
+// store.dispatch(user.updateProfile({ place_of_birth: 3402 }))
 // store.dispatch(user.getProfileManage())
 // store.dispatch(user.getDiscussion())
 // store.dispatch(email.checkEmail({email: 'testregister@skyshi.com'}))
@@ -59,8 +62,8 @@ store.subscribe(function () {
 // }))¢¢¢
 // },4000)
 // store.dispatch(user.sendOTPBank())
-// store.dispatch(product.getProduct({id: 9}))
-// store.dispatch(product.addToWishlist({id: 1}))
+// store.dispatch(product.getProduct({id: 93.41 }))
+// store.dispatch(product.addToWishlistHome({id: 124}))
 // store.dispatch(product.getDiscussion({id: 4, page: 1, limit: 10}))
 // store.dispatch(product.newDiscussion({id: 4, question: 'Barang sudah habis gan?'}))
 // store.dispatch(product.getComment({id: 3}))
@@ -129,7 +132,7 @@ store.subscribe(function () {
 //   }
 // ]}))
 // store.dispatch(review.listReviews({id: 9, page: 1, limit: 2}))
-// store.dispatch(review.addReview({id: 9, review: 'Obatnya manjur ganteng', quality: 4, accuracy: 5}))
+// store.dispatch(review.addReviews({transId: 269, invoiceId: 211, reviews: [{product_id: 96, review: 'Obatnya manjur ganteng', quality: 4, accuracy: 5}]}))
 // store.dispatch(expedition.getServices())
 // store.dispatch(expedition.getShippingCharge({id: 2, weight: 1700, origin_id: 152, destination_id: 10}))
 // store.dispatch(expedition.estimatedShipping({id: 9, weight: 2000, origin_id: 152, destination_id: 108}))
@@ -165,7 +168,7 @@ store.subscribe(function () {
 // store.dispatch(catalog.getCatalog({id: 33}))
 // store.dispatch(catalog.getListCatalog())
 // store.dispatch(catalog.updateCatalog({id: 33, name: 'Batik kumur kumur'}))
-// store.dispatch(catalog.deleteCatalog({id: 78}))
+// store.dispatch(catalog.deleteCatalog({id: 182}))
 // store.dispatch(user.listFavorite({ page: 1, limit: 5 }))
 // store.dispatch(user.sendOTPPhone())
 // store.dispatch(user.verifyPhone({code: '87325'}))
@@ -203,30 +206,30 @@ store.subscribe(function () {
 // store.dispatch(product.changeCatalogProducts({ catalog_id: 33, product_ids: [ 30, 40 ] }))
 // store.dispatch(expedition.getStoreExpeditions())
 // store.dispatch(bank.updateBankAccount({ id: 15, code: '10373', master_bank_id: 2, holder_name: 'aep', holder_account_number: '43254362541', bank_branch_office_name: 'iap' }))
-// store.dispatch(bank.deleteBankAccount({ id: 31, code: '10373' }))
+// store.dispatch(bank.deleteBankAccount({ id: 71, code: '42343' }))
 // store.dispatch(stores.getStoreCatalogProducts({ id: 33, hidden: true }))
 // store.dispatch(payment.getPaymentMethods())
 // store.dispatch(payment.choosePaymentMethods({ id: 259, payment_method_id: 1 }))
 // store.dispatch(payment.confirmTransfer({ id: 259, bank_account_id: 10, date: 1477242000, amount: 150000, bank: 'BNI', holder_account_number: 837375393910, attachment: 'attachment.png' }))
 // store.dispatch(cart.getCart())
-// store.dispatch(cart.deleteItem({ id: 516 }))
+// store.dispatch(cart.deleteItem({ id: 662 }))
 // store.dispatch(cart.addToCart({product_id: 97, expedition_id: 1, expedition_service_id: 3, qty: 1, note: 'lorem ipsum', address_id: 145, is_insurance: true, additional_cost: 500, delivery_cost: 32000}))
 // setTimeout(() => store.dispatch(cart.addToCart({product_id: 96, expedition_id: 1, expedition_service_id: 3, qty: 1, note: 'lorem ipsum', address_id: 145, is_insurance: true, additional_cost: 500, delivery_cost: 32000})), 4000)
 // setTimeout(() => store.dispatch(cart.cancelPromo()), 5 * 1000)
-// store.dispatch(cart.checkout({ items: [] }))
+// store.dispatch(cart.checkout({ paymentType: 'balance', is_wallet: true }))
 // store.dispatch(bank.getKomutoBankAccounts())
 // store.dispatch(transaction.listTransactions())
 // setTimeout(() => store.dispatch(transaction.getTransaction({ id: 259 })), 5000)
 // store.dispatch(cart.getItem({ id: 418 }))
-store.dispatch(stores.updateStoreAddress({
-  province_id: 32,
-  district_id: 3273,
-  sub_district_id: 1111110,
-  village_id: 1111110073,
-  postal_code: '84341',
-  address: 'Jl. jalan'
-}))
-setTimeout(() => store.dispatch(stores.getStoreAddress()), 4000)
+// store.dispatch(stores.updateStoreAddress({
+//   province_id: 32,
+//   district_id: 3273,
+//   sub_district_id: 1111110,
+//   village_id: 1111110073,
+//   postal_code: '84341',
+//   address: 'Jl. jalan'
+// }))
+// setTimeout(() => store.dispatch(stores.getStoreAddress()), 4000)
 // store.dispatch(expedition.manageStoreExpeditions())
 // store.dispatch(bank.getBankAccountDetail({ id: 18 }))
 // store.dispatch(product.updateProduct({ id: 93, images: [{ name: 'nucing.png' }, { name: 'naambing.png ' }] }))
@@ -238,6 +241,7 @@ setTimeout(() => store.dispatch(stores.getStoreAddress()), 4000)
 // store.dispatch(stores.tempCreateStore({ user: {id_number: '0982390923989', mother_name: 'example'} }))
 // store.dispatch(address.addAddress())
 // store.dispatch(message.getBuyerMessages({ is_archived: true }))
+// store.dispatch(message.getBuyerDetailMessage({ id: 24 }))
 // store.dispatch(message.getSellerDetailMessage({id: 14}))
 // store.dispatch(review.getSellerReview())
 // store.dispatch(bank.getBankAccounts())
@@ -249,6 +253,18 @@ setTimeout(() => store.dispatch(stores.getStoreAddress()), 4000)
 // store.dispatch(stores.getStoreProductDetail({ id: 93 }))
 // store.dispatch(product.tempCreateProduct({ stepOne: { kucing: 'apa' } }))
 // store.dispatch(home.subCategory({ id: 6 }))
-// store.dispatch(product.getDropshipProducts({ limit: 2 }))
 // store.dispatch(product.updateDropshipStatus({ product_ids: [93] }))
 // store.dispatch(message.updateBuyerMessage({ id: 9, messageType: 'conversation' }))
+// store.dispatch(payment.getMidtransToken())
+// store.dispatch(product.getDropshipProducts({ limit: 2 }))
+// setTimeout(() => store.dispatch(product.getDropshipProductForAdd({ id: 93.41 })), 5000)
+// store.dispatch(transaction.getComplainedOrdersBuyer({is_resolved: true}))
+// store.dispatch(product.updateProduct({ id: 213, stock: 40 }))
+// store.dispatch(stores.getStoreProducts())
+// setTimeout(() => store.dispatch(product.getDropshipProductForManage({ id: 121 })), 10000)
+// store.dispatch(transaction.getComplainedOrdersBuyer({is_resolved: true}))
+// setTimeout(() => store.dispatch(transaction.getComplainedOrdersBuyer2({is_resolved: false})))
+// store.dispatch(saldo.getSaldoHistory({filter: ['commission', 'sale', 'topup', 'refund', 'buy', 'withdraw'], start_at: 1448841600, end_at: 1512000000}))
+// store.dispatch(payment.balancePayment({ id: 447 }))
+// store.dispatch(transaction.buyerDisputeReceived({ id: 31, data: [{product_id: 93, review: 'Puas gan', quality: 4, accuracy: 4}] }))
+store.dispatch(stores.tempCreateStore({user: {id_number: 2, mother_name: 'kucing'}}))
