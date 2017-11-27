@@ -239,7 +239,6 @@ const other = function * () {
 
 const payment = function * () {
   yield takeEvery(typeReq(paymentActions.GET_PAYMENT_METHODS), paymentSaga.getPaymentMethods)
-  yield takeEvery(typeReq(paymentActions.CONFIRM_PAYMENT_METHOD), paymentSaga.confirmPaymentMethod)
   yield takeEvery(typeReq(paymentActions.CONFIRM_TRANSFER), paymentSaga.confirmTransfer)
   yield takeEvery(typeReq(paymentActions.GET_MIDTRANS_TOKEN), paymentSaga.getMidtransToken)
   yield takeEvery(typeReq(paymentActions.GET_MIDTRANS_TOKEN_2), paymentSaga.getMidtransToken2)

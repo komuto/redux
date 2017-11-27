@@ -6,11 +6,6 @@ export const getPaymentMethods = () => {
   return axios.get('payment-methods')
 }
 
-export const confirmPaymentMethod = ({ id, ...action }) => {
-  const axios = authApiKomuto()
-  return axios.post(`buckets/${id}/payment`, action).catch((err) => { throw err })
-}
-
 export const confirmTransfer = ({ id, ...action }) => {
   const axios = authApiKomuto()
   return axios.post(`buckets/${id}/bank`, action)
