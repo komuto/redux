@@ -190,6 +190,7 @@ const other = {
   commission: otherReducers.getCommission,
   saleCount: otherReducers.getSaleCount,
   marketplace: otherReducers.getMarketPlace,
+  marketplaceCommission: otherReducers.getMarketPlaceCommission,
   getBanner: otherReducers.getBanner
 }
 
@@ -261,7 +262,8 @@ const komutoApps = storage.reducer(combineReducers({
   ...transaction,
   ...message,
   ...other,
-  ...saldo
+  ...saldo,
+  ...purchase
 }))
 
 export default komutoApps
