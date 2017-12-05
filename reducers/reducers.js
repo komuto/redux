@@ -191,7 +191,8 @@ const other = {
   saleCount: otherReducers.getSaleCount,
   marketplace: otherReducers.getMarketPlace,
   marketplaceCommission: otherReducers.getMarketPlaceCommission,
-  getBanner: otherReducers.getBanner
+  getBanner: otherReducers.getBanner,
+  tempMarketplace: otherReducers.setMarketPlaceTemp
 }
 
 const payment = {
@@ -266,4 +267,13 @@ const komutoApps = storage.reducer(combineReducers({
   ...purchase
 }))
 
-export default komutoApps
+const rootReducer = (state, action) => {
+  // console.log('state: ', state);
+  // console.log('action: ', action);
+  // if (action.type === 'USER_LOGOUT_SUCCESS') {
+  //   state = undefined
+  // }
+  return komutoApps(state, action)
+}
+
+export default storage.reducer(rootReducer)
